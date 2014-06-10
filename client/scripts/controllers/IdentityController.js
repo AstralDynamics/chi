@@ -1,9 +1,11 @@
-module.exports = function($scope, User, Util, Firebase) {
+module.exports = function($scope, Session) {
   $scope.id = '';
 
   $scope.submit = function() {
     var id, user;
-    $scope.id = $scope.id || '__default__';
+
+    id = $scope.id || '__default__';
+    Session.create(id);
     // Connect to Firebase to identify
   };
 };

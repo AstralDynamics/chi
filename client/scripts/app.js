@@ -7,23 +7,28 @@ angular.module('sbri', ['ngRoute', 'firebase'])
     controller: 'IdentityController'
   })
   .when('/chat', {
-    templateUrl: '/partials/chat.html'
+    templateUrl: '/partials/dash.html',
+    controller: 'DashController'
   })
+  .otherwise({
+    redirectTo: '/identity'
+  });
 })
 
 .factory({
   Util: require('./services/Util'),
   Firebase: require('./services/Firebase'),
   Session: require('./services/Session'),
-  Chat: require('./services/chat')
+  Chat: require('./services/Chat')
 })
 
-.controllers({
+.controller({
   IdentityController: require('./controllers/IdentityController'),
-  ChatController: require('./controllers/ChatController')
+  ChatController: require('./controllers/ChatController'),
+  DashController: function($scope) {$scope.boo = 2;console.log('dash')}
 })
 
-.directives({
-  ChatPresence: require('./directives/ChatPresence'),
-  Chat: require('./directives/Chat')
+.directive({
+  chatPresence: require('./directives/ChatPresence'),
+  chat: require('./directives/Chat')
 });

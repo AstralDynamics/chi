@@ -2,8 +2,9 @@ module.exports = function($timeout, Session, Firebase) {
   
   // Check id on initialization 
   if(!Session.user) {
-    window.location.replace('/identify');
+    window.location.replace('#/identity');
   }
+  console.log('Check auth', Session.user);
 
   var user, messages, users, typing, cooldown;
 
@@ -25,7 +26,6 @@ module.exports = function($timeout, Session, Firebase) {
   }
 
   function isTyping() {
-
     if(cooldown) {
       $timeout.cancel(cooldown);  
     } else {

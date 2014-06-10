@@ -2,6 +2,9 @@ module.exports = function(Chat) {
   return {
     restrict: 'A',
     templateUrl: '/partials/chat',
-    controller: 'ChatController'
+    controller: 'ChatController',
+    link: function() {
+      console.log('ere');
+    }
   }
 }

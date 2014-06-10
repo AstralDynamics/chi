@@ -1,5 +1,8 @@
 module.exports = function() {
   return {
-    createId: CryptoJS.SHA1
+    createId: function(id) {
+      return CryptoJS.SHA1.apply(CryptoJS, arguments)
+      .toString();
+    }
   }
 }
