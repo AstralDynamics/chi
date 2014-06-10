@@ -6,6 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "devDependencies": {
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-http-server": "0.0.5",
+    "grunt": "^0.4.5",
+    "browserify": "^4.1.5",
+    "grunt-browserify": "^2.1.0"
+  },
   "author": "",
   "license": "ISC"
 }

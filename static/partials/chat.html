@@ -1,0 +1,24 @@
+<div class='chat window'>
+  <div class='users'>
+    <ul>
+      <li ng-repeat='user in users' ng-bind='user.id'></li> 
+    </ul> 
+  </div>
+  <div class='message'>
+
+    <div class='top'>
+      <b ng-bind='to.name'></b> 
+    </div> 
+
+    <div class='messages'>
+
+      <div class='message' ng-repeat='message in messages'>
+        <b ng-bind='to.name'></b>
+        <div ng-bind='message.body'></div>
+        <span ng-bind='message.timestamp'></span>
+      </div> 
+
+    </div>
+
+  </div>
+</div>
