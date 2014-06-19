@@ -1,0 +1,75 @@
+/* Grid Layout 
+Generates a set of 12 column grids with no margins
+only padding that can be overriden.
+*/
+.grid.col-1 {
+  width: 100%;
+  box-sizing: border-box;
+  float: left;
+  padding: 4px; }
+
+.grid.col-2 {
+  width: 91%;
+  box-sizing: border-box;
+  float: left;
+  padding: 4px; }
+
+.grid.col-3 {
+  width: 83%;
+  box-sizing: border-box;
+  float: left;
+  padding: 4px; }
+
+.grid.col-4 {
+  width: 75%;
+  box-sizing: border-box;
+  float: left;
+  padding: 4px; }
+
+.grid.col-5 {
+  width: 66%;
+  box-sizing: border-box;
+  float: left;
+  padding: 4px; }
+
+.grid.col-6 {
+  width: 58%;
+  box-sizing: border-box;
+  float: left;
+  padding: 4px; }
+
+.grid.col-7 {
+  width: 50%;
+  box-sizing: border-box;
+  float: left;
+  padding: 4px; }
+
+.grid.col-8 {
+  width: 41%;
+  box-sizing: border-box;
+  float: left;
+  padding: 4px; }
+
+.grid.col-9 {
+  width: 33%;
+  box-sizing: border-box;
+  float: left;
+  padding: 4px; }
+
+.grid.col-10 {
+  width: 25%;
+  box-sizing: border-box;
+  float: left;
+  padding: 4px; }
+
+.grid.col-11 {
+  width: 16%;
+  box-sizing: border-box;
+  float: left;
+  padding: 4px; }
+
+.grid.col-12 {
+  width: 8%;
+  box-sizing: border-box;
+  float: left;
+  padding: 4px; }

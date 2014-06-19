@@ -1,0 +1,20 @@
+{
+  "__default__": "fa fa-circle",
+  "ambulance": "fa fa-ambulance",
+  "hospital": "fa fa-hospital-o",
+  "medkit": "fa fa-medkit",
+  "plus": "fa fa-plus-square",
+  "stethoscope": "fa fa-stethoscope",
+  "staff": "fa fa-user-md",
+  "wheelchair": "fa fa-wheelchair",
+  "document": "fa fa-file-o",
+  "patient": "fa fa-user",
+  "patients": "fa fa-users",
+  "star": "fa fa-star",
+  "heart": "fa fa-heart",
+  "steam": "fa fa-steam",
+  "coffee": "fa fa-coffee",
+  "clock": "fa fa-clock",
+  "chart": "fa fa-chart",
+  "circle": "fa fa-circle"
+}

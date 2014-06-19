@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
-  
+
   grunt.initConfig({
-    /* Should not be used in production */ 
+    /* Should not be used in production */
     'http-server': {
       dev: {
         root: 'static',
@@ -20,7 +20,7 @@ module.exports = function(grunt) {
         dest: 'static/scripts/app.js'
       }
     },
-    
+
     sass: {
       dist: {
         files: [{

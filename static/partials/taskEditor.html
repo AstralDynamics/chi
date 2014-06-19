@@ -1,0 +1,43 @@
+<div class='task editor'>
+  <div class='row'>
+    <input type='text' placeholder='Title'
+      ng-model='task.title'/>
+  </div>
+
+  <div class='row'>
+    <div class='small-3 columns'>
+      <div class='preview'>
+        <i class='{{task.icon}}' style='color:{{task.color}}'></i> 
+      </div> 
+    </div>
+    <div class='small-9 columns'> 
+      <div class='row'>
+        <div class='icon' ng-repeat='(name, icon) in resources.icon'>
+          <i class='{{icon}}' title='{{name}}'
+            ng-click='task.icon = icon'></i>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='swatch' ng-repeat='(name, color) in resources.colors'
+          style='background:{{color}}' ng-click='task.color = color'>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='row'>
+    <textarea class='description'
+      ng-model='task.description'></textarea>
+  </div>
+
+  <div class='row'>
+    <input type='text' placeholder='2h'
+      ng-model='task.duration'/>
+  </div>
+
+  <div class='row'>
+    <button ng-click='cancel()'>Cancel</button>
+    <button ng-click='create()'>Create</button>
+  </div>
+</div>
