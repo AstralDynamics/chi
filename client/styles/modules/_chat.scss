@@ -1,0 +1,69 @@
+@import '../layout';
+@import '../theme';
+
+$avatar-width:48px;
+
+.messages.collection {
+
+  .item {
+    position:relative;
+    padding-left:$avatar-width + $gutter * 2;
+    min-height:$avatar-width + $gutter * 3;
+    padding-top:1.2em;
+    padding-bottom:$gutter * 2;
+    color:#666;
+
+    .user {
+      color:$primary;
+    }
+
+    .meta {
+      position:absolute;
+      top:$gutter;
+      font-size:0.8em;
+      color:#888;
+    }
+
+    .avatar {
+      position:absolute;
+      top:0;
+      left:0;
+    }
+  }
+
+  .avatar {
+    background:$primary;
+    width:$avatar-width;
+    height:$avatar-width;
+    line-height:$avatar-width;
+    text-align:center;
+    font-size:2em;
+    color:$primary-highlight;
+  }
+
+  .entry {
+    margin:0;
+    border:none;
+    border-top:solid 1px #ddd;
+    border-radius:0;
+    box-shadow:none;
+  }
+
+  .input {
+    position:relative;
+
+    input {
+      padding-left:$avatar-width - $gutter;
+    }
+
+    .avatar {
+      position:absolute;
+      top:0;
+      left:0;
+      width:1.2em;
+      height:1.2em;
+      line-height:1em;
+      padding:$gutter;
+    }
+  }
+}

@@ -5,9 +5,9 @@ module.exports = function() {
     controller: function($scope, NotificationCenter) {
       $scope.notifications = [];
       $scope.types = {
-        general: 'fa fa-bell',
+        notifications: 'fa fa-bell',
         tasks: 'fa fa-tasks',
-        message: 'fa fa-envelope-o',
+        chat: 'fa fa-envelope-o',
         steam: 'fa fa-fire'
       };
 

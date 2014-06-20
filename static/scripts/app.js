@@ -33,11 +33,6 @@ angular.module('chai', ['ngRoute', 'firebase'])
     templateUrl: '/views/index.html'
   })
 
-  // Patients and staff
-  .when('/patients', {
-    templateUrl: '/views/patients.html'
-  })
-
   // Patient specific
   .when('/patient/:id', {
     templateUrl: '/views/patient.html',
@@ -47,6 +42,10 @@ angular.module('chai', ['ngRoute', 'firebase'])
   // Staff notes
   .when('/notes', {
     templateUrl: '/views/notes.html'
+  })
+
+  .when('/note/:id', {
+    templateUrl: '/views/note.html'
   })
 
   // Note editor
@@ -191,9 +190,9 @@ module.exports = function() {
     controller: function($scope, NotificationCenter) {
       $scope.notifications = [];
       $scope.types = {
-        general: 'fa fa-bell',
+        notifications: 'fa fa-bell',
         tasks: 'fa fa-tasks',
-        message: 'fa fa-envelope-o',
+        chat: 'fa fa-envelope-o',
         steam: 'fa fa-fire'
       };
 

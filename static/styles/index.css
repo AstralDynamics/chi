@@ -150,10 +150,11 @@ input[type=text], textarea {
 .notifications.bar {
   height: 48px;
   line-height: 48px;
-  background: #5ab27a;
-  color: #85dba8; }
+  background: #5ab27a; }
   .notifications.bar .icon {
     height: 32px; }
+  .notifications.bar i {
+    color: #85dba8; }
 
 .notification {
   position: relative;
@@ -173,7 +174,7 @@ input[type=text], textarea {
     height: 14px;
     line-height: 12px;
     border-radius: 2px; }
-  .notification:hover {
+  .notification:hover i {
     color: white; }
 
 .tasks {
@@ -326,6 +327,62 @@ input[type=text], textarea {
     font-size: 1.5em; }
   .icon.editor .shelf > * {
     display: inline-block; }
+
+.collection {
+  height: 100%; }
+  .collection .item {
+    min-height: 1em;
+    padding: 4px;
+    border-bottom: solid 1px #ddd;
+    border-top: solid 1px #f9f9f9;
+    cursor: pointer; }
+  .collection .item:hover {
+    background: #f9f9f9; }
+
+.messages.collection .item {
+  position: relative;
+  padding-left: 56px;
+  min-height: 60px;
+  padding-top: 1.2em;
+  padding-bottom: 8px;
+  color: #666; }
+  .messages.collection .item .user {
+    color: #5ab27a; }
+  .messages.collection .item .meta {
+    position: absolute;
+    top: 4px;
+    font-size: 0.8em;
+    color: #888; }
+  .messages.collection .item .avatar {
+    position: absolute;
+    top: 0;
+    left: 0; }
+.messages.collection .avatar {
+  background: #5ab27a;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  font-size: 2em;
+  color: #85dba8; }
+.messages.collection .entry {
+  margin: 0;
+  border: none;
+  border-top: solid 1px #ddd;
+  border-radius: 0;
+  box-shadow: none; }
+.messages.collection .input {
+  position: relative; }
+  .messages.collection .input input {
+    padding-left: 44px; }
+  .messages.collection .input .avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.2em;
+    height: 1.2em;
+    line-height: 1em;
+    padding: 4px; }
 
 html, body {
   background: #f1f1f1;

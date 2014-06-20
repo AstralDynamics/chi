@@ -32,11 +32,6 @@ angular.module('chai', ['ngRoute', 'firebase'])
     templateUrl: '/views/index.html'
   })
 
-  // Patients and staff
-  .when('/patients', {
-    templateUrl: '/views/patients.html'
-  })
-
   // Patient specific
   .when('/patient/:id', {
     templateUrl: '/views/patient.html',
@@ -46,6 +41,10 @@ angular.module('chai', ['ngRoute', 'firebase'])
   // Staff notes
   .when('/notes', {
     templateUrl: '/views/notes.html'
+  })
+
+  .when('/note/:id', {
+    templateUrl: '/views/note.html'
   })
 
   // Note editor
