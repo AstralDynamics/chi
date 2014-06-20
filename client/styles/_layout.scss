@@ -1,1 +1,9 @@
 $gutter:4px;
+$bar-height:32px;
+
+$status-bar-height:32px;
+$notifications-bar-height:48px;
+$actions-bar-height:60px;
+
+$header-height:$status-bar-height + $notifications-bar-height;
+$footer-height:0;

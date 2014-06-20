@@ -1,3 +1,42 @@
+.header {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  width: 100%;
+  top: 0; }
+
+.footer {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  width: 100%;
+  bottom: 0; }
+
+.container {
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 80px;
+  height: 100%; }
+
+.bar {
+  position: relative;
+  height: 32px;
+  line-height: 32px; }
+  .bar .left {
+    float: left;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0 4px; }
+  .bar .right {
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 4px; }
+  .bar .center {
+    text-align: center; }
+
 /* Grid Layout 
 Generates a set of 12 column grids with no margins
 only padding that can be overriden.
@@ -73,3 +112,196 @@ only padding that can be overriden.
   box-sizing: border-box;
   float: left;
   padding: 4px; }
+
+.system.bar {
+  background: #222222;
+  height: 32px;
+  color: #5ab27a; }
+
+.button {
+  background: #5ab27a;
+  color: white;
+  border-radius: 100%;
+  min-width: 3em;
+  min-height: 3em;
+  padding: 1em; }
+
+.button:hover {
+  background: #85dba8; }
+
+.button:focus {
+  background: #85dba8; }
+
+.button[disabled] {
+  background: #e0e0e0;
+  color: #777; }
+
+.button[disabled]:hover {
+  background: #e0e0e0;
+  color: #777; }
+
+input[type=text], textarea {
+  border-radius: 4px; }
+
+.notifications.bar {
+  height: 48px;
+  line-height: 48px;
+  background: #5ab27a;
+  color: #85dba8; }
+  .notifications.bar .icon {
+    height: 32px; }
+
+.notification {
+  position: relative;
+  overflow: visible;
+  display: inline-block;
+  font-size: 1.6em;
+  margin: 0 8px;
+  cursor: pointer; }
+  .notification .count {
+    font-size: 0.5em;
+    position: absolute;
+    bottom: 6px;
+    right: -6px;
+    color: white;
+    background: red;
+    width: 14px;
+    height: 14px;
+    line-height: 12px;
+    border-radius: 2px; }
+  .notification:hover {
+    color: white; }
+
+.tasks {
+  padding-bottom: 60px;
+  height: 50%;
+  overflow: auto;
+  overflow-y: scroll; }
+  .tasks .task {
+    min-height: 48px;
+    line-height: 48px;
+    border-bottom: solid 1px #ddd;
+    border-top: solid 1px #f6f6f6;
+    font-size: 0.8em;
+    font-weight: 300;
+    cursor: pointer; }
+    .tasks .task i {
+      width: 32px;
+      text-align: center;
+      -webkit-transition-duration: 0.3s; }
+    .tasks .task .due {
+      color: #aaa; }
+    .tasks .task .selected .meta {
+      display: block; }
+    .tasks .task .meta {
+      padding: 4px 8px;
+      display: none;
+      overflow: hidden;
+      line-height: 1.8em;
+      border-left: solid 4px #685ab2;
+      background: #f9f9f9;
+      color: #555; }
+      .tasks .task .meta .times {
+        border: solid 1px #ddd;
+        display: inline-block;
+        padding: 0 4px;
+        border-radius: 4px; }
+      .tasks .task .meta .time-set:after {
+        content: '-';
+        margin-left: 4px; }
+      .tasks .task .meta .times:hover {
+        background: #fff; }
+        .tasks .task .meta .times:hover .time-set {
+          color: #5ab27a; }
+        .tasks .task .meta .times:hover .time-due {
+          color: #b27d5a; }
+  .tasks .task:not(.selected):hover {
+    background: #f9f9f9;
+    border-top: solid 1px #fff;
+    font-weight: bold; }
+    .tasks .task:not(.selected):hover i {
+      font-size: 1.5em;
+      -webkit-transition-duration: 0.3s; }
+  .tasks .task.selected {
+    background: #5ab27a;
+    color: #fff;
+    border-top-color: #85dba8; }
+    .tasks .task.selected .due {
+      color: #85dba8; }
+    .tasks .task.selected .meta {
+      display: block; }
+
+.actions.bar {
+  background: #222222;
+  height: 60px;
+  line-height: 60px; }
+  .actions.bar .action {
+    display: inline-block;
+    cursor: pointer; }
+    .actions.bar .action:hover i {
+      background: #85dba8; }
+    .actions.bar .action i {
+      min-width: 3em;
+      min-height: 3em;
+      background: #5ab27a;
+      color: white;
+      padding: 1em;
+      border-radius: 100%;
+      text-align: center; }
+
+.task.editor {
+  padding: 8px; }
+  .task.editor .description {
+    min-height: 200px; }
+
+.icon.editor {
+  position: relative;
+  min-height: 48px;
+  border: solid 1px #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 16px; }
+  .icon.editor .preview {
+    position: absolute;
+    width: 1.5em;
+    min-height: 1.5em;
+    height: 100%;
+    font-size: 2em;
+    line-height: 48px;
+    text-align: center;
+    border-right: solid 1px #ddd;
+    background: #f9f9f9;
+    top: 0;
+    left: 0; }
+    .icon.editor .preview i {
+      padding-top: 50%;
+      margin-top: -0.25em; }
+  .icon.editor .swatch {
+    display: inline-block;
+    width: 12.5%;
+    height: 1em;
+    padding: 0 4px;
+    border-bottom: solid 1px #aaa;
+    cursor: pointer; }
+  .icon.editor .swatch:hover {
+    box-shadow: inset 100px 100px rgba(255, 255, 255, 0.3); }
+  .icon.editor .icon {
+    padding: 0 4px;
+    color: #555;
+    cursor: pointer; }
+  .icon.editor .icon:hover {
+    color: #888; }
+  .icon.editor .shelves {
+    padding-left: 48px; }
+  .icon.editor .icons.shelf {
+    padding: 4px; }
+  .icon.editor .shelf {
+    min-height: 1em;
+    font-size: 1.5em; }
+  .icon.editor .shelf > * {
+    display: inline-block; }
+
+html, body {
+  background: #f1f1f1;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  overflow: hidden; }

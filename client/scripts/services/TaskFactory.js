@@ -1,28 +1,32 @@
-module.exports = function(icons, colors) {
-  
+module.exports = function(resources) {
+  var tasks = [];
+
   function createTask(task) {
     var defaults, task;
     
     defaults = {
       title: 'Untitled task',
-      icon: icons.__default__,
-      color: colors.__default__
-    }
+      icon: resources.icons.__default__,
+      color: resources.colors.__default__
+    };
 
     task = {
       title: task.title || defaults.title,
       description: task.description,
-      task.icon: task.icon || defaults.icon,
-      task.color: task.color || defaults.color,
+      icon: task.icon || defaults.icon,
+      color: task.color || defaults.color,
       duration: task.duration,
       hidden: false,
       date: Date.now()
-    }
+    };
 
+    tasks.push(task);
+    console.log(tasks);
     // put the task into firebase
   }
 
   return {
-    createTask: createTask
+    createTask: createTask,
+    tasks: tasks
   }
 }

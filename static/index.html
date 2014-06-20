@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" ng-app='sbri'>
+<html lang='en' ng-app='chai'>
 <head>
-  <meta charset="UTF-8">
+  <meta charset='UTF-8'>
   <title>Chai</title>
   <link rel='icon' type='image/png' href='/images/icon.png'/>
 
@@ -18,12 +18,44 @@
   <script src='/scripts/app.js'></script>
 </head>
 <body>
-  <div class='system bar'></div> 
-  <div class='notifications'></div>
-  <div class='container'>
-    <div class='tasks'>
-      <div class='actions bar'></div>
+
+  <div class='header'>
+    <div class='system bar'>
+      <div class='left'>
+        <i class='fa fa-clock-o'></i>
+        <span>14:23</span>
+      </div>
+      <div class='center'>
+        <span>Wed 14 July</span>
+      </div>
+      <div class='right'>
+        <i class='fa fa-clock-o'></i>
+      </div>
+    </div> 
+    <div class='notifications bar'>
+      <div class='center'>
+        <div class='notification'>
+          <i class='fa fa-bell'></i>
+          <label class='count'>1</label>
+        </div>
+        <div class='notification'>
+          <i class='fa fa-tasks'></i>
+          <label class='count'>15</label>
+        </div>
+        <div class='notification'>
+          <i class='fa fa-envelope'></i>
+          <label class='count'>4</label>
+        </div>
+        <div class='notification'>
+          <i class='fa fa-fire'></i>
+          <label class='count'>3</label>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class='container'>
+    <div ng-view></div>
   </div>
 
 </body>

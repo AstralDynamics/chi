@@ -12,9 +12,8 @@
   "patients": "fa fa-users",
   "star": "fa fa-star",
   "heart": "fa fa-heart",
-  "steam": "fa fa-steam",
+  "steam": "fa fa-fire",
   "coffee": "fa fa-coffee",
-  "clock": "fa fa-clock",
-  "chart": "fa fa-chart",
-  "circle": "fa fa-circle"
+  "clock": "fa fa-clock-o",
+  "chart": "fa fa-bar-chart-o"
 }

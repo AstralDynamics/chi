@@ -1,0 +1,73 @@
+@import '../layout';
+@import '../theme';
+
+$preview-height:48px;
+
+.icon.editor {
+  position:relative;
+  min-height:$preview-height;
+  border:solid 1px #ddd;
+  border-radius:4px;
+  overflow:hidden;
+  margin-bottom:$gutter * 4;
+
+  .preview {
+    position:absolute;
+    width:1.5em;
+    min-height:1.5em;
+    height:100%;
+    font-size:2em;
+    line-height:$preview-height;
+    text-align:center;
+    border-right:solid 1px #ddd;
+    background:#f9f9f9;
+    top:0;
+    left:0;
+
+    i {
+      padding-top:50%;
+      margin-top:-0.25em;
+    }
+  }
+
+  .swatch {
+    display:inline-block;
+    width:12.5%;
+    height:1em;
+    padding:0 $gutter;
+    border-bottom:solid 1px #aaa;
+    cursor:pointer;
+  }
+
+  .swatch:hover {
+    box-shadow:inset 100px 100px rgba(255,255,255,0.3);
+  }
+
+  .icon {
+    padding:0 $gutter;
+    color:#555;
+    cursor:pointer;
+  }
+
+  .icon:hover {
+    color:#888;
+  }
+
+  .shelves {
+    padding-left:$preview-height;
+  }
+
+  .icons.shelf {
+    padding:$gutter;
+  }
+
+  .shelf {
+    min-height:1em;
+    font-size:1.5em;
+  }
+
+  .shelf>* {
+    display:inline-block;
+  }
+
+}

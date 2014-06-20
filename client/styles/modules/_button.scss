@@ -1,0 +1,29 @@
+@import '../layout';
+@import '../theme';
+
+.button {
+  background:$primary;
+  color:white;
+  border-radius:100%;
+  min-width:3em;
+  min-height:3em;
+  padding:1em;
+}
+
+.button:hover {
+  background:$primary-highlight;
+}
+
+.button:focus {
+  background:$primary-highlight;
+}
+
+.button[disabled] {
+  background:$background-light;
+  color:#777;
+}
+
+.button[disabled]:hover {
+  background:$background-light;
+  color:#777;
+}

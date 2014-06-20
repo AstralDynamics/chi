@@ -1,0 +1,39 @@
+<div class='tasks'>
+
+  <div class='task' ng-repeat='task in tasks'
+    ng-class='{selected:$index == selected}'
+    ng-click='selected = $index'>
+    <i class='icon {{task.icon.glyph}}'
+      style='color:{{task.icon.color}}'></i>
+    <span class='title' ng-bind='task.title'></span>
+    <span class='due'>Due in <b>3h</b></span>
+    <div class='meta' style='border-color:{{task.icon.color}};'>
+      <div class='times'>
+        <span class='time-set'>15:09</span>
+        <span class='time-due'>17:09</span>
+      </div>
+      <div class='notes'>
+        This task title is not ready for completion.
+      </div>
+    </div>
+  </div>
+
+  <div class='footer'>
+    <div class='actions bar'>
+      <div class='center'>
+        <a class='action' href='#/tasks/edit'>
+          <i class='fa fa-plus'></i>
+        </a>
+        <a class='action'>
+          <i class='fa fa-pencil'></i>
+        </a>
+        <a class='action'>
+          <i class='fa fa-ban'></i>
+        </a>
+        <a class='action'>
+          <i class='fa fa-check'></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

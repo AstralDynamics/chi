@@ -1,0 +1,8 @@
+@import '../layout';
+@import '../theme';
+
+.system.bar  {
+  background:$background-dark;
+  height:32px;
+  color:$primary;
+}

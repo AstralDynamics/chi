@@ -1,2 +1,52 @@
 @import '../layout';
 @import '../theme';
+
+@mixin floating {
+  position:fixed;
+  z-index:1000;
+  left:0;
+  width:100%;
+}
+
+.header {
+  @include floating;
+  top:0;
+}
+
+.footer {
+  @include floating;
+  bottom:0;
+}
+
+.container {
+  position:relative;
+  box-sizing:border-box;
+  padding-top:$header-height;
+  height:100%;
+}
+
+.bar {
+  position:relative;
+  height:$bar-height;
+  line-height:$bar-height;
+
+  .left {
+    float:left;
+    position:absolute;
+    left:0;
+    top:0;
+    padding:0 $gutter;
+  }
+
+  .right {
+    float:right;
+    position:absolute;
+    right:0;
+    top:0;
+    padding:0 $gutter;
+  }
+  .center {
+    text-align:center;
+  }
+}
+

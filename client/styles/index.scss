@@ -3,8 +3,16 @@
 
 @import 'modules/base';
 @import 'modules/grid';
-
+@import 'modules/systembar';
+@import 'modules/button';
+@import 'modules/form';
+@import 'modules/notifications';
+@import 'modules/tasks';
+@import 'modules/task-editor';
+@import 'modules/icon-editor';
 
 html, body  {
-  
+  background:$background;
+  font-family:$default-font;
+  overflow:hidden;
 }

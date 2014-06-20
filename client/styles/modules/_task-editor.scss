@@ -1,0 +1,10 @@
+@import '../layout';
+@import '../theme';
+
+.task.editor {
+  padding:$gutter * 2;
+
+  .description {
+    min-height:200px;
+  }
+}
