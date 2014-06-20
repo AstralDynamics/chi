@@ -8,6 +8,11 @@
   width:100%;
 }
 
+.fill {
+  height:100%;
+  display:block;
+}
+
 .header {
   @include floating;
   top:0;

@@ -20,42 +20,12 @@
 <body>
 
   <div class='header'>
-    <div class='system bar'>
-      <div class='left'>
-        <i class='fa fa-clock-o'></i>
-        <span>14:23</span>
-      </div>
-      <div class='center'>
-        <span>Wed 14 July</span>
-      </div>
-      <div class='right'>
-        <i class='fa fa-clock-o'></i>
-      </div>
-    </div> 
-    <div class='notifications bar'>
-      <div class='center'>
-        <div class='notification'>
-          <i class='fa fa-bell'></i>
-          <label class='count'>1</label>
-        </div>
-        <div class='notification'>
-          <i class='fa fa-tasks'></i>
-          <label class='count'>15</label>
-        </div>
-        <div class='notification'>
-          <i class='fa fa-envelope'></i>
-          <label class='count'>4</label>
-        </div>
-        <div class='notification'>
-          <i class='fa fa-fire'></i>
-          <label class='count'>3</label>
-        </div>
-      </div>
-    </div>
+    <div system-bar></div> 
+    <div notifications-bar></div>
   </div>
 
   <div class='container'>
-    <div ng-view></div>
+    <div class='fill' ng-view></div>
   </div>
 
 </body>

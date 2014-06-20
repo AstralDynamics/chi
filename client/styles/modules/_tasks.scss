@@ -5,9 +5,33 @@ $task-height:48px;
 
 .tasks {
   padding-bottom:$actions-bar-height;
-  height:50%;
-  overflow:auto;
+  height:100%;
+  overflow-x:hidden;
   overflow-y:scroll;
+
+  .radar {
+    position:relative;
+    font-size:1em;
+    min-height:1em;
+    background:$background-light;
+    padding:$gutter;
+    line-height:1em;
+    overflow:visible;
+    
+    i {
+      position:absolute;
+      top:$gutter;
+    }
+
+    .selected {
+      /* Override element style */
+      color:$primary !important;
+    }
+  }
+
+  .expired.task {
+    opacity:0.3;
+  }
 
   .task {
     min-height:$task-height;
@@ -17,6 +41,18 @@ $task-height:48px;
     font-size:0.8em;
     font-weight:300;
     cursor:pointer;
+    position:relative;
+
+    .progress {
+      -webkit-transition-duration:1s;
+      -webkit-transition-timing-function: linear;
+      height:$gutter;
+      border:none;
+      position:absolute;
+      top:0;
+      left:0;
+      margin:0;
+    }
 
     i {
       width:32px;
@@ -74,14 +110,7 @@ $task-height:48px;
   }
 
   .task.selected {
-    background:$primary;
-    color:#fff;
-    border-top-color: $primary-highlight;
-
-    .due {
-      color:$primary-highlight;
-    }
-    
+    background:#f9f9f9;
     .meta {
       display:block;
     }

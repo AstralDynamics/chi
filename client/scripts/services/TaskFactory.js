@@ -1,9 +1,11 @@
-module.exports = function(resources) {
-  var tasks = [];
+module.exports = function(NotificationCenter, resources) {
+  var tasks, editableTask;
+
+  tasks = [];
 
   function createTask(task) {
     var defaults, task;
-    
+
     defaults = {
       title: 'Untitled task',
       icon: resources.icons.__default__,
@@ -15,18 +17,33 @@ module.exports = function(resources) {
       description: task.description,
       icon: task.icon || defaults.icon,
       color: task.color || defaults.color,
-      duration: task.duration,
+      duration: parseInt(task.duration),
       hidden: false,
-      date: Date.now()
+      date: Date.now(),
+      due: Date.now() + parseInt(task.duration)
     };
 
     tasks.push(task);
-    console.log(tasks);
+    NotificationCenter.notify({
+      type:'task'
+    });
+
     // put the task into firebase
+  }
+
+  function editTask(task) {
+    editableTask = task;
+  }
+
+  function flushEdit() {
+    editableTask = null;
   }
 
   return {
     createTask: createTask,
-    tasks: tasks
+    editTask: editTask,
+    flushEdit: flushEdit,
+    tasks: tasks,
+    editableTask: editableTask
   }
 }

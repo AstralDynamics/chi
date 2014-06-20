@@ -1,3 +1,7 @@
+.fill {
+  height: 100%;
+  display: block; }
+
 .header {
   position: fixed;
   z-index: 1000;
@@ -174,9 +178,25 @@ input[type=text], textarea {
 
 .tasks {
   padding-bottom: 60px;
-  height: 50%;
-  overflow: auto;
+  height: 100%;
+  overflow-x: hidden;
   overflow-y: scroll; }
+  .tasks .radar {
+    position: relative;
+    font-size: 1em;
+    min-height: 1em;
+    background: #e0e0e0;
+    padding: 4px;
+    line-height: 1em;
+    overflow: visible; }
+    .tasks .radar i {
+      position: absolute;
+      top: 4px; }
+    .tasks .radar .selected {
+      /* Override element style */
+      color: #5ab27a !important; }
+  .tasks .expired.task {
+    opacity: 0.3; }
   .tasks .task {
     min-height: 48px;
     line-height: 48px;
@@ -184,7 +204,17 @@ input[type=text], textarea {
     border-top: solid 1px #f6f6f6;
     font-size: 0.8em;
     font-weight: 300;
-    cursor: pointer; }
+    cursor: pointer;
+    position: relative; }
+    .tasks .task .progress {
+      -webkit-transition-duration: 1s;
+      -webkit-transition-timing-function: linear;
+      height: 4px;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0; }
     .tasks .task i {
       width: 32px;
       text-align: center;
@@ -223,11 +253,7 @@ input[type=text], textarea {
       font-size: 1.5em;
       -webkit-transition-duration: 0.3s; }
   .tasks .task.selected {
-    background: #5ab27a;
-    color: #fff;
-    border-top-color: #85dba8; }
-    .tasks .task.selected .due {
-      color: #85dba8; }
+    background: #f9f9f9; }
     .tasks .task.selected .meta {
       display: block; }
 

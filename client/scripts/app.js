@@ -1,5 +1,29 @@
 angular.module('chai', ['ngRoute', 'firebase'])
 
+.factory({
+  TaskFactory: require('./services/TaskFactory'),
+  NotificationCenter: require('./services/NotificationCenter'),
+  resources: require('./services/resources')
+})
+
+.controller({
+  TaskController: require('./controllers/TaskController'),
+  PatientController: require('./controllers/PatientController')
+})
+
+.directive({
+  taskEditor: require('./directives/taskEditor'),
+  iconEditor: require('./directives/iconEditor'),
+  systemBar: require('./directives/systemBar'),
+  notificationsBar: require('./directives/notificationsBar'),
+  currentTime: require('./directives/currentTime')
+})
+
+.filter({
+  date: require('./filters/date'),
+  timeUntil: require('./filters/timeUntil')
+})
+
 .config(function($routeProvider) {
   $routeProvider
 
@@ -48,22 +72,4 @@ angular.module('chai', ['ngRoute', 'firebase'])
     redirectTo: '/'
   });
 })
-
-.constant({
-})
-
-.factory({
-  TaskFactory: require('./services/TaskFactory'),
-  resources: require('./services/resources')
-})
-
-.controller({
-  TaskController: require('./controllers/TaskController'),
-  PatientController: require('./controllers/PatientController')
-})
-
-.directive({
-  taskEditor: require('./directives/taskEditor'),
-  iconEditor: require('./directives/iconEditor')
-});
 
