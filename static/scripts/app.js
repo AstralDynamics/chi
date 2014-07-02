@@ -2,14 +2,18 @@
 angular.module('chai', ['ngRoute', 'firebase'])
 
 .factory({
-  TaskFactory: require('./services/TaskFactory'),
-  NotificationCenter: require('./services/NotificationCenter'),
-  resources: require('./services/resources')
+  resources: require('./services/resources'),
+  db: require('./services/db'),
+  Model: require('./services/Model'),
+  Patient: require('./services/Patient'),
+  Staff: require('./services/Staff'),
+  Auth: require('./services/Authentication'),
+  NotificationCenter: require('./services/NotificationCenter')
 })
 
 .controller({
-  TaskController: require('./controllers/TaskController'),
-  PatientController: require('./controllers/PatientController')
+  AuthController: require('./controllers/AuthController'),
+  DashController: require('./controllers/DashController')
 })
 
 .directive({
@@ -30,13 +34,24 @@ angular.module('chai', ['ngRoute', 'firebase'])
 
   // Home screen
   .when('/', {
-    templateUrl: '/views/index.html'
+    redirectTo: '/auth'
+  })
+
+  // Authentication screen
+  .when('/auth', {
+    templateUrl: '/views/authenticate.html',
+    controller: 'AuthController'
+  })
+
+  // Aggregate/navigation view
+  .when('/dash', {
+    templateUrl: '/views/dash.html',
+    controller: 'DashController'
   })
 
   // Patient specific
   .when('/patient/:id', {
-    templateUrl: '/views/patient.html',
-    controller: 'PatientController'
+    templateUrl: '/views/patient.html'
   })
 
   // Staff notes
@@ -74,65 +89,36 @@ angular.module('chai', ['ngRoute', 'firebase'])
 })
 
 
-},{"./controllers/PatientController":2,"./controllers/TaskController":3,"./directives/currentTime":4,"./directives/iconEditor":5,"./directives/notificationsBar":6,"./directives/systemBar":7,"./directives/taskEditor":8,"./filters/date":9,"./filters/timeUntil":10,"./services/NotificationCenter":13,"./services/TaskFactory":14,"./services/resources":15}],2:[function(require,module,exports){
-module.exports = function($scope, $routeParams) {
-  var patientId = $routeParams.id;
+},{"./controllers/AuthController":2,"./controllers/DashController":3,"./directives/currentTime":4,"./directives/iconEditor":5,"./directives/notificationsBar":6,"./directives/systemBar":7,"./directives/taskEditor":8,"./filters/date":9,"./filters/timeUntil":10,"./services/Authentication":13,"./services/Model":14,"./services/NotificationCenter":15,"./services/Patient":16,"./services/Staff":17,"./services/db":18,"./services/resources":19}],2:[function(require,module,exports){
+module.exports = function($scope, Auth) {
+  $scope.id = '';
+  $scope.error = false;
 
-};
+  $scope.submit = function() {
+    Auth.authenticate($scope.id)
+    .then(function() {
+      console.log('hell');
+      window.location.replace('#/dash');
+    })
+    .catch(function() {
+      $scope.error = true;
+      $scope.$apply();
+    });
+  };
+}
 
 },{}],3:[function(require,module,exports){
-module.exports = function($scope, TaskFactory) {
+module.exports = function($scope, $firebase, Auth) {
+  $scope.staff = Auth.getProfile();
 
-  $scope.selected = -1;
-  $scope.tasks = TaskFactory.tasks;
+  if(!$scope.staff) {
+    console.error('Not signed in');
+    window.location.replace('#/auth');
+  } else {
+    console.log($scope.staff);
+  }
 
-  $scope.now = Date.now.bind(Date);
-
-  // Calculate the time at which a
-  // task is due
-  $scope.radarPercent = function(due) {
-    var shift = 18000000;
-    return Math.floor((due / (Date.now() + shift)) * 100);
-  };
-
-  $scope.percentComplete = function(task) {
-    var time;
-    time = (task.due - Date.now()) / (task.due - task.date) * 100;
-    return Math.floor(time);
-  };
-
-  $scope.toggleSelection = function(index) {
-    if($scope.selected !== index) {
-      $scope.selected = index;
-    } else {
-      $scope.selected = -1;
-    }
-  };
-
-  $scope.getSelected = function() {
-    return $scope.tasks[$scope.selected];
-  };
-
-  $scope.edit = function() {
-    // edit the selected task
-    console.log('edit');
-    TaskFactory.editTask($scope.getSelected());
-    window.location.replace('#/tasks/edit');
-  };
-
-  $scope.cancel = function() {
-    // hide the selected task
-    $scope.getSelected().hidden = true;
-  };
-
-  $scope.complete = function() {
-    
-  };
-
-  $scope.create = function() {
-    // switch to task creation view
-  };
-
+  $scope.staff = $firebase($scope.staff);
 
 };
 
@@ -347,16 +333,62 @@ module.exports={
 }
 
 },{}],13:[function(require,module,exports){
+module.exports = function($q, Staff) {
+  var profile = null;
+
+  function authenticate(id) {
+    var deferred = $q.defer();
+
+    Staff.fromDb(id)
+    .on('value', function(snapshot) {
+      profile = snapshot.val();
+
+      // profile will be null if does not exist
+      if(profile) {
+        authenticated = true;
+        deferred.resolve(profile);
+      } else {
+        deferred.reject(profile);
+      }
+    });
+
+    return deferred.promise;
+  }
+
+  function getProfile() {
+    return profile;
+  }
+
+  return {
+    authenticate: authenticate,
+    getProfile: getProfile
+  }
+};
+
+},{}],14:[function(require,module,exports){
+module.exports = function(db) {
+  return function(name) {
+    function fromDb(id) {
+      return db.child(name)
+      .child(id);
+    }
+
+    return {
+      fromDb: fromDb
+    }
+  }
+}
+
+},{}],15:[function(require,module,exports){
 module.exports = function() {
   var notifications = [];
 
   function notify(notification) {
     notifications.push(notification);
-    console.log(notification);
   }
 
   function subscribe(type, handler) {
-    notifications.on('change', function() {
+    notifications.on('change', function(noti) {
       // get last element 
       if(noti.type === type) {
         handler(noti);
@@ -371,58 +403,22 @@ module.exports = function() {
   }
 };
 
-},{}],14:[function(require,module,exports){
-module.exports = function(NotificationCenter, resources) {
-  var tasks, editableTask;
-
-  tasks = [];
-
-  function createTask(task) {
-    var defaults, task;
-
-    defaults = {
-      title: 'Untitled task',
-      icon: resources.icons.__default__,
-      color: resources.colors.__default__
-    };
-
-    task = {
-      title: task.title || defaults.title,
-      description: task.description,
-      icon: task.icon || defaults.icon,
-      color: task.color || defaults.color,
-      duration: parseInt(task.duration),
-      hidden: false,
-      date: Date.now(),
-      due: Date.now() + parseInt(task.duration)
-    };
-
-    tasks.push(task);
-    NotificationCenter.notify({
-      type:'task'
-    });
-
-    // put the task into firebase
-  }
-
-  function editTask(task) {
-    editableTask = task;
-  }
-
-  function flushEdit() {
-    editableTask = null;
-  }
-
-  return {
-    createTask: createTask,
-    editTask: editTask,
-    flushEdit: flushEdit,
-    tasks: tasks,
-    editableTask: editableTask
-  }
+},{}],16:[function(require,module,exports){
+module.exports = function(Model) {
+  return new Model('patients');
 }
 
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
+module.exports = function(Model) {
+  return new Model('staff');
+};
+
+},{}],18:[function(require,module,exports){
+module.exports = function() {
+  return new Firebase('https://astralchai.firebaseio.com');
+};
+
+},{}],19:[function(require,module,exports){
 module.exports = function() {
   return {
     icons: require('../resources/icons.json'),

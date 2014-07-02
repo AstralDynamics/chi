@@ -1,0 +1,24 @@
+@import '../theme';
+@import '../layout';
+
+.splash {
+  display:absolute;
+  z-index:999999;
+  top:0px;
+  left:0;
+  width:100%;
+  height:100%;
+  background:$primary;
+  color:white;
+  border:solid 50px $primary;
+
+  h1 {
+    color:white;
+  }
+
+  input {
+    max-width:400px;
+    text-align:center;
+    margin:0 auto;
+  }
+}

@@ -1,14 +1,18 @@
 angular.module('chai', ['ngRoute', 'firebase'])
 
 .factory({
-  TaskFactory: require('./services/TaskFactory'),
-  NotificationCenter: require('./services/NotificationCenter'),
-  resources: require('./services/resources')
+  resources: require('./services/resources'),
+  db: require('./services/db'),
+  Model: require('./services/Model'),
+  Patient: require('./services/Patient'),
+  Staff: require('./services/Staff'),
+  Auth: require('./services/Authentication'),
+  NotificationCenter: require('./services/NotificationCenter')
 })
 
 .controller({
-  TaskController: require('./controllers/TaskController'),
-  PatientController: require('./controllers/PatientController')
+  AuthController: require('./controllers/AuthController'),
+  DashController: require('./controllers/DashController')
 })
 
 .directive({
@@ -29,13 +33,24 @@ angular.module('chai', ['ngRoute', 'firebase'])
 
   // Home screen
   .when('/', {
-    templateUrl: '/views/index.html'
+    redirectTo: '/auth'
+  })
+
+  // Authentication screen
+  .when('/auth', {
+    templateUrl: '/views/authenticate.html',
+    controller: 'AuthController'
+  })
+
+  // Aggregate/navigation view
+  .when('/dash', {
+    templateUrl: '/views/dash.html',
+    controller: 'DashController'
   })
 
   // Patient specific
   .when('/patient/:id', {
-    templateUrl: '/views/patient.html',
-    controller: 'PatientController'
+    templateUrl: '/views/patient.html'
   })
 
   // Staff notes

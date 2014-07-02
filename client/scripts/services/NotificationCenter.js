@@ -3,11 +3,10 @@ module.exports = function() {
 
   function notify(notification) {
     notifications.push(notification);
-    console.log(notification);
   }
 
   function subscribe(type, handler) {
-    notifications.on('change', function() {
+    notifications.on('change', function(noti) {
       // get last element 
       if(noti.type === type) {
         handler(noti);

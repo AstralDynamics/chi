@@ -55,3 +55,12 @@
   }
 }
 
+.centered {
+  text-align:center;
+}
+
+.title.bar {
+  background:$primary-shade;
+  color:white;
+  padding:0 $gutter;
+}

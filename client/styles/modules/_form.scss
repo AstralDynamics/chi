@@ -4,3 +4,10 @@
 input[type=text], textarea {
   border-radius:4px;
 }
+
+input.error {
+  border:solid 2px #ce2626;
+  color:#ce2626;
+  box-shadow-color:#ce2626;
+}
+
