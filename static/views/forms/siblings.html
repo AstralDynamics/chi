@@ -1,39 +1,51 @@
 <form>
   <div class='control'>
     <label>Brother / Sister 1</label>
-    <input type='text' name='' value='' />
+    <input type='text' name='' value=''
+      ng-model='patient.admission.siblings[0].name'>
   </div>
   <div class='control'>
     <label>age</label>
-    <input type='text' name='' value='' />
+    <input type='text' name='' value=''
+      ng-model='patient.admission.siblings[0].age'>
   </div>
   <div class='control'>
     <label>other relevant information (always ask)</label>
-    <textarea></textarea>
+    <textarea
+      ng-model='patient.admission.siblings[0].information'>
+    </textarea>
   </div>
   <div class='control'>
     <label>Brother / Sister 2</label>
-    <input type='text' name='' value='' />
+    <input type='text' name='' value=''
+      ng-model='patient.admission.siblings[1].name'>
   </div>
   <div class='control'>
     <label>age</label>
-    <input type='text' name='' value='' />
+    <input type='text' name='' value=''
+      ng-model='patient.admission.siblings[1].age'>
   </div>
   <div class='control'>
     <label>other relevant information (always ask)</label>
-    <textarea name=''></textarea>
+    <textarea
+      ng-model='patient.admission.siblings[1].information'>
+    </textarea>
   </div>
   <div class='control'>
     <label>Brother / Sister 3</label>
-    <input type='text' name='' value='' />
+    <input type='text' name='' value=''
+      ng-model='patient.admission.siblings[2].name'>
   </div>
   <div class='control'>
     <label>age</label>
-    <input type='text' name='' value='' />
+    <input type='text' name='' value=''
+      ng-model='patient.admission.siblings[2].age'>
   </div>
   <div class='control'>
     <label>other relevant information (always ask)</label>
-    <textarea name=''></textarea>
+    <textarea
+      ng-model='patient.admission.siblings[2].information'>
+    </textarea>
   </div>
   <button>Submit</button>
 </form>

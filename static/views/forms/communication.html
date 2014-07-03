@@ -1,29 +1,37 @@
-<form>
+<form ng-submit='next()'>
   Problem / concern
   <div class='control'>
     <label>Speech</label>
-    <input type='checkbox' name='' value='' />
+    <input type='checkbox' name='' value=''
+      ng-model='patient.admission.communication.speech'/>
   </div>
   <div class='control'>
     <label>Speech – details</label>
-    <textarea></textarea>
+    <textarea
+      ng-model='patient.admission.communication.speechDetails'>
+    </textarea>
   </div>
   <div class='control'>
     <label>Hearing</label>
-    <input type='checkbox' name='' value='' />
+    <input type='checkbox' name='' value=''
+      ng-model='patient.admission.communication.hearing'>
   </div>
   <div class='control'>
     <label>Hearing – details</label>
-    <textarea></textarea>
+    <textarea
+      ng-model='patient.admission.communication.hearingDetails'>
+    </textarea>
   </div>
   <div class='control'>
     <label>Vision</label>
-    <textarea></textarea>
+    <input type='checkbox' name='' value=''
+      ng-model='patient.admission.communication.vision'>
   </div>
   <div class='control'>
     <label>Vision – details</label>
-    <input type='' name='' value='' />
-    <textarea></textarea>
+    <textarea
+      ng-model='patient.admission.communication.visionDetails'>
+    </textarea>
   </div>
   <button>Submit</button>
 </form>

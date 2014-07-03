@@ -1,47 +1,60 @@
 <form>
   <div class='control'>
     <label>include ongoing health problems / birth history where relevant</label>
-    <textarea></textarea>
+    <textarea
+      ng-model='patient.admission.medicalHistory.ongoingProblems'>
+    </textarea>
   </div>
   <div class='control'>
     <label>Allergies</label>
-    <input type='checkbox' name='' value='' />
+    <input type='checkbox' name='' value=''
+      ng-model='patient.admission.medicalHistory.allergies'/>
   </div>
   <div class='control'>
     <label>If yes, please complete details below</label>
   </div>
   <div class='control'>
     <label>Allergen 1</label>
-    <input type='text' name='' value='' />
+    <input type='text' name='' value=''
+      ng-model='patient.admission.medicalHistory.allergens[0]'/>
   </div>
   <div class='control'>
     <label>Reaction 1</label>
-    <input type='text' name='' value='' />
+    <input type='text' name='' value=''
+      ng-model='patient.admission.medicalHistory.reaction[0]'/>
   </div>
   <div class='control'>
     <label>Corrective Measure 1</label>
-    <input type='text' name='' value='' />
+    <input type='text' name='' value=''
+      ng-model='patient.admission.medicalHistory.corrective[0]'/>
   </div>
   <div class='control'>
     <label>Allergen 2</label>
-    <input type='text' name='' value='' />
+    <input type='text' name='' value=''
+      ng-model='patient.admission.medicalHistory.allergens[1]'/>
   </div>
   <div class='control'>
     <label>Reaction 2</label>
-    <input type='text' name='' value='' />
+    <input type='text' name='' value=''
+      ng-model='patient.admission.medicalHistory.reaction[1]'/>
   </div>
   <div class='control'>
     <label>Corrective Measure 2</label>
-    <input type='text' name='' value='' />
+    <input type='text' name='' value=''
+      ng-model='patient.admission.medicalHistory.corrective[1]'/>
+  </div>
   </div>
 
   <div class='control'>
     <label>Immunisations up to date</label>
-    <input type='checkbox' name='' value='' />
+    <input type='checkbox' name='' value=''
+      ng-model='patient.admission.medicalHistory.immunisationsUpToDate'/>
+  </div>
   </div>
   <div class='control'>
     <label>immunisations up to date – not applicable</label>
-    <input type='checkbox' name='' value='' />
+    <input type='checkbox' name='' value=''
+      ng-model='patient.admission.medicalHistory.immunisationsUpToDate'/>
   </div>
   <button>Submit</button>
 </form>

@@ -1,89 +1,110 @@
 <form>
   <div class='control'>
     <label>Next of kin</label>
-    <input type='string' name='nextOfKin'/>
+    <input type='text' name='nextOfKin'
+      ng-model='patient.admission.nursingAssessment.nextOfKin'/>
   </div>
   <div class='control'>
     <label>Relationship</label>
-    <input type='string' name='relationship'/>
+    <input type='text' name='relationship'
+      ng-model='patient.admission.nursingAssessment.relationship'/>
   </div>
   <div class='control'>
     <label>Address</label>
-    <input type='string' name='address'/>
+    <input type='text' name='address'
+      ng-model='patient.admission.nursingAssessment.address'/>
   </div>
   <div class='control'>
     <label>Unit Number</label>
-    <input type='string' name='unitNumber'/>
+    <input type='text' name='unitNumber'
+      ng-model='patient.admission.nursingAssessment.unitNumber'/>
   </div>
   <div class='control'>
     <label>Consultant</label>
-    <input type='string' name='consultant'/>
+    <input type='text' name='consultant'
+      ng-model='patient.admission.nursingAssessment.consultant'/>
   </div>
   <div class='control'>
     <label>Date of birth</label>
-    <input type='string' name='dateOfBirth'/>
+    <input type='text' name='dateOfBirth'
+      ng-model='patient.admission.nursingAssessment.dateOfBirth'/>
   </div>
   <div class='control'>
     <label>Age</label>
-    <input type='string' name='age'/>
+    <input type='text' name='age'
+      ng-model='patient.admission.nursingAssessment.age'/>
   </div>
   <div class='control'>
     <label>Gender</label>
-    <select name='gender'>
+    <select name='gender'
+      ng-model='patient.admission.nursingAssessment.gender'/>
       <option value='male'>Male</option>
       <option value='female'>Female</option>
     </select>
   </div>
   <div class='control'>
     <label>Religion</label>
-    <input type='string' name='religion' ng-predict='['Christian', 'Muslim', 'Hindu', 'Buddhist', 'Other']'/>
+    <input type='text' name='religion' ng-predict='["Christian", "Muslim", "Hindu", "Buddhist", "Other"]'
+      ng-model='patient.admission.nursingAssessment.religion'/>
   </div>
   <div class='control'>
     <label>Preferred Language</label>
-    <input type='string' name='preferredLanguage' ng-predict='['English', 'Hindu', 'French', 'Polish', 'Other']'/>
+    <input type='text' name='preferredLanguage' ng-predict='["English", "Hindu", "French", "Polish", "Other"]'
+      ng-model='patient.admission.nursingAssessment.language'/>
   </div>
   <div class='control'>
     <label>Interpreter Required</label>
-    <input type='checkbox' name='interpreterRequired'/>
+    <input type='checkbox' name='interpreterRequired'
+      ng-model='patient.admission.nursingAssessment.intepreterRequired'/>
   </div>
 
   <div class='control'>
     <label>Home telephone number</label>
-    <input type='string' name='homeTelephoneNumber'/>
+    <input type='text' name='homeTelephoneNumber'
+      ng-model='patient.admission.nursingAssessment.homeTelephone'/>
   </div>
   <div class='control'>
     <label>Mobile number</label>
-    <input type='string' name='mobileNumber'/>
+    <input type='text' name='mobileNumber'
+      ng-model='patient.admission.nursingAssessment.mobileTelephone'/>
   </div>
   <div class='control'>
     <label>Name of contact</label>
-    <input type='string' name='contactName'/>
+    <input type='text' name='contactName'
+      ng-model='patient.admission.nursingAssessment.contactName'/>
+  </div>
   </div>
   <div class='control'>
     <label>Other contact number</label>
-    <input type='string' name='otherContactNumber'/>
+    <input type='text' name='otherContactNumber'
+      ng-model='patient.admission.nursingAssessment.otherContactTelephone'/>
   </div>
   <div class='control'>
     <label>Other contact name</label>
-    <input type='string' name='otherContactName'/>
+    <input type='text' name='otherContactName'
+      ng-model='patient.admission.nursingAssessment.otherContactName'/>
   </div>
   <div class='control'>
     <label>Reason for admission</label>
-    <input type='string' name='reasonAdmission' ng-predict=''/>
+    <input type='text' name='reasonAdmission'
+      ng-model='patient.admission.nursingAssessment.admissionReason'/>
   </div>
   <div class='control'>
     <label>Date of admission</label>
-    <input type='date' name='dateOfAdmission'/>
+    <input type='date' name='dateOfAdmission'
+      ng-model='patient.admission.nursingAssessment.admissionDate'/>
     <!-- change to real date thing -->
   </div>
   <div class='control'>
     <label>Time of admission</label>
-    <input type='time' name='timeOfAdmission'/>
+    <input type='time' name='timeOfAdmission'
+      ng-model='patient.admission.nursingAssessment.admissionTime'/>
     <!-- change to real time thing -->
   </div>
   <div class='control'>
     <label>Type of admission</label>
-    <select name='typeOfAdmission'>
+    <select name='typeOfAdmission'
+      ng-model='patient.admission.nursingAssessment.admissionType'/>
       <option value='ae'>A&amp;E</option>
       <option value='gp'>G.P</option>
       <option value='planned'>Planned</option>

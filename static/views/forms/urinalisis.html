@@ -1,43 +1,53 @@
 <form>
   <div class='control'>
     <label>Type of sample - midstream</label>
-    <input type='checkbox' name='midstream'/>
+    <input type='checkbox' name='midstream'
+      ng-model='patient.admission.urinalisis.midstream'/>
   </div>
   <div class='control'>
     <label>Type of sample - clean catch</label>
-    <input type='checkbox' name='cleanCatch'/>
+    <input type='checkbox' name='cleanCatch'
+      ng-model='patient.admission.urinalisis.cleanCatch'/>
   </div>
   <div class='control'>
     <label>Type of sample - nappy</label>
-    <input type='checkbox' name='nappy'/>
+    <input type='checkbox' name='nappy'
+      ng-model='patient.admission.urinalisis.nappy'/>
   </div>
   <div class='control'>
     <label>Type of sample - catheter</label>
-    <input type='checkbox' name='catheter'/>
+    <input type='checkbox' name='catheter'
+      ng-model='patient.admission.urinalisis.catheter'/>
   </div>
   <div class='control'>
     <label>Type of sample - other</label>
-    <input type='string' name='other'/>
+    <input type='string' name='other'
+      ng-model='patient.admission.urinalisis.other'/>
   </div>
   <div class='control'>
     <label>Ward test result</label>
-    <input type='string' name='wardTestResult'/>
+    <input type='string' name='wardTestResult'
+      ng-model='patient.admission.urinalisis.wardTestResult'/>
   </div>
   <div class='control'>
     <label>Leucocytes present</label>
-    <input type='checkbox' name='leucocytesPresent'/>
+    <input type='checkbox' name='leucocytesPresent'
+      ng-model='patient.admission.urinalisis.leucocytesPresent'/>
   </div>
   <div class='control'>
     <label>Nitrates present</label>
-    <input type='checkbox' name='nitratesPresent'/>
+    <input type='checkbox' name='nitratesPresent'
+      ng-model='patient.admission.urinalisis.nitratesPresent'/>
   </div>
   <div class='control'>
     <label>Sent for MC&amp;S</label>
-    <input type='checkbox' name='sentForMC'/>
+    <input type='checkbox' name='sentForMC'
+      ng-model='patient.admission.urinalisis.sentForMC'/>
   </div>
   <div class='control'>
     <label>Repeat sample</label>
-    <input type='checkbox' name='repeatSample'/>
+    <input type='checkbox' name='repeatSample'
+      ng-model='patient.admission.urinalisis.repeatSample'/>
   </div>
   <button>Submit</button>
 </form>
