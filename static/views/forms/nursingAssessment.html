@@ -1,96 +1,96 @@
 <form>
-	<div>
-		<label>Next of kin</label>
-		<input type="string" name="nextOfKin"/>
-	</div>
-	<div>
-		<label>Relationship</label>
-		<input type="string" name="relationship"/>
-	</div>
-	<div>
-		<label>Address</label>
-		<input type="string" name="address"/>
-	</div>
-	<div>
-		<label>Unit Number</label>
-		<input type="string" name="unitNumber"/>
-	</div>
-	<div>
-		<label>Consultant</label>
-		<input type="string" name="consultant"/>
-	</div>
-	<div>
-		<label>Date of birth</label>
-		<input type="string" name="dateOfBirth"/>
-	</div>
-	<div>
-		<label>Age</label>
-		<input type="string" name="age"/>
-	</div>
-	<div>
-		<label>Gender</label>
-		<select name="gender">
-			<option value="male">Male</option>
-			<option value="female">Female</option>
-		</select>
-	</div>
-	<div>
-		<label>Religion</label>
-		<input type="string" name="religion" ng-predict="['Christian', 'Muslim', 'Hindu', 'Buddhist', 'Other']"/>
-	</div>
-	<div>
-		<label>Preferred Language</label>
-		<input type="string" name="preferredLanguage" ng-predict="['English', 'Hindu', 'French', 'Polish', 'Other']"/>
-	</div>
-	<div>
-		<label>Interpreter Required</label>
-		<input type="checkbox" name="interpreterRequired"/>
-	</div>
+  <div class='control'>
+    <label>Next of kin</label>
+    <input type='string' name='nextOfKin'/>
+  </div>
+  <div class='control'>
+    <label>Relationship</label>
+    <input type='string' name='relationship'/>
+  </div>
+  <div class='control'>
+    <label>Address</label>
+    <input type='string' name='address'/>
+  </div>
+  <div class='control'>
+    <label>Unit Number</label>
+    <input type='string' name='unitNumber'/>
+  </div>
+  <div class='control'>
+    <label>Consultant</label>
+    <input type='string' name='consultant'/>
+  </div>
+  <div class='control'>
+    <label>Date of birth</label>
+    <input type='string' name='dateOfBirth'/>
+  </div>
+  <div class='control'>
+    <label>Age</label>
+    <input type='string' name='age'/>
+  </div>
+  <div class='control'>
+    <label>Gender</label>
+    <select name='gender'>
+      <option value='male'>Male</option>
+      <option value='female'>Female</option>
+    </select>
+  </div>
+  <div class='control'>
+    <label>Religion</label>
+    <input type='string' name='religion' ng-predict='['Christian', 'Muslim', 'Hindu', 'Buddhist', 'Other']'/>
+  </div>
+  <div class='control'>
+    <label>Preferred Language</label>
+    <input type='string' name='preferredLanguage' ng-predict='['English', 'Hindu', 'French', 'Polish', 'Other']'/>
+  </div>
+  <div class='control'>
+    <label>Interpreter Required</label>
+    <input type='checkbox' name='interpreterRequired'/>
+  </div>
 
-	<div>
-		<label>Home telephone number</label>
-		<input type="string" name="homeTelephoneNumber"/>
-	</div>
-	<div>
-		<label>Mobile number</label>
-		<input type="string" name="mobileNumber"/>
-	</div>
-	<div>
-		<label>Name of contact</label>
-		<input type="string" name="contactName"/>
-	</div>
-	<div>
-		<label>Other contact number</label>
-		<input type="string" name="otherContactNumber"/>
-	</div>
-	<div>
-		<label>Other contact name</label>
-		<input type="string" name="otherContactName"/>
-	</div>
-	<div>
-		<label>Reason for admission</label>
-		<input type="string" name="reasonAdmission" ng-predict=""/>
-	</div>
-	<div>
-		<label>Date of admission</label>
-		<input type="date" name="dateOfAdmission"/>
-		<!-- change to real date thing -->
-	</div>
-	<div>
-		<label>Time of admission</label>
-		<input type="time" name="timeOfAdmission"/>
-		<!-- change to real time thing -->
-	</div>
-	<div>
-		<label>Type of admission</label>
-		<select name="typeOfAdmission">
-			<option value="ae">A&amp;E</option>
-			<option value="gp">G.P</option>
-			<option value="planned">Planned</option>
-			<option value="transfer">Transfer</option>
-			<option value="mid">Mid</option>
-			<option value="openaccess">Open Access</option>
-		</select>
-	</div>
-	<button>Submit</button>
+  <div class='control'>
+    <label>Home telephone number</label>
+    <input type='string' name='homeTelephoneNumber'/>
+  </div>
+  <div class='control'>
+    <label>Mobile number</label>
+    <input type='string' name='mobileNumber'/>
+  </div>
+  <div class='control'>
+    <label>Name of contact</label>
+    <input type='string' name='contactName'/>
+  </div>
+  <div class='control'>
+    <label>Other contact number</label>
+    <input type='string' name='otherContactNumber'/>
+  </div>
+  <div class='control'>
+    <label>Other contact name</label>
+    <input type='string' name='otherContactName'/>
+  </div>
+  <div class='control'>
+    <label>Reason for admission</label>
+    <input type='string' name='reasonAdmission' ng-predict=''/>
+  </div>
+  <div class='control'>
+    <label>Date of admission</label>
+    <input type='date' name='dateOfAdmission'/>
+    <!-- change to real date thing -->
+  </div>
+  <div class='control'>
+    <label>Time of admission</label>
+    <input type='time' name='timeOfAdmission'/>
+    <!-- change to real time thing -->
+  </div>
+  <div class='control'>
+    <label>Type of admission</label>
+    <select name='typeOfAdmission'>
+      <option value='ae'>A&amp;E</option>
+      <option value='gp'>G.P</option>
+      <option value='planned'>Planned</option>
+      <option value='transfer'>Transfer</option>
+      <option value='mid'>Mid</option>
+      <option value='openaccess'>Open Access</option>
+    </select>
+  </div>
+  <button>Submit</button>
 </form>
