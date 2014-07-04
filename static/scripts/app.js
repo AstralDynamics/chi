@@ -165,6 +165,37 @@ angular.module('chai', ['ngRoute', 'firebase'])
     templateUrl: '/views/forms/components/mobility.html'
   })
 
+
+  // Observations
+  // ------------
+  // Form components for obs
+  .when('/admission/components/obs1', {
+    templateUrl: '/views/forms/components/obs1.html'
+  })
+  .when('/admission/components/obs2', {
+    templateUrl: '/views/forms/components/obs2.html'
+  })
+  .when('/admission/components/obs3', {
+    templateUrl: '/views/forms/components/obs3.html'
+  })
+
+
+  // Urine/Pain/Skin
+  // ---------------
+  // Form components for UPS
+  .when('/admission/components/urinalysis', {
+    templateUrl: '/views/forms/components/urinalysis.html'
+  })
+  .when('/admission/components/painAssessment', {
+    templateUrl: '/views/forms/components/painAssessment.html'
+  })
+  .when('/admission/components/skinIntegrity', {
+    templateUrl: '/views/forms/components/skinIntegrity.html'
+  })
+  .when('/admission/components/skinIntegrity2', {
+    templateUrl: '/views/forms/components/skinIntegrity2.html'
+  })
+
   .otherwise({
     redirectTo: '/'
   });

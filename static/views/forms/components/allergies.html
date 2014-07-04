@@ -1,0 +1,29 @@
+<div class='title bar'>
+  <div class='center'>Allergies</div>
+</div>
+
+<form>
+  <div class='control'>
+    <label>Allergies</label>
+    <input type='checkbox' name='' value=''
+      ng-model='patient.admission.medicalHistory.allergies'/>
+  </div>
+  <div class='control'>
+    <label>If yes, please complete details below</label>
+  </div>
+  <div class='control'>
+    <label>Allergen 1</label>
+    <input type='text' name='' value=''
+      ng-model='patient.admission.medicalHistory.allergens[0]'/>
+  </div>
+  <div class='control'>
+    <label>Reaction 1</label>
+    <input type='text' name='' value=''
+      ng-model='patient.admission.medicalHistory.reaction[0]'/>
+  </div>
+  <div class='control'>
+    <label>Corrective Measure 1</label>
+    <input type='text' name='' value=''
+      ng-model='patient.admission.medicalHistory.corrective[0]'/>
+  </div>
+</form>

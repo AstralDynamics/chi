@@ -1,0 +1,32 @@
+<div class='title bar'>
+  <div class='center'>
+    Observations
+  </div>
+</div>
+
+<form>
+  <div class='control'>
+    <label>Temperature</label>
+    <input type='text' name='temperature'
+      ng-model='patient.admission.observations.temperature'/>
+    <span class='unit'>C</span>
+  </div>
+  <div class='control'>
+    <label>Pulse</label>
+    <input type='text' name='pulse'
+      ng-model='patient.admission.observations.pulse'/>
+    <span class='unit'>bpm</span>
+  </div>
+  <div class='control'>
+    <label>Respirations</label>
+    <input type='text' name='respirations'
+      ng-model='patient.admission.observations.respirations'/>
+    <span class='unit'>pm</span>
+  </div>
+  <div class='control'>
+    <label>Weight</label>
+    <input type='text' name='weight'
+      ng-model='patient.admission.observations.weight'/>
+    <span class='unit'>kg</span>
+  </div>
+</form>
