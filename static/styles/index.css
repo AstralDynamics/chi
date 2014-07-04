@@ -1,5 +1,5 @@
 .fill {
-  height: 100%;
+  height: auto;
   display: block; }
 
 .header {
@@ -19,8 +19,7 @@
 .container {
   position: relative;
   box-sizing: border-box;
-  padding-top: 80px;
-  height: 100%; }
+  padding-top: 80px; }
 
 .bar {
   position: relative;
@@ -152,8 +151,45 @@ only padding that can be overriden.
   background: #e0e0e0;
   color: #777; }
 
+/* Render all checkboxes as yes/no */
+input[type='checkbox'] {
+  /* Hide the checkbox */
+  width: 0;
+  /* Ensure that parents don't collapse */
+  height: 16px;
+  cursor: pointer;
+  margin-top: 8px; }
+  input[type='checkbox']:after {
+    background: #ddd;
+    color: #888;
+    border-radius: 4px;
+    padding: 8px 8px;
+    font-size: 1.3em;
+    text-align: center;
+    content: 'Yes'; }
+  input[type='checkbox']:before {
+    background: #4fd1e7;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 8px;
+    font-size: 1.3em;
+    text-align: center;
+    content: 'No';
+    margin-right: 4px; }
+
+input[type='checkbox']:checked:after {
+  background: #4fd1e7;
+  color: white; }
+input[type='checkbox']:checked:before {
+  background: #ddd;
+  color: #888; }
+
 input[type=text], textarea {
-  border-radius: 4px; }
+  border-radius: 4px;
+  border: none;
+  background: #f1f1f1;
+  box-shadow: none;
+  /*border:solid 1px $primary;*/ }
 
 input.error {
   border: solid 2px #ce2626;
@@ -208,6 +244,14 @@ button.alt {
   color: #999;
   font-size: 1.3em;
   border-bottom: solid 1px #ddd; }
+
+form {
+  padding-top: 16px; }
+  form label {
+    color: #4fd1e7;
+    font-size: 1.2em; }
+  form .control {
+    overflow: hidden; }
 
 .notifications.bar {
   height: 48px;
@@ -511,6 +555,6 @@ button.alt {
       text-align: center; }
 
 html, body {
-  background: #f1f1f1;
+  background: white;
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   overflow: hidden; }

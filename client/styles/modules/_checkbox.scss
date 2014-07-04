@@ -1,0 +1,54 @@
+@import '../layout';
+@import '../theme';
+
+/* Render all checkboxes as yes/no */
+
+@mixin active {
+  background:$primary;
+  color:white;
+}
+
+@mixin inactive {
+  background:#ddd;
+  color:#888;
+}
+
+@mixin pill {
+  border-radius:4px;
+  padding:8px 8px;
+  font-size:1.3em;
+  text-align:center;
+}
+
+input[type='checkbox'] {
+  /* Hide the checkbox */
+  width:0;
+  /* Ensure that parents don't collapse */
+  height:16px;
+
+  cursor:pointer;
+  margin-top:$gutter * 2;
+
+  &:after {
+    @include inactive;
+    @include pill;
+    content:'Yes';
+  }
+
+  &:before {
+    @include active;
+    @include pill;
+    content:'No';
+    margin-right:$gutter;
+  }
+}
+
+input[type='checkbox']:checked {
+  &:after {
+    @include active;
+  }
+
+  &:before {
+    @include inactive;
+  }
+}

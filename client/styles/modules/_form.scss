@@ -3,6 +3,10 @@
 
 input[type=text], textarea {
   border-radius:4px;
+  border:none;
+  background:$background-alt;
+  box-shadow:none;
+  /*border:solid 1px $primary;*/
 }
 
 input.error {
@@ -66,4 +70,17 @@ button.alt {
   color:#999;
   font-size:1.3em;
   border-bottom:solid 1px #ddd;
+}
+
+form {
+  padding-top:$gutter * 4;
+
+  label {
+    color:$primary;
+    font-size:1.2em;
+  }
+
+  .control {
+    overflow:hidden;
+  }
 }

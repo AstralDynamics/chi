@@ -9,7 +9,7 @@
 }
 
 .fill {
-  height:100%;
+  height:auto;
   display:block;
 }
 
@@ -27,7 +27,6 @@
   position:relative;
   box-sizing:border-box;
   padding-top:$header-height;
-  height:100%;
 }
 
 .bar {

@@ -141,8 +141,8 @@ angular.module('chai', ['ngRoute', 'firebase'])
   .when('/admission/components/nameAddress', {
     templateUrl: '/views/forms/components/nameAddress.html'
   })
-  .when('/admission/components/parentInformation', {
-    templateUrl: '/views/forms/components/parentInformation.html'
+  .when('/admission/components/patientInformation', {
+    templateUrl: '/views/forms/components/patientInformation.html'
   })
   .when('/admission/components/nextOfKin', {
     templateUrl: '/views/forms/components/nextOfKin.html'
