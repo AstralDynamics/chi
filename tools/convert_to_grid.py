@@ -4,7 +4,8 @@ from glob import glob
 
 CLASS_GRIDING = {
 	'label' : 'large-2 small-4 columns',
-	'input' : 'large-10 small-8 columns'
+	'input' : 'large-10 small-8 columns',
+	'default' : 'large-10 small-8 columns'
 }
 
 def get_form(data):
@@ -24,10 +25,11 @@ def process_file(filename):
 			stuff = []
 
 			for element in div.getchildren():
+				tag = element.tag
 				if element.tag not in CLASS_GRIDING:
-					continue
+					tag = 'default'
 				wrapper = ET.Element('div')
-				wrapper.attrib['class'] = CLASS_GRIDING[element.tag]
+				wrapper.attrib['class'] = CLASS_GRIDING[tag]
 				wrapper.append(element)
 				stuff.append((element, wrapper))
 
