@@ -1,25 +1,57 @@
-<div class='title bar'>
-  <div class='center'>Allergies</div>
-</div>
 
-<form ng-controller="AdmissionController">
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Allergies</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.medicalHistory.allergies"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>If yes, please complete details below</label>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Allergen 1</label>
-    </div><div class="large-10 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.medicalHistory.allergens[0]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Reaction 1</label>
-    </div><div class="large-10 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.medicalHistory.reaction[0]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Corrective Measure 1</label>
-    </div><div class="large-10 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.medicalHistory.corrective[0]"/>
-  </div></div>
-</form>
+ 
+  <div class="title bar">
+   <div class="center">
+    Allergies
+   </div>
+  </div>
+  <form ng-controller="AdmissionController">
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Allergies
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.medicalHistory.allergies" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      If yes, please complete details below
+     </label>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Allergen 1
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.medicalHistory.allergens[0]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Reaction 1
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.medicalHistory.reaction[0]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Corrective Measure 1
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.medicalHistory.corrective[0]" type="text" value=""/>
+    </div>
+   </div>
+  </form>
+ 

@@ -1,72 +1,165 @@
-<div class='title bar'>
-  <div class='center'>
-    Sleeping
-  </div>
-</div>
 
-<form>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Cot</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.sleeping.cot"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Bed</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.sleeping.bed"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Pillows</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.sleeping.pillows"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Time Settles</label>
-    Time
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Time Wakes</label>
-    Time
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Naps</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.sleeping.naps"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>(when?)</label>
-    Time
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Normal Pattern 1</label>
-    </div><div class="large-10 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.sleeping.normalPattern[0]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Altered Pattern / Problems 1</label>
-    </div><div class="large-10 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.sleeping.alteredPattern[0]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Normal Pattern 2</label>
-    </div><div class="large-10 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.sleeping.normalPattern[1]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Altered Pattern / Problems 2</label>
-    </div><div class="large-10 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.sleeping.alteredPattern[1]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Normal Pattern 3</label>
-    </div><div class="large-10 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.sleeping.normalPattern[2]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Altered Pattern / Problems 3</label>
-    </div><div class="large-10 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.sleeping.alteredPattern[2]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Bedrails Assessment</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.sleeping.bedrailsAssessment"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>(document reason for bedrails / alternatives where appropriate)</label>
-    </div><div class="large-10 small-8 columns"><textarea/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Problem Identified</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.sleeping.problemIdentified"/>
-  </div></div>
-</form>
+ 
+  <div class="title bar">
+   <div class="center">
+    Sleeping
+   </div>
+  </div>
+  <form>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Cot
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.sleeping.cot" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Bed
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.sleeping.bed" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Pillows
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.sleeping.pillows" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Time Settles
+     </label>
+     Time
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Time Wakes
+     </label>
+     Time
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Naps
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.sleeping.naps" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      (when?)
+     </label>
+     Time
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Normal Pattern 1
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.sleeping.normalPattern[0]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Altered Pattern / Problems 1
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.sleeping.alteredPattern[0]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Normal Pattern 2
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.sleeping.normalPattern[1]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Altered Pattern / Problems 2
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.sleeping.alteredPattern[1]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Normal Pattern 3
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.sleeping.normalPattern[2]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Altered Pattern / Problems 3
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.sleeping.alteredPattern[2]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Bedrails Assessment
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.sleeping.bedrailsAssessment" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      (document reason for bedrails / alternatives where appropriate)
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <textarea>
+     </textarea>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Problem Identified
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.sleeping.problemIdentified" type="checkbox" value=""/>
+    </div>
+   </div>
+  </form>
+ 

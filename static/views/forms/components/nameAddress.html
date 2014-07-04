@@ -1,49 +1,61 @@
-<div class='title bar'>
-  <div class='center'>
-    Name and Address
-  </div>
-</div>
 
-<form ng-controller="AdmissionController">
-  <div class="control">
-    <div class="large-10 small-8 columns"><div class="large-2 small-4 columns">
-      <label>Forename</label>
+ 
+  <div class="title bar">
+   <div class="center">
+    Name and Address
+   </div>
+  </div>
+  <form ng-controller="AdmissionController">
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Forename
+     </label>
     </div>
-    </div><div class="large-10 small-8 columns"><div class="large-10 small-8 columns">
-      <input type="text" ng-model="patient.admission.data.forename"/>
+    <div class="large-10 small-8 columns">
+     <input ng-model="patient.admission.data.forename" type="text"/>
     </div>
-  </div></div>
-  <div class="control">
-    <div class="large-10 small-8 columns"><div class="large-2 small-4 columns">
-      <label>Surname</label>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Surname
+     </label>
     </div>
-    </div><div class="large-10 small-8 columns"><div class="large-10 small-8 columns">
-      <input type="text" ng-model="patient.admission.data.surname"/>
+    <div class="large-10 small-8 columns">
+     <input ng-model="patient.admission.data.surname" type="text"/>
     </div>
-  </div></div>
-  <div class="control">
-    <div class="large-10 small-8 columns"><div class="large-2 small-4 columns">
-      <label>Preferred Name</label>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Preferred Name
+     </label>
     </div>
-    </div><div class="large-10 small-8 columns"><div class="large-10 small-8 columns">
-      <input type="text" ng-model="patient.admission.data.preferredName"/>
+    <div class="large-10 small-8 columns">
+     <input ng-model="patient.admission.data.preferredName" type="text"/>
     </div>
-  </div></div>
-  <div class="control">
-    <div class="large-10 small-8 columns"><div class="large-2 small-4 columns">
-      <label>Address</label>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Address
+     </label>
     </div>
-    </div><div class="large-10 small-8 columns"><div class="large-10 small-8 columns">
-      <textarea ng-model="patient.admission.data.address">
-      </textarea>
+    <div class="large-10 small-8 columns">
+     <textarea ng-model="patient.admission.data.address">
+     </textarea>
     </div>
-  </div></div>
-  <div class="control">
-    <div class="large-10 small-8 columns"><div class="large-2 small-4 columns">
-      <label>Postcode</label>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Postcode
+     </label>
     </div>
-    </div><div class="large-10 small-8 columns"><div class="large-10 small-8 columns">
-      <input type="text" ng-model="patient.admission.data.postcode"/>
+    <div class="large-10 small-8 columns">
+     <input ng-model="patient.admission.data.postcode" type="text"/>
     </div>
-  </div></div>
-</form>
+   </div>
+  </form>
+ 

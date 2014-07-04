@@ -1,48 +1,110 @@
-<div class='title bar'>
-  <div class='center'>
-    Urinalysis
-  </div>
-</div>
 
-<form>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Type of sample - midstream</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="midstream" ng-model="patient.admission.urinalisis.midstream"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Type of sample - clean catch</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="cleanCatch" ng-model="patient.admission.urinalisis.cleanCatch"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Type of sample - nappy</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="nappy" ng-model="patient.admission.urinalisis.nappy"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Type of sample - catheter</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="catheter" ng-model="patient.admission.urinalisis.catheter"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Type of sample - other</label>
-    </div><div class="large-10 small-8 columns"><input type="string" name="other" ng-model="patient.admission.urinalisis.other"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Ward test result</label>
-    </div><div class="large-10 small-8 columns"><input type="string" name="wardTestResult" ng-model="patient.admission.urinalisis.wardTestResult"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Leucocytes present</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="leucocytesPresent" ng-model="patient.admission.urinalisis.leucocytesPresent"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Nitrates present</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="nitratesPresent" ng-model="patient.admission.urinalisis.nitratesPresent"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Sent for MC&amp;S</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="sentForMC" ng-model="patient.admission.urinalisis.sentForMC"/>
-  </div></div>
-  <div class="control">
-    <div class="large-2 small-4 columns"><label>Repeat sample</label>
-    </div><div class="large-10 small-8 columns"><input type="checkbox" name="repeatSample" ng-model="patient.admission.urinalisis.repeatSample"/>
-  </div></div>
-</form>
+ 
+  <div class="title bar">
+   <div class="center">
+    Urinalysis
+   </div>
+  </div>
+  <form>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Type of sample - midstream
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="midstream" ng-model="patient.admission.urinalisis.midstream" type="checkbox"/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Type of sample - clean catch
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="cleanCatch" ng-model="patient.admission.urinalisis.cleanCatch" type="checkbox"/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Type of sample - nappy
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="nappy" ng-model="patient.admission.urinalisis.nappy" type="checkbox"/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Type of sample - catheter
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="catheter" ng-model="patient.admission.urinalisis.catheter" type="checkbox"/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Type of sample - other
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="other" ng-model="patient.admission.urinalisis.other" type="string"/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Ward test result
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="wardTestResult" ng-model="patient.admission.urinalisis.wardTestResult" type="string"/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Leucocytes present
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="leucocytesPresent" ng-model="patient.admission.urinalisis.leucocytesPresent" type="checkbox"/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Nitrates present
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="nitratesPresent" ng-model="patient.admission.urinalisis.nitratesPresent" type="checkbox"/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Sent for MC&amp;S
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="sentForMC" ng-model="patient.admission.urinalisis.sentForMC" type="checkbox"/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Repeat sample
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="repeatSample" ng-model="patient.admission.urinalisis.repeatSample" type="checkbox"/>
+    </div>
+   </div>
+  </form>
+ 

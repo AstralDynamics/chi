@@ -1,74 +1,180 @@
-<div class='title bar'>
-  <div class='center'>Nutrition</div>
-</div>
 
-<form>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Breast fed</label>
-    </div><div class="large-9 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.nutrition.breastFed"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Bottle fed</label>
-    </div><div class="large-9 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.nutrition.bottleFed"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Dummy used to pacify</label>
-    </div><div class="large-9 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.nutrition.dummy"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Feeder beaker</label>
-    </div><div class="large-9 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.nutrition.feederBeaker"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Assistance with feeding</label>
-    </div><div class="large-9 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.nutrition.feedingAssistance"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Usual dietary intake 1</label>
-    </div><div class="large-9 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.nutrition.usualDietaryIntake[0]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Altered diet / problems 1</label>
-    </div><div class="large-9 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.nutrition.alteredDiet[0]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Usual dietary intake 3</label>
-    </div><div class="large-9 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.nutrition.usualDietaryIntake[1]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Altered diet / problems 3</label>
-    </div><div class="large-9 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.nutrition.alteredDiet[1]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Usual dietary intake 3</label>
-    </div><div class="large-9 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.nutrition.usualDietaryIntake[3]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Altered diet / problems 3</label>
-    </div><div class="large-9 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.nutrition.alteredDiet[3]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Usual dietary intake 4</label>
-    </div><div class="large-9 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.nutrition.usualDietaryIntake[3]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Altered diet / problems 4</label>
-    </div><div class="large-9 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.nutrition.alteredDiet[3]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Usual dietary intake 5</label>
-    </div><div class="large-9 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.nutrition.usualDietaryIntake[4]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Altered diet / problems 5</label>
-    </div><div class="large-9 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.nutrition.alteredDiet[4]"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Any dietary restrictions / special diet</label>
-    </div><div class="large-9 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.nutrition.specialDiet"/>
-  </div></div>
-  <div class="control">
-    <div class="large-3 small-4 columns"><label>Problem identified</label>
-    </div><div class="large-9 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.nutrition.problemIdentified"/>
-  </div></div>
-</form>
+ 
+  <div class="title bar">
+   <div class="center">
+    Nutrition
+   </div>
+  </div>
+  <form>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Breast fed
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.breastFed" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Bottle fed
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.bottleFed" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Dummy used to pacify
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.dummy" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Feeder beaker
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.feederBeaker" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Assistance with feeding
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.feedingAssistance" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Usual dietary intake 1
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.usualDietaryIntake[0]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Altered diet / problems 1
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.alteredDiet[0]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Usual dietary intake 2
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.usualDietaryIntake[1]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Altered diet / problems 2
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.alteredDiet[1]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Usual dietary intake 3
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.usualDietaryIntake[2]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Altered diet / problems 3
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.alteredDiet[2]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Usual dietary intake 4
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.usualDietaryIntake[3]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Altered diet / problems 4
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.alteredDiet[3]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Usual dietary intake 5
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.usualDietaryIntake[4]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Altered diet / problems 5
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.alteredDiet[4]" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Any dietary restrictions / special diet
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.specialDiet" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Problem identified
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.nutrition.problemIdentified" type="checkbox" value=""/>
+    </div>
+   </div>
+  </form>
+ 
