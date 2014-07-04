@@ -124,15 +124,6 @@ angular.module('chai', ['ngRoute', 'firebase'])
     templateUrl: '/views/forms/sections/safety.html'
   })
 
-  // Admissions info
-  .when('/admission/info', {
-    templateUrl: '/views/forms/sections/info.html'
-  })
-
-  // Admission decision subsection 
-  .when('/admission/decision', {
-    templateUrl: '/views/forms/sections/decision.html'
-  })
 
   // Patient Data
   // ------------
@@ -237,6 +228,15 @@ angular.module('chai', ['ngRoute', 'firebase'])
   })
   .when('/admission/components/manualHandling', {
     templateUrl: '/views/forms/components/manualHandling.html'
+  })
+
+  // Admission
+  // ---------
+  .when('/admission/components/info', {
+    templateUrl: '/views/forms/components/infoChecklist.html'
+  })
+  .when('/admission/components/decision', {
+    templateUrl: '/views/forms/components/decision.html'
   })
 
   .otherwise({
