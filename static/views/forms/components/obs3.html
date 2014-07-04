@@ -11,11 +11,23 @@
   </div></div>
   <div class="control">
     <div class="large-2 small-4 columns"><label>AVPU</label>
-    </div><div class="large-10 small-8 columns"><input type="text" name="avpu" ng-model="patient.admission.observations.avpu"/>
+    </div><div class="large-10 small-8 columns">
+      <input type='radio' name='avpu' id='a' value='A'
+        ng-model='patient.admisison.observations.avpu'/>
+      <label for='a'>A</label>
+      <input type='radio' name='avpu' id='v' value='V'
+        ng-model='patient.admisison.observations.avpu'/>
+      <label for='v'>V</label>
+      <input type='radio' name='avpu' id='p' value='P'
+        ng-model='patient.admisison.observations.avpu'/>
+      <label for='p'>P</label>
+      <input type='radio' name='avpu' id='u' value='U'
+        ng-model='patient.admisison.observations.avpu'/>
+      <label for='u'>U</label>
   </div></div>
   <div class="control">
     <div class="large-2 small-4 columns"><label>PEARL</label>
-    </div><div class="large-10 small-8 columns"><input type="text" name="pearl" ng-model="patient.admission.observations.pearl"/>
+    </div><div class="large-10 small-8 columns"><input type="checkbox" name="pearl" ng-model="patient.admission.observations.pearl"/>
   </div></div>
   <div class="control">
     <div class="large-2 small-4 columns"><label>Height / Length</label>

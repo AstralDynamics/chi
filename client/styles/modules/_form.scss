@@ -46,10 +46,18 @@ input.error {
 
 .progress.circle.secondary {
   border-color:$secondary;
+
+  .background {
+    border-color:$secondary-highlight;
+  }
 }
 
 .progress.circle.tertiary {
   border-color:$tertiary;
+
+  .background {
+    border-color:$tertiary-highlight;
+  }
 }
 
 button.alt {
@@ -66,10 +74,18 @@ button.alt {
 }
 
 .field {
-  padding:$gutter * 2;
   color:#999;
   font-size:1.3em;
   border-bottom:solid 1px #ddd;
+
+  a {
+    height:0;
+  }
+
+  .circle {
+    padding-top:$gutter * 2.5;
+  }
+
 }
 
 form {
