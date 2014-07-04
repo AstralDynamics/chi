@@ -1,0 +1,21 @@
+@import 'layout';
+@import 'theme';
+
+.admission {
+  text-align:center;
+
+  table.minimal {
+    width:100%;
+    background:transparent;
+    border:none;
+
+    tr {
+      background:transparent;
+      border:none;
+    }
+
+    td {
+      text-align:center;
+    }
+  }
+}

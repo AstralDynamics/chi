@@ -11,6 +11,14 @@ input.error {
   box-shadow-color:#ce2626;
 }
 
+.field {
+  height:140px;
+  line-height:140px;
+  max-width:100%;
+  max-height:140px;
+  overflow:hidden;
+}
+
 .progress.circle {
   width:120px;
   height:120px;
@@ -38,4 +46,24 @@ input.error {
 
 .progress.circle.tertiary {
   border-color:$tertiary;
+}
+
+button.alt {
+  display:inline-block;
+  background:white;
+  color:$primary;
+  width:3em;
+  height:3em;
+  line-height:3em;
+  text-align:center;
+  border-radius:100%;
+  border:solid 1px $primary;
+  padding:0;
+}
+
+.field {
+  padding:$gutter * 2;
+  color:#999;
+  font-size:1.3em;
+  border-bottom:solid 1px #ddd;
 }

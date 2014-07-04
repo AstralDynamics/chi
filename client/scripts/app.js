@@ -91,48 +91,65 @@ angular.module('chai', ['ngRoute', 'firebase'])
 
   // Admission data subsection
   .when('/admission/data', {
-    templateUrl: '/views/forms/data.html'
+    templateUrl: '/views/forms/sections/data.html'
   })
 
   // Admission observations subsection
   .when('/admission/observations', {
-    templateUrl: '/views/forms/observations.html'
+    templateUrl: '/views/forms/sections/observations.html'
   })
 
   // Admission urine pain skin subsection
   .when('/admission/urinePainSkin', {
-    templateUrl: '/views/forms/urinePainSkin.html'
+    templateUrl: '/views/forms/sections/urinePainSkin.html'
   })
 
   // Admission medical history subsection
   .when('/admission/medicalHistory', {
-    templateUrl: '/views/forms/medicalHistory.html'
+    templateUrl: '/views/forms/sections/medicalHistory.html'
   })
 
   // Admission living subsection
   .when('/admission/living', {
-    templateUrl: '/views/forms/living.html'
+    templateUrl: '/views/forms/sections/living.html'
   })
 
   // Admission development subsection
   .when('/admission/development', {
-    templateUrl: '/views/forms/development.html'
+    templateUrl: '/views/forms/sections/development.html'
   })
 
   // Admission safety subsection
   .when('/admission/safety', {
-    templateUrl: '/views/forms/safety.html'
+    templateUrl: '/views/forms/sections/safety.html'
   })
 
   // Admissions info
   .when('/admission/info', {
-    templateUrl: '/views/forms/info.html'
+    templateUrl: '/views/forms/sections/info.html'
   })
 
   // Admission decision subsection 
   .when('/admission/decision', {
-    templateUrl: '/views/forms/decision.html'
+    templateUrl: '/views/forms/sections/decision.html'
   })
+
+  // Patient Data
+  // ------------
+  // Form components from patient data
+  .when('/admission/components/nameAddress', {
+    templateUrl: '/views/forms/components/nameAddress.html'
+  })
+  .when('/admission/components/parentInformation', {
+    templateUrl: '/views/forms/components/parentInformation.html'
+  })
+  .when('/admission/components/nextOfKin', {
+    templateUrl: '/views/forms/components/nextOfKin.html'
+  })
+  .when('/admission/components/siblings', {
+    templateUrl: '/views/forms/components/siblings.html'
+  })
+
 
 
   .otherwise({
