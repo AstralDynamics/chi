@@ -5,21 +5,18 @@
 </div>
 
 <form>
-  <div class='control'>
-    <label>Problems / Concerns</label>
-    <input type='checkbox' name='' value=''
-      ng-model='patient.admission.social.problems'/>
-  </div>
-  <div class='control'>
-    <label>Details</label>
-    <textarea
-      ng-model='patient.admission.social.details'>
+  <div class="control">
+    <div class="large-2 small-4 columns"><label>Problems / Concerns</label>
+    </div><div class="large-10 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.social.problems"/>
+  </div></div>
+  <div class="control">
+    <textarea ng-model="patient.admission.social.details">
     </textarea>
-  </div>
-  <div class='control'>
-    <label>Favourite Toys / Hobbies</label>
-    <textarea
-      ng-model='patient.admission.social.toysHobbies'>
+  <div class="large-2 small-4 columns"><label>Details</label>
+    </div></div>
+  <div class="control">
+    <textarea ng-model="patient.admission.social.toysHobbies">
     </textarea>
-  </div>
+  <div class="large-2 small-4 columns"><label>Favourite Toys / Hobbies</label>
+    </div></div>
 </form>

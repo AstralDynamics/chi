@@ -5,15 +5,13 @@
 </div>
 
 <form>
-  <div class='control'>
-    <label>include ongoing health problems / birth history where relevant</label>
-    <textarea
-      ng-model='patient.admission.medicalHistory.ongoingProblems'>
+  <div class="control">
+    <textarea ng-model="patient.admission.medicalHistory.ongoingProblems">
     </textarea>
-  </div>
-  <div class='control'>
-    <label>Immunisations up to date</label>
-    <input type='checkbox' name='' value=''
-      ng-model='patient.admission.medicalHistory.immunisationsUpToDate'/>
-  </div>
+  <div class="large-2 small-4 columns"><label>include ongoing health problems / birth history where relevant</label>
+    </div></div>
+  <div class="control">
+    <div class="large-2 small-4 columns"><label>Immunisations up to date</label>
+    </div><div class="large-10 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.medicalHistory.immunisationsUpToDate"/>
+  </div></div>
 </form>
