@@ -11,3 +11,31 @@ input.error {
   box-shadow-color:#ce2626;
 }
 
+.progress.circle {
+  width:120px;
+  height:120px;
+  border:none;
+  border-color:$primary;
+  overflow:visible;
+  background:transparent;
+  display:inline-block;
+
+  .surface {
+    position:absolute;
+    width:100%;
+    height:100%;
+    color:#ccc;
+    font-size:2em;
+    border-radius:100%;
+    overflow:visible;
+    background:#fff;
+  }
+}
+
+.progress.circle.secondary {
+  border-color:$secondary;
+}
+
+.progress.circle.tertiary {
+  border-color:$tertiary;
+}

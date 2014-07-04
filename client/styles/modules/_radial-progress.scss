@@ -1,0 +1,55 @@
+@import '../theme';
+@import '../layout';
+
+$width:120px;
+$height:120px;
+$border:8px;
+
+.radial-progress {
+  width:$width;
+  height:$height;
+  border-color:inherit;
+
+  .transclude {
+    position:absolute;
+    line-height:$height;
+    text-align:center;
+    width:100%;
+    height:100%;
+    border-color:inherit;
+    overflow:visible;
+  }
+
+  .wrapper {
+    width:$width;
+    height:$width;
+    position:absolute;
+    clip:rect(0, $width, $height, $width / 2);
+    border-color:inherit;
+    overflow:visible;
+  }
+
+  .halfway {
+    clip: rect(auto, auto, auto, auto);
+  }
+
+  .circle {
+    width:$width ;
+    height:$height;
+    border-width:$border;
+    border-style:solid;
+    border-color:inherit;
+
+    border-radius:100%;
+    position:absolute;
+    clip:rect(0px, $height / 2, $width, 0px);
+  }
+
+  .base.left {
+    -webkit-transform: rotate(360deg);
+  }
+
+  .base.right {
+    -webkit-transform: rotate(180deg);
+  }
+}

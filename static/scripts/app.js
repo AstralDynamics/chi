@@ -13,7 +13,8 @@ angular.module('chai', ['ngRoute', 'firebase'])
 
 .controller({
   AuthController: require('./controllers/AuthController'),
-  DashController: require('./controllers/DashController')
+  DashController: require('./controllers/DashController'),
+  AdmissionController: require('./controllers/AdmissionController')
 })
 
 .directive({
@@ -21,6 +22,7 @@ angular.module('chai', ['ngRoute', 'firebase'])
   iconEditor: require('./directives/iconEditor'),
   systemBar: require('./directives/systemBar'),
   notificationsBar: require('./directives/notificationsBar'),
+  radialProgress: require('./directives/radialProgress'),
   currentTime: require('./directives/currentTime')
 })
 
@@ -83,13 +85,69 @@ angular.module('chai', ['ngRoute', 'firebase'])
     templateUrl: '/views/chat.html'
   })
 
+  .when('/admission', {
+    templateUrl: '/views/forms/admission.html',
+    controller: 'AdmissionController'
+  })
+
+  // Admission data subsection
+  .when('/admission/data', {
+    templateUrl: '/views/forms/data.html'
+  })
+
+  // Admission observations subsection
+  .when('/admission/observations', {
+    templateUrl: '/views/forms/observations.html'
+  })
+
+  // Admission urine pain skin subsection
+  .when('/admission/urinePainSkin', {
+    templateUrl: '/views/forms/urinePainSkin.html'
+  })
+
+  // Admission medical history subsection
+  .when('/admission/medicalHistory', {
+    templateUrl: '/views/forms/medicalHistory.html'
+  })
+
+  // Admission living subsection
+  .when('/admission/living', {
+    templateUrl: '/views/forms/living.html'
+  })
+
+  // Admission development subsection
+  .when('/admission/development', {
+    templateUrl: '/views/forms/development.html'
+  })
+
+  // Admission safety subsection
+  .when('/admission/safety', {
+    templateUrl: '/views/forms/safety.html'
+  })
+
+  // Admissions info
+  .when('/admission/info', {
+    templateUrl: '/views/forms/info.html'
+  })
+
+  // Admission decision subsection 
+  .when('/admission/decision', {
+    templateUrl: '/views/forms/decision.html'
+  })
+
+
   .otherwise({
     redirectTo: '/'
   });
 })
 
 
-},{"./controllers/AuthController":2,"./controllers/DashController":3,"./directives/currentTime":4,"./directives/iconEditor":5,"./directives/notificationsBar":6,"./directives/systemBar":7,"./directives/taskEditor":8,"./filters/date":9,"./filters/timeUntil":10,"./services/Authentication":13,"./services/Model":14,"./services/NotificationCenter":15,"./services/Patient":16,"./services/Staff":17,"./services/db":18,"./services/resources":19}],2:[function(require,module,exports){
+},{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./directives/currentTime":5,"./directives/iconEditor":6,"./directives/notificationsBar":7,"./directives/radialProgress":8,"./directives/systemBar":9,"./directives/taskEditor":10,"./filters/date":11,"./filters/timeUntil":12,"./services/Authentication":15,"./services/Model":16,"./services/NotificationCenter":17,"./services/Patient":18,"./services/Staff":19,"./services/db":20,"./services/resources":21}],2:[function(require,module,exports){
+module.exports = function($scope) {
+
+};
+
+},{}],3:[function(require,module,exports){
 module.exports = function($scope, Auth) {
   $scope.id = '';
   $scope.error = false;
@@ -107,22 +165,19 @@ module.exports = function($scope, Auth) {
   };
 }
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 module.exports = function($scope, $firebase, Auth) {
-  $scope.staff = Auth.getProfile();
+  var profile = Auth.getProfile();
 
-  if(!$scope.staff) {
+  if(!profile) {
     console.error('Not signed in');
     window.location.replace('#/auth');
-  } else {
-    console.log($scope.staff);
   }
 
-  $scope.staff = $firebase($scope.staff);
-
+  $scope.staff = $firebase(profile);
 };
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 module.exports = function($interval, $filter) {
   return {
     restrict: 'A',
@@ -143,7 +198,7 @@ module.exports = function($interval, $filter) {
   }
 };
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -168,7 +223,7 @@ module.exports = function() {
   }
 }
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -195,7 +250,27 @@ module.exports = function() {
   }
 };
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
+module.exports = function() {
+  return {
+    restrict: 'A',
+    transclude: true,
+    templateUrl: '/partials/radialProgress.html',
+    scope: {
+      radialProgress: '=radialProgress'
+    },
+    link: function(scope, element, attributes) {
+      // Cap so that right will render correctly
+      scope.degrees = function(cap) {
+        var deg = scope.radialProgress * 360;
+        if(deg > 180 && cap) deg = 180;
+        return deg;
+      }
+    }
+  }
+};
+
+},{}],9:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -203,7 +278,7 @@ module.exports = function() {
   }
 };
 
-},{}],8:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports = function(TaskFactory) {
   return {
     restrict: 'A',
@@ -245,7 +320,7 @@ module.exports = function(TaskFactory) {
   }
 }
 
-},{}],9:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports = function() {
   return function(seconds, template, named) {
     var date, names, components;
@@ -292,14 +367,14 @@ module.exports = function() {
   }
 }
 
-},{}],10:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = function() {
   return function(due) {
     return due - Date.now();
   }
 };
 
-},{}],11:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 module.exports={
   "__default__": "#555",
   "black": "#3b3b3b",
@@ -311,7 +386,7 @@ module.exports={
   "cyan": "#71b9f8"
 }
 
-},{}],12:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports={
   "__default__": "fa fa-circle",
   "ambulance": "fa fa-ambulance",
@@ -332,7 +407,7 @@ module.exports={
   "chart": "fa fa-bar-chart-o"
 }
 
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports = function($q, Staff) {
   var profile = null;
 
@@ -365,7 +440,7 @@ module.exports = function($q, Staff) {
   }
 };
 
-},{}],14:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 module.exports = function(db) {
   return function(name) {
     function fromDb(id) {
@@ -379,7 +454,7 @@ module.exports = function(db) {
   }
 }
 
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = function() {
   var notifications = [];
 
@@ -403,22 +478,22 @@ module.exports = function() {
   }
 };
 
-},{}],16:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('patients');
 }
 
-},{}],17:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('staff');
 };
 
-},{}],18:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 module.exports = function() {
   return new Firebase('https://astralchai.firebaseio.com');
 };
 
-},{}],19:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = function() {
   return {
     icons: require('../resources/icons.json'),
@@ -426,4 +501,4 @@ module.exports = function() {
   }
 };
 
-},{"../resources/colors.json":11,"../resources/icons.json":12}]},{},[1])
+},{"../resources/colors.json":13,"../resources/icons.json":14}]},{},[1])

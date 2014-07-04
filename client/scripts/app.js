@@ -12,7 +12,8 @@ angular.module('chai', ['ngRoute', 'firebase'])
 
 .controller({
   AuthController: require('./controllers/AuthController'),
-  DashController: require('./controllers/DashController')
+  DashController: require('./controllers/DashController'),
+  AdmissionController: require('./controllers/AdmissionController')
 })
 
 .directive({
@@ -20,6 +21,7 @@ angular.module('chai', ['ngRoute', 'firebase'])
   iconEditor: require('./directives/iconEditor'),
   systemBar: require('./directives/systemBar'),
   notificationsBar: require('./directives/notificationsBar'),
+  radialProgress: require('./directives/radialProgress'),
   currentTime: require('./directives/currentTime')
 })
 
@@ -81,6 +83,57 @@ angular.module('chai', ['ngRoute', 'firebase'])
   .when('/chat', {
     templateUrl: '/views/chat.html'
   })
+
+  .when('/admission', {
+    templateUrl: '/views/forms/admission.html',
+    controller: 'AdmissionController'
+  })
+
+  // Admission data subsection
+  .when('/admission/data', {
+    templateUrl: '/views/forms/data.html'
+  })
+
+  // Admission observations subsection
+  .when('/admission/observations', {
+    templateUrl: '/views/forms/observations.html'
+  })
+
+  // Admission urine pain skin subsection
+  .when('/admission/urinePainSkin', {
+    templateUrl: '/views/forms/urinePainSkin.html'
+  })
+
+  // Admission medical history subsection
+  .when('/admission/medicalHistory', {
+    templateUrl: '/views/forms/medicalHistory.html'
+  })
+
+  // Admission living subsection
+  .when('/admission/living', {
+    templateUrl: '/views/forms/living.html'
+  })
+
+  // Admission development subsection
+  .when('/admission/development', {
+    templateUrl: '/views/forms/development.html'
+  })
+
+  // Admission safety subsection
+  .when('/admission/safety', {
+    templateUrl: '/views/forms/safety.html'
+  })
+
+  // Admissions info
+  .when('/admission/info', {
+    templateUrl: '/views/forms/info.html'
+  })
+
+  // Admission decision subsection 
+  .when('/admission/decision', {
+    templateUrl: '/views/forms/decision.html'
+  })
+
 
   .otherwise({
     redirectTo: '/'
