@@ -2,38 +2,32 @@
   <div class='center'>Communication</div>
 </div>
 
-<form ng-controller='AdmissionController'>
-  <div class='control'>
-    <label>Speech</label>
-    <input type='checkbox' name='' value=''
-      ng-model='patient.admission.communication.speech'/>
-  </div>
-  <div class='control'>
-    <label>Speech – details</label>
-    <textarea
-      ng-model='patient.admission.communication.speechDetails'>
+<form ng-controller="AdmissionController">
+  <div class="control">
+    <div class="large-2 small-4 columns"><label>Speech</label>
+    </div><div class="large-10 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.communication.speech"/>
+  </div></div>
+  <div class="control">
+    <textarea ng-model="patient.admission.communication.speechDetails">
     </textarea>
-  </div>
-  <div class='control'>
-    <label>Hearing</label>
-    <input type='checkbox' name='' value=''
-      ng-model='patient.admission.communication.hearing'/>
-  </div>
-  <div class='control'>
-    <label>Hearing – details</label>
-    <textarea
-      ng-model='patient.admission.communication.hearingDetails'>
+  <div class="large-2 small-4 columns"><label>Speech – details</label>
+    </div></div>
+  <div class="control">
+    <div class="large-2 small-4 columns"><label>Hearing</label>
+    </div><div class="large-10 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.communication.hearing"/>
+  </div></div>
+  <div class="control">
+    <textarea ng-model="patient.admission.communication.hearingDetails">
     </textarea>
-  </div>
-  <div class='control'>
-    <label>Vision</label>
-    <input type='checkbox' name='' value=''
-      ng-model='patient.admission.communication.vision'/>
-  </div>
-  <div class='control'>
-    <label>Vision – details</label>
-    <textarea
-      ng-model='patient.admission.communication.visionDetails'>
+  <div class="large-2 small-4 columns"><label>Hearing – details</label>
+    </div></div>
+  <div class="control">
+    <div class="large-2 small-4 columns"><label>Vision</label>
+    </div><div class="large-10 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.communication.vision"/>
+  </div></div>
+  <div class="control">
+    <textarea ng-model="patient.admission.communication.visionDetails">
     </textarea>
-  </div>
+  <div class="large-2 small-4 columns"><label>Vision – details</label>
+    </div></div>
 </form>

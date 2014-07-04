@@ -2,28 +2,24 @@
   <div class='center'>Allergies</div>
 </div>
 
-<form ng-controller='AdmissionController'>
-  <div class='control'>
-    <label>Allergies</label>
-    <input type='checkbox' name='' value=''
-      ng-model='patient.admission.medicalHistory.allergies'/>
-  </div>
-  <div class='control'>
-    <label>If yes, please complete details below</label>
-  </div>
-  <div class='control'>
-    <label>Allergen 1</label>
-    <input type='text' name='' value=''
-      ng-model='patient.admission.medicalHistory.allergens[0]'/>
-  </div>
-  <div class='control'>
-    <label>Reaction 1</label>
-    <input type='text' name='' value=''
-      ng-model='patient.admission.medicalHistory.reaction[0]'/>
-  </div>
-  <div class='control'>
-    <label>Corrective Measure 1</label>
-    <input type='text' name='' value=''
-      ng-model='patient.admission.medicalHistory.corrective[0]'/>
-  </div>
+<form ng-controller="AdmissionController">
+  <div class="control">
+    <div class="large-2 small-4 columns"><label>Allergies</label>
+    </div><div class="large-10 small-8 columns"><input type="checkbox" name="" value="" ng-model="patient.admission.medicalHistory.allergies"/>
+  </div></div>
+  <div class="control">
+    <div class="large-2 small-4 columns"><label>If yes, please complete details below</label>
+  </div></div>
+  <div class="control">
+    <div class="large-2 small-4 columns"><label>Allergen 1</label>
+    </div><div class="large-10 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.medicalHistory.allergens[0]"/>
+  </div></div>
+  <div class="control">
+    <div class="large-2 small-4 columns"><label>Reaction 1</label>
+    </div><div class="large-10 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.medicalHistory.reaction[0]"/>
+  </div></div>
+  <div class="control">
+    <div class="large-2 small-4 columns"><label>Corrective Measure 1</label>
+    </div><div class="large-10 small-8 columns"><input type="text" name="" value="" ng-model="patient.admission.medicalHistory.corrective[0]"/>
+  </div></div>
 </form>

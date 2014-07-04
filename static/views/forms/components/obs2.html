@@ -5,44 +5,37 @@
 </div>
 
 <form>
-  <div class='control'>
-    <label>Blood Pressure 1</label>
-    <input type='text' name='bloodPressureOne'
-      ng-model='patient.admission.observations.bloodPressureOne'/>
-    <span class='unit'>mmol</span>
-  </div>
-  <div class='control'>
-    <label>Blood Pressure 2</label>
-    <input type='text' name='bloodPressureTwo'
-      ng-model='patient.admission.observations.bloodPressureTwo'/>
-    <span class='unit'>mmol</span>
-  </div>
-  <div class='control'>
-    <label>O2 sats (air)</label>
-    <input type='text' name='o2Sats'
-      ng-model='patient.admission.observations.o2SatsAir'/>
-    <span class='unit'>ltrs</span>
-  </div>
-  <div class='control'>
-    <label>O2 sats (air) in ltrs</label>
-    <input type='text' name='o2SatsLitres'
-      ng-model='patient.admission.observations.o2SatsLitres'/>
-    <span class='unit'>ltrs</span>
-  </div>
-  <div class='control'>
-    <label>Blood Sugar BM</label>
-    <input type='text' name='bloodSugarBM'
-      ng-model='patient.admission.observations.bloodSugarBM'/>
-    <span class='unit'>BM</span>
-  </div>
-  <div class='control'>
-    <label>Capillary Refill – less than 2 seconds</label>
-    <input type='checkbox' name='lessThan2Seconds'
-      ng-model='patient.admission.observations.capillaryRefillLt2s'/>
-  </div>
-  <div class='control'>
-    <label>Capillary Refill – more than 2 seconds</label>
-    <input type='checkbox' name='moreThan2Seconds'
-      ng-model='patient.admission.observations.capillaryRefillGt2s'/>
-  </div>
+  <div class="control">
+    <span class="unit">mmol</span>
+  <div class="large-2 small-4 columns"><label>Blood Pressure 1</label>
+    </div><div class="large-10 small-8 columns"><input type="text" name="bloodPressureOne" ng-model="patient.admission.observations.bloodPressureOne"/>
+    </div></div>
+  <div class="control">
+    <span class="unit">mmol</span>
+  <div class="large-2 small-4 columns"><label>Blood Pressure 2</label>
+    </div><div class="large-10 small-8 columns"><input type="text" name="bloodPressureTwo" ng-model="patient.admission.observations.bloodPressureTwo"/>
+    </div></div>
+  <div class="control">
+    <span class="unit">ltrs</span>
+  <div class="large-2 small-4 columns"><label>O2 sats (air)</label>
+    </div><div class="large-10 small-8 columns"><input type="text" name="o2Sats" ng-model="patient.admission.observations.o2SatsAir"/>
+    </div></div>
+  <div class="control">
+    <span class="unit">ltrs</span>
+  <div class="large-2 small-4 columns"><label>O2 sats (air) in ltrs</label>
+    </div><div class="large-10 small-8 columns"><input type="text" name="o2SatsLitres" ng-model="patient.admission.observations.o2SatsLitres"/>
+    </div></div>
+  <div class="control">
+    <span class="unit">BM</span>
+  <div class="large-2 small-4 columns"><label>Blood Sugar BM</label>
+    </div><div class="large-10 small-8 columns"><input type="text" name="bloodSugarBM" ng-model="patient.admission.observations.bloodSugarBM"/>
+    </div></div>
+  <div class="control">
+    <div class="large-2 small-4 columns"><label>Capillary Refill – less than 2 seconds</label>
+    </div><div class="large-10 small-8 columns"><input type="checkbox" name="lessThan2Seconds" ng-model="patient.admission.observations.capillaryRefillLt2s"/>
+  </div></div>
+  <div class="control">
+    <div class="large-2 small-4 columns"><label>Capillary Refill – more than 2 seconds</label>
+    </div><div class="large-10 small-8 columns"><input type="checkbox" name="moreThan2Seconds" ng-model="patient.admission.observations.capillaryRefillGt2s"/>
+  </div></div>
 </form>
