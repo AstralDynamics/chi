@@ -33,18 +33,33 @@ def process_file(filename):
 
 		for div in root.findall("div[@class='control']")[::-1]:
 			stuff = []
+			been_labelled = False
+			other_wrapper = None
 
 			for element in div.getchildren():
 				tag = element.tag
 				if tag == 'div':
 					stuff.append((element, element))
 					continue
-				if tag not in CLASS_GRIDING:
+				elif tag == 'label':
+					been_labelled = True
+					wrapper = ET.Element('div')
+					wrapper.attrib['class'] = CLASS_GRIDING[tag]
+					wrapper.append(element)
+					stuff.append((element, wrapper))
+
+					if other_wrapper is not None:
+						stuff.append((None, other_wrapper))
+
+					other_wrapper = ET.Element('div')
+					other_wrapper.attrib['class'] = CLASS_GRIDING['default']
+				else: 
+					#tag not in CLASS_GRIDING:
 					tag = 'default'
-				wrapper = ET.Element('div')
-				wrapper.attrib['class'] = CLASS_GRIDING[tag]
-				wrapper.append(element)
-				stuff.append((element, wrapper))
+					other_wrapper.append(element)
+			if other_wrapper is not None:
+				stuff.append((None, other_wrapper))
+
 
 			root.remove(div)
 			for label, wrapper in stuff:
