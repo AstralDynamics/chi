@@ -28,6 +28,8 @@ input[type='checkbox'] {
 
   cursor:pointer;
   margin-top:$gutter * 2;
+  margin-bottom:1rem;
+  height:34px;
 
   &:after {
     @include inactive;
@@ -52,3 +54,29 @@ input[type='checkbox']:checked {
     @include inactive;
   }
 }
+
+/* Radio Buttons */
+
+input[type='radio'] {
+  width:0;
+  /* Shame.css */
+  margin-left:-$gutter;
+  margin-bottom:1rem;
+}
+
+input[type='radio']+label {
+  @include pill;
+  display:inline-block;
+  background:#ddd;
+  color:#888;
+  font-size:1em;
+  margin:0;
+  padding:5px;
+  min-width:34px;
+}
+
+input[type='radio']:checked+label {
+  background:$primary;
+  color:white;
+}
+
