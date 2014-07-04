@@ -8,10 +8,10 @@ CLASS_GRIDING = {
 }
 
 def get_form(data):
-	return data[data.find('<form>'):data.find('</form>') + 7]
+	return data[data.find('<form'):data.find('</form>') + 7]
 
 def get_head(data):
-	return data[:data.find('<form>')]
+	return data[:data.find('<form')]
 
 def process_file(filename):
 	with open(filename) as f:
@@ -56,6 +56,7 @@ def main():
 			process_file(file)
 		except ET.XMLSyntaxError as e:
 			failed.append('Failed to convert {} due to {}'.format(file, e))
+			
 
 	print('Converted ', len(files) - len(failed), ' out of ', len(files))
 	for message in failed:
