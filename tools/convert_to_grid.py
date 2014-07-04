@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 from lxml import etree as ET
 from glob import glob
+from bs4 import BeautifulSoup as bs
 
 CLASS_GRIDING = {
 	'label' : 'large-2 small-4 columns',
@@ -14,6 +15,15 @@ def get_form(data):
 def get_head(data):
 	return data[:data.find('<form')]
 
+def reformat(filename):
+	with open(filename) as f:
+		out = bs(f.read())
+		out = out.prettify()
+		out = out.replace('<body>', '').replace('<html>', '').replace('</html>', '').replace('</body>', '')
+
+	with open(filename, 'w') as f:
+		f.write(out)
+
 def process_file(filename):
 	with open(filename) as f:
 		data = f.read()
@@ -26,7 +36,10 @@ def process_file(filename):
 
 			for element in div.getchildren():
 				tag = element.tag
-				if element.tag not in CLASS_GRIDING:
+				if tag == 'div':
+					stuff.append((element, element))
+					continue
+				if tag not in CLASS_GRIDING:
 					tag = 'default'
 				wrapper = ET.Element('div')
 				wrapper.attrib['class'] = CLASS_GRIDING[tag]
@@ -56,6 +69,7 @@ def main():
 		print('working in ', file)
 		try:
 			process_file(file)
+			reformat(file)
 		except ET.XMLSyntaxError as e:
 			failed.append('Failed to convert {} due to {}'.format(file, e))
 			
