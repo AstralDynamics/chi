@@ -217,14 +217,27 @@ angular.module('chai', ['ngRoute', 'firebase'])
   // Living
   // ------
   // Form components for Living Forms
-  .when('/admission/components/medicalHistory', {
-    templateUrl: '/views/forms/components/pastMedicalHistory.html'
+  .when('/admission/components/nutrition', {
+    templateUrl: '/views/forms/components/nutrition.html'
   })
-  .when('/admission/components/allergies', {
-    templateUrl: '/views/forms/components/allergies.html'
+  .when('/admission/components/hygiene', {
+    templateUrl: '/views/forms/components/hygiene.html'
   })
-  .when('/admission/components/medication', {
-    templateUrl: '/views/forms/components/medication.html'
+  .when('/admission/components/sleeping', {
+    templateUrl: '/views/forms/components/sleeping.html'
+  })
+
+  // Safety
+  // ------
+  // Form components for Living Forms
+  .when('/admission/components/communityInvolvement', {
+    templateUrl: '/views/forms/components/communityInvolvement.html'
+  })
+  .when('/admission/components/safeguardingChildren', {
+    templateUrl: '/views/forms/components/safeguardingChildren.html'
+  })
+  .when('/admission/components/manualHandling', {
+    templateUrl: '/views/forms/components/manualHandling.html'
   })
 
   .otherwise({

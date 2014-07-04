@@ -226,6 +226,19 @@ angular.module('chai', ['ngRoute', 'firebase'])
     templateUrl: '/views/forms/components/sleeping.html'
   })
 
+  // Safety
+  // ------
+  // Form components for Living Forms
+  .when('/admission/components/communityInvolvement', {
+    templateUrl: '/views/forms/components/communityInvolvement.html'
+  })
+  .when('/admission/components/safeguardingChildren', {
+    templateUrl: '/views/forms/components/safeguardingChildren.html'
+  })
+  .when('/admission/components/manualHandling', {
+    templateUrl: '/views/forms/components/manualHandling.html'
+  })
+
   .otherwise({
     redirectTo: '/'
   });
