@@ -195,6 +195,37 @@ angular.module('chai', ['ngRoute', 'firebase'])
     templateUrl: '/views/forms/components/skinIntegrity2.html'
   })
 
+
+  // Medical History
+  // ---------------
+  // Form components for Medical History
+  .when('/admission/components/medicalHistory', {
+    templateUrl: '/views/forms/components/pastMedicalHistory.html'
+  })
+  .when('/admission/components/allergies', {
+    templateUrl: '/views/forms/components/allergies.html'
+  })
+  .when('/admission/components/medication', {
+    templateUrl: '/views/forms/components/medication.html'
+  })
+  .when('/admission/components/listOfMeds', {
+    templateUrl: '/views/forms/components/listOfMeds.html'
+  })
+
+
+  // Living
+  // ------
+  // Form components for Living Forms
+  .when('/admission/components/nutrition', {
+    templateUrl: '/views/forms/components/nutrition.html'
+  })
+  .when('/admission/components/hygiene', {
+    templateUrl: '/views/forms/components/hygiene.html'
+  })
+  .when('/admission/components/sleeping', {
+    templateUrl: '/views/forms/components/sleeping.html'
+  })
+
   .otherwise({
     redirectTo: '/'
   });
