@@ -152,6 +152,18 @@ angular.module('chai', ['ngRoute', 'firebase'])
   })
 
 
+  // Development
+  // ------------
+  // Form components for development
+  .when('/admission/components/communication', {
+    templateUrl: '/views/forms/components/communication.html'
+  })
+  .when('/admission/components/socialDevelopment', {
+    templateUrl: '/views/forms/components/socialDevelopment.html'
+  })
+  .when('/admission/components/mobility', {
+    templateUrl: '/views/forms/components/mobility.html'
+  })
 
   .otherwise({
     redirectTo: '/'
