@@ -6,6 +6,8 @@ angular.module('chai', ['ngRoute', 'firebase'])
   db: require('./services/db'),
   Model: require('./services/Model'),
   Patient: require('./services/Patient'),
+  PatientIncubator: require('./services/PatientIncubator'),
+  PatientTemplate: require('./services/PatientTemplate'),
   Staff: require('./services/Staff'),
   Auth: require('./services/Authentication'),
   NotificationCenter: require('./services/NotificationCenter')
@@ -246,9 +248,9 @@ angular.module('chai', ['ngRoute', 'firebase'])
 })
 
 
-},{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./directives/currentTime":5,"./directives/iconEditor":6,"./directives/notificationsBar":7,"./directives/radialProgress":8,"./directives/systemBar":9,"./directives/taskEditor":10,"./filters/date":11,"./filters/timeUntil":12,"./services/Authentication":15,"./services/Model":16,"./services/NotificationCenter":17,"./services/Patient":18,"./services/Staff":19,"./services/db":20,"./services/resources":21}],2:[function(require,module,exports){
-module.exports = function($scope) {
-
+},{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./directives/currentTime":5,"./directives/iconEditor":6,"./directives/notificationsBar":7,"./directives/radialProgress":8,"./directives/systemBar":9,"./directives/taskEditor":10,"./filters/date":11,"./filters/timeUntil":12,"./services/Authentication":15,"./services/Model":16,"./services/NotificationCenter":17,"./services/Patient":18,"./services/PatientIncubator":19,"./services/PatientTemplate":20,"./services/Staff":21,"./services/db":22,"./services/resources":23}],2:[function(require,module,exports){
+module.exports = function($scope, PatientIncubator) {
+  $scope.patient = PatientIncubator.retrieve();
 };
 
 },{}],3:[function(require,module,exports){
@@ -588,16 +590,87 @@ module.exports = function(Model) {
 }
 
 },{}],19:[function(require,module,exports){
-module.exports = function(Model) {
-  return new Model('staff');
+module.exports = function(PatientTemplate) {
+  var patient = null;
+
+  function retrieve() {
+    if(!patient) {
+      create();
+    }
+    return patient;
+  }
+
+  function create() {
+    patient = new PatientTemplate();
+  }
+
+  function done() {
+    patient = null;
+  }
+
+  return {
+    retrieve: retrieve,
+    create: create,
+    done: done
+  }
 };
 
 },{}],20:[function(require,module,exports){
 module.exports = function() {
-  return new Firebase('https://astralchai.firebaseio.com');
+  return function() {
+    return {
+      admission: {
+
+        data: {
+          forename: '',
+          surname: '',
+          preferred: '',
+          address: '',
+          postcode: '',
+          unitNumber: '',
+          consultant: '',
+          dateOfBirth: '',
+          age: '',
+          gender: '',
+          religion: '',
+          preferredLanguage: '',
+          interpreterRequired: false,
+          nextOfKin: '',
+          relationship: '',
+          homeTelephone: '',
+          mobileTelephone: '',
+          otherContactTelephone: '',
+          siblings: []
+        },
+
+        observations: {
+          temperature: '',
+          pulse: '',
+          respirations: '',
+          weight: '',
+          bloodPressure1: '',
+          bloodPressure2: '',
+          o2SatsAir: '',
+          o2SatsLitres: '',
+          bloodSugar: ''
+        }
+
+      }
+    }
+  }
 };
 
 },{}],21:[function(require,module,exports){
+module.exports = function(Model) {
+  return new Model('staff');
+};
+
+},{}],22:[function(require,module,exports){
+module.exports = function() {
+  return new Firebase('https://astralchai.firebaseio.com');
+};
+
+},{}],23:[function(require,module,exports){
 module.exports = function() {
   return {
     icons: require('../resources/icons.json'),

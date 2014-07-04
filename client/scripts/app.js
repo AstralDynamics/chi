@@ -5,6 +5,8 @@ angular.module('chai', ['ngRoute', 'firebase'])
   db: require('./services/db'),
   Model: require('./services/Model'),
   Patient: require('./services/Patient'),
+  PatientIncubator: require('./services/PatientIncubator'),
+  PatientTemplate: require('./services/PatientTemplate'),
   Staff: require('./services/Staff'),
   Auth: require('./services/Authentication'),
   NotificationCenter: require('./services/NotificationCenter')
