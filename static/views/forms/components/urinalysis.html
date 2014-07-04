@@ -14,6 +14,10 @@
     </div>
     <div class="large-10 small-8 columns">
      <input name="midstream" ng-model="patient.admission.urinalisis.midstream" type="checkbox"/>
+     <input type='radio' id='midstream' value='midstream' name='type' 
+      ng-model='patient.admission.urinalysis.type'/>
+      <label for='midstream'></label>
+
     </div>
    </div>
    <div class="control">
@@ -108,3 +112,11 @@
    </div>
   </form>
  
+  <div class='small-12 columns'>
+    <a href='#/admission/urinePainSkin' class='button'>
+      Previous
+    </a>
+    <a href='#/admission/components/painAssessment' class='button'>
+      Next
+    </a>
+  </div>

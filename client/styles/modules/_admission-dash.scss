@@ -4,6 +4,10 @@
 .admission {
   text-align:center;
 
+  .title {
+    margin-bottom:$gutter;
+  }
+
   table.minimal {
     width:100%;
     background:transparent;
