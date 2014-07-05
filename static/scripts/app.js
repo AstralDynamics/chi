@@ -29,7 +29,8 @@ angular.module('chai', ['ngRoute', 'firebase'])
   radialProgress: require('./directives/radialProgress'),
   currentTime: require('./directives/currentTime'),
   ngPredict: require('./directives/ngPredict'),
-  progressNode: require('./directives/progressNode')
+  progressNode: require('./directives/progressNode'),
+  timeInput: require('./directives/timeInput')
 })
 
 .filter({
@@ -252,7 +253,7 @@ angular.module('chai', ['ngRoute', 'firebase'])
 })
 
 
-},{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./directives/currentTime":5,"./directives/iconEditor":6,"./directives/ngPredict":7,"./directives/notificationsBar":8,"./directives/progressNode":9,"./directives/radialProgress":10,"./directives/systemBar":11,"./directives/taskEditor":12,"./filters/date":13,"./filters/timeUntil":14,"./services/Authentication":17,"./services/Model":18,"./services/Node":19,"./services/NotificationCenter":20,"./services/Patient":21,"./services/PatientIncubator":22,"./services/PatientTemplate":23,"./services/ProgressTree":24,"./services/Staff":25,"./services/db":26,"./services/resources":27}],2:[function(require,module,exports){
+},{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./directives/currentTime":5,"./directives/iconEditor":6,"./directives/ngPredict":7,"./directives/notificationsBar":8,"./directives/progressNode":9,"./directives/radialProgress":10,"./directives/systemBar":11,"./directives/taskEditor":12,"./directives/timeInput":13,"./filters/date":14,"./filters/timeUntil":15,"./services/Authentication":18,"./services/Model":19,"./services/Node":20,"./services/NotificationCenter":21,"./services/Patient":22,"./services/PatientIncubator":23,"./services/PatientTemplate":24,"./services/ProgressTree":25,"./services/Staff":26,"./services/db":27,"./services/resources":28}],2:[function(require,module,exports){
 module.exports = function($scope, PatientIncubator) {
   $scope.patient = PatientIncubator.retrieve();
 };
@@ -500,6 +501,42 @@ module.exports = function(TaskFactory) {
 
 },{}],13:[function(require,module,exports){
 module.exports = function() {
+  return {
+    restrict: 'A',
+    templateUrl: '/partials/timeInput.html',
+    require: '?ngModel',
+    scope: {
+      readFormat: '&timeFormat'
+    },
+    link: function(scope, element, attrs, ngModel) {
+      var format = scope.readFormat() || 'mm:hh';
+
+      scope.minutes;
+      scope.hours;
+
+      // TODO find out why ngModel is not provided
+
+      scope.change = function() {
+        ngModel.$setViewValue(scope.format());
+      };
+
+      scope.format = function() {
+        return format
+        .replace('mm', minutes)
+        .replace('hh', hours)
+      };
+
+      scope.currentTime = function() {
+        var date = new Date();
+        scope.minutes = date.getMinutes();
+        scope.hours = date.getHours();
+      };
+    }
+  }
+};
+
+},{}],14:[function(require,module,exports){
+module.exports = function() {
   return function(seconds, template, named) {
     var date, names, components;
 
@@ -545,14 +582,14 @@ module.exports = function() {
   }
 }
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports = function() {
   return function(due) {
     return due - Date.now();
   }
 };
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 module.exports={
   "__default__": "#555",
   "black": "#3b3b3b",
@@ -564,7 +601,7 @@ module.exports={
   "cyan": "#71b9f8"
 }
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports={
   "__default__": "fa fa-circle",
   "ambulance": "fa fa-ambulance",
@@ -585,7 +622,7 @@ module.exports={
   "chart": "fa fa-bar-chart-o"
 }
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 module.exports = function($q, Staff) {
   var profile = null;
 
@@ -618,7 +655,7 @@ module.exports = function($q, Staff) {
   }
 };
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = function(db) {
   return function(name) {
     function fromDb(id) {
@@ -632,7 +669,7 @@ module.exports = function(db) {
   }
 }
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 module.exports = function() {
 
   function Node(name, value, links) {
@@ -677,7 +714,7 @@ module.exports = function() {
   return Node;
 }
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = function() {
   var notifications = [];
 
@@ -701,12 +738,12 @@ module.exports = function() {
   }
 };
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('patients');
 }
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = function(PatientTemplate) {
   var patient = null;
 
@@ -732,7 +769,7 @@ module.exports = function(PatientTemplate) {
   }
 };
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 module.exports = function() {
   return function() {
     return {
@@ -777,7 +814,7 @@ module.exports = function() {
   }
 };
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 module.exports = function(Node) {
   var nodes = [];
 
@@ -796,17 +833,17 @@ module.exports = function(Node) {
   }
 };
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('staff');
 };
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 module.exports = function() {
   return new Firebase('https://astralchai.firebaseio.com');
 };
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 module.exports = function() {
   return {
     icons: require('../resources/icons.json'),
@@ -814,4 +851,4 @@ module.exports = function() {
   }
 };
 
-},{"../resources/colors.json":15,"../resources/icons.json":16}]},{},[1])
+},{"../resources/colors.json":16,"../resources/icons.json":17}]},{},[1])

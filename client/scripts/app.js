@@ -28,7 +28,8 @@ angular.module('chai', ['ngRoute', 'firebase'])
   radialProgress: require('./directives/radialProgress'),
   currentTime: require('./directives/currentTime'),
   ngPredict: require('./directives/ngPredict'),
-  progressNode: require('./directives/progressNode')
+  progressNode: require('./directives/progressNode'),
+  timeInput: require('./directives/timeInput')
 })
 
 .filter({

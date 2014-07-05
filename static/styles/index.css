@@ -323,6 +323,10 @@ form {
       right: 1.4em;
       color: #ccc; }
 
+.time.input input {
+  width: 4em;
+  display: inline; }
+
 .notifications.bar {
   height: 48px;
   line-height: 48px;
