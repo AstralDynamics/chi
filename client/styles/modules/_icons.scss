@@ -1,0 +1,79 @@
+.icon {
+  display:inline-block;
+  width:1em;
+  height:1em;
+  background-size:cover;
+
+  &.allergies {
+    background-image:url("/images/icons/Allergies.svg");
+  }
+  &.baby {
+    background-image:url("/images/icons/Baby.svg");
+  }
+  &.bed {
+    background-image:url("/images/icons/Bed.svg");
+  }
+  &.clinical-observations {
+    background-image:url("/images/icons/Clinical Observations.svg");
+  }
+  &.child {
+    background-image:url("/images/icons/Child.svg");
+  }
+  &.concern {
+    background-image:url("/images/icons/concern.svg");
+  }
+  &.cot {
+    background-image:url("/images/icons/Cot.svg");
+  }
+  &.doctor {
+    background-image:url("/images/icons/Doctor.svg");
+  }
+  &.boy {
+    background-image:url("/images/icons/Gender Colours.svg");
+  }
+  &.girl {
+    background-image:url("/images/icons/Gender Colours.svg");
+  }
+  &.list-of-meds {
+    background-image:url("/images/icons/List of Meds.svg");
+  }
+  &.living {
+    background-image:url("/images/icons/Living.svg");
+  }
+  &.medical-history {
+    background-image:url("/images/icons/Medical History.svg");
+  }
+  &.living {
+    background-image:url("/images/icons/Living.svg");
+  }
+  &.medications {
+    background-image:url("/images/icons/Medcations.svg");
+  }
+  &.microphone {
+    background-image:url("/images/icons/Microphone.svg");
+  }
+  &.nap-time {
+    background-image:url("/images/icons/Nap Time.svg");
+  }
+  &.no-concern {
+    background-image:url("/images/icons/No Concern-Move on.svg");
+  }
+  &.nurse {
+    background-image:url("/images/icons/Nurse.svg");
+  }
+  &.pillow {
+    background-image:url("/images/icons/Pillow.svg");
+  }
+  &.porter {
+    background-image:url("/images/icons/Porter-General Staff.svg");
+  }
+  &.safety {
+    background-image:url("/images/icons/Safety.svg");
+  }
+  &.toddler {
+    background-image:url("/images/icons/Toddler.svg");
+  }
+  &.toddler {
+    background-image:url("/images/icons/UrinePainSkin.svg");
+  }
+}

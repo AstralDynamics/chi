@@ -238,6 +238,60 @@ input[type='radio']:checked + label {
   background: #4fd1e7;
   color: white; }
 
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-size: cover; }
+  .icon.allergies {
+    background-image: url("/images/icons/Allergies.svg"); }
+  .icon.baby {
+    background-image: url("/images/icons/Baby.svg"); }
+  .icon.bed {
+    background-image: url("/images/icons/Bed.svg"); }
+  .icon.clinical-observations {
+    background-image: url("/images/icons/Clinical Observations.svg"); }
+  .icon.child {
+    background-image: url("/images/icons/Child.svg"); }
+  .icon.concern {
+    background-image: url("/images/icons/concern.svg"); }
+  .icon.cot {
+    background-image: url("/images/icons/Cot.svg"); }
+  .icon.doctor {
+    background-image: url("/images/icons/Doctor.svg"); }
+  .icon.boy {
+    background-image: url("/images/icons/Gender Colours.svg"); }
+  .icon.girl {
+    background-image: url("/images/icons/Gender Colours.svg"); }
+  .icon.list-of-meds {
+    background-image: url("/images/icons/List of Meds.svg"); }
+  .icon.living {
+    background-image: url("/images/icons/Living.svg"); }
+  .icon.medical-history {
+    background-image: url("/images/icons/Medical History.svg"); }
+  .icon.living {
+    background-image: url("/images/icons/Living.svg"); }
+  .icon.medications {
+    background-image: url("/images/icons/Medcations.svg"); }
+  .icon.microphone {
+    background-image: url("/images/icons/Microphone.svg"); }
+  .icon.nap-time {
+    background-image: url("/images/icons/Nap Time.svg"); }
+  .icon.no-concern {
+    background-image: url("/images/icons/No Concern-Move on.svg"); }
+  .icon.nurse {
+    background-image: url("/images/icons/Nurse.svg"); }
+  .icon.pillow {
+    background-image: url("/images/icons/Pillow.svg"); }
+  .icon.porter {
+    background-image: url("/images/icons/Porter-General Staff.svg"); }
+  .icon.safety {
+    background-image: url("/images/icons/Safety.svg"); }
+  .icon.toddler {
+    background-image: url("/images/icons/Toddler.svg"); }
+  .icon.toddler {
+    background-image: url("/images/icons/UrinePainSkin.svg"); }
+
 input[type=text], input[type=tel], input[type=number], textarea {
   border-radius: 4px;
   border: none;
