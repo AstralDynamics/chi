@@ -16,14 +16,12 @@
      <input name="" ng-model="patient.admission.communication.speech" type="checkbox" value=""/>
     </div>
    </div>
-   <div class="control">
+   <div class="control" ng-show='patient.admission.communication.speech'>
     <div class="large-2 small-4 columns">
-     <label>
-      Speech – details
-     </label>
     </div>
     <div class="large-10 small-8 columns">
-     <textarea ng-model="patient.admission.communication.speechDetails">
+     <textarea placeholder='Speech details'
+       ng-model="patient.admission.communication.speechDetails">
      </textarea>
     </div>
    </div>
@@ -37,14 +35,12 @@
      <input name="" ng-model="patient.admission.communication.hearing" type="checkbox" value=""/>
     </div>
    </div>
-   <div class="control">
+   <div class="control" ng-show='patient.admission.communication.hearing'>
     <div class="large-2 small-4 columns">
-     <label>
-      Hearing – details
-     </label>
     </div>
     <div class="large-10 small-8 columns">
-     <textarea ng-model="patient.admission.communication.hearingDetails">
+     <textarea placeholder='Hearing details'
+       ng-model="patient.admission.communication.hearingDetails">
      </textarea>
     </div>
    </div>
@@ -58,14 +54,12 @@
      <input name="" ng-model="patient.admission.communication.vision" type="checkbox" value=""/>
     </div>
    </div>
-   <div class="control">
+   <div class="control" ng-show='patient.admission.communication.vision'>
     <div class="large-2 small-4 columns">
-     <label>
-      Vision – details
-     </label>
     </div>
     <div class="large-10 small-8 columns">
-     <textarea ng-model="patient.admission.communication.visionDetails">
+     <textarea placeholder='Vision details'
+       ng-model="patient.admission.communication.visionDetails">
      </textarea>
     </div>
    </div>

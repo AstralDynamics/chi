@@ -1,5 +1,5 @@
 .fill {
-  height: auto;
+  height: 100%;
   display: block; }
 
 .header {
@@ -19,7 +19,14 @@
 .container {
   position: relative;
   box-sizing: border-box;
-  padding-top: 80px; }
+  padding-top: 80px;
+  height: 100%; }
+
+.scrollable {
+  width: 100%;
+  max-height: 100%;
+  min-height: 100%;
+  overflow-y: scroll; }
 
 .bar {
   position: relative;
@@ -231,13 +238,13 @@ input[type='radio']:checked + label {
   background: #4fd1e7;
   color: white; }
 
-input[type=text], textarea {
+input[type=text], input[type=tel], input[type=number], textarea {
   border-radius: 4px;
   border: none;
   background: #f1f1f1;
   box-shadow: none;
   border-color: #4fd1e7; }
-  input[type=text]:focus, textarea:focus {
+  input[type=text]:focus, input[type=tel]:focus, input[type=number]:focus, textarea:focus {
     box-shadow: none;
     background: #f1f1f1;
     border: solid 1px #4fd1e7; }
@@ -625,4 +632,5 @@ form {
 html, body {
   background: white;
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  overflow: hidden; }
+  overflow: hidden;
+  height: 100%; }

@@ -9,7 +9,7 @@
 }
 
 .fill {
-  height:auto;
+  height:100%;
   display:block;
 }
 
@@ -27,6 +27,14 @@
   position:relative;
   box-sizing:border-box;
   padding-top:$header-height;
+  height:100%;
+}
+
+.scrollable {
+  width:100%;
+  max-height:100%;
+  min-height:100%;
+  overflow-y:scroll;
 }
 
 .bar {

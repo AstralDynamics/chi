@@ -1,7 +1,7 @@
 @import 'layout';
 @import 'theme';
 
-input[type=text], textarea {
+input[type=text], input[type=tel], input[type=number], textarea {
   border-radius:4px;
   border:none;
   background:$background-alt;

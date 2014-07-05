@@ -9,21 +9,19 @@
    <div class="control">
     <div class="large-2 small-4 columns">
      <label>
-      Problems / Concerns
+      Concerns?
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.social.problems" type="checkbox" value=""/>
+     <input name="" ng-model="patient.admission.social.concerned" type="checkbox" value=""/>
     </div>
    </div>
-   <div class="control">
+   <div class="control" ng-show='patient.admission.social.concerned'>
     <div class="large-2 small-4 columns">
-     <label>
-      Details
-     </label>
     </div>
     <div class="large-10 small-8 columns">
-     <textarea ng-model="patient.admission.social.details">
+     <textarea placeholder='Details of concern'
+       ng-model="patient.admission.social.details">
      </textarea>
     </div>
    </div>

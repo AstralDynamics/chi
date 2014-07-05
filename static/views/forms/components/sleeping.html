@@ -67,10 +67,10 @@
      <input name="" ng-model="patient.admission.sleeping.naps" type="checkbox" value=""/>
     </div>
    </div>
-   <div class="control">
+   <div class="control" ng-show='patient.admission.sleeping.naps'>
     <div class="large-2 small-4 columns">
      <label>
-      (when?)
+      When?
      </label>
     </div>
     <div class="large-10 small-8 columns">
@@ -107,14 +107,15 @@
      <input name="" ng-model="patient.admission.sleeping.bedrailsAssessment" type="checkbox" value=""/>
     </div>
    </div>
-   <div class="control">
+   <div class="control" ng-show='patient.admission.sleeping.bedrailsAssessment'>
     <div class="large-2 small-4 columns">
      <label>
-      (document reason for bedrails / alternatives where appropriate)
+      Document reason for bedrails
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <textarea>
+     <textarea
+       ng-model='patient.admission.sleeping.bedrailsReason'>
      </textarea>
     </div>
    </div>
