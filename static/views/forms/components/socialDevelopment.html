@@ -1,49 +1,48 @@
+<div class="title bar">
+ <div class="center">
+  Social Development
+ </div>
+</div>
 
- 
-  <div class="title bar">
-   <div class="center">
-    Social Development
-   </div>
+<form ng-controller="AdmissionController">
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Concerns?
+   </label>
   </div>
-  <form>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Concerns?
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.social.concerned" type="checkbox" value=""/>
-    </div>
-   </div>
-   <div class="control" ng-show='patient.admission.social.concerned'>
-    <div class="large-2 small-4 columns">
-    </div>
-    <div class="large-10 small-8 columns">
-     <textarea placeholder='Details of concern'
-       ng-model="patient.admission.social.details">
-     </textarea>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Favourite Toys / Hobbies
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <textarea ng-model="patient.admission.social.toysHobbies">
-     </textarea>
-    </div>
-   </div>
-  </form>
- 
-  <div class='small-12 columns'>
-    <div class='divider'></div>
-    <a href='#/admission/components/communication' class='button'>
-      Previous
-    </a>
-    <a href='#/admission/components/mobility' class='button'>
-      Next
-    </a>
+  <div class="large-10 small-8 columns">
+   <input name="" ng-model="patient.admission.social.concerned" type="checkbox" value=""/>
   </div>
+ </div>
+ <div class="control" ng-show='patient.admission.social.concerned'>
+  <div class="large-2 small-4 columns">
+  </div>
+  <div class="large-10 small-8 columns">
+   <textarea placeholder='Details of concern'
+     ng-model="patient.admission.social.details">
+   </textarea>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Favourite Toys / Hobbies
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <textarea ng-model="patient.admission.social.toysHobbies">
+   </textarea>
+  </div>
+ </div>
+</form>
+
+<div class='small-12 columns'>
+  <div class='divider'></div>
+  <a href='#/admission/components/communication' class='button'>
+    Previous
+  </a>
+  <a href='#/admission/components/mobility' class='button'>
+    Next
+  </a>
+</div>

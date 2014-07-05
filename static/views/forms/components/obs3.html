@@ -1,71 +1,70 @@
+<div class="title bar">
+ <div class="center">
+  Observations
+ </div>
+</div>
 
- 
-  <div class="title bar">
-   <div class="center">
-    Observations
-   </div>
+<form ng-controller="AdmissionController">
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Peak Flow
+   </label>
   </div>
-  <form>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Peak Flow
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="peakFlow" ng-model="patient.admission.observations.peakFlow" type="text"/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      AVPU
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-      <input type='radio' id='a' value='a' name='avpu'
-        ng-model='patient.admission.admission.observations.avpu'/>
-      <label for='a'>A</label>
-      <input type='radio' id='v' value='v' name='avpu'
-        ng-model='patient.admission.admission.observations.avpu'/>
-      <label for='v'>V</label>
-      <input type='radio' id='p' value='p' name='avpu'
-        ng-model='patient.admission.admission.observations.avpu'/>
-      <label for='p'>P</label>
-      <input type='radio' id='u' value='u' name='avpu'
-        ng-model='patient.admission.admission.observations.avpu'/>
-      <label for='u'>U</label>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      PEARL
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="pearl" type='checkbox'
-      ng-model="patient.admission.observations.pearl"/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Height / Length
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="height" ng-model="patient.admission.observations.height" type="text"/>
-    </div>
-   </div>
-  </form>
- 
-  <div class='small-12 columns'>
-    <div class='divider'></div>
-    <a href='#/admission/components/obs2' class='button'>
-      Previous
-    </a>
-    <a href='#/admission/observations' class='button'>
-      Next
-    </a>
+  <div class="large-10 small-8 columns">
+   <input name="peakFlow" ng-model="patient.admission.observations.peakFlow" type="text"/>
   </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    AVPU
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+    <input type='radio' id='a' value='a' name='avpu'
+      ng-model='patient.admission.admission.observations.avpu'/>
+    <label for='a'>A</label>
+    <input type='radio' id='v' value='v' name='avpu'
+      ng-model='patient.admission.admission.observations.avpu'/>
+    <label for='v'>V</label>
+    <input type='radio' id='p' value='p' name='avpu'
+      ng-model='patient.admission.admission.observations.avpu'/>
+    <label for='p'>P</label>
+    <input type='radio' id='u' value='u' name='avpu'
+      ng-model='patient.admission.admission.observations.avpu'/>
+    <label for='u'>U</label>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    PEARL
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="pearl" type='checkbox'
+    ng-model="patient.admission.observations.pearl"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Height / Length
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="height" ng-model="patient.admission.observations.height" type="text"/>
+  </div>
+ </div>
+</form>
+
+<div class='small-12 columns'>
+  <div class='divider'></div>
+  <a href='#/admission/components/obs2' class='button'>
+    Previous
+  </a>
+  <a href='#/admission/observations' class='button'>
+    Next
+  </a>
+</div>

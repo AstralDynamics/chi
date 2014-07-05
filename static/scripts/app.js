@@ -806,7 +806,84 @@ module.exports = function() {
           bloodPressure2: '',
           o2SatsAir: '',
           o2SatsLitres: '',
-          bloodSugar: ''
+          bloodSugar: '',
+          capillaryRefillLt2s: false,
+          peakFlow: '',
+          avpu: 'a',
+          pearl: false,
+          height: ''
+        },
+
+        urinalysis: {
+          type: '',
+          wardTestResult: '',
+          leucocytesPresent: false,
+          nitratesPresent: false,
+          sentForMc: false,
+          repeatSample: false
+        },
+
+        pain: {
+          painFree: true,
+          painLevel: 1,
+          painScore: '',
+          time: '',
+          intervention: '',
+          painPrior: false,
+          problemIdentified: false
+        },
+
+        skinIntegrity: {
+          intact: true,
+          rashes: false,
+          rashDescription: '',
+          cutsOrGrazes: false,
+          cutsDescription: '',
+          bruises: false,
+          bruiseDescription: '',
+          pressureSores: false,
+          pressureSoresDescription: '',
+          infestations: false,
+          infestationDescription: '',
+          maelorScore: '',
+          specialMattress: false,
+          problemIdentified: false
+        },
+
+        medicalHistory: {
+          ongoingProblems: '',
+          immunisationsUpToDate: true,
+          hasAllergies: false,
+          allergies: []
+        },
+
+        medication: {
+          recent: {
+            prescribed: '',
+            dose: '',
+            strength: '',
+            lastGiven: '',
+            frequency: ''
+          },
+          regular: {
+            prescribed: '',
+            dose: '',
+            strength: '',
+            lastGiven: '',
+            frequency: ''
+          }
+        },
+
+        nutrition: {
+          breastFed: false,
+          bottleFed: false,
+          dummy: false,
+          feederBeaker: false,
+          feedingAssistance: false,
+          usualDietaryIntake: '',
+          alteredDiet: '',
+          specialDiet: '',
+          problemIdentified: false
         }
 
       }

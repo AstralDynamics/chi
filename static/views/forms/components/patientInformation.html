@@ -1,108 +1,106 @@
+<div class="title bar">
+ <div class="center">
+  Patient Information
+ </div>
+</div>
+<form ng-controller="AdmissionController">
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Unit Number
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="unitNumber" ng-model="patient.admission.data.unitNumber" type="text"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Consultant
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="consultant" ng-model="patient.admission.data.consultant" type="text"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Date of birth
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="dateOfBirth" ng-model="patient.admission.data.dateOfBirth" type="text"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Age
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="age" ng-model="patient.admission.data.age" type="number"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Gender
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+    <input type='radio' id='male' value='male' name='gender'
+      ng-model='patient.admission.admission.data.gender'/>
+    <label for='male'>
+      <i class='fa fa-male'></i>
+    </label>
+    <input type='radio' id='female' value='female' name='gender'
+      ng-model='patient.admission.admission.data.gender'/>
+    <label for='female'>
+      <i class='fa fa-female'></i>
+    </label>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Religion
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="religion" ng-model="patient.admission.data.religion" ng-predict='["Christian", "Muslim", "Hindu", "Buddhist", "Other"]' type="text"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Preferred Language
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="preferredLanguage" ng-model="patient.admission.data.language" ng-predict='["English", "Hindu", "French", "Polish", "Other"]' type="text"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Interpreter Required
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="interpreterRequired" ng-model="patient.admission.data.intepreterRequired" type="checkbox"/>
+  </div>
+ </div>
+</form>
 
- 
-  <div class="title bar">
-   <div class="center">
-    Patient Information
-   </div>
-  </div>
-  <form ng-controller="AdmissionController">
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Unit Number
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="unitNumber" ng-model="patient.admission.data.unitNumber" type="text"/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Consultant
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="consultant" ng-model="patient.admission.data.consultant" type="text"/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Date of birth
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="dateOfBirth" ng-model="patient.admission.data.dateOfBirth" type="text"/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Age
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="age" ng-model="patient.admission.data.age" type="number"/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Gender
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-      <input type='radio' id='male' value='male' name='gender'
-        ng-model='patient.admission.admission.data.gender'/>
-      <label for='male'>
-        <i class='fa fa-male'></i>
-      </label>
-      <input type='radio' id='female' value='female' name='gender'
-        ng-model='patient.admission.admission.data.gender'/>
-      <label for='female'>
-        <i class='fa fa-female'></i>
-      </label>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Religion
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="religion" ng-model="patient.admission.data.religion" ng-predict='["Christian", "Muslim", "Hindu", "Buddhist", "Other"]' type="text"/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Preferred Language
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="preferredLanguage" ng-model="patient.admission.data.language" ng-predict='["English", "Hindu", "French", "Polish", "Other"]' type="text"/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Interpreter Required
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="interpreterRequired" ng-model="patient.admission.data.intepreterRequired" type="checkbox"/>
-    </div>
-   </div>
-  </form>
- 
-  <div class='small-12 columns'>
-    <div class='divider'></div>
-    <a href='#/admission/nameAddress' class='button'>
-      Previous
-    </a>
-    <a href='#/admission/components/nextOfKin' class='button'>
-      Next
-    </a>
-  </div>
+<div class='small-12 columns'>
+  <div class='divider'></div>
+  <a href='#/admission/nameAddress' class='button'>
+    Previous
+  </a>
+  <a href='#/admission/components/nextOfKin' class='button'>
+    Next
+  </a>
+</div>

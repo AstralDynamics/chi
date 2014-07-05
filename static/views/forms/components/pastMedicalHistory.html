@@ -1,40 +1,39 @@
+<div class="title bar">
+ <div class="center">
+  Past Medical History
+ </div>
+</div>
 
- 
-  <div class="title bar">
-   <div class="center">
-    Past Medical History
-   </div>
+<form ng-controller="AdmissionController">
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Are there ongoing health problems?
+   </label>
   </div>
-  <form>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Are there ongoing health problems?
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <textarea ng-model="patient.admission.medicalHistory.ongoingProblems">
-     </textarea>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Immunisations up to date
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.medicalHistory.immunisationsUpToDate" type="checkbox" value=""/>
-    </div>
-   </div>
-  </form>
+  <div class="large-10 small-8 columns">
+   <textarea ng-model="patient.admission.medicalHistory.ongoingProblems">
+   </textarea>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Immunisations up to date
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="" ng-model="patient.admission.medicalHistory.immunisationsUpToDate" type="checkbox" value=""/>
+  </div>
+ </div>
+</form>
 
-  <div class='small-12 columns'>
-    <div class='divider'></div>
-    <a href='#/admission/medicalHistory' class='button'>
-      Previous
-    </a>
-    <a href='#/admission/components/allergies' class='button'>
-      Next
-    </a>
-  </div>
+<div class='small-12 columns'>
+  <div class='divider'></div>
+  <a href='#/admission/medicalHistory' class='button'>
+    Previous
+  </a>
+  <a href='#/admission/components/allergies' class='button'>
+    Next
+  </a>
+</div>
