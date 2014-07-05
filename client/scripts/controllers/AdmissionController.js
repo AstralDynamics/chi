@@ -8,6 +8,7 @@ module.exports = function($scope, PatientIncubator) {
   $scope.selectedSibling = 0;
   $scope.addSibling = function() {
     $scope.patient.admission.data.siblings.push({
+      name: 'Name',
       gender: '',
       age: '',
       info: ''

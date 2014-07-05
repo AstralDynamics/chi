@@ -21,11 +21,51 @@
    <div class="control">
     <div class="large-2 small-4 columns">
      <label>
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <button class='button'
+       ng-click='addSibling()'>
+      Add Sibling
+     </button>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+      <span ng-repeat='sibling in patient.admission.data.siblings'>
+        <input type='radio' id='{{$index}}' name='sibling' value='{{$index}}'
+          ng-model='selectedSibling'/>
+        <label for='{{$index}}' ng-bind='sibling.name'></label>
+      </span>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+       Name
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.data.siblings[selectedSibling].name" type="text" value=""/>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
       Brother / Sister
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.data.siblings[0].name" type="text" value=""/>
+     <input name="gender" id='male'
+      ng-model="patient.admission.data.siblings[selectedSibling].gender" type="radio" value="male"/>
+      <label for='male'><i class='fa fa-male'></i></label>
+     <input name="gender" id='male'
+      ng-model="patient.admission.data.siblings[selectedSibling].gender" type="radio" value="female"/>
+      <label for='female'><i class='fa fa-female'></i></label>
     </div>
    </div>
    <div class="control">
@@ -35,7 +75,7 @@
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.data.siblings[0].age" type="text" value=""/>
+     <input name="" ng-model="patient.admission.data.siblings[selectedSibling].age" type="text" value=""/>
     </div>
    </div>
    <div class="control">
@@ -45,7 +85,7 @@
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <textarea ng-model="patient.admission.data.siblings[0].information">
+     <textarea ng-model="patient.admission.data.siblings[selectedSibling].information">
      </textarea>
     </div>
    </div>
