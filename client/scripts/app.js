@@ -7,6 +7,8 @@ angular.module('chai', ['ngRoute', 'firebase'])
   Patient: require('./services/Patient'),
   PatientIncubator: require('./services/PatientIncubator'),
   PatientTemplate: require('./services/PatientTemplate'),
+  Node: require('./services/Node'),
+  ProgressTree: require('./services/ProgressTree'),
   Staff: require('./services/Staff'),
   Auth: require('./services/Authentication'),
   NotificationCenter: require('./services/NotificationCenter')
@@ -25,7 +27,8 @@ angular.module('chai', ['ngRoute', 'firebase'])
   notificationsBar: require('./directives/notificationsBar'),
   radialProgress: require('./directives/radialProgress'),
   currentTime: require('./directives/currentTime'),
-  ngPredict: require('./directives/ngPredict')
+  ngPredict: require('./directives/ngPredict'),
+  progressNode: require('./directives/progressNode')
 })
 
 .filter({

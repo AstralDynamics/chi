@@ -5,7 +5,6 @@ module.exports = function(TaskFactory) {
     templateUrl: '/partials/taskEditor.html',
 
     controller: function($scope, resources) {
-
       $scope.resources = resources;
       console.log(TaskFactory.editableTask);
       

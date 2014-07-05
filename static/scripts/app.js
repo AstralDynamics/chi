@@ -8,6 +8,8 @@ angular.module('chai', ['ngRoute', 'firebase'])
   Patient: require('./services/Patient'),
   PatientIncubator: require('./services/PatientIncubator'),
   PatientTemplate: require('./services/PatientTemplate'),
+  Node: require('./services/Node'),
+  ProgressTree: require('./services/ProgressTree'),
   Staff: require('./services/Staff'),
   Auth: require('./services/Authentication'),
   NotificationCenter: require('./services/NotificationCenter')
@@ -26,7 +28,8 @@ angular.module('chai', ['ngRoute', 'firebase'])
   notificationsBar: require('./directives/notificationsBar'),
   radialProgress: require('./directives/radialProgress'),
   currentTime: require('./directives/currentTime'),
-  ngPredict: require('./directives/ngPredict')
+  ngPredict: require('./directives/ngPredict'),
+  progressNode: require('./directives/progressNode')
 })
 
 .filter({
@@ -249,7 +252,7 @@ angular.module('chai', ['ngRoute', 'firebase'])
 })
 
 
-},{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./directives/currentTime":5,"./directives/iconEditor":6,"./directives/ngPredict":7,"./directives/notificationsBar":8,"./directives/radialProgress":9,"./directives/systemBar":10,"./directives/taskEditor":11,"./filters/date":12,"./filters/timeUntil":13,"./services/Authentication":16,"./services/Model":17,"./services/NotificationCenter":18,"./services/Patient":19,"./services/PatientIncubator":20,"./services/PatientTemplate":21,"./services/Staff":22,"./services/db":23,"./services/resources":24}],2:[function(require,module,exports){
+},{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./directives/currentTime":5,"./directives/iconEditor":6,"./directives/ngPredict":7,"./directives/notificationsBar":8,"./directives/progressNode":9,"./directives/radialProgress":10,"./directives/systemBar":11,"./directives/taskEditor":12,"./filters/date":13,"./filters/timeUntil":14,"./services/Authentication":17,"./services/Model":18,"./services/Node":19,"./services/NotificationCenter":20,"./services/Patient":21,"./services/PatientIncubator":22,"./services/PatientTemplate":23,"./services/ProgressTree":24,"./services/Staff":25,"./services/db":26,"./services/resources":27}],2:[function(require,module,exports){
 module.exports = function($scope, PatientIncubator) {
   $scope.patient = PatientIncubator.retrieve();
 };
@@ -404,6 +407,31 @@ module.exports = function() {
 };
 
 },{}],9:[function(require,module,exports){
+module.exports = function(ProgressTree) {
+  return {
+    restrict:'A',
+    transclude: true,
+    template: '<div ng-transclude></div>',
+    scope: {
+      readLinks: '&nodeLinks',
+      value: '=nodeValue'
+    },
+    link: function(scope, element, attrs) {
+      var name, links;
+
+      // don't try to evaluate
+      name = attrs.nodeName;
+
+      // evaluate as array of strings
+      links = scope.readLinks();
+
+      scope.node = ProgressTree.createNode(name, links);
+      console.log(scope.node);
+    }
+  }
+};
+
+},{}],10:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -423,7 +451,7 @@ module.exports = function() {
   }
 };
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -431,7 +459,7 @@ module.exports = function() {
   }
 };
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = function(TaskFactory) {
   return {
     restrict: 'A',
@@ -439,7 +467,6 @@ module.exports = function(TaskFactory) {
     templateUrl: '/partials/taskEditor.html',
 
     controller: function($scope, resources) {
-
       $scope.resources = resources;
       console.log(TaskFactory.editableTask);
       
@@ -473,7 +500,7 @@ module.exports = function(TaskFactory) {
   }
 }
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 module.exports = function() {
   return function(seconds, template, named) {
     var date, names, components;
@@ -520,14 +547,14 @@ module.exports = function() {
   }
 }
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports = function() {
   return function(due) {
     return due - Date.now();
   }
 };
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports={
   "__default__": "#555",
   "black": "#3b3b3b",
@@ -539,7 +566,7 @@ module.exports={
   "cyan": "#71b9f8"
 }
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 module.exports={
   "__default__": "fa fa-circle",
   "ambulance": "fa fa-ambulance",
@@ -560,7 +587,7 @@ module.exports={
   "chart": "fa fa-bar-chart-o"
 }
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = function($q, Staff) {
   var profile = null;
 
@@ -593,7 +620,7 @@ module.exports = function($q, Staff) {
   }
 };
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 module.exports = function(db) {
   return function(name) {
     function fromDb(id) {
@@ -607,7 +634,45 @@ module.exports = function(db) {
   }
 }
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
+module.exports = function() {
+
+  function Node(name, value, links) {
+    this.name = name || '__default__';
+    this.value = value || 0;
+    this.links = links || [];
+  };
+
+  // Updates the node's value
+  Node.prototype.update = function(value) {
+    console.log('Updating node value', this);
+    this.value = value;
+  };
+
+  // Traverses the tree, passes every discovered
+  // node to a callback
+  Node.prototype.traverse = function(callback) {
+    console.log('Traversing node', this);
+    var args = arguments;
+    this.links.forEach(function(node) {
+      callback(node);
+      node.traverse.apply(node, args);
+    });
+  };
+
+  // Sums values of all nodes in the tree
+  Node.prototype.aggregate = function() {
+    console.log('Aggregating node', this);
+    this.links.forEach(function(node) {
+      this.value += node.aggregate();
+    });
+    return this.value;
+  };
+
+  return Node;
+}
+
+},{}],20:[function(require,module,exports){
 module.exports = function() {
   var notifications = [];
 
@@ -631,12 +696,12 @@ module.exports = function() {
   }
 };
 
-},{}],19:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('patients');
 }
 
-},{}],20:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports = function(PatientTemplate) {
   var patient = null;
 
@@ -662,7 +727,7 @@ module.exports = function(PatientTemplate) {
   }
 };
 
-},{}],21:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = function() {
   return function() {
     return {
@@ -707,17 +772,34 @@ module.exports = function() {
   }
 };
 
-},{}],22:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
+module.exports = function(Node) {
+  var nodes = [];
+
+  function createNode(name, links) {
+    console.log(arguments);
+    if(!nodes[name]) {
+      nodes[name] = new Node(name, 0, links);
+    }
+    return nodes[name];
+  }
+
+  return {
+    createNode: createNode
+  }
+};
+
+},{}],25:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('staff');
 };
 
-},{}],23:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 module.exports = function() {
   return new Firebase('https://astralchai.firebaseio.com');
 };
 
-},{}],24:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 module.exports = function() {
   return {
     icons: require('../resources/icons.json'),
@@ -725,4 +807,4 @@ module.exports = function() {
   }
 };
 
-},{"../resources/colors.json":14,"../resources/icons.json":15}]},{},[1])
+},{"../resources/colors.json":15,"../resources/icons.json":16}]},{},[1])
