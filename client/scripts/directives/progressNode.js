@@ -1,8 +1,6 @@
 module.exports = function(ProgressTree) {
   return {
     restrict:'A',
-    transclude: true,
-    template: '<div ng-transclude></div>',
     scope: {
       readLinks: '&nodeLinks',
       value: '=nodeValue'
@@ -16,8 +14,8 @@ module.exports = function(ProgressTree) {
       // evaluate as array of strings
       links = scope.readLinks();
 
-      scope.node = ProgressTree.createNode(name, links);
-      console.log(scope.node);
+      scope.node = ProgressTree.createNode(name, links, scope.value);
+      console.log('aggregate check', name, scope.node.aggregate());
     }
   }
 };

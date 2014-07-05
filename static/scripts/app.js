@@ -410,8 +410,6 @@ module.exports = function() {
 module.exports = function(ProgressTree) {
   return {
     restrict:'A',
-    transclude: true,
-    template: '<div ng-transclude></div>',
     scope: {
       readLinks: '&nodeLinks',
       value: '=nodeValue'
@@ -425,8 +423,8 @@ module.exports = function(ProgressTree) {
       // evaluate as array of strings
       links = scope.readLinks();
 
-      scope.node = ProgressTree.createNode(name, links);
-      console.log(scope.node);
+      scope.node = ProgressTree.createNode(name, links, scope.value);
+      console.log('aggregate check', name, scope.node.aggregate());
     }
   }
 };
@@ -662,10 +660,17 @@ module.exports = function() {
 
   // Sums values of all nodes in the tree
   Node.prototype.aggregate = function() {
+    var index, node;
+
     console.log('Aggregating node', this);
-    this.links.forEach(function(node) {
-      this.value += node.aggregate();
-    });
+    console.log('Links', this.links);
+
+    for(index = 0; index < this.links.length; index++) {
+      node = this.links[index];
+      console.log('each', node.name, node.aggregate());
+      this.value += node.aggregate() / this.links.length;
+      console.log('value', node.aggregate(), this.links.length);
+    }
     return this.value;
   };
 
@@ -776,10 +781,12 @@ module.exports = function() {
 module.exports = function(Node) {
   var nodes = [];
 
-  function createNode(name, links) {
-    console.log(arguments);
+  function createNode(name, links, value) {
+    links = links || [];
     if(!nodes[name]) {
-      nodes[name] = new Node(name, 0, links);
+      nodes[name] = new Node(name, value, links.map(function(link) {
+        return createNode(link, []);
+      }));
     }
     return nodes[name];
   }

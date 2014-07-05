@@ -25,10 +25,17 @@ module.exports = function() {
 
   // Sums values of all nodes in the tree
   Node.prototype.aggregate = function() {
+    var index, node;
+
     console.log('Aggregating node', this);
-    this.links.forEach(function(node) {
-      this.value += node.aggregate();
-    });
+    console.log('Links', this.links);
+
+    for(index = 0; index < this.links.length; index++) {
+      node = this.links[index];
+      console.log('each', node.name, node.aggregate());
+      this.value += node.aggregate() / this.links.length;
+      console.log('value', node.aggregate(), this.links.length);
+    }
     return this.value;
   };
 

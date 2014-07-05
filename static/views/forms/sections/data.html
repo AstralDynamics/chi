@@ -6,8 +6,12 @@
 
 <div class='field'>
     <div class='large-2 small-3 columns'>
-      <a href='#/admission/components/nameAddress'>
-        <div class='circle progress' radial-progress='0.6'>
+      <a href='#/admission/components/nameAddress'
+        progress-node
+        node-name='data'
+        node-links='["data.forename"]'
+        node-value='0'>
+        <div class='circle progress' radial-progress='node.aggregate()'>
           <div class='surface'>
             <i class='fa fa-folder'></i>
           </div>
