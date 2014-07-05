@@ -236,7 +236,11 @@ input[type=text], textarea {
   border: none;
   background: #f1f1f1;
   box-shadow: none;
-  /*border:solid 1px $primary;*/ }
+  border-color: #4fd1e7; }
+  input[type=text]:focus, textarea:focus {
+    box-shadow: none;
+    background: #f1f1f1;
+    border: solid 1px #4fd1e7; }
 
 input.error {
   border: solid 2px #ce2626;

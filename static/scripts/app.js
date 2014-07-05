@@ -25,7 +25,8 @@ angular.module('chai', ['ngRoute', 'firebase'])
   systemBar: require('./directives/systemBar'),
   notificationsBar: require('./directives/notificationsBar'),
   radialProgress: require('./directives/radialProgress'),
-  currentTime: require('./directives/currentTime')
+  currentTime: require('./directives/currentTime'),
+  ngPredict: require('./directives/ngPredict')
 })
 
 .filter({
@@ -248,7 +249,7 @@ angular.module('chai', ['ngRoute', 'firebase'])
 })
 
 
-},{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./directives/currentTime":5,"./directives/iconEditor":6,"./directives/notificationsBar":7,"./directives/radialProgress":8,"./directives/systemBar":9,"./directives/taskEditor":10,"./filters/date":11,"./filters/timeUntil":12,"./services/Authentication":15,"./services/Model":16,"./services/NotificationCenter":17,"./services/Patient":18,"./services/PatientIncubator":19,"./services/PatientTemplate":20,"./services/Staff":21,"./services/db":22,"./services/resources":23}],2:[function(require,module,exports){
+},{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./directives/currentTime":5,"./directives/iconEditor":6,"./directives/ngPredict":7,"./directives/notificationsBar":8,"./directives/radialProgress":9,"./directives/systemBar":10,"./directives/taskEditor":11,"./filters/date":12,"./filters/timeUntil":13,"./services/Authentication":16,"./services/Model":17,"./services/NotificationCenter":18,"./services/Patient":19,"./services/PatientIncubator":20,"./services/PatientTemplate":21,"./services/Staff":22,"./services/db":23,"./services/resources":24}],2:[function(require,module,exports){
 module.exports = function($scope, PatientIncubator) {
   $scope.patient = PatientIncubator.retrieve();
 };
@@ -333,6 +334,52 @@ module.exports = function() {
 module.exports = function() {
   return {
     restrict: 'A',
+    template: '<div class="predict">' +
+                '<div ng-transclude></div>' +
+                '<div class="suggestions" ng-show="suggestions.length">' +
+                  '<div class="suggestion"' +
+                    'ng-repeat="suggestion in suggestions">' +
+                    '<div ng-bind="suggestion" ng-click="use(suggestion)"></div>' +
+                  '</div>' +
+                '</div>' +
+              '</div>',
+    transclude: true,
+    scope: {
+      dictionary: '=ngPredict'
+    },
+
+    link: function(scope, element, attributes) {
+      element.on('change', function() {
+        scope.predict(element.val());
+      });
+    },
+
+    controller: function($scope, $element) {
+      $scope.suggestions = ['hello'];
+
+      // Use the suggestion
+      $scope.use = function(word) {
+        $element.val(word);
+        $scope.suggestions = [];
+      };
+
+      $scope.predict = function(seed) {
+        if(seed.length == 0) {
+          return [];
+        }
+
+        $scope.suggestions = $scope.dictionary.filter(function(word) {
+          return word.startsWith(seed);
+        });
+      };
+    }
+  }
+}
+
+},{}],8:[function(require,module,exports){
+module.exports = function() {
+  return {
+    restrict: 'A',
     templateUrl: '/partials/notificationsBar.html',
     controller: function($scope, NotificationCenter) {
       $scope.notifications = [];
@@ -356,7 +403,7 @@ module.exports = function() {
   }
 };
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -376,7 +423,7 @@ module.exports = function() {
   }
 };
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -384,7 +431,7 @@ module.exports = function() {
   }
 };
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports = function(TaskFactory) {
   return {
     restrict: 'A',
@@ -426,7 +473,7 @@ module.exports = function(TaskFactory) {
   }
 }
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = function() {
   return function(seconds, template, named) {
     var date, names, components;
@@ -473,14 +520,14 @@ module.exports = function() {
   }
 }
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 module.exports = function() {
   return function(due) {
     return due - Date.now();
   }
 };
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports={
   "__default__": "#555",
   "black": "#3b3b3b",
@@ -492,7 +539,7 @@ module.exports={
   "cyan": "#71b9f8"
 }
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports={
   "__default__": "fa fa-circle",
   "ambulance": "fa fa-ambulance",
@@ -513,7 +560,7 @@ module.exports={
   "chart": "fa fa-bar-chart-o"
 }
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 module.exports = function($q, Staff) {
   var profile = null;
 
@@ -546,7 +593,7 @@ module.exports = function($q, Staff) {
   }
 };
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = function(db) {
   return function(name) {
     function fromDb(id) {
@@ -560,7 +607,7 @@ module.exports = function(db) {
   }
 }
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 module.exports = function() {
   var notifications = [];
 
@@ -584,12 +631,12 @@ module.exports = function() {
   }
 };
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('patients');
 }
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 module.exports = function(PatientTemplate) {
   var patient = null;
 
@@ -615,7 +662,7 @@ module.exports = function(PatientTemplate) {
   }
 };
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = function() {
   return function() {
     return {
@@ -660,17 +707,17 @@ module.exports = function() {
   }
 };
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('staff');
 };
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = function() {
   return new Firebase('https://astralchai.firebaseio.com');
 };
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 module.exports = function() {
   return {
     icons: require('../resources/icons.json'),
@@ -678,4 +725,4 @@ module.exports = function() {
   }
 };
 
-},{"../resources/colors.json":13,"../resources/icons.json":14}]},{},[1])
+},{"../resources/colors.json":14,"../resources/icons.json":15}]},{},[1])

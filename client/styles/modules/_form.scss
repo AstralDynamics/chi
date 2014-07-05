@@ -6,7 +6,13 @@ input[type=text], textarea {
   border:none;
   background:$background-alt;
   box-shadow:none;
-  /*border:solid 1px $primary;*/
+  border-color:$primary;
+
+  &:focus {
+    box-shadow:none;
+    background:$background-alt;
+    border:solid 1px $primary;
+  }
 }
 
 input.error {

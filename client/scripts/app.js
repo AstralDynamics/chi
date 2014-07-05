@@ -24,7 +24,8 @@ angular.module('chai', ['ngRoute', 'firebase'])
   systemBar: require('./directives/systemBar'),
   notificationsBar: require('./directives/notificationsBar'),
   radialProgress: require('./directives/radialProgress'),
-  currentTime: require('./directives/currentTime')
+  currentTime: require('./directives/currentTime'),
+  ngPredict: require('./directives/ngPredict')
 })
 
 .filter({
