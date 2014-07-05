@@ -12,51 +12,60 @@
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.medicalHistory.allergies" type="checkbox" value=""/>
+     <input name="" ng-model="patient.admission.medicalHistory.hasAllergies" type="checkbox" value=""/>
     </div>
    </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      If yes, please complete details below
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Allergen 1
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.medicalHistory.allergens[0]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Reaction 1
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.medicalHistory.reaction[0]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Corrective Measure 1
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.medicalHistory.corrective[0]" type="text" value=""/>
-    </div>
+   <div class='conditional'
+     ng-show='patient.admission.medicalHistory.hasAllergies'>
+     <div class='divider'></div>
+     <div class="control">
+      <div class="large-2 small-4 columns">
+       <label>
+        Allergies
+       </label>
+      </div>
+      <div class="large-10 small-8 columns">
+        <button class='button'>Add allergy</button>
+        <input type='radio' name='{{allergy.allergen}}' value='{{allergy.allergen}}'
+          ng-model='allergy.selected'
+          ng-repeat='allergy in patient.admission.medicalHistory.allergies'/>
+      </div>
+     </div>
+     <div class="control">
+      <div class="large-2 small-4 columns">
+       <label>
+        Allergen
+       </label>
+      </div>
+      <div class="large-10 small-8 columns">
+       <input name="" ng-model="patient.admission.medicalHistory.allergens[0]" type="text" value=""/>
+      </div>
+     </div>
+     <div class="control">
+      <div class="large-2 small-4 columns">
+       <label>
+        Reaction
+       </label>
+      </div>
+      <div class="large-10 small-8 columns">
+       <input name="" ng-model="patient.admission.medicalHistory.reaction[0]" type="text" value=""/>
+      </div>
+     </div>
+     <div class="control">
+      <div class="large-2 small-4 columns">
+       <label>
+        Corrective Measure
+       </label>
+      </div>
+      <div class="large-10 small-8 columns">
+       <input name="" ng-model="patient.admission.medicalHistory.corrective[0]" type="text" value=""/>
+      </div>
+     </div>
    </div>
   </form>
 
   <div class='small-12 columns'>
+    <div class='divider'></div>
     <a href='#/admission/components/medicalHistory' class='button'>
       Previous
     </a>

@@ -23,6 +23,11 @@ input.error {
   overflow:hidden;
 }
 
+.divider {
+  border-bottom:solid 1px #eee;
+  margin:$gutter * 3 0;
+}
+
 .progress.circle {
   width:120px;
   height:120px;
@@ -83,14 +88,20 @@ form {
     font-size:1.2em;
   }
 
+  .hint {
+    color:#888;
+  }
+
   .control {
     position:relative;
     overflow:hidden;
+    min-height:54px;
 
     .unit {
       position:absolute;
-      top:0;
-      right:0;
+      top:0.6em;
+      right:1.4em;
+      color:#ccc;
     }
   }
 }

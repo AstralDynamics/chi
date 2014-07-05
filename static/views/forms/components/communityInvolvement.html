@@ -6,7 +6,45 @@
    </div>
   </div>
   <form ng-controller="AdmissionController">
-   Organisation – GP Contact Name
+    <div class='control'>
+    <div class='large-12 small-12 columns'>
+      <input type='radio' id='gp' value='gp' name='member'
+        ng-model='community.member'/>
+      <label for='gp'>GP</label>
+
+      <input type='radio' id='healthVisitor' value='healthVisitor' name='member'
+        ng-model='community.member'/>
+      <label for='healthVisitor'>Health Visitor</label>
+
+      <input type='radio' id='midwife' value='midwife' name='member'
+        ng-model='community.member'/>
+      <label for='midwife'>Midwife</label>
+
+      <input type='radio' id='socialWorker' value='socialWorker' name='member'
+        ng-model='community.member'/>
+      <label for='socialWorker'>Social Worker</label>
+
+      <input type='radio' id='camhs' value='camhs' name='member'
+        ng-model='community.member'/>
+      <label for='camhs'>CAMHS</label>
+
+      <input type='radio' id='comChildNurse' value='comChildNurse' name='member'
+        ng-model='community.member'/>
+      <label for='comChildNurse'>Com Child's Nurse</label>
+
+      <input type='radio' id='lookedAfter' value='lookedAfter' name='member'
+        ng-model='community.member'/>
+      <label for='lookedAfter'>Looked After Child's Nurse</label>
+
+      <input type='radio' id='youthWorker' value='youthWorker' name='member'
+        ng-model='community.member'/>
+      <label for='youthWorker'>Youth Worker</label>
+
+      <input type='radio' id='other' value='other' name='member'
+        ng-model='community.member'/>
+      <label for='other'>Other</label>
+    </div>
+   </div>
    <div class="control">
     <div class="large-2 small-4 columns">
      <label>
@@ -57,415 +95,6 @@
      <input name="" ng-model="patient.admission.community.gp.telephone" type="text" value=""/>
     </div>
    </div>
-   Organisation – Health Visitor Contact Name
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 1
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.healthVisitor.address[0]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 2
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.healthVisitor.address[1]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 3
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.healthVisitor.address[2]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Post Code
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.healthVisitor.postcode" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Tel number
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.healthVisitor.telephone" type="text" value=""/>
-    </div>
-   </div>
-   Organisation – Midwife  Contact Name
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 1
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.midwife.address[0]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 2
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.midwife.address[1]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 3
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.midwife.address[2]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Post Code
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.midwife.postcode" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Tel number
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.midwife.telephone" type="text" value=""/>
-    </div>
-   </div>
-   Organisation – Social Worker  Contact Name
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 1
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.socialWorker.address[0]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 2
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.socialWorker.address[1]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 3
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.socialWorker.address[2]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Post Code
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.socialWorker.postcode" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Tel number
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.socialWorker.telephone" type="text" value=""/>
-    </div>
-   </div>
-   Organisation – CAMHS  Contact Name
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 1
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.camhs.address[0]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 2
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.camhs.address[1]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 3
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.camhs.address[2]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Post Code
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.camhs.postcode" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Tel number
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.camhs.telephone" type="text" value=""/>
-    </div>
-   </div>
-   Organisation – Com Children's Nurse Contact Name
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 1
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.camhs.address[0]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 2
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.camhs.address[1]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 3
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.camhs.address[2]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Post Code
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.camhs.postcode" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Tel number
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.camhs.telephone" type="text" value=""/>
-    </div>
-   </div>
-   Organisation - Looked After Child's Nurse Contact Name
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 1
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.nurse.address[0]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 2
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.nurse.address[1]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 3
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.nurse.address[2]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Post Code
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.nurse.postcode" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Tel number
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.nurse.telephone" type="text" value=""/>
-    </div>
-   </div>
-   Organisation - Youth Worker Contact Name
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 1
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.youthWorker.address[0]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 2
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.youthWorker.address[1]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 3
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.youthWorker.address[2]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Post Code
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.youthWorker.postcode" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Tel number
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.youthWorker.telephone" type="text" value=""/>
-    </div>
-   </div>
-   Organisation – other  Contact Name
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 1
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.other.address[0]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 2
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.other.address[1]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Address line 3
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.other.address[2]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Post Code
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.other.postcode" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Tel number
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.community.other.telephone" type="text" value=""/>
-    </div>
-   </div>
-   Organisation
    <div class="control">
     <div class="large-2 small-4 columns">
      <label>
@@ -486,8 +115,14 @@
      <input name="" ng-model="patient.admission.community.nurseryName" type="text" value=""/>
     </div>
    </div>
-   <button>
-    Submit
-   </button>
   </form>
  
+  <div class='small-12 columns'>
+    <div class='divider'></div>
+    <a href='#/admission/safety' class='button'>
+      Previous
+    </a>
+    <a href='#/admission/components/safeguardingChildren' class='button'>
+      Next
+    </a>
+  </div> 

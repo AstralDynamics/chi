@@ -53,14 +53,12 @@
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <select name="gender" ng-model="patient.admission.data.gender">
-      <option value="male">
-       Male
-      </option>
-      <option value="female">
-       Female
-      </option>
-     </select>
+      <input type='radio' id='male' value='male' name='gender'
+        ng-model='patient.admission.admission.data.gender'/>
+      <label for='male'>Male</label>
+      <input type='radio' id='female' value='female' name='gender'
+        ng-model='patient.admission.admission.data.gender'/>
+      <label for='female'>Female</label>
     </div>
    </div>
    <div class="control">
@@ -96,6 +94,7 @@
   </form>
  
   <div class='small-12 columns'>
+    <div class='divider'></div>
     <a href='#/admission/nameAddress' class='button'>
       Previous
     </a>

@@ -1,4 +1,5 @@
 
+
  
   <div class="title bar">
    <div class="center">
@@ -41,9 +42,9 @@
      <label>
       Time Settles
      </label>
-     Time
     </div>
     <div class="large-10 small-8 columns">
+     Time
     </div>
    </div>
    <div class="control">
@@ -51,9 +52,9 @@
      <label>
       Time Wakes
      </label>
-     Time
     </div>
     <div class="large-10 small-8 columns">
+     Time
     </div>
    </div>
    <div class="control">
@@ -71,69 +72,29 @@
      <label>
       (when?)
      </label>
+    </div>
+    <div class="large-10 small-8 columns">
      Time
     </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Normal Pattern
+     </label>
+    </div>
     <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.sleeping.normalPattern" type="text" value=""/>
     </div>
    </div>
    <div class="control">
     <div class="large-2 small-4 columns">
      <label>
-      Normal Pattern 1
+      Altered Pattern / Problems
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.sleeping.normalPattern[0]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Altered Pattern / Problems 1
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.sleeping.alteredPattern[0]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Normal Pattern 2
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.sleeping.normalPattern[1]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Altered Pattern / Problems 2
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.sleeping.alteredPattern[1]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Normal Pattern 3
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.sleeping.normalPattern[2]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Altered Pattern / Problems 3
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.sleeping.alteredPattern[2]" type="text" value=""/>
+     <input name="" ng-model="patient.admission.sleeping.alteredPattern" type="text" value=""/>
     </div>
    </div>
    <div class="control">
@@ -158,6 +119,7 @@
     </div>
    </div>
    <div class="control">
+
     <div class="large-2 small-4 columns">
      <label>
       Problem Identified
@@ -169,3 +131,12 @@
    </div>
   </form>
  
+  <div class='small-12 columns'>
+    <div class='divider'></div>
+    <a href='#/admission/components/hygiene' class='button'>
+      Previous
+    </a>
+    <a href='#/admission/living' class='button'>
+      Next
+    </a>
+  </div>

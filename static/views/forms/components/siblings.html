@@ -1,5 +1,3 @@
-
- 
   <div class="title bar">
    <div class="center">
     Siblings
@@ -9,99 +7,52 @@
    <div class="control">
     <div class="large-2 small-4 columns">
      <label>
-      Brother / Sister 1
+       Has siblings?
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.data.siblings[0].name" type="text" value=""/>
+     <input name="" type='checkbox'
+     ng-model="patient.admission.data.hasSiblings" type="text" value=""/>
     </div>
    </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Age
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.data.siblings[0].age" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Other relevant information
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <textarea ng-model="patient.admission.data.siblings[0].information">
-     </textarea>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Brother / Sister 2
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.data.siblings[1].name" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Age
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.data.siblings[1].age" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Other relevant information
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <textarea ng-model="patient.admission.data.siblings[1].information">
-     </textarea>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Brother / Sister 3
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.data.siblings[2].name" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Age
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.data.siblings[2].age" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Other relevant information
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <textarea ng-model="patient.admission.data.siblings[2].information">
-     </textarea>
-    </div>
+   <div class='conditional' ng-show='patient.admission.data.hasSiblings'>
+     <div class='divider'></div>
+     <div class="control">
+      <div class="large-2 small-4 columns">
+       <label>
+        Brother / Sister
+       </label>
+      </div>
+      <div class="large-10 small-8 columns">
+       <input name="" ng-model="patient.admission.data.siblings[0].name" type="text" value=""/>
+      </div>
+     </div>
+     <div class="control">
+      <div class="large-2 small-4 columns">
+       <label>
+        Age
+       </label>
+      </div>
+      <div class="large-10 small-8 columns">
+       <input name="" ng-model="patient.admission.data.siblings[0].age" type="text" value=""/>
+      </div>
+     </div>
+     <div class="control">
+      <div class="large-2 small-4 columns">
+       <label>
+        Other relevant information
+       </label>
+      </div>
+      <div class="large-10 small-8 columns">
+       <textarea ng-model="patient.admission.data.siblings[0].information">
+       </textarea>
+      </div>
+     </div>
    </div>
   </form>
  
   <div class='small-12 columns'>
+    <div class='divider'></div>
     <a href='#/admission/nextOfKin' class='button'>
       Previous
     </a>

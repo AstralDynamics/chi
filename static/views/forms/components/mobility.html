@@ -59,61 +59,21 @@
    <div class="control">
     <div class="large-2 small-4 columns">
      <label>
-      Normal Ability 1
+      Normal Ability
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.mobility.normalAbility[0]" type="text" value=""/>
+     <input name="" ng-model="patient.admission.mobility.normalAbility" type="text" value=""/>
     </div>
    </div>
    <div class="control">
     <div class="large-2 small-4 columns">
      <label>
-      Altered Ability / Problem 1
+      Altered Ability / Problem
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.mobility.alteredAbility[0]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Normal Ability 2
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.mobility.normalAbility[1]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Altered Ability / Problem 2
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.mobility.alteredAbility[1]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Normal Ability 3
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.mobility.normalAbility[2]" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Altered Ability / Problem 3
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.mobility.alteredAbility[2]" type="text" value=""/>
+     <input name="" ng-model="patient.admission.mobility.alteredAbility" type="text" value=""/>
     </div>
    </div>
    <div class="control">
@@ -126,8 +86,14 @@
      <input name="" ng-model="patient.admission.mobility.problemIdentified" type="checkbox" value=""/>
     </div>
    </div>
-   <button>
-    Submit
-   </button>
   </form>
  
+  <div class='small-12 columns'>
+    <div class='divider'></div>
+    <a href='#/admission/components/socialDevelopment' class='button'>
+      Previous
+    </a>
+    <a href='#/admission/development' class='button'>
+      Next
+    </a>
+  </div>

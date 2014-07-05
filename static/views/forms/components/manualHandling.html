@@ -16,13 +16,14 @@
      <input name="" ng-model="patient.admission.manualHandling.riskOfInjury" type="checkbox" value=""/>
     </div>
    </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      If Yes Please Complete A Full WMH Manual Handling Risk Assessment Form detailing risks and methods to be used in caring for this patient
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
+   <div class="control" 
+     ng-show='patient.admission.manualHandling.riskOfInjury'>
+    <div class="large-12 small-12 columns">
+      <div class='divider'></div>
+       <p class='hint'>
+        Please Complete A Full WMH Manual Handling Risk Assessment Form detailing risks and methods to be used in caring for this patient
+       </p>
+      <div class='divider'></div>
     </div>
    </div>
    <div class="control">
@@ -36,4 +37,13 @@
     </div>
    </div>
   </form>
- 
+
+  <div class='small-12 columns'>
+    <div class='divider'></div>
+    <a href='#/admission/components/safeguardingChildren' class='button'>
+      Previous
+    </a>
+    <a href='#/admission/safety' class='button'>
+      Next
+    </a>
+  </div> 

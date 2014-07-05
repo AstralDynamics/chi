@@ -1,5 +1,3 @@
-
- 
   <div class="title bar">
    <div class="center">
     Urinalysis
@@ -9,55 +7,38 @@
    <div class="control">
     <div class="large-2 small-4 columns">
      <label>
-      Type of sample - midstream
+      Type of sample
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="midstream" ng-model="patient.admission.urinalisis.midstream" type="checkbox"/>
-     <input type='radio' id='midstream' value='midstream' name='type' 
+     <input type='radio' id='midstream' value='midstream' name='type'
       ng-model='patient.admission.urinalysis.type'/>
-      <label for='midstream'></label>
+     <label for='midstream'>Midstream</label>
+
+     <input type='radio' id='cleanCatch' value='cleanCatch' name='type'
+      ng-model='patient.admission.urinalysis.type'/>
+     <label for='cleanCatch'>Clean Catch</label>
+
+     <input type='radio' id='nappy' value='nappy' name='type'
+      ng-model='patient.admission.urinalysis.type'/>
+     <label for='nappy'>Nappy</label>
+
+     <input type='radio' id='catheter' value='catheter' name='type'
+      ng-model='patient.admission.urinalysis.type'/>
+     <label for='catheter'>Catheter</label>
+
+     <input type='radio' id='other' value='other' name='type'
+      ng-model='patient.admission.urinalysis.type'/>
+     <label for='other'>Other</label>
 
     </div>
    </div>
-   <div class="control">
+   <div class="control" ng-show='patient.admission.urinalysis.type == "other"'>
     <div class="large-2 small-4 columns">
-     <label>
-      Type of sample - clean catch
-     </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="cleanCatch" ng-model="patient.admission.urinalisis.cleanCatch" type="checkbox"/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Type of sample - nappy
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="nappy" ng-model="patient.admission.urinalisis.nappy" type="checkbox"/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Type of sample - catheter
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="catheter" ng-model="patient.admission.urinalisis.catheter" type="checkbox"/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      Type of sample - other
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="other" ng-model="patient.admission.urinalisis.other" type="string"/>
+     <input name="other" placeholder='Describe sample type'
+      ng-model="patient.admission.urinalisis.type" type="text"/>
     </div>
    </div>
    <div class="control">
@@ -67,7 +48,7 @@
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="wardTestResult" ng-model="patient.admission.urinalisis.wardTestResult" type="string"/>
+     <input name="wardTestResult" ng-model="patient.admission.urinalisis.wardTestResult" type="text"/>
     </div>
    </div>
    <div class="control">
@@ -113,6 +94,7 @@
   </form>
  
   <div class='small-12 columns'>
+    <div class='divider'></div>
     <a href='#/admission/urinePainSkin' class='button'>
       Previous
     </a>

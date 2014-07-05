@@ -23,7 +23,18 @@
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="avpu" ng-model="patient.admission.observations.avpu" type="text"/>
+      <input type='radio' id='a' value='a' name='avpu'
+        ng-model='patient.admission.admission.observations.avpu'/>
+      <label for='a'>A</label>
+      <input type='radio' id='v' value='v' name='avpu'
+        ng-model='patient.admission.admission.observations.avpu'/>
+      <label for='v'>V</label>
+      <input type='radio' id='p' value='p' name='avpu'
+        ng-model='patient.admission.admission.observations.avpu'/>
+      <label for='p'>P</label>
+      <input type='radio' id='u' value='u' name='avpu'
+        ng-model='patient.admission.admission.observations.avpu'/>
+      <label for='u'>U</label>
     </div>
    </div>
    <div class="control">
@@ -33,7 +44,8 @@
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="pearl" ng-model="patient.admission.observations.pearl" type="text"/>
+     <input name="pearl" type='checkbox'
+      ng-model="patient.admission.observations.pearl"/>
     </div>
    </div>
    <div class="control">
@@ -49,6 +61,7 @@
   </form>
  
   <div class='small-12 columns'>
+    <div class='divider'></div>
     <a href='#/admission/components/obs2' class='button'>
       Previous
     </a>

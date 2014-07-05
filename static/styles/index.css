@@ -133,7 +133,8 @@ only padding that can be overriden.
   background: white;
   color: #4fd1e7;
   border-radius: 4px;
-  border: solid 1px #4fd1e7; }
+  border: solid 1px #4fd1e7;
+  padding: 0.5em 1em; }
 
 .button.round {
   background: #4fd1e7;
@@ -249,6 +250,10 @@ input.error {
   max-height: 140px;
   overflow: hidden; }
 
+.divider {
+  border-bottom: solid 1px #eee;
+  margin: 12px 0; }
+
 .progress.circle {
   width: 120px;
   height: 120px;
@@ -291,13 +296,17 @@ form {
   form label {
     color: #4fd1e7;
     font-size: 1.2em; }
+  form .hint {
+    color: #888; }
   form .control {
     position: relative;
-    overflow: hidden; }
+    overflow: hidden;
+    min-height: 54px; }
     form .control .unit {
       position: absolute;
-      top: 0;
-      right: 0; }
+      top: 0.6em;
+      right: 1.4em;
+      color: #ccc; }
 
 .notifications.bar {
   height: 48px;

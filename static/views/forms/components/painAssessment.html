@@ -1,5 +1,3 @@
-
- 
   <div class="title bar">
    <div class="center">
     Pain Assessment
@@ -9,109 +7,132 @@
    <div class="control">
     <div class="large-2 small-4 columns">
      <label>
-      Is the Child Pain free on Admission
+      Is the child pain free on admission?
      </label>
     </div>
     <div class="large-10 small-8 columns">
      <input name="" ng-model="patient.admission.pain.painFree" type="checkbox" value=""/>
     </div>
    </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      if no, implement an age appropriate pain assessment tool
-     </label>
+   <div class='conditional' ng-hide='patient.admission.pain.painFree'>
+     <div class="control">
+      <div class="large-2 small-4 columns">
+       <label>
+         How much pain?
+       </label>
+      </div>
+      <div class="large-10 small-8 columns">
+       <input type='radio' id='one' value='1' name='level'
+        ng-model='patient.admission.urinalysis.pain.level'/>
+       <label for='one'>1</label>
+       <input type='radio' id='two' value='2' name='level'
+        ng-model='patient.admission.urinalysis.pain.level'/>
+       <label for='two'>2</label>
+       <input type='radio' id='three' value='3' name='level'
+        ng-model='patient.admission.urinalysis.pain.level'/>
+       <label for='three'>3</label>
+       <input type='radio' id='four' value='4' name='level'
+        ng-model='patient.admission.urinalysis.pain.level'/>
+       <label for='four'>4</label>
+       <input type='radio' id='five' value='5' name='level'
+        ng-model='patient.admission.urinalysis.pain.level'/>
+       <label for='five'>5</label>
+      </div>
+     </div>
+     <div class="control">
+      <div class="large-2 small-4 columns">
+       <label>
+        Pain score
+       </label>
+      </div>
+      <div class="large-10 small-8 columns">
+       <input name="" ng-model="patient.admission.pain.score" type="text" value=""/>
+      </div>
+     </div>
+     <div class="control">
+      <div class="large-2 small-4 columns">
+       <label>
+         Time
+       </label>
+      </div>
+      <div class="large-10 small-8 columns">
+       <input name="" ng-model="patient.admission.pain.time" type="text" value=""/>
+      </div>
+     </div>
+     <div class="control">
+      <div class="large-2 small-4 columns">
+       <label>
+        Intervention provided
+       </label>
+      </div>
+      <div class="large-10 small-8 columns">
+       <input name="" placeholder='Medication hot / cold pack etc'
+        ng-model="patient.admission.pain.intervention" type="text" value=""/>
+      </div>
+     </div>
+     <div class="control">
+      <div class="large-4 small-4 columns">
+       <label>
+        Pain experienced and dealt with prior to admission
+       </label>
+      </div>
+      <div class="large-8 small-8 columns">
+       <input name="" ng-model="patient.admission.pain.painPrior" type="checkbox" value=""/>
+      </div>
+     </div>
+     <div class='conditional'
+       ng-show='patient.admission.pain.painPrior'>
+       <div class="control">
+        <div class="large-4 small-4 columns">
+         <label>
+           How was it dealt with?
+         </label>
+        </div>
+        <div class="large-8 small-8 columns">
+         <input type='text'
+          ng-model="patient.admission.pain.dealt"/>
+        </div>
+       </div>
+       <div class="control">
+        <div class="large-4 small-4 columns">
+         <label>
+          Has it changed since admission?
+         </label>
+        </div>
+        <div class="large-8 small-8 columns">
+         <input type='radio' id='improved' value='improved' name='change'
+          ng-model='patient.admission.urinalysis.pain.change'/>
+         <label for='improved'>Improved</label>
+     
+         <input type='radio' id='changed' value='changed' name='change'
+          ng-model='patient.admission.urinalysis.pain.change'/>
+         <label for='changed'>Changed</label>
+
+         <input type='radio' id='worse' value='worse' name='change'
+          ng-model='patient.admission.urinalysis.pain.change'/>
+         <label for='worse'>Got worse</label>
+
+         <input type='radio' id='better' value='better' name='change'
+          ng-model='patient.admission.urinalysis.pain.change'/>
+         <label for='better'>Got better</label>
+        </div>
+       </div>
+     </div>
+     <div class="control">
+      <div class="large-2 small-4 columns">
+       <label>
+        Problem identified?
+       </label>
+      </div>
+      <div class="large-10 small-8 columns">
+       <input name="" ng-model="patient.admission.pain.problemIdentified" type="checkbox" value=""/>
+      </div>
+     </div>
     </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.pain.painTool" type="" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      smiley faces 1 - 5
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.pain.smiley" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      pain score on admission
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.pain.score" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      time
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.pain.time" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      intervention provide (state what e.g. Medication hot / cold pack)
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.pain.intervention" type="text" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      pain experienced and dealt with prior to admission
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.pain.painPrior" type="checkbox" value=""/>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      how was this pain dealt with? Has it:
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <select ng-model="patient.admission.pain.painState">
-      <option value="improved">
-       Improved
-      </option>
-      <option value="changed">
-       Changed
-      </option>
-      <option value="worse">
-       Got Worse
-      </option>
-      <option value="better">
-       Got Better
-      </option>
-     </select>
-    </div>
-   </div>
-   <div class="control">
-    <div class="large-2 small-4 columns">
-     <label>
-      problem identified
-     </label>
-    </div>
-    <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.pain.problemIdentified" type="checkbox" value=""/>
-    </div>
-   </div>
   </form>
 
   <div class='small-12 columns'>
+    <div class='divider'></div>
     <a href='#/admission/components/urinalysis' class='button'>
       Previous
     </a>
