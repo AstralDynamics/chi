@@ -3,4 +3,11 @@
 </div>
 
 <a href='#/admission' class='button'>New AAU Notification</a>
-<i class='icon nurse'></i>
+
+<div class='divider'></div>
+<ul>
+  <li ng-repeat='patient in patients'>
+    <span ng-bind='patient.admission.data.forename'></span>
+    <b ng-bind='patient.admission.data.surname'></b>
+  </li>
+</ul>

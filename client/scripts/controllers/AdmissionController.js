@@ -1,11 +1,16 @@
-module.exports = function($scope, PatientIncubator) {
+module.exports = function($scope, PatientIncubator, Patient) {
   $scope.patient = PatientIncubator.retrieve();
+
+  $scope.admit = function() {
+    console.log('Admitting new patient');
+    Patient.save($scope.patient);
+  };
 
   $scope.community = {
     member: ''
   };
 
-  $scope.selectedSibling = 0;
+  $scope.selectedSibling = -1;
   $scope.addSibling = function() {
     $scope.patient.admission.data.siblings.push({
       name: 'Name',
@@ -15,7 +20,7 @@ module.exports = function($scope, PatientIncubator) {
     })
   };
 
-  $scope.selectedAllergy = 0;
+  $scope.selectedAllergy = -1;
   $scope.addAllergy = function() {
     console.log('add allergy');
     $scope.patient.admission.medicalHistory.allergies.push({

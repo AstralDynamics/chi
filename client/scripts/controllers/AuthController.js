@@ -5,7 +5,6 @@ module.exports = function($scope, Auth) {
   $scope.submit = function() {
     Auth.authenticate($scope.id)
     .then(function() {
-      console.log('hell');
       window.location.replace('#/dash');
     })
     .catch(function() {

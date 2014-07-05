@@ -254,14 +254,19 @@ angular.module('chai', ['ngRoute', 'firebase'])
 
 
 },{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./directives/currentTime":5,"./directives/iconEditor":6,"./directives/ngPredict":7,"./directives/notificationsBar":8,"./directives/progressNode":9,"./directives/radialProgress":10,"./directives/systemBar":11,"./directives/taskEditor":12,"./directives/timeInput":13,"./filters/date":14,"./filters/timeUntil":15,"./services/Authentication":18,"./services/Model":19,"./services/Node":20,"./services/NotificationCenter":21,"./services/Patient":22,"./services/PatientIncubator":23,"./services/PatientTemplate":24,"./services/ProgressTree":25,"./services/Staff":26,"./services/db":27,"./services/resources":28}],2:[function(require,module,exports){
-module.exports = function($scope, PatientIncubator) {
+module.exports = function($scope, PatientIncubator, Patient) {
   $scope.patient = PatientIncubator.retrieve();
+
+  $scope.admit = function() {
+    console.log('Admitting new patient');
+    Patient.save($scope.patient);
+  };
 
   $scope.community = {
     member: ''
   };
 
-  $scope.selectedSibling = 0;
+  $scope.selectedSibling = -1;
   $scope.addSibling = function() {
     $scope.patient.admission.data.siblings.push({
       name: 'Name',
@@ -271,7 +276,7 @@ module.exports = function($scope, PatientIncubator) {
     })
   };
 
-  $scope.selectedAllergy = 0;
+  $scope.selectedAllergy = -1;
   $scope.addAllergy = function() {
     console.log('add allergy');
     $scope.patient.admission.medicalHistory.allergies.push({
@@ -292,7 +297,6 @@ module.exports = function($scope, Auth) {
   $scope.submit = function() {
     Auth.authenticate($scope.id)
     .then(function() {
-      console.log('hell');
       window.location.replace('#/dash');
     })
     .catch(function() {
@@ -303,7 +307,8 @@ module.exports = function($scope, Auth) {
 }
 
 },{}],4:[function(require,module,exports){
-module.exports = function($scope, $firebase, Auth) {
+module.exports = function($scope, $firebase, Auth, Patient) {
+  console.warn('Dash loading');
   var profile = Auth.getProfile();
 
   if(!profile) {
@@ -311,8 +316,17 @@ module.exports = function($scope, $firebase, Auth) {
     window.location.replace('#/auth');
   }
 
-  $scope.staff = $firebase(profile);
+  //$scope.staff = $firebase(profile);
+  $scope.patients = $firebase(Patient.getAll());
+
+  console.log('Patients', Patient.getAll());
+  console.log('Patients', $scope.patients);
+  $scope.patients.$on('loaded', function(value) {
+    console.log(value);
+    console.log('data loaded');
+  });
 };
+
 
 },{}],5:[function(require,module,exports){
 module.exports = function($interval, $filter) {
@@ -684,13 +698,25 @@ module.exports = function($q, Staff) {
 },{}],19:[function(require,module,exports){
 module.exports = function(db) {
   return function(name) {
+    var root = db.child(name);
+
     function fromDb(id) {
-      return db.child(name)
-      .child(id);
+      return root.child(id);
+    }
+
+    function save(model) {
+      root.push(model);
+    }
+
+    function getAll() {
+      console.log(root);
+      return root;
     }
 
     return {
-      fromDb: fromDb
+      fromDb: fromDb,
+      save: save,
+      getAll: getAll
     }
   }
 }
