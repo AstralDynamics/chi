@@ -256,6 +256,12 @@ angular.module('chai', ['ngRoute', 'firebase'])
 },{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./directives/currentTime":5,"./directives/iconEditor":6,"./directives/ngPredict":7,"./directives/notificationsBar":8,"./directives/progressNode":9,"./directives/radialProgress":10,"./directives/systemBar":11,"./directives/taskEditor":12,"./directives/timeInput":13,"./filters/date":14,"./filters/timeUntil":15,"./services/Authentication":18,"./services/Model":19,"./services/Node":20,"./services/NotificationCenter":21,"./services/Patient":22,"./services/PatientIncubator":23,"./services/PatientTemplate":24,"./services/ProgressTree":25,"./services/Staff":26,"./services/db":27,"./services/resources":28}],2:[function(require,module,exports){
 module.exports = function($scope, PatientIncubator) {
   $scope.patient = PatientIncubator.retrieve();
+
+  $scope.community = {
+    member: ''
+  };
+  $scope.siblings = [];
+  $scope.allergies = [];
 };
 
 },{}],3:[function(require,module,exports){
@@ -884,6 +890,93 @@ module.exports = function() {
           alteredDiet: '',
           specialDiet: '',
           problemIdentified: false
+        },
+
+        hygiene: {
+          washingDressing: false,
+          dependent: false,
+          needsAssistance: false,
+          independent: false,
+          usesNappies: false,
+          toiletTraining: false,
+          continentDay: false,
+          continentNight: false,
+          normalPattern: '',
+          alteredPattern: '',
+          problemIdentified: false
+        },
+
+        sleeping: {
+          cot: false,
+          bed: false,
+          pillows: false,
+          timeSettles: '',
+          timeWakes: '',
+          naps: false,
+          napsWhen: '',
+          normalPattern: '',
+          alteredPattern: '',
+          bedrailsAssessment: false,
+          bedrailsReason: '',
+          problemIdentified: false
+        },
+
+        communication: {
+          speech: false,
+          speechDetails: '',
+          hearing: false,
+          hearingDetails: '',
+          vision: false,
+          visionDetails: ''
+        },
+
+        social: {
+          concerned: false,
+          details: '',
+          toysHobbies: ''
+        },
+
+        mobility: {
+          crawling: false,
+          walking: false,
+          needsAssistance: false,
+          unableToWalk: false,
+          wheelChair: false,
+          normalAbility: '',
+          alteredAbility: ''
+        },
+
+        community: {
+          gp: {},
+          healthVisitor: {},
+          midwife: {},
+          socialWorker: {},
+          camhs: {},
+          comChildNurse: {},
+          lookedAfterChild: {},
+          youthWorker: {},
+          other: {},
+          schoolName: '',
+          nurseryName: ''
+        },
+
+        safeguardingChildren: {
+          concerns: false,
+          registerCheck: false,
+          parentInformed: false,
+          socialServicesContacted: false,
+          parentInformedSocialServices: false,
+          nurseSafeguarding: false,
+          problemIdentified: false
+        },
+
+        manualHandling: {
+          riskOfInjury: false,
+          problemIdentified: false,
+        },
+
+        information: {
+
         }
 
       }

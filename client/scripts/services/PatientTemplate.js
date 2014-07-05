@@ -124,7 +124,7 @@ module.exports = function() {
           continentDay: false,
           continentNight: false,
           normalPattern: '',
-          alteredPattern: ''
+          alteredPattern: '',
           problemIdentified: false
         },
 
@@ -148,7 +148,7 @@ module.exports = function() {
           speechDetails: '',
           hearing: false,
           hearingDetails: '',
-          vision: false
+          vision: false,
           visionDetails: ''
         },
 
