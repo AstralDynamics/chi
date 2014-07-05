@@ -260,8 +260,27 @@ module.exports = function($scope, PatientIncubator) {
   $scope.community = {
     member: ''
   };
-  $scope.siblings = [];
-  $scope.allergies = [];
+
+  $scope.selectedSibling = 0;
+  $scope.addSibling = function() {
+    $scope.patient.admission.data.siblings.push({
+      gender: '',
+      age: '',
+      info: ''
+    })
+  };
+
+  $scope.selectedAllergy = 0;
+  $scope.addAllergy = function() {
+    console.log('add allergy');
+    $scope.patient.admission.medicalHistory.allergies.push({
+      allergen: 'Allergen',
+      reactiion: 'Reaction',
+      corrective: 'Corrective measure'
+    });
+    console.log($scope.patient.admission.medicalHistory.allergies);
+  };
+
 };
 
 },{}],3:[function(require,module,exports){

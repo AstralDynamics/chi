@@ -26,10 +26,20 @@
      </label>
     </div>
     <div class="large-10 small-8 columns">
-      <button class='button'>Add allergy</button>
-      <input type='radio' name='{{allergy.allergen}}' value='{{allergy.allergen}}'
-        ng-model='allergy.selected'
-        ng-repeat='allergy in patient.admission.medicalHistory.allergies'/>
+      <button class='button'
+        ng-click='addAllergy()'>
+        Add allergy
+      </button>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+    </div>
+    <div class="large-10 small-8 columns">
+      <span ng-repeat='allergy in patient.admission.medicalHistory.allergies'>
+        <input type='radio' name='allergies' ng-model='selectedAllergy' id='{{$index}}' value='{{$index}}'/>
+        <label for='{{$index}}' ng-bind='allergy.allergen'></label>
+      </span>
     </div>
    </div>
    <div class="control">
@@ -39,7 +49,7 @@
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.medicalHistory.allergens[0]" type="text" value=""/>
+     <input name="" ng-model="patient.admission.medicalHistory.allergies[selectedAllergy].allergen" type="text" value=""/>
     </div>
    </div>
    <div class="control">
@@ -49,7 +59,7 @@
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.medicalHistory.reaction[0]" type="text" value=""/>
+     <input name="" ng-model="patient.admission.medicalHistory.allergies[selectedAllergy].reaction" type="text" value=""/>
     </div>
    </div>
    <div class="control">
@@ -59,7 +69,7 @@
      </label>
     </div>
     <div class="large-10 small-8 columns">
-     <input name="" ng-model="patient.admission.medicalHistory.corrective[0]" type="text" value=""/>
+     <input name="" ng-model="patient.admission.medicalHistory.allergies[selectedAllergy].corrective" type="text" value=""/>
     </div>
    </div>
  </div>
