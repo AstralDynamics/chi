@@ -34,7 +34,7 @@ servers. To get a copy of the APK, read the testing section below.
 Testers
 =======
 You can get a copy of the rolling build from phonegap by scanning this QR.  
-![](https://chart.googleapis.com/chart?chs=116x116&cht=qr&chl=http://build.phonegap.com/apps/994817/install/?qr_key=1sHyLADykBtB2xTrWJML&chld=L|1&choe=UTF-8)
+![](https://chart.googleapis.com/chart?chs=116x116&cht=qr&chl=http://build.phonegap.com/apps/994926/install/?qr_key=EX4qsYtfpXmTaKqccWGh&chld=L|1&choe=UTF-8)  
 
 Hydration is enabled, so you should only have to download it once, then it will 
 update whenever a new build is released.
