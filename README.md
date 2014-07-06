@@ -22,7 +22,7 @@ Run `grunt` to
 * Serve files on [localhost:4041](localhost:4041)
 
 ##Mobile App
-You can get a copy of the rolling build from phonegap by scanning this QR.
+You can get a copy of the rolling build from phonegap by scanning this QR.  
 ![](https://chart.googleapis.com/chart?chs=116x116&cht=qr&chl=http://build.phonegap.com/apps/994817/install/?qr_key=1sHyLADykBtB2xTrWJML&chld=L|1&choe=UTF-8)
 
 Hydration is enabled, so you should only have to download it once, then it will 
