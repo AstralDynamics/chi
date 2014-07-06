@@ -1,0 +1,70 @@
+<div class="title bar">
+ <div class="center">
+  Observations
+ </div>
+</div>
+
+<form ng-controller="AdmissionController">
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Temperature
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="temperature" ng-model="patient.admission.observations.temperature" type="text"/>
+   <span class="unit">
+    C
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Pulse
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="pulse" ng-model="patient.admission.observations.pulse" type="text"/>
+   <span class="unit">
+    bpm
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Respirations
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="respirations" ng-model="patient.admission.observations.respirations" type="text"/>
+   <span class="unit">
+    pm
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Weight
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="weight" ng-model="patient.admission.observations.weight" type="text"/>
+   <span class="unit">
+    kg
+   </span>
+  </div>
+ </div>
+</form>
+
+<div class='small-12 columns'>
+  <div class='divider'></div>
+  <a href='#/admission/observations' class='button'>
+    Previous
+  </a>
+  <a href='#/admission/components/obs2' class='button'>
+    Next
+  </a>
+</div>

@@ -1,0 +1,75 @@
+<div class="title bar">
+ <div class="center">
+  Communication
+ </div>
+</div>
+
+<form ng-controller="AdmissionController">
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Speech
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="" ng-model="patient.admission.communication.speech" type="checkbox" value=""/>
+  </div>
+ </div>
+ <div class="control" ng-show='patient.admission.communication.speech'>
+  <div class="large-2 small-4 columns">
+  </div>
+  <div class="large-10 small-8 columns">
+   <textarea placeholder='Speech details'
+     ng-model="patient.admission.communication.speechDetails">
+   </textarea>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Hearing
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="" ng-model="patient.admission.communication.hearing" type="checkbox" value=""/>
+  </div>
+ </div>
+ <div class="control" ng-show='patient.admission.communication.hearing'>
+  <div class="large-2 small-4 columns">
+  </div>
+  <div class="large-10 small-8 columns">
+   <textarea placeholder='Hearing details'
+     ng-model="patient.admission.communication.hearingDetails">
+   </textarea>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Vision
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="" ng-model="patient.admission.communication.vision" type="checkbox" value=""/>
+  </div>
+ </div>
+ <div class="control" ng-show='patient.admission.communication.vision'>
+  <div class="large-2 small-4 columns">
+  </div>
+  <div class="large-10 small-8 columns">
+   <textarea placeholder='Vision details'
+     ng-model="patient.admission.communication.visionDetails">
+   </textarea>
+  </div>
+ </div>
+</form>
+
+<div class='small-12 columns'>
+  <div class='divider'></div>
+  <a href='#/admission/development' class='button'>
+    Previous
+  </a>
+  <a href='#/admission/components/socialDevelopment' class='button'>
+    Next
+  </a>
+  </div>

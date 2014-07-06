@@ -1,0 +1,17 @@
+<div class='title bar' ng-init='init()'>
+  Nurses Dashboard
+</div>
+
+<div class='nurse dash'>
+  <div class='status'>
+    <div class='label bold {{timeOfDay()}}'>
+      Good <span ng-bind='timeOfDay()'></span>,
+      <b ng-bind='staff.name.firstname'></b>
+      <b ng-bind='staff.name.surname'></b>
+    </div>
+  </div>
+  <div class='divider'></div>
+  <a href='#/admission' class='button'>New AAU Notification</a>
+  <a href='#/patients' class='button'>Patients</a>
+</div>
+

@@ -1,0 +1,14 @@
+
+<div class='notifications bar'>
+  <div class='center'>
+    <div class='notification' ng-repeat='(name, type) in types'>
+      <a href='#/{{name}}'>
+        <i class='{{type}}'></i>
+        <label class='count'
+          ng-show='count(name)'
+          ng-bind='count(name)'>
+        </label>
+      </a>
+    </div>
+  </div>
+</div>

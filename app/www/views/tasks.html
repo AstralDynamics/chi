@@ -1,0 +1,52 @@
+<div class='tasks'>
+
+  <div class='task' 
+    ng-repeat='task in tasks | orderBy:due'
+    ng-hide='task.hidden'
+    ng-class='{ selected: selected === $index,
+      expired: task.due < now()}'
+    ng-click='toggleSelection($index)'>
+    <i class='icon {{task.icon.glyph}}'
+      style='color:{{task.icon.color}}'></i>
+    <span class='title' ng-bind='task.title'></span>
+    <span class='due'>Due in 
+      <b>
+        <span ng-bind='task.due | timeUntil | date:"h"'></span>h
+        <span ng-bind='task.due | timeUntil | date:"m"'></span>m
+      </b>
+    </span>
+    <div class='meta' style='border-color:{{task.icon.color}};'>
+      <div class='times'>
+        <span class='time-set' ng-bind='task.date | date:"h:m"'>15:09</span>
+        <span class='time-due' ng-bind='task.due | date:"h:m"'>17:09</span>
+      </div>
+      <div class='notes' ng-bind='task.description'></div>
+    </div>
+    <div class='progress'
+      style='background:{{task.icon.color}};
+             width:{{100 - percentComplete(task)}}%'>
+    </div>
+  </div>
+
+  <div class='footer'>
+    <div class='actions bar'>
+      <div class='center'>
+        <a class='button' href='#/tasks/edit'>
+          <i class='fa fa-plus'></i>
+        </a>
+        <a class='button' ng-click='edit()'
+          ng-disabled='!(selected >= 0)'>
+          <i class='fa fa-pencil'></i>
+        </a>
+        <a class='button' ng-click='cancel()'
+          ng-disabled='!(selected >= 0)'>
+          <i class='fa fa-ban'></i>
+        </a>
+        <a class='button' ng-click='complete()'
+          ng-disabled='!(selected >= 0)'>
+          <i class='fa fa-check'></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class='title bar'>
+  <div class='left'>
+    <i class='fa fa-male' ng-show='patient.gender == "male"'></i>
+    <i class='fa fa-female' ng-show='patient.gender == "female"'></i>
+    <b ng-bind='patient.name'></b>
+  </div>
+  <div class='center'>
+    <span>Age:</span>
+    <b ng-bind='patient.age'></b>
+  </div>
+  <div class='right'>
+    <span>Bed:</span>
+    <b ng-bind='patient.bed'></b>
+  </div>
+</div>
+
+<div class='controls'>
+  <a href='' class='button'>
+    <i class='fa fa-pencil'></i>
+    Notes
+  </a>
+  <a href='' class='button'>
+    <i class='fa fa-file-text-o'></i>
+    Admission Data
+  </a>
+  <a href='' class='button'>
+    <i class='fa fa-pencil'></i>
+    Observations
+  </a>
+  <a href='' class='button'>
+    <i class='fa fa-arrow-right'></i>
+    Discharge
+  </a>
+</div>

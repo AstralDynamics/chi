@@ -1,0 +1,126 @@
+<div class="title bar">
+ <div class="center">
+  Skin Integrity
+ </div>
+</div>
+
+<form ng-controller="AdmissionController">
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Skin Intact
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="" ng-model="patient.admission.skinIntegrity.intact" type="checkbox" value=""/>
+  </div>
+ </div>
+
+ <div class='conditional' ng-hide='patient.admission.skinIntegrity.intact'>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Rashes
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.skinIntegrity.rashes" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control" ng-show='patient.admission.skinIntegrity.rashes'>
+    <div class="large-2 small-4 columns">
+    </div>
+    <div class="large-10 small-8 columns">
+     <textarea placeholder='Describe rashes'
+       ng-model="patient.admission.skinIntegrity.rashDescription">
+     </textarea>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Cuts / grazes
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.skinIntegrity.cutsOrGrazes" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control" ng-show='patient.admission.skinIntegrity.cutsOrGrazes'>
+    <div class="large-2 small-4 columns">
+    </div>
+    <div class="large-10 small-8 columns">
+     <textarea placeholder='Describe cuts'
+       ng-model="patient.admission.skinIntegrity.cutsDescription">
+     </textarea>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Bruises
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.skinIntegrity.bruises" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control" ng-show='patient.admission.skinIntegrity.bruises'>
+    <div class="large-2 small-4 columns">
+    </div>
+    <div class="large-10 small-8 columns">
+     <textarea placeholder='Describe bruises'
+       ng-model="patient.admission.skinIntegrity.bruiseDescription">
+     </textarea>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Pressure Sores
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.skinIntegrity.pressureSores" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control" ng-show='patient.admission.skinIntegrity.pressureSores'>
+    <div class="large-2 small-4 columns">
+    </div>
+    <div class="large-10 small-8 columns">
+     <textarea placeholder='Describe pressure sores'
+      ng-model="patient.admission.skinIntegrity.pressureSoresDescription">
+     </textarea>
+    </div>
+   </div>
+   <div class="control">
+    <div class="large-2 small-4 columns">
+     <label>
+      Infestations, hair / skin
+     </label>
+    </div>
+    <div class="large-10 small-8 columns">
+     <input name="" ng-model="patient.admission.skinIntegrity.infestations" type="checkbox" value=""/>
+    </div>
+   </div>
+   <div class="control" ng-show='patient.admission.skinIntegrity.infestations'>
+    <div class="large-2 small-4 columns">
+    </div>
+    <div class="large-10 small-8 columns">
+     <textarea placeholder='Describe infestations'
+      ng-model="patient.admission.skinIntegrity.infestationDescription">
+     </textarea>
+    </div>
+   </div>
+ </div>
+</form>
+
+<div class='small-12 columns'>
+  <div class='divider'></div>
+  <a href='#/admission/components/painAssessment' class='button'>
+    Previous
+  </a>
+  <a href='#/admission/components/skinIntegrity2' class='button'>
+    Next
+  </a>
+</div>

@@ -1,0 +1,93 @@
+<div class="title bar">
+ <div class="center">
+  Observations
+ </div>
+</div>
+
+<form ng-controller="AdmissionController">
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Blood Pressure 1
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="bloodPressureOne" ng-model="patient.admission.observations.bloodPressureOne" type="text"/>
+   <span class="unit">
+    mmol
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Blood Pressure 2
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="bloodPressureTwo" ng-model="patient.admission.observations.bloodPressureTwo" type="text"/>
+   <span class="unit">
+    mmol
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    O2 sats (air)
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="o2Sats" ng-model="patient.admission.observations.o2SatsAir" type="text"/>
+   <span class="unit">
+    ltrs
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    O2 sats (air) in ltrs
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="o2SatsLitres" ng-model="patient.admission.observations.o2SatsLitres" type="text"/>
+   <span class="unit">
+    ltrs
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Blood Sugar BM
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="bloodSugarBM" ng-model="patient.admission.observations.bloodSugarBM" type="text"/>
+   <span class="unit">
+    BM
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Capillary Refill – less than 2 seconds
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="lessThan2Seconds" ng-model="patient.admission.observations.capillaryRefillLt2s" type="checkbox"/>
+  </div>
+ </div>
+</form>
+
+<div class='small-12 columns'>
+  <div class='divider'></div>
+  <a href='#/admission/components/obs1' class='button'>
+    Previous
+  </a>
+  <a href='#/admission/components/obs3' class='button'>
+    Next
+  </a>
+</div>

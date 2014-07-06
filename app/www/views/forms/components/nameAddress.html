@@ -1,0 +1,74 @@
+<div class="title bar">
+ <div class="center">
+  Name and Address
+ </div>
+</div>
+
+<form ng-controller="AdmissionController">
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Forename
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input type='text'
+    ng-model="patient.admission.data.forename"
+    progress-node
+    node-name='data.forename'
+    node-value='1'
+    ng-change='node.update(1)'/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Surname
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input ng-model="patient.admission.data.surname" type="text"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Preferred Name
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input ng-model="patient.admission.data.preferredName" type="text"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Address
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <textarea ng-model="patient.admission.data.address">
+   </textarea>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Postcode
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input ng-model="patient.admission.data.postcode" type="text"/>
+  </div>
+ </div>
+</form>
+
+<div class='small-12 columns'>
+  <div class='divider'></div>
+  <a href='#/admission/data' class='button'>
+    Previous
+  </a>
+  <a href='#/admission/components/patientInformation' class='button'>
+    Next
+  </a>
+</div>

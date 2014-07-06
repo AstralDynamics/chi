@@ -1,0 +1,133 @@
+<div class="title bar">
+ <div class="center">
+  Medication
+ </div>
+</div>
+
+<form ng-controller="AdmissionController">
+ <div class="control">
+ <div class='large-12 small-12 columns'>
+   <h4>Recent Medication</h4>
+   <p class='hint'>
+    (taken in relation to this presenting illness, including homeopathic remedies)
+   </p>
+ </div>
+  <div class="large-3 small-4 columns">
+   <label>
+    Medication prescribed
+   </label>
+  </div>
+  <div class="large-9 small-8 columns">
+   <input name="" ng-model="patient.admission.medication.recent.prescribed" type="text" value=""/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-3 small-4 columns">
+   <label>
+    Dose
+   </label>
+  </div>
+  <div class="large-9 small-8 columns">
+   <input name="" ng-model="patient.admission.medication.recent.dose" type="text" value=""/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-3 small-4 columns">
+   <label>
+    Strength – if Known
+   </label>
+  </div>
+  <div class="large-9 small-8 columns">
+   <input name="" ng-model="patient.admission.medication.recent.strength" type="text" value=""/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-3 small-4 columns">
+   <label>
+    Last Given
+   </label>
+  </div>
+  <div class="large-9 small-8 columns">
+   <input name="" ng-model="patient.admission.medication.recent.lastGiven" type="text" value=""/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-3 small-4 columns">
+   <label>
+    Frequency, Or times when given
+   </label>
+  </div>
+  <div class="large-9 small-8 columns">
+   <input name="" ng-model="patient.admission.medication.recent.frequency" type="text" value=""/>
+  </div>
+ </div>
+
+ <div class='divider'></div>
+
+ <div class='large-12 small-12 columns'>
+   <h4>Regular Medication</h4>
+   <p class='hint'>
+   (usually prescribed on a long term basis)
+   </p>
+ </div>
+ <div class="control">
+  <div class="large-3 small-4 columns">
+   <label>
+     Medication prescribed
+   </label>
+  </div>
+  <div class="large-9 small-8 columns">
+   <input name="" ng-model="patient.admission.medication.regular.prescribed" type="text" value=""/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-3 small-4 columns">
+   <label>
+    Dose
+   </label>
+  </div>
+  <div class="large-9 small-8 columns">
+   <input name="" ng-model="patient.admission.medication.regular.dose" type="text" value=""/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-3 small-4 columns">
+   <label>
+    Strength – if Known
+   </label>
+  </div>
+  <div class="large-9 small-8 columns">
+   <input name="" ng-model="patient.admission.medication.regular.strength" type="text" value=""/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-3 small-4 columns">
+   <label>
+    Last Given
+   </label>
+  </div>
+  <div class="large-9 small-8 columns">
+   <input name="" ng-model="patient.admission.medication.regular.lastGiven" type="text" value=""/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-3 small-4 columns">
+   <label>
+    Frequency, Or times when given
+   </label>
+  </div>
+  <div class="large-9 small-8 columns">
+   <input name="" ng-model="patient.admission.medication.regular.frequency" type="text" value=""/>
+  </div>
+ </div>
+</form>
+
+<div class='small-12 columns'>
+  <div class='divider'></div>
+  <a href='#/admission/allergies' class='button'>
+    Previous
+  </a>
+  <a href='#/admission/components/listOfMeds' class='button'>
+    Next
+  </a>
+</div>

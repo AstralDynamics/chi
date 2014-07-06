@@ -1,0 +1,89 @@
+<div class="title bar">
+ <div class="center">
+  Next of Kin
+ </div>
+</div>
+
+<form ng-controller="AdmissionController">
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Next of kin
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="nextOfKin" ng-model="patient.admission.data.nextOfKin" type="text"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Relationship
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="relationship" ng-model="patient.admission.data.relationship" type="text"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Home telephone number
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="homeTelephoneNumber" ng-model="patient.admission.data.homeTelephone" type="tel"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Mobile number
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="mobileNumber" ng-model="patient.admission.data.mobileTelephone" type="tel"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Other contact number
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="otherContactNumber" ng-model="patient.admission.data.otherContactTelephone" type="tel"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Other contact name
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="otherContactName" ng-model="patient.admission.data.otherContactName" type="text"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Address
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <textarea ng-model="patient.admission.data.address">
+   </textarea>
+  </div>
+ </div>
+</form>
+
+<div class='small-12 columns'>
+  <div class='divider'></div>
+  <a href='#/admission/components/patientInformation' class='button'>
+    Previous
+  </a>
+  <a href='#/admission/components/siblings' class='button'>
+    Next
+  </a>
+</div>

@@ -1,0 +1,32 @@
+
+  <div class='control'>
+    <label>Reason for admission</label>
+    <input type='text' name='reasonAdmission'
+      ng-model='patient.admission.nursingAssessment.admissionReason'/>
+  </div>
+  <div class='control'>
+    <label>Date of admission</label>
+    <input type='date' name='dateOfAdmission'
+      ng-model='patient.admission.nursingAssessment.admissionDate'/>
+    <!-- change to real date thing -->
+  </div>
+  <div class='control'>
+    <label>Time of admission</label>
+    <input type='time' name='timeOfAdmission'
+      ng-model='patient.admission.nursingAssessment.admissionTime'/>
+    <!-- change to real time thing -->
+  </div>
+  <div class='control'>
+    <label>Type of admission</label>
+    <select name='typeOfAdmission'
+      ng-model='patient.admission.nursingAssessment.admissionType'/>
+      <option value='ae'>A&amp;E</option>
+      <option value='gp'>G.P</option>
+      <option value='planned'>Planned</option>
+      <option value='transfer'>Transfer</option>
+      <option value='mid'>Mid</option>
+      <option value='openaccess'>Open Access</option>
+    </select>
+  </div>
+  <button>Submit</button>
+</form>

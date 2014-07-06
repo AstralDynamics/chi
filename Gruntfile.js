@@ -29,6 +29,19 @@ module.exports = function(grunt) {
       }
     },
 
+    copy: {
+      main: {
+        files: [
+          {
+            expand: true,
+            cwd: 'static',
+            src: ['**'],
+            dest: 'app/www/'
+          }
+        ]
+      }
+    },
+
     watch: {
       js: {
         files: 'client/scripts/**/*.js',
@@ -57,7 +70,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-http-server');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('build', ['browserify', 'sass']);
+  grunt.registerTask('phonegap', ['copy']);
   grunt.registerTask('default', ['http-server', 'build', 'watch']);
 };
