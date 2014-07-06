@@ -1,5 +1,5 @@
 var app = {
-  initialiaze: function() {
+  init: function() {
     this.bindEvents();
   },
   bindEvents: function() {
@@ -11,3 +11,5 @@ var app = {
     });
   }
 };
+
+window.addEventListener('load', app.init);

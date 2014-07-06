@@ -8,4 +8,22 @@
     text-align:center;
     overflow:hidden;
   }
+
+  .label.Evening i {
+    color:#ffd600;
+  }
+
+  .label.Night i {
+    color:#fff;
+  }
+
+  .label.Morning {
+    background:$primary-highlight;
+    i { color: #ffd600 }
+  }
+
+  .label.Afternoon {
+    background:$primary-highlight;
+    i { color: #ffd600 }
+  }
 }

@@ -13,6 +13,15 @@
   i {
     color:$primary-highlight;
   }
+
+  .button {
+    background:$primary;
+    border:none;
+
+    &:hover i {
+      color:white;
+    }
+  }
 }
 
 .notification {

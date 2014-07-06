@@ -18,6 +18,15 @@ module.exports = function($scope, $firebase, Auth, Patient, Notify, timeOfDay) {
   }
 
   $scope.timeOfDay = timeOfDay;
+  function isIt(phase) {
+    return function() {
+      return $scope.timeOfDay() === phase;
+    }
+  }
+  $scope.morning = isIt('Morning');
+  $scope.afternoon = isIt('Afternoon');
+  $scope.evening = isIt('Evening');
+  $scope.night = isIt('Night');
 
 };
 
