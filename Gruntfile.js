@@ -18,6 +18,10 @@ module.exports = function(grunt) {
         },
         src: 'client/scripts/app.js',
         dest: 'static/scripts/app.js'
+      },
+      mobile: {
+        src: 'client/scripts/mobile.js',
+        dest: 'static/scripts/mobile.js'
       }
     },
 
@@ -39,6 +43,13 @@ module.exports = function(grunt) {
             dest: 'app/www/'
           }
         ]
+      }
+    },
+
+    exec: {
+      buildAndroid: {
+        command: 'phonegap remote build android',
+        cwd: 'app'
       }
     },
 
@@ -71,8 +82,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-http-server');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-exec');
 
   grunt.registerTask('build', ['browserify', 'sass']);
-  grunt.registerTask('phonegap', ['copy']);
+  grunt.registerTask('phonegap', ['copy', 'exec']);
   grunt.registerTask('default', ['http-server', 'build', 'watch']);
 };
