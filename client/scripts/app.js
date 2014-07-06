@@ -1,4 +1,6 @@
-angular.module('chai', ['ngRoute', 'firebase'])
+require('./modules/EventEmitter.js');
+
+angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
 
 .factory({
   resources: require('./services/resources'),
@@ -11,13 +13,16 @@ angular.module('chai', ['ngRoute', 'firebase'])
   ProgressTree: require('./services/ProgressTree'),
   Staff: require('./services/Staff'),
   Auth: require('./services/Authentication'),
-  NotificationCenter: require('./services/NotificationCenter')
+  Notify: require('./services/NotificationCenter'),
+  timeOfDay: require('./services/timeOfDay')
 })
 
 .controller({
   AuthController: require('./controllers/AuthController'),
   DashController: require('./controllers/DashController'),
-  AdmissionController: require('./controllers/AdmissionController')
+  AdmissionController: require('./controllers/AdmissionController'),
+  PatientsController: require('./controllers/PatientsController'),
+  PatientController: require('./controllers/PatientController')
 })
 
 .directive({
@@ -29,7 +34,9 @@ angular.module('chai', ['ngRoute', 'firebase'])
   currentTime: require('./directives/currentTime'),
   ngPredict: require('./directives/ngPredict'),
   progressNode: require('./directives/progressNode'),
-  timeInput: require('./directives/timeInput')
+  timeInput: require('./directives/timeInput'),
+  modal: require('./directives/modal'),
+  modalManager: require('./directives/modalManager')
 })
 
 .filter({
@@ -57,9 +64,16 @@ angular.module('chai', ['ngRoute', 'firebase'])
     controller: 'DashController'
   })
 
+  // Patient list
+  .when('/patients', {
+    templateUrl: '/views/patients.html',
+    controller: 'PatientsController'
+  })
+
   // Patient specific
   .when('/patient/:id', {
-    templateUrl: '/views/patient.html'
+    templateUrl: '/views/patient.html',
+    controller: 'PatientController'
   })
 
   // Staff notes

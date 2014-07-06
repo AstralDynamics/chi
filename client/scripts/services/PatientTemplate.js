@@ -1,6 +1,14 @@
 module.exports = function() {
   return function() {
     return {
+
+      ward: '',
+      bed: '',
+      name: '',
+      age: '',
+      pew: '',
+      nurse: '',
+
       admission: {
 
         data: {

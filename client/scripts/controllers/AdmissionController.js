@@ -2,8 +2,20 @@ module.exports = function($scope, PatientIncubator, Patient) {
   $scope.patient = PatientIncubator.retrieve();
 
   $scope.admit = function() {
+    var patient = $scope.patient;
     console.log('Admitting new patient');
-    Patient.save($scope.patient);
+
+    // Duplicate fields for future lookup
+    patient.ward = 'AAU';
+    patient.bed = 'Not assigned';
+    patient.age = patient.admission.data.age;
+    patient.pew = 0;
+    patient.nurse = 'Not assigned';
+    patient.gender = patient.admission.data.gender;
+    patient.name = patient.admission.data.preferredName + ' ' +
+      patient.admission.data.surname;
+
+    Patient.save(patient);
   };
 
   $scope.community = {

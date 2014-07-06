@@ -1,4 +1,4 @@
-module.exports = function($q, Staff) {
+module.exports = function($rootScope, $q, Staff) {
   var profile = null;
 
   function authenticate(id) {

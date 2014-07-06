@@ -1,5 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-angular.module('chai', ['ngRoute', 'firebase'])
+require('./modules/EventEmitter.js');
+
+angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
 
 .factory({
   resources: require('./services/resources'),
@@ -12,13 +14,16 @@ angular.module('chai', ['ngRoute', 'firebase'])
   ProgressTree: require('./services/ProgressTree'),
   Staff: require('./services/Staff'),
   Auth: require('./services/Authentication'),
-  NotificationCenter: require('./services/NotificationCenter')
+  Notify: require('./services/NotificationCenter'),
+  timeOfDay: require('./services/timeOfDay')
 })
 
 .controller({
   AuthController: require('./controllers/AuthController'),
   DashController: require('./controllers/DashController'),
-  AdmissionController: require('./controllers/AdmissionController')
+  AdmissionController: require('./controllers/AdmissionController'),
+  PatientsController: require('./controllers/PatientsController'),
+  PatientController: require('./controllers/PatientController')
 })
 
 .directive({
@@ -30,7 +35,9 @@ angular.module('chai', ['ngRoute', 'firebase'])
   currentTime: require('./directives/currentTime'),
   ngPredict: require('./directives/ngPredict'),
   progressNode: require('./directives/progressNode'),
-  timeInput: require('./directives/timeInput')
+  timeInput: require('./directives/timeInput'),
+  modal: require('./directives/modal'),
+  modalManager: require('./directives/modalManager')
 })
 
 .filter({
@@ -58,9 +65,16 @@ angular.module('chai', ['ngRoute', 'firebase'])
     controller: 'DashController'
   })
 
+  // Patient list
+  .when('/patients', {
+    templateUrl: '/views/patients.html',
+    controller: 'PatientsController'
+  })
+
   // Patient specific
   .when('/patient/:id', {
-    templateUrl: '/views/patient.html'
+    templateUrl: '/views/patient.html',
+    controller: 'PatientController'
   })
 
   // Staff notes
@@ -253,13 +267,25 @@ angular.module('chai', ['ngRoute', 'firebase'])
 })
 
 
-},{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./directives/currentTime":5,"./directives/iconEditor":6,"./directives/ngPredict":7,"./directives/notificationsBar":8,"./directives/progressNode":9,"./directives/radialProgress":10,"./directives/systemBar":11,"./directives/taskEditor":12,"./directives/timeInput":13,"./filters/date":14,"./filters/timeUntil":15,"./services/Authentication":18,"./services/Model":19,"./services/Node":20,"./services/NotificationCenter":21,"./services/Patient":22,"./services/PatientIncubator":23,"./services/PatientTemplate":24,"./services/ProgressTree":25,"./services/Staff":26,"./services/db":27,"./services/resources":28}],2:[function(require,module,exports){
+},{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./controllers/PatientController":5,"./controllers/PatientsController":6,"./directives/currentTime":7,"./directives/iconEditor":8,"./directives/modal":9,"./directives/modalManager":10,"./directives/ngPredict":11,"./directives/notificationsBar":12,"./directives/progressNode":13,"./directives/radialProgress":14,"./directives/systemBar":15,"./directives/taskEditor":16,"./directives/timeInput":17,"./filters/date":18,"./filters/timeUntil":19,"./modules/EventEmitter.js":20,"./services/Authentication":23,"./services/Model":24,"./services/Node":25,"./services/NotificationCenter":26,"./services/Patient":27,"./services/PatientIncubator":28,"./services/PatientTemplate":29,"./services/ProgressTree":30,"./services/Staff":31,"./services/db":32,"./services/resources":33,"./services/timeOfDay":34}],2:[function(require,module,exports){
 module.exports = function($scope, PatientIncubator, Patient) {
   $scope.patient = PatientIncubator.retrieve();
 
   $scope.admit = function() {
+    var patient = $scope.patient;
     console.log('Admitting new patient');
-    Patient.save($scope.patient);
+
+    // Duplicate fields for future lookup
+    patient.ward = 'AAU';
+    patient.bed = 'Not assigned';
+    patient.age = patient.admission.data.age;
+    patient.pew = 0;
+    patient.nurse = 'Not assigned';
+    patient.gender = patient.admission.data.gender;
+    patient.name = patient.admission.data.preferredName + ' ' +
+      patient.admission.data.surname;
+
+    Patient.save(patient);
   };
 
   $scope.community = {
@@ -307,28 +333,46 @@ module.exports = function($scope, Auth) {
 }
 
 },{}],4:[function(require,module,exports){
-module.exports = function($scope, $firebase, Auth, Patient) {
-  console.warn('Dash loading');
-  var profile = Auth.getProfile();
+module.exports = function($scope, $firebase, Auth, Patient, Notify, timeOfDay) {
 
-  if(!profile) {
-    console.error('Not signed in');
-    window.location.replace('#/auth');
+  $scope.init = function() {
+    var profile = Auth.getProfile();
+
+    if(!profile) {
+      console.error('Not signed in');
+      window.location.replace('#/auth');
+      return;
+    }
+
+    $scope.patients = $firebase(Patient.getAll());
+    console.log('profile', profile);
+    //$scope.staff = $firebase(profile);
+    console.log('type', typeof profile);
+    $scope.staff = profile;
+    console.log('$profile', $firebase(profile));
   }
 
-  //$scope.staff = $firebase(profile);
-  $scope.patients = $firebase(Patient.getAll());
+  $scope.timeOfDay = timeOfDay;
 
-  console.log('Patients', Patient.getAll());
-  console.log('Patients', $scope.patients);
-  $scope.patients.$on('loaded', function(value) {
-    console.log(value);
-    console.log('data loaded');
-  });
 };
 
 
 },{}],5:[function(require,module,exports){
+module.exports = function($scope, $routeParams, $firebase, Patient) {
+  var patientId = $routeParams.id;
+  $scope.patient = $firebase(Patient.fromDb(patientId));
+
+  console.log($scope.patient);
+};
+
+},{}],6:[function(require,module,exports){
+module.exports = function($scope, $firebase, Patient) {
+  $scope.patients = $firebase(Patient.getAll());
+
+  console.log($scope.patients);
+};
+
+},{}],7:[function(require,module,exports){
 module.exports = function($interval, $filter) {
   return {
     restrict: 'A',
@@ -349,7 +393,7 @@ module.exports = function($interval, $filter) {
   }
 };
 
-},{}],6:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -374,7 +418,36 @@ module.exports = function() {
   }
 }
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
+module.exports = function() {
+  return {
+    restrict: 'A',
+    templateUrl: '/partials/modal.html',
+    scope: {
+      modal: '=modal'
+    },
+    controller: function($scope) {
+    }
+  }
+};
+
+},{}],10:[function(require,module,exports){
+module.exports = function(Notify) {
+  return {
+    restrict: 'A',
+    templateUrl: '/partials/modalManager.html',
+    controller: function($scope) {
+      $scope.modals = [];
+
+      Notify.on('modal', function(modal) {
+        console.log(modal);
+        $scope.modals.push(modal);
+      });
+    }
+  }
+};
+
+},{}],11:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -420,12 +493,12 @@ module.exports = function() {
   }
 }
 
-},{}],8:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
     templateUrl: '/partials/notificationsBar.html',
-    controller: function($scope, NotificationCenter) {
+    controller: function($scope, Notify) {
       $scope.notifications = [];
       $scope.types = {
         notifications: 'fa fa-bell',
@@ -447,7 +520,7 @@ module.exports = function() {
   }
 };
 
-},{}],9:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 module.exports = function(ProgressTree) {
   return {
     restrict:'A',
@@ -470,7 +543,7 @@ module.exports = function(ProgressTree) {
   }
 };
 
-},{}],10:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -490,7 +563,7 @@ module.exports = function() {
   }
 };
 
-},{}],11:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -498,7 +571,7 @@ module.exports = function() {
   }
 };
 
-},{}],12:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 module.exports = function(TaskFactory) {
   return {
     restrict: 'A',
@@ -539,7 +612,7 @@ module.exports = function(TaskFactory) {
   }
 }
 
-},{}],13:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -575,7 +648,7 @@ module.exports = function() {
   }
 };
 
-},{}],14:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 module.exports = function() {
   return function(seconds, template, named) {
     var date, names, components;
@@ -622,14 +695,66 @@ module.exports = function() {
   }
 }
 
-},{}],15:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = function() {
   return function(due) {
     return due - Date.now();
   }
 };
 
-},{}],16:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
+angular.module('EventEmitter', [])
+
+.factory('$emitter', function() {
+  return function() {
+    var events = {};
+
+    // Helper method for registering an event
+    function _register(name) {
+      var handlers;
+      if(name in events && events[name] instanceof Array) {
+        handlers = events[name]; 
+      } else {
+        handlers = events[name] = [];
+      }
+      return handlers;
+    }
+
+    // Add an event listener
+    function on(name, handler) {
+      var handlers = _register(name);
+      handlers.push(handler);
+      console.log(name, handler)
+    }
+
+    // Remove an event listener
+    function off(name, handler) {
+      var handlers, index;
+      handlers = _register(name);
+      index = handlers.indexOf(handler);
+      handlers.splice(index, 1);
+    }
+
+    // Emit a new event
+    function emit(name, data) {
+      var args, index, handlers;
+
+      handlers = _register(name);
+      args = [].slice.call(arguments, 1);
+      for(index = 0; index < handlers.length; index++) {
+        handlers[index].apply(null, args);
+      }
+    }
+
+    return {
+      on: on,
+      off: off,
+      emit: emit
+    }
+  }
+});
+
+},{}],21:[function(require,module,exports){
 module.exports={
   "__default__": "#555",
   "black": "#3b3b3b",
@@ -641,7 +766,7 @@ module.exports={
   "cyan": "#71b9f8"
 }
 
-},{}],17:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports={
   "__default__": "fa fa-circle",
   "ambulance": "fa fa-ambulance",
@@ -662,8 +787,8 @@ module.exports={
   "chart": "fa fa-bar-chart-o"
 }
 
-},{}],18:[function(require,module,exports){
-module.exports = function($q, Staff) {
+},{}],23:[function(require,module,exports){
+module.exports = function($rootScope, $q, Staff) {
   var profile = null;
 
   function authenticate(id) {
@@ -695,7 +820,7 @@ module.exports = function($q, Staff) {
   }
 };
 
-},{}],19:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 module.exports = function(db) {
   return function(name) {
     var root = db.child(name);
@@ -721,7 +846,7 @@ module.exports = function(db) {
   }
 }
 
-},{}],20:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 module.exports = function() {
 
   function Node(name, value, links) {
@@ -766,36 +891,22 @@ module.exports = function() {
   return Node;
 }
 
-},{}],21:[function(require,module,exports){
-module.exports = function() {
-  var notifications = [];
-
-  function notify(notification) {
-    notifications.push(notification);
-  }
-
-  function subscribe(type, handler) {
-    notifications.on('change', function(noti) {
-      // get last element 
-      if(noti.type === type) {
-        handler(noti);
-      }
-    });
-  }
+},{}],26:[function(require,module,exports){
+module.exports = function($emitter) {
+  var events = new $emitter();
 
   return {
-    notifications: notifications,
-    notify: notify,
-    subscribe: subscribe
+    on: events.on,
+    emit: events.emit
   }
 };
 
-},{}],22:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('patients');
 }
 
-},{}],23:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 module.exports = function(PatientTemplate) {
   var patient = null;
 
@@ -821,10 +932,18 @@ module.exports = function(PatientTemplate) {
   }
 };
 
-},{}],24:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 module.exports = function() {
   return function() {
     return {
+
+      ward: '',
+      bed: '',
+      name: '',
+      age: '',
+      pew: '',
+      nurse: '',
+
       admission: {
 
         data: {
@@ -1030,7 +1149,7 @@ module.exports = function() {
   }
 };
 
-},{}],25:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 module.exports = function(Node) {
   var nodes = [];
 
@@ -1049,17 +1168,17 @@ module.exports = function(Node) {
   }
 };
 
-},{}],26:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('staff');
 };
 
-},{}],27:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 module.exports = function() {
   return new Firebase('https://astralchai.firebaseio.com');
 };
 
-},{}],28:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 module.exports = function() {
   return {
     icons: require('../resources/icons.json'),
@@ -1067,4 +1186,35 @@ module.exports = function() {
   }
 };
 
-},{"../resources/colors.json":16,"../resources/icons.json":17}]},{},[1])
+},{"../resources/colors.json":21,"../resources/icons.json":22}],34:[function(require,module,exports){
+module.exports = function() {
+  return function() {
+    var hours, time;
+    hours = new Date().getHours();
+
+    // 6 - 12 Morning
+    // 12 - 16 Afternoon
+    // 16 - 22 Evening
+    // 22 - 6 Night
+
+    if(hours >= 6) {
+      time = 'Morning';
+    }
+
+    if(hours >= 12) {
+      time = 'Afternoon';
+    }
+
+    if(hours >= 16) {
+      time = 'Evening';
+    }
+
+    if(hours >= 22) {
+      time = 'Night';
+    }
+
+    return time;
+  }
+}
+
+},{}]},{},[1])

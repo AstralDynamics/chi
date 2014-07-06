@@ -1,0 +1,19 @@
+<div class='modal'>
+  <div class='status bar'>
+    <div class='center'>
+      <span ng-bind='modal.title'></span>
+    </div>
+    <div class='right'>
+      <i class='fa fa-times'></i>
+    </div>
+  </div>
+  <p class='large label' ng-bind='modal.description'>
+  </p>
+  <div class='divider'></div>
+  <input type='text' placeholder='Staff number'
+    ng-model='input'/>
+  <button class='button' ng-repeat='(name, option) in modal.options'
+    ng-click='close(option(input))'>
+    <span ng-bind='name'></span>
+  </button>
+</div>

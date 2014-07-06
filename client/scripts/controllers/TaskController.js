@@ -43,7 +43,7 @@ module.exports = function($scope, TaskFactory) {
   };
 
   $scope.complete = function() {
-    
+
   };
 
   $scope.create = function() {

@@ -1,0 +1,34 @@
+@import 'layout';
+@import 'theme';
+
+$modal-width:600px;
+
+.overlay {
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:99999;
+  background:rgba(0, 0, 0, 0.8);
+}
+
+.modal {
+  position:relative;
+  width:$modal-width;
+  padding:$gutter * 4;
+  padding-top:$gutter * 12;
+  background:$background;
+  margin:0 auto;
+  margin-top:5em;
+  border:solid 1px #ddd;
+
+  .status.bar {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    background:$background-alt;
+    color:#888;
+  }
+}

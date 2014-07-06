@@ -1,0 +1,38 @@
+<div class='controls'>
+  Show
+  <input type='radio' name='filter' value='1' id='myPatients'
+    ng-model='filter'/>
+  <label for='myPatients'>My Patients</label>
+  <input type='radio' name='filter' value='0' id='allPatients'
+    ng-model='filter'/>
+  <label for='allPatients'>All</label>
+</div>
+
+<div class='patient list'>
+  <table>
+    <thead>
+      <tr>
+        <td>Ward</td>
+        <td>Bed</td>
+        <td>Name</td>
+        <td>Age</td>
+        <td>PEW</td>
+        <td>Nurse</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat='(key, patient) in patients'>
+          <td ng-bind='patient.ward'>AAU</td>
+          <td ng-bind='patient.bed'>4</td>
+          <td>
+            <a href='#/patient/{{key}}'
+              ng-bind='patient.name'>
+            </a>
+          </td>
+          <td ng-bind='patient.age'>8</td>
+          <td ng-bind='patient.pew'>7</td>
+          <td ng-bind='patient.nurse'>Yvonne</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

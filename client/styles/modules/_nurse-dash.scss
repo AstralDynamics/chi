@@ -1,0 +1,11 @@
+@import '../theme';
+@import '../layout';
+
+.nurse.dash {
+  padding:$gutter * 2;
+
+  .grid {
+    text-align:center;
+    overflow:hidden;
+  }
+}

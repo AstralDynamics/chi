@@ -1,22 +1,8 @@
-module.exports = function() {
-  var notifications = [];
-
-  function notify(notification) {
-    notifications.push(notification);
-  }
-
-  function subscribe(type, handler) {
-    notifications.on('change', function(noti) {
-      // get last element 
-      if(noti.type === type) {
-        handler(noti);
-      }
-    });
-  }
+module.exports = function($emitter) {
+  var events = new $emitter();
 
   return {
-    notifications: notifications,
-    notify: notify,
-    subscribe: subscribe
+    on: events.on,
+    emit: events.emit
   }
 };
