@@ -19,7 +19,6 @@ angular.module('EventEmitter', [])
     function on(name, handler) {
       var handlers = _register(name);
       handlers.push(handler);
-      console.log(name, handler)
     }
 
     // Remove an event listener

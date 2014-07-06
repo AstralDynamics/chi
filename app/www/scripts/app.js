@@ -55,95 +55,95 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
 
   // Authentication screen
   .when('/auth', {
-    templateUrl: '/views/authenticate.html',
+    templateUrl: './views/authenticate.html',
     controller: 'AuthController'
   })
 
   // Aggregate/navigation view
   .when('/dash', {
-    templateUrl: '/views/dash.html',
+    templateUrl: './views/dash.html',
     controller: 'DashController'
   })
 
   // Patient list
   .when('/patients', {
-    templateUrl: '/views/patients.html',
+    templateUrl: './views/patients.html',
     controller: 'PatientsController'
   })
 
   // Patient specific
   .when('/patient/:id', {
-    templateUrl: '/views/patient.html',
+    templateUrl: './views/patient.html',
     controller: 'PatientController'
   })
 
   // Staff notes
   .when('/notes', {
-    templateUrl: '/views/notes.html'
+    templateUrl: './views/notes.html'
   })
 
   .when('/note/:id', {
-    templateUrl: '/views/note.html'
+    templateUrl: './views/note.html'
   })
 
   // Note editor
   .when('/notes/edit', {
-    templateUrl: '/views/editNote.html'
+    templateUrl: './views/editNote.html'
   })
 
   // Task list
   .when('/tasks', {
-    templateUrl: '/views/tasks.html',
+    templateUrl: './views/tasks.html',
     controller: 'TaskController'
   })
 
   .when('/tasks/edit', {
-    templateUrl: '/views/editTask.html'
+    templateUrl: './views/editTask.html'
   })
 
   // Async comms
   .when('/chat', {
-    templateUrl: '/views/chat.html'
+    templateUrl: './views/chat.html'
   })
 
   .when('/admission', {
-    templateUrl: '/views/forms/admission.html',
+    templateUrl: './views/forms/admission.html',
     controller: 'AdmissionController'
   })
 
   // Admission data subsection
   .when('/admission/data', {
-    templateUrl: '/views/forms/sections/data.html'
+    templateUrl: './views/forms/sections/data.html'
   })
 
   // Admission observations subsection
   .when('/admission/observations', {
-    templateUrl: '/views/forms/sections/observations.html'
+    templateUrl: './views/forms/sections/observations.html'
   })
 
   // Admission urine pain skin subsection
   .when('/admission/urinePainSkin', {
-    templateUrl: '/views/forms/sections/urinePainSkin.html'
+    templateUrl: './views/forms/sections/urinePainSkin.html'
   })
 
   // Admission medical history subsection
   .when('/admission/medicalHistory', {
-    templateUrl: '/views/forms/sections/medicalHistory.html'
+    templateUrl: './views/forms/sections/medicalHistory.html'
   })
 
   // Admission living subsection
   .when('/admission/living', {
-    templateUrl: '/views/forms/sections/living.html'
+    templateUrl: './views/forms/sections/living.html'
   })
 
   // Admission development subsection
   .when('/admission/development', {
-    templateUrl: '/views/forms/sections/development.html'
+    templateUrl: './views/forms/sections/development.html'
   })
 
   // Admission safety subsection
   .when('/admission/safety', {
-    templateUrl: '/views/forms/sections/safety.html'
+    templateUrl: './views/forms/sections/safety.html'
   })
 
 
@@ -151,16 +151,16 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
   // ------------
   // Form components from patient data
   .when('/admission/components/nameAddress', {
-    templateUrl: '/views/forms/components/nameAddress.html'
+    templateUrl: './views/forms/components/nameAddress.html'
   })
   .when('/admission/components/patientInformation', {
-    templateUrl: '/views/forms/components/patientInformation.html'
+    templateUrl: './views/forms/components/patientInformation.html'
   })
   .when('/admission/components/nextOfKin', {
-    templateUrl: '/views/forms/components/nextOfKin.html'
+    templateUrl: './views/forms/components/nextOfKin.html'
   })
   .when('/admission/components/siblings', {
-    templateUrl: '/views/forms/components/siblings.html'
+    templateUrl: './views/forms/components/siblings.html'
   })
 
 
@@ -168,13 +168,13 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
   // ------------
   // Form components for development
   .when('/admission/components/communication', {
-    templateUrl: '/views/forms/components/communication.html'
+    templateUrl: './views/forms/components/communication.html'
   })
   .when('/admission/components/socialDevelopment', {
-    templateUrl: '/views/forms/components/socialDevelopment.html'
+    templateUrl: './views/forms/components/socialDevelopment.html'
   })
   .when('/admission/components/mobility', {
-    templateUrl: '/views/forms/components/mobility.html'
+    templateUrl: './views/forms/components/mobility.html'
   })
 
 
@@ -182,13 +182,13 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
   // ------------
   // Form components for obs
   .when('/admission/components/obs1', {
-    templateUrl: '/views/forms/components/obs1.html'
+    templateUrl: './views/forms/components/obs1.html'
   })
   .when('/admission/components/obs2', {
-    templateUrl: '/views/forms/components/obs2.html'
+    templateUrl: './views/forms/components/obs2.html'
   })
   .when('/admission/components/obs3', {
-    templateUrl: '/views/forms/components/obs3.html'
+    templateUrl: './views/forms/components/obs3.html'
   })
 
 
@@ -196,16 +196,16 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
   // ---------------
   // Form components for UPS
   .when('/admission/components/urinalysis', {
-    templateUrl: '/views/forms/components/urinalysis.html'
+    templateUrl: './views/forms/components/urinalysis.html'
   })
   .when('/admission/components/painAssessment', {
-    templateUrl: '/views/forms/components/painAssessment.html'
+    templateUrl: './views/forms/components/painAssessment.html'
   })
   .when('/admission/components/skinIntegrity', {
-    templateUrl: '/views/forms/components/skinIntegrity.html'
+    templateUrl: './views/forms/components/skinIntegrity.html'
   })
   .when('/admission/components/skinIntegrity2', {
-    templateUrl: '/views/forms/components/skinIntegrity2.html'
+    templateUrl: './views/forms/components/skinIntegrity2.html'
   })
 
 
@@ -213,16 +213,16 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
   // ---------------
   // Form components for Medical History
   .when('/admission/components/medicalHistory', {
-    templateUrl: '/views/forms/components/pastMedicalHistory.html'
+    templateUrl: './views/forms/components/pastMedicalHistory.html'
   })
   .when('/admission/components/allergies', {
-    templateUrl: '/views/forms/components/allergies.html'
+    templateUrl: './views/forms/components/allergies.html'
   })
   .when('/admission/components/medication', {
-    templateUrl: '/views/forms/components/medication.html'
+    templateUrl: './views/forms/components/medication.html'
   })
   .when('/admission/components/listOfMeds', {
-    templateUrl: '/views/forms/components/listOfMeds.html'
+    templateUrl: './views/forms/components/listOfMeds.html'
   })
 
 
@@ -230,35 +230,35 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
   // ------
   // Form components for Living Forms
   .when('/admission/components/nutrition', {
-    templateUrl: '/views/forms/components/nutrition.html'
+    templateUrl: './views/forms/components/nutrition.html'
   })
   .when('/admission/components/hygiene', {
-    templateUrl: '/views/forms/components/hygiene.html'
+    templateUrl: './views/forms/components/hygiene.html'
   })
   .when('/admission/components/sleeping', {
-    templateUrl: '/views/forms/components/sleeping.html'
+    templateUrl: './views/forms/components/sleeping.html'
   })
 
   // Safety
   // ------
   // Form components for Living Forms
   .when('/admission/components/communityInvolvement', {
-    templateUrl: '/views/forms/components/communityInvolvement.html'
+    templateUrl: './views/forms/components/communityInvolvement.html'
   })
   .when('/admission/components/safeguardingChildren', {
-    templateUrl: '/views/forms/components/safeguardingChildren.html'
+    templateUrl: './views/forms/components/safeguardingChildren.html'
   })
   .when('/admission/components/manualHandling', {
-    templateUrl: '/views/forms/components/manualHandling.html'
+    templateUrl: './views/forms/components/manualHandling.html'
   })
 
   // Admission
   // ---------
   .when('/admission/components/info', {
-    templateUrl: '/views/forms/components/infoChecklist.html'
+    templateUrl: './views/forms/components/infoChecklist.html'
   })
   .when('/admission/components/decision', {
-    templateUrl: '/views/forms/components/decision.html'
+    templateUrl: './views/forms/components/decision.html'
   })
 
   .otherwise({
@@ -353,6 +353,15 @@ module.exports = function($scope, $firebase, Auth, Patient, Notify, timeOfDay) {
   }
 
   $scope.timeOfDay = timeOfDay;
+  function isIt(phase) {
+    return function() {
+      return $scope.timeOfDay() === phase;
+    }
+  }
+  $scope.morning = isIt('Morning');
+  $scope.afternoon = isIt('Afternoon');
+  $scope.evening = isIt('Evening');
+  $scope.night = isIt('Night');
 
 };
 
@@ -724,7 +733,6 @@ angular.module('EventEmitter', [])
     function on(name, handler) {
       var handlers = _register(name);
       handlers.push(handler);
-      console.log(name, handler)
     }
 
     // Remove an event listener

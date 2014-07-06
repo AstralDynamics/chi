@@ -5,6 +5,7 @@
 <div class='nurse dash'>
   <div class='status'>
     <div class='label bold {{timeOfDay()}}'>
+      <i class='fa' ng-class='{ "fa-sun-o": morning() || afternoon() || evening(), "fa-moon-o": night() }'></i>
       Good <span ng-bind='timeOfDay()'></span>,
       <b ng-bind='staff.name.firstname'></b>
       <b ng-bind='staff.name.surname'></b>

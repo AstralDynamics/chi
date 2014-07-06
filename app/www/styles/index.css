@@ -385,6 +385,11 @@ form {
     height: 32px; }
   .notifications.bar i {
     color: #b7f1fb; }
+  .notifications.bar .button {
+    background: #4fd1e7;
+    border: none; }
+    .notifications.bar .button:hover i {
+      color: white; }
 
 .notification {
   position: relative;
@@ -692,6 +697,18 @@ form {
   .nurse.dash .grid {
     text-align: center;
     overflow: hidden; }
+  .nurse.dash .label.Evening i {
+    color: #ffd600; }
+  .nurse.dash .label.Night i {
+    color: #fff; }
+  .nurse.dash .label.Morning {
+    background: #b7f1fb; }
+    .nurse.dash .label.Morning i {
+      color: #ffd600; }
+  .nurse.dash .label.Afternoon {
+    background: #b7f1fb; }
+    .nurse.dash .label.Afternoon i {
+      color: #ffd600; }
 
 .patient.list table {
   width: 100%;
