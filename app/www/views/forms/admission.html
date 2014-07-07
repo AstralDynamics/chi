@@ -1,120 +1,125 @@
 <div class='admission'>
-  <table class='minimal'>
-    <tr>
-      <td colspan='3'>
-        <div class='progress'>
-          <div class='meter' style='width:10%'>
-            <div>10%</div> 
+
+  <div>
+    <div class='small-12 columns'>
+      <div class='progress'>
+        <div class='meter' style='width:10%'>
+          <div>10%</div> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- First row -->
+  <div>
+    <div class='small-4 columns'>
+      <a href='#/admission/data'>
+        <div class='title'>Patient Data</div>
+        <div class='circle progress' radial-progress='0.8'>
+          <div class='surface'>
+            <i class='fa fa-user'></i>
           </div>
         </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href='#/admission/data'>
-          <div class='title'>Patient Data</div>
-          <div class='circle progress' radial-progress='0.8'>
-            <div class='surface'>
-              <i class='fa fa-user'></i>
-            </div>
+      </a>
+    </div>
+
+    <div class='small-4 columns'>
+      <a href='#/admission/observations'>
+        <div class='title'>Observations</div>
+        <div class='circle progress' radial-progress='0.8'>
+          <div class='surface'>
+            <i class='fa fa-folder'></i>
           </div>
-        </a>
-      </td>
+        </div>
+      </a>
+    </div>
 
-      <td class='cell'>
-        <a href='#/admission/observations'>
-          <div class='title'>Observations</div>
-          <div class='circle progress' radial-progress='0.8'>
-            <div class='surface'>
-              <i class='fa fa-folder'></i>
-            </div>
+    <div class='small-4 columns'>
+      <a href='#/admission/urinePainSkin'>
+        <div class='title'>Urine/pain/skin</div>
+        <div class='circle progress' radial-progress='0.8'>
+          <div class='surface'>
+            <i class='icon icon-urine-pain-skin'></i>
           </div>
-        </a>
-      </td>
+        </div>
+      </a>
+    </div>
+  </div>
 
-      <td class='cell'>
-        <a href='#/admission/urinePainSkin'>
-          <div class='title'>Urine/pain/skin</div>
-          <div class='circle progress' radial-progress='0.8'>
-            <div class='surface'>
-              <i class='icon icon-urine-pain-skin'></i>
-            </div>
+
+  <!-- Second row -->
+  <div>
+    <div class='small-4 columns'>
+      <a href='#/admission/medicalHistory'>
+        <div class='title'>Medical History</div>
+        <div class='circle progress secondary' radial-progress='0.8'>
+          <div class='surface'>
+            <i class='icon icon-medical-history'></i>
           </div>
-        </a>
-      </td>
-    </tr>
+        </div>
+      </a>
+    </div>
 
-    <tr>
-      <td>
-        <a href='#/admission/medicalHistory'>
-          <div class='title'>Medical History</div>
-          <div class='circle progress secondary' radial-progress='0.8'>
-            <div class='surface'>
-              <i class='icon icon-medical-history'></i>
-            </div>
+    <div class='small-4 columns'>
+      <a href='#/admission/living'>
+        <div class='title'>Living</div>
+        <div class='circle progress secondary' radial-progress='0.4'>
+          <div class='surface'>
+            <i class='fa fa-coffee'></i>
           </div>
-        </a>
-      </td>
+        </div>
+      </a>
+    </div>
 
-
-      <td class='cell'>
-        <a href='#/admission/living'>
-          <div class='title'>Living</div>
-          <div class='circle progress secondary' radial-progress='0.4'>
-            <div class='surface'>
-              <i class='fa fa-coffee'></i>
-            </div>
+    <div class='small-4 columns'>
+      <a href='#/admission/development'>
+        <div class='title'>Development</div>
+        <div class='circle progress secondary' radial-progress='0.8'>
+          <div class='surface'>
+            <i class='fa fa-comments'></i>
           </div>
-        </a>
-      </td>
+        </div>
+      </a>
+    </div>
+  </div>
 
-      <td class='cell'>
-        <a href='#/admission/development'>
-          <div class='title'>Development</div>
-          <div class='circle progress secondary' radial-progress='0.8'>
-            <div class='surface'>
-              <i class='fa fa-comments'></i>
-            </div>
+
+  <!-- Third row -->
+  <div>
+    <div class='small-4 columns'>
+      <a href='#/admission/safety'>
+        <div class='title'>Safety</div>
+        <div class='circle progress tertiary' radial-progress='0.8'>
+          <div class='surface'>
+            <i class='fa fa-warning'></i>
           </div>
-        </a>
-      </td>
-    </tr>
+        </div>
+      </a>
+    </div>
 
-    <tr>
-      <td>
-        <a href='#/admission/safety'>
-          <div class='title'>Safety</div>
-          <div class='circle progress tertiary' radial-progress='0.8'>
-            <div class='surface'>
-              <i class='fa fa-warning'></i>
-            </div>
+    <div class='small-4 columns'>
+      <a href='#/admission/components/info'>
+        <div class='title'>Information</div>
+        <div class='circle progress tertiary' radial-progress='0.8'>
+          <div class='surface'>
+            <i class='fa fa-check-square'></i>
           </div>
-        </a>
-      </td>
+        </div>
+      </a>
+    </div>
 
-      <td class='cell'>
-        <a href='#/admission/components/info'>
-          <div class='title'>Information</div>
-          <div class='circle progress tertiary' radial-progress='0.8'>
-            <div class='surface'>
-              <i class='fa fa-check-square'></i>
-            </div>
+    <div class='small-4 columns'>
+      <a href='#/admission/decision'
+        ng-click='admit()'>
+        <div class='title'>Admit?</div>
+        <div class='circle progress tertiary' radial-progress='0.8'>
+          <div class='surface'>
+            <i class='fa fa-arrow-right'></i>
           </div>
-        </a>
-      </td>
+        </div>
+      </a>
+    </div>
+  </div>
 
-      <td class='cell'>
-        <a href='#/admission/decision'
-          ng-click='admit()'>
-          <div class='title'>Admit?</div>
-          <div class='circle progress tertiary' radial-progress='0.8'>
-            <div class='surface'>
-              <i class='fa fa-arrow-right'></i>
-            </div>
-          </div>
-        </a>
-      </td>
-
-    </tr>
-  </table>
 </div>
