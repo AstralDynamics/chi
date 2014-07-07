@@ -2,7 +2,7 @@ module.exports = function(TaskFactory) {
   return {
     restrict: 'A',
 
-    templateUrl: '/partials/taskEditor.html',
+    templateUrl: 'partials/taskEditor.html',
 
     controller: function($scope, resources) {
       $scope.resources = resources;

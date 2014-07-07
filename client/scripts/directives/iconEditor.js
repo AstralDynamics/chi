@@ -1,7 +1,7 @@
 module.exports = function() {
   return {
     restrict: 'A',
-    templateUrl: '/partials/iconEditor.html',
+    templateUrl: 'partials/iconEditor.html',
     scope: {
       icon: '=icon'
     },

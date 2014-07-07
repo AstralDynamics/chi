@@ -288,10 +288,13 @@ module.exports = function($scope, PatientIncubator, Patient) {
     Patient.save(patient);
   };
 
+
+  // Data for community forms
   $scope.community = {
     member: ''
   };
 
+  // Data for sibling input
   $scope.selectedSibling = -1;
   $scope.addSibling = function() {
     $scope.patient.admission.data.siblings.push({
@@ -302,16 +305,20 @@ module.exports = function($scope, PatientIncubator, Patient) {
     })
   };
 
+  // Data for allergy input
   $scope.selectedAllergy = -1;
   $scope.addAllergy = function() {
     console.log('add allergy');
     $scope.patient.admission.medicalHistory.allergies.push({
       allergen: 'Allergen',
-      reactiion: 'Reaction',
+      reaction: 'Reaction',
       corrective: 'Corrective measure'
     });
     console.log($scope.patient.admission.medicalHistory.allergies);
   };
+  $scope.change = function() {
+    console.log('change', $scope.selectedAllergy);
+  }
 
 };
 
@@ -319,13 +326,16 @@ module.exports = function($scope, PatientIncubator, Patient) {
 module.exports = function($scope, Auth) {
   $scope.id = '';
   $scope.error = false;
+  console.log('Auth controller loading');
 
   $scope.submit = function() {
     Auth.authenticate($scope.id)
     .then(function() {
+      console.log('Signed in');
       window.location.replace('#/dash');
     })
     .catch(function() {
+      console.error('Could not sign in');
       $scope.error = true;
       $scope.$apply();
     });
@@ -406,7 +416,7 @@ module.exports = function($interval, $filter) {
 module.exports = function() {
   return {
     restrict: 'A',
-    templateUrl: '/partials/iconEditor.html',
+    templateUrl: 'partials/iconEditor.html',
     scope: {
       icon: '=icon'
     },
@@ -431,7 +441,7 @@ module.exports = function() {
 module.exports = function() {
   return {
     restrict: 'A',
-    templateUrl: '/partials/modal.html',
+    templateUrl: 'partials/modal.html',
     scope: {
       modal: '=modal'
     },
@@ -444,7 +454,7 @@ module.exports = function() {
 module.exports = function(Notify) {
   return {
     restrict: 'A',
-    templateUrl: '/partials/modalManager.html',
+    templateUrl: 'partials/modalManager.html',
     controller: function($scope) {
       $scope.modals = [];
 
@@ -506,7 +516,7 @@ module.exports = function() {
 module.exports = function() {
   return {
     restrict: 'A',
-    templateUrl: '/partials/notificationsBar.html',
+    templateUrl: 'partials/notificationsBar.html',
     controller: function($scope, Notify) {
       $scope.notifications = [];
       $scope.types = {
@@ -557,7 +567,7 @@ module.exports = function() {
   return {
     restrict: 'A',
     transclude: true,
-    templateUrl: '/partials/radialProgress.html',
+    templateUrl: 'partials/radialProgress.html',
     scope: {
       radialProgress: '=radialProgress'
     },
@@ -576,7 +586,7 @@ module.exports = function() {
 module.exports = function() {
   return {
     restrict: 'A',
-    templateUrl: '/partials/systemBar.html'
+    templateUrl: 'partials/systemBar.html'
   }
 };
 
@@ -585,7 +595,7 @@ module.exports = function(TaskFactory) {
   return {
     restrict: 'A',
 
-    templateUrl: '/partials/taskEditor.html',
+    templateUrl: 'partials/taskEditor.html',
 
     controller: function($scope, resources) {
       $scope.resources = resources;
@@ -625,7 +635,7 @@ module.exports = function(TaskFactory) {
 module.exports = function() {
   return {
     restrict: 'A',
-    templateUrl: '/partials/timeInput.html',
+    templateUrl: 'partials/timeInput.html',
     require: '?ngModel',
     scope: {
       readFormat: '&timeFormat'

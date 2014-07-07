@@ -1,7 +1,7 @@
 module.exports = function() {
   return {
     restrict: 'A',
-    templateUrl: '/partials/timeInput.html',
+    templateUrl: 'partials/timeInput.html',
     require: '?ngModel',
     scope: {
       readFormat: '&timeFormat'

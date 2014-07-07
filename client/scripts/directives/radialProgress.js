@@ -2,7 +2,7 @@ module.exports = function() {
   return {
     restrict: 'A',
     transclude: true,
-    templateUrl: '/partials/radialProgress.html',
+    templateUrl: 'partials/radialProgress.html',
     scope: {
       radialProgress: '=radialProgress'
     },

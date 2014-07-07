@@ -1,7 +1,7 @@
 module.exports = function(Notify) {
   return {
     restrict: 'A',
-    templateUrl: '/partials/modalManager.html',
+    templateUrl: 'partials/modalManager.html',
     controller: function($scope) {
       $scope.modals = [];
 

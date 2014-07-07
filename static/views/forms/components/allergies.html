@@ -23,6 +23,7 @@
     <div class="large-2 small-4 columns">
      <label>
       Allergies
+        <span ng-bind='selectedAllergy'></span>
      </label>
     </div>
     <div class="large-10 small-8 columns">
@@ -37,7 +38,7 @@
     </div>
     <div class="large-10 small-8 columns">
       <span ng-repeat='allergy in patient.admission.medicalHistory.allergies'>
-        <input type='radio' name='allergies' ng-model='selectedAllergy' id='{{$index}}' value='{{$index}}'/>
+        <input type='radio' ng-change='change()' name='allergies' ng-model='$parent.selectedAllergy' id='{{$index}}' ng-value='$index'/>
         <label for='{{$index}}' ng-bind='allergy.allergen'></label>
       </span>
     </div>

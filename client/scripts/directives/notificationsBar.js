@@ -1,7 +1,7 @@
 module.exports = function() {
   return {
     restrict: 'A',
-    templateUrl: '/partials/notificationsBar.html',
+    templateUrl: 'partials/notificationsBar.html',
     controller: function($scope, Notify) {
       $scope.notifications = [];
       $scope.types = {

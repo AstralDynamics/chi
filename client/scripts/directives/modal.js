@@ -1,7 +1,7 @@
 module.exports = function() {
   return {
     restrict: 'A',
-    templateUrl: '/partials/modal.html',
+    templateUrl: 'partials/modal.html',
     scope: {
       modal: '=modal'
     },

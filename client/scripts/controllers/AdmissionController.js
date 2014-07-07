@@ -18,10 +18,13 @@ module.exports = function($scope, PatientIncubator, Patient) {
     Patient.save(patient);
   };
 
+
+  // Data for community forms
   $scope.community = {
     member: ''
   };
 
+  // Data for sibling input
   $scope.selectedSibling = -1;
   $scope.addSibling = function() {
     $scope.patient.admission.data.siblings.push({
@@ -32,15 +35,19 @@ module.exports = function($scope, PatientIncubator, Patient) {
     })
   };
 
+  // Data for allergy input
   $scope.selectedAllergy = -1;
   $scope.addAllergy = function() {
     console.log('add allergy');
     $scope.patient.admission.medicalHistory.allergies.push({
       allergen: 'Allergen',
-      reactiion: 'Reaction',
+      reaction: 'Reaction',
       corrective: 'Corrective measure'
     });
     console.log($scope.patient.admission.medicalHistory.allergies);
   };
+  $scope.change = function() {
+    console.log('change', $scope.selectedAllergy);
+  }
 
 };
