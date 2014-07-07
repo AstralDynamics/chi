@@ -328,6 +328,17 @@ module.exports = function($scope, Auth) {
   $scope.error = false;
   console.log('Auth controller loading');
 
+  rfidscanner.scan(scanSuccess, scanFail);
+
+  function scanFail(error) {
+    console.error(error);
+  }
+
+  function scanSuccess(result) {
+    alert(result);
+    console.log(result);
+  }
+
   $scope.submit = function() {
     Auth.authenticate($scope.id)
     .then(function() {
