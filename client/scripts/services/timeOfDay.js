@@ -8,6 +8,8 @@ module.exports = function() {
     // 16 - 22 Evening
     // 22 - 6 Night
 
+    time = 'Night';
+
     if(hours >= 6) {
       time = 'Morning';
     }
