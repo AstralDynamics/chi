@@ -257,7 +257,7 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
     templateUrl: './views/forms/components/infoChecklist.html'
   })
   .when('/admission/components/decision', {
-    templateUrl: './views/forms/components/decision.html'
+    templateUrl: './views/forms/decisionToAdmit.html'
   })
 
   .otherwise({
