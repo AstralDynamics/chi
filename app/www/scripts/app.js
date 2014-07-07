@@ -288,10 +288,13 @@ module.exports = function($scope, PatientIncubator, Patient) {
     Patient.save(patient);
   };
 
+
+  // Data for community forms
   $scope.community = {
     member: ''
   };
 
+  // Data for sibling input
   $scope.selectedSibling = -1;
   $scope.addSibling = function() {
     $scope.patient.admission.data.siblings.push({
@@ -302,16 +305,20 @@ module.exports = function($scope, PatientIncubator, Patient) {
     })
   };
 
+  // Data for allergy input
   $scope.selectedAllergy = -1;
   $scope.addAllergy = function() {
     console.log('add allergy');
     $scope.patient.admission.medicalHistory.allergies.push({
       allergen: 'Allergen',
-      reactiion: 'Reaction',
+      reaction: 'Reaction',
       corrective: 'Corrective measure'
     });
     console.log($scope.patient.admission.medicalHistory.allergies);
   };
+  $scope.change = function() {
+    console.log('change', $scope.selectedAllergy);
+  }
 
 };
 
@@ -550,7 +557,6 @@ module.exports = function(ProgressTree) {
       links = scope.readLinks();
 
       scope.node = ProgressTree.createNode(name, links, scope.value);
-      console.log('aggregate check', name, scope.node.aggregate());
     }
   }
 };
@@ -696,14 +702,37 @@ module.exports = function() {
       components.seconds = '0' + components.seconds;
     }
 
-    return template
-    .replace('h', components.hours)
-    .replace('m', components.minutes)
-    .replace('s', components.seconds)
-    .replace('d', components.day)
-    .replace('D', components.date)
-    .replace('M', components.month)
-    .replace('Y', components.year);
+    var templated, index;
+    templated = [];
+    for(index = 0; index < template.length; index++) {
+      switch(template[index]) {
+        case 'h':
+          templated.push(components.hours);
+          break;
+        case 'm':
+          templated.push(components.minutes);
+          break;
+        case 's':
+          templated.push(components.seconds);
+          break;
+        case 'd':
+          templated.push(components.day);
+          break;
+        case 'D':
+          templated.push(components.date);
+          break;
+        case 'M':
+          templated.push(components.month);
+          break;
+        case 'Y':
+          templated.push(components.year);
+          break;
+        default:
+          templated.push(template[index]);
+      }
+    }
+
+    return templated.join('');
   }
 }
 
@@ -1207,6 +1236,8 @@ module.exports = function() {
     // 12 - 16 Afternoon
     // 16 - 22 Evening
     // 22 - 6 Night
+
+    time = 'Night';
 
     if(hours >= 6) {
       time = 'Morning';

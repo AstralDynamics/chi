@@ -78,3 +78,22 @@ input[type='radio']:checked+label {
   color:white;
 }
 
+input[type=checkbox].single {
+  display:none;
+
+  &:before {
+    display:none;
+  }
+  &:after {
+    display:none;
+  }
+  &+label {
+    @include pill;
+    @include inactive;
+    margin:0;
+    line-height:1em;
+  }
+  &:checked+label {
+    @include active;
+  }
+}

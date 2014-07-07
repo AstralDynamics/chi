@@ -1,11 +1,28 @@
 <div class='controls'>
-  Show
-  <input type='radio' name='filter' value='1' id='myPatients'
-    ng-model='filter'/>
-  <label for='myPatients'>My Patients</label>
-  <input type='radio' name='filter' value='0' id='allPatients'
-    ng-model='filter'/>
-  <label for='allPatients'>All</label>
+  <div>
+    Show
+    <input type='radio' name='filter' value='1' id='myPatients'
+      ng-model='filter'/>
+    <label for='myPatients'>My Patients</label>
+    <input type='radio' name='filter' value='0' id='allPatients'
+      ng-model='filter'/>
+    <label for='allPatients'>All</label>
+  </div>
+  <div>
+    Ward
+    <input type='radio' name='ward' value='aau' id='aau'
+      ng-model='ward'/>
+    <label for='aau'>AAU</label>
+    <input type='radio' name='ward' value='blue' id='blue'
+      ng-model='ward'/>
+    <label for='blue'>Blue</label>
+    <input type='radio' name='ward' value='red' id='red'
+      ng-model='ward'/>
+    <label for='red'>Red</label>
+    <input type='radio' name='ward' value='hdu' id='hdu'
+      ng-model='ward'/>
+    <label for='hdu'>HDU</label>
+  </div>
 </div>
 
 <div class='patient list'>

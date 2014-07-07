@@ -557,7 +557,6 @@ module.exports = function(ProgressTree) {
       links = scope.readLinks();
 
       scope.node = ProgressTree.createNode(name, links, scope.value);
-      console.log('aggregate check', name, scope.node.aggregate());
     }
   }
 };

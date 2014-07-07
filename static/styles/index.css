@@ -242,6 +242,25 @@ input[type='radio']:checked + label {
   background: #4fd1e7;
   color: white; }
 
+input[type=checkbox].single {
+  display: none; }
+  input[type=checkbox].single:before {
+    display: none; }
+  input[type=checkbox].single:after {
+    display: none; }
+  input[type=checkbox].single + label {
+    border-radius: 4px;
+    padding: 8px 8px;
+    font-size: 1.3em;
+    text-align: center;
+    background: #ddd;
+    color: #888;
+    margin: 0;
+    line-height: 1em; }
+  input[type=checkbox].single:checked + label {
+    background: #4fd1e7;
+    color: white; }
+
 .overlay {
   position: absolute;
   width: 100%;

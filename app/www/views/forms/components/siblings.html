@@ -38,7 +38,7 @@
     <div class="large-10 small-8 columns">
       <span ng-repeat='sibling in patient.admission.data.siblings'>
         <input type='radio' id='{{$index}}' name='sibling' value='{{$index}}'
-          ng-bind='selectedSibling'/>
+          ng-model='$parent.selectedSibling'/>
         <label for='{{$index}}' ng-bind='sibling.name'></label>
       </span>
     </div>
@@ -64,7 +64,7 @@
        <input name="gender" id='male'
         ng-model="patient.admission.data.siblings[selectedSibling].gender" type="radio" value="male"/>
         <label for='male'><i class='fa fa-male'></i></label>
-       <input name="gender" id='male'
+       <input name="gender" id='female'
         ng-model="patient.admission.data.siblings[selectedSibling].gender" type="radio" value="female"/>
         <label for='female'><i class='fa fa-female'></i></label>
       </div>

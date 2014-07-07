@@ -44,5 +44,12 @@ You can create a GitHub account for free, then ask Liam, Dan or Noah to add you 
 
 __Important__: For every issue you file, make sure you attach the correct milestone and always use a `tester` label, alongside a bug or feature label, so that we can easily filter out testing outcomes.
 
+| Developer | Staff ID |
+| --------- | -------- |
+| Dan       | 010101   |
+| Thiago    | 12345    |
+| James     | 23456    |
+
+
 Project
 =======
