@@ -699,7 +699,8 @@ form {
 .admission {
   text-align: center; }
   .admission .title {
-    margin-bottom: 4px; }
+    margin-bottom: 4px;
+    white-space: nowrap; }
   .admission table.minimal {
     width: 100%;
     background: transparent;
