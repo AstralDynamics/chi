@@ -277,10 +277,10 @@ module.exports = function($scope, PatientIncubator, Patient) {
 
     // Duplicate fields for future lookup
     patient.ward = 'AAU';
-    patient.bed = 'Not assigned';
+    patient.bed = '-';
     patient.age = patient.admission.data.age;
     patient.pew = 0;
-    patient.nurse = 'Not assigned';
+    patient.nurse = '-';
     patient.gender = patient.admission.data.gender;
     patient.name = patient.admission.data.preferredName + ' ' +
       patient.admission.data.surname;
@@ -311,14 +311,10 @@ module.exports = function($scope, PatientIncubator, Patient) {
     console.log('add allergy');
     $scope.patient.admission.medicalHistory.allergies.push({
       allergen: 'Allergen',
-      reaction: 'Reaction',
-      corrective: 'Corrective measure'
+      reaction: '',
+      corrective: ''
     });
-    console.log($scope.patient.admission.medicalHistory.allergies);
   };
-  $scope.change = function() {
-    console.log('change', $scope.selectedAllergy);
-  }
 
 };
 
