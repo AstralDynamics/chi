@@ -632,12 +632,24 @@ form {
     height: 330px;
     max-width: 100%; }
 
+.messages .small-3 {
+  border-right: solid 1px #eee; }
 .messages .meta {
-  color: #87bb7d; }
+  color: #87bb7d;
+  color: #ccc;
+  text-align: center;
+  width: 100%; }
 .messages .avatar {
   font-size: 2.5em;
   padding: 8px 0; }
 .messages .name {
+  text-align: center;
+  white-space: nowrap;
+  color: #999; }
+.messages .flags {
+  font-size: 0.6em;
+  white-space: nowrap;
+  margin-bottom: 16px;
   text-align: center; }
 .messages .message {
   overflow: hidden;

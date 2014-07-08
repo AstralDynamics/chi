@@ -87,7 +87,7 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase', 'angularCharts'])
 
   // Note editor
   .when('/notes/edit', {
-    templateUrl: './views/editNote.html'
+    templateUrl: './views/noteEditor.html'
   })
 
   // Task list

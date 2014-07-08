@@ -19,8 +19,14 @@ $avatar-width:48px;
 }
 
 .messages {
+  .small-3 {
+    border-right:solid 1px #eee;
+  }
   .meta {
     color:$secondary;
+    color:#ccc;
+    text-align:center;
+    width:100%;
   }
   .avatar {
     font-size:2.5em;
@@ -28,9 +34,18 @@ $avatar-width:48px;
   }
   .name {
     text-align:center;
+    white-space:nowrap;
+    color:#999;
   }
 
   .time.ago {
+  }
+
+  .flags {
+    font-size:0.6em;
+    white-space:nowrap;
+    margin-bottom:$gutter * 4;
+    text-align:center;
   }
 
   .message {
