@@ -3,6 +3,29 @@
 
 $avatar-width:48px;
 
+.messages {
+  .meta {
+    color:$secondary;
+  }
+  .avatar {
+    font-size:2.5em;
+    padding:$gutter * 2 0;
+  }
+  .name {
+    text-align:center;
+  }
+
+  .time.ago {
+  }
+
+  .message {
+    overflow:hidden;
+    border-bottom:solid 1px #eee;
+    border-top:solid 1px #eee;
+    color:#555;
+  }
+}
+
 .messages.collection {
 
   .item {
