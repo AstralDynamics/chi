@@ -19,7 +19,9 @@
 
   <div class='small-4 columns'>
     <div class='gender icon'>
-      <i class='fa fa-child fa-5x'></i>
+      <i class='icon icon-baby fa-5x' ng-show='patient.age < 2'></i>
+      <i class='icon icon-toddler fa-5x' ng-show='patient.age > 1 && patient.age < 6'></i>
+      <i class='icon icon-child fa-5x' ng-show='patient.age > 5'></i>
     </div>
     <div class='vertical task-radar'>
       <div class='main tray'>
@@ -82,7 +84,7 @@
           </a>
         </div>
         <div class='small-4 columns alert'>
-          <a href='#/admission' class='button'>
+          <a class='button' ng-click='admissions()'>
             <i class='fa fa-file-text-o'></i>
           </a>
         </div>
@@ -94,8 +96,8 @@
           </a>
         </div>
         <div class='small-4 columns alert'>
-          <a class='button' disabled>
-            <i class='fa fa-bell'></i>
+          <a class='button' ng-click='observations()'>
+            <i class='fa fa-bar-chart-o'></i>
           </a>
         </div>
         <div class='small-4 columns alert'>

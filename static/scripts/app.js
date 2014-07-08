@@ -380,7 +380,7 @@ module.exports = function($scope, $firebase, Auth, Patient, Notify, timeOfDay) {
 
 
 },{}],5:[function(require,module,exports){
-module.exports = function($scope, $routeParams, $firebase, Patient) {
+module.exports = function($scope, $routeParams, $firebase, Patient, PatientIncubator) {
   var patientId = $routeParams.id;
   $scope.patient = $firebase(Patient.fromDb(patientId));
 
@@ -389,12 +389,18 @@ module.exports = function($scope, $routeParams, $firebase, Patient) {
     window.location.replace('#/dash');
   };
 
+  $scope.observations = function() {
+    PatientIncubator.loadFromDb(patientId);
+    window.location.replace('#/admission/components/obs1');
+  };
+
+  $scope.admissions = function() {
+    PatientIncubator.loadFromDb(patientId);
+    window.location.replace('#/admission');
+  };
+
   $scope.chartType = 'line';
   $scope.config = {
-    legend: {
-      display: true,
-      position: 'left'
-    }
   };
 
   $scope.data = {
@@ -1033,7 +1039,7 @@ module.exports = function(Model) {
 }
 
 },{}],29:[function(require,module,exports){
-module.exports = function(PatientTemplate) {
+module.exports = function(PatientTemplate, Patient, $firebase) {
   var patient = null;
 
   function retrieve() {
@@ -1047,11 +1053,16 @@ module.exports = function(PatientTemplate) {
     patient = new PatientTemplate();
   }
 
+  function loadFromDb(id) {
+    patient = $firebase(Patient.fromDb(id));
+  }
+
   function done() {
     patient = null;
   }
 
   return {
+    loadFromDb: loadFromDb,
     retrieve: retrieve,
     create: create,
     done: done

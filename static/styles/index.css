@@ -644,7 +644,6 @@ form {
   padding: 8px 0; }
 .messages .name {
   text-align: center;
-  white-space: nowrap;
   color: #999; }
 .messages .flags {
   font-size: 0.6em;
@@ -806,6 +805,8 @@ form {
   .patient .chart {
     margin-left: -30px;
     margin-top: -4px; }
+  .patient text {
+    display: none; }
   .patient .gender.icon {
     text-align: center;
     background: #f1f1f1;
