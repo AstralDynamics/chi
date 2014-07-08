@@ -31,7 +31,8 @@
   width: 100%;
   max-height: 100%;
   min-height: 100%;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  overflow-x: hidden; }
 
 .bar {
   position: relative;
@@ -808,14 +809,15 @@ form {
   .patient .gender.icon {
     text-align: center;
     background: #f1f1f1;
-    padding: 12px 0; }
+    padding: 12px 0;
+    color: #4fd1e7; }
   .patient .alerts, .patient .actions {
-    font-size: 2.5em;
+    font-size: 2em;
     overflow: hidden;
     text-align: center; }
     .patient .alerts .button, .patient .actions .button {
-      font-size: 0.5em;
-      margin-bottom: 4px; }
+      font-size: 0.55em;
+      margin-bottom: 12px; }
   .patient .alerts {
     color: #eee; }
     .patient .alerts .active {

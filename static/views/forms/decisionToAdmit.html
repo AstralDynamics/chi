@@ -1,79 +1,149 @@
 <form>
   <div class='control'>
-    <label>Admit?</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.decision'/>
+    <div class='small-8 columns'>
+      <label>Admit?</label>
+    </div>
+    <div class='small-4 columns'>
+      <input type='checkbox'
+        ng-model='patient.admission.admit.decision'/>
+    </div>
   </div>
-  <div class='control'>
-    <label>If yes, AAU to Ward handover</label>
-    <input type='text'/>
-  </div>
-  <div class='control'>
-    <label>Child has own medication</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.hasOwnMedication'/>
-  </div>
-  </div>
-  <div class='control'>
-    <label>Family self medicating</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.familySelfMedicating'/>
-  </div>
-  <div class='control'>
-    <label>H.D.U Form required?</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.hduFormRequired'/>
-  </div>
-  <div class='control'>
-    <label>H.D.U Form completed?</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.hduFormCompleted'/>
-  </div>
-  <div class='control'>
-    <label>Detailed Manual Handling Assessment Form required</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.manualHandlingFormRequired'/>
-  </div>
-  <div class='control'>
-    <label>detailed Manual Handling Assessment Form Completed?</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.manualHandlingFormCompleted'/>
-  </div>
-  <div class='control'>
-    <label>Detailed Maelor Pressure Score Form Required</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.maelorPressureFormRequired'/>
-  </div>
-  </div>
-  <div class='control'>
-    <label>Detailed Maelor Pressure Score Form Completed</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.maelorPressureFormCompleted'/>
-  </div>
-  </div>
-  <div class='control'>
-    <label>Young Person Additional Assessment Form Required</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.youngPersonFormRequired'/>
-  </div>
-  <div class='control'>
-    <label>Young Person Additional Assessment Form Completed</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.youngPersonFormCompleted'/>
-  </div>
-  <div class='control'>
-    <label>Midwife informed – if baby is less than 28 days</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.midwifeInformed'/>
-  </div>
-  <div class='control'>
-    <label>Breast Feeding Policy Explained</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.breastFeedingPolicyExplained'/>
-  </div>
-  <div class='control'>
-    <label>Parent / Carer will be resident</label>
-    <input type='checkbox'
-      ng-model='patient.admission.admit.parentCarerResident'/>
+  <div class='conditional' ng-show='patient.admission.admit.decision'>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>If yes, AAU to Ward handover</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.handover'/>
+      </div>
+    </div>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>Has own medication</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.hasOwnMedication'/>
+      </div>
+    </div>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>Family self medicating</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.familySelfMedicating'/>
+      </div>
+    </div>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>H.D.U Form required?</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.hduFormRequired'/>
+      </div>
+    </div>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>H.D.U Form completed?</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.hduFormCompleted'/>
+      </div>
+    </div>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>Detailed Manual Handling Assessment Form required</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.manualHandlingFormRequired'/>
+      </div>
+    </div>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>detailed Manual Handling Assessment Form Completed?</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.manualHandlingFormCompleted'/>
+      </div>
+    </div>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>Detailed Maelor Pressure Score Form Required</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.maelorPressureFormRequired'/>
+      </div>
+    </div>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>Detailed Maelor Pressure Score Form Completed</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.maelorPressureFormCompleted'/>
+      </div>
+    </div>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>Young Person Additional Assessment Form Required</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.youngPersonFormRequired'/>
+      </div>
+    </div>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>Young Person Additional Assessment Form Completed</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.youngPersonFormCompleted'/>
+      </div>
+    </div>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>Midwife informed – if baby is less than 28 days</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.midwifeInformed'/>
+      </div>
+    </div>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>Breast Feeding Policy Explained</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.breastFeedingPolicyExplained'/>
+      </div>
+    </div>
+    <div class='control'>
+      <div class='small-8 columns'>
+        <label>Parent / Carer will be resident</label>
+      </div>
+      <div class='small-4 columns'>
+        <input type='checkbox'
+          ng-model='patient.admission.admit.parentCarerResident'/>
+      </div>
+    </div>
   </div>
 </form>
+
+<div class='small-12 columns'>
+  <div class='divider'></div>
+  <a href='#/admission/' class='button'>
+    Reject <i class='fa fa-times'></i>
+  </a>
+  <a href='#/admission/' class='button'>
+    Admit <i class='fa fa-check'></i>
+  </a>
+</div>

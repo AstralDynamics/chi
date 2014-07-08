@@ -15,16 +15,17 @@
     text-align:center;
     background:$background-alt;
     padding:$gutter * 3 0;
+    color:$primary;
   }
 
   .alerts, .actions {
-    font-size:2.5em;
+    font-size:2em;
     overflow:hidden;
     text-align:center;
 
     .button {
-      font-size:0.5em;
-      margin-bottom:$gutter;
+      font-size:0.55em;
+      margin-bottom:$gutter * 3;
     }
   }
 
