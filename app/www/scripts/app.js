@@ -258,11 +258,11 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
     templateUrl: './views/forms/components/infoChecklist.html'
   })
   .when('/admission/components/decision', {
-    templateUrl: './views/forms/components/decision.html'
+    templateUrl: './views/forms/decisionToAdmit.html'
   })
 
   .otherwise({
-    redirectTo: '/'
+    redirectTo: '/dash'
   });
 })
 
@@ -277,12 +277,12 @@ module.exports = function($scope, PatientIncubator, Patient) {
 
     // Duplicate fields for future lookup
     patient.ward = 'AAU';
-    patient.bed = 'Not assigned';
+    patient.bed = '-';
     patient.age = patient.admission.data.age;
     patient.pew = 0;
-    patient.nurse = 'Not assigned';
+    patient.nurse = '-';
     patient.gender = patient.admission.data.gender;
-    patient.name = patient.admission.data.preferredName + ' ' +
+    patient.name = patient.admission.data.forename + ' ' +
       patient.admission.data.surname;
 
     Patient.save(patient);
@@ -311,14 +311,10 @@ module.exports = function($scope, PatientIncubator, Patient) {
     console.log('add allergy');
     $scope.patient.admission.medicalHistory.allergies.push({
       allergen: 'Allergen',
-      reaction: 'Reaction',
-      corrective: 'Corrective measure'
+      reaction: '',
+      corrective: ''
     });
-    console.log($scope.patient.admission.medicalHistory.allergies);
   };
-  $scope.change = function() {
-    console.log('change', $scope.selectedAllergy);
-  }
 
 };
 
@@ -327,17 +323,6 @@ module.exports = function($scope, Auth) {
   $scope.id = '';
   $scope.error = false;
   console.log('Auth controller loading');
-
-  rfidscanner.scan(scanSuccess, scanFail);
-
-  function scanFail(error) {
-    console.error(error);
-  }
-
-  function scanSuccess(result) {
-    alert(result);
-    console.log(result);
-  }
 
   $scope.submit = function() {
     Auth.authenticate($scope.id)

@@ -433,6 +433,28 @@ form {
   .notification:hover i {
     color: white; }
 
+.vertical.task-radar .main.tray {
+  height: 280px;
+  background: #e0e0e0;
+  text-align: center;
+  font-size: 1.5em; }
+.vertical.task-radar .end.tray {
+  position: relative;
+  height: 60px;
+  background: #f1f1f1;
+  text-align: center;
+  padding: 12px;
+  color: #4fd1e7; }
+  .vertical.task-radar .end.tray .overdue, .vertical.task-radar .end.tray .timer {
+    color: #777;
+    display: block;
+    position: absolute;
+    top: 4px; }
+  .vertical.task-radar .end.tray .overdue {
+    left: 4px; }
+  .vertical.task-radar .end.tray .timer {
+    right: 4px; }
+
 .tasks {
   padding-bottom: 60px;
   height: 100%;
@@ -736,6 +758,29 @@ form {
 .patient.list table {
   width: 100%;
   border: none; }
+
+.patient {
+  padding-top: 16px; }
+  .patient .ac-legend {
+    display: none; }
+  .patient .chart {
+    margin-left: -30px;
+    margin-top: -4px; }
+  .patient .gender.icon {
+    text-align: center;
+    background: #f1f1f1;
+    padding: 12px 0; }
+  .patient .alerts, .patient .actions {
+    font-size: 2.5em;
+    overflow: hidden;
+    text-align: center; }
+    .patient .alerts .button, .patient .actions .button {
+      font-size: 0.5em;
+      margin-bottom: 4px; }
+  .patient .alerts {
+    color: #eee; }
+    .patient .alerts .active {
+      color: #4fd1e7; }
 
 html, body {
   background: white;

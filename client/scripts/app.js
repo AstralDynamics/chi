@@ -1,6 +1,6 @@
 require('./modules/EventEmitter.js');
 
-angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
+angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase', 'angularCharts'])
 
 .factory({
   resources: require('./services/resources'),

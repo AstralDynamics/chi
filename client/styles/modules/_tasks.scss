@@ -3,6 +3,34 @@
 
 $task-height:48px;
 
+
+.vertical.task-radar {
+  .main.tray {
+    height:280px;
+    background:$background-light;
+    text-align:center;
+    font-size:1.5em;
+  }
+  .end.tray {
+    position:relative;
+    height:60px;
+    background:$background-alt;
+    text-align:center;
+    padding:$gutter * 3;
+    color:$primary;
+
+    .overdue, .timer {
+      color:#777;
+      display:block;
+      position:absolute;
+      top:$gutter;
+    }
+
+    .overdue { left: $gutter; }
+    .timer { right: $gutter; }
+  }
+}
+
 .tasks {
   padding-bottom:$actions-bar-height;
   height:100%;

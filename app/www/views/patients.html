@@ -33,22 +33,22 @@
         <td>Bed</td>
         <td>Name</td>
         <td>Age</td>
-        <td>PEW</td>
+        <td>PEWS</td>
         <td>Nurse</td>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat='(key, patient) in patients'>
-          <td ng-bind='patient.ward'>AAU</td>
-          <td ng-bind='patient.bed'>4</td>
+          <td ng-bind='patient.ward'></td>
+          <td ng-bind='patient.bed'></td>
           <td>
             <a href='#/patient/{{key}}'
               ng-bind='patient.name'>
             </a>
           </td>
-          <td ng-bind='patient.age'>8</td>
-          <td ng-bind='patient.pew'>7</td>
-          <td ng-bind='patient.nurse'>Yvonne</td>
+          <td ng-bind='patient.age'></td>
+          <td ng-bind='patient.pew'></td>
+          <td ng-bind='patient.nurse'></td>
       </tr>
     </tbody>
   </table>

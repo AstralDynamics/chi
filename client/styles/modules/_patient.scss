@@ -1,0 +1,39 @@
+@import 'layout';
+@import 'theme';
+
+.patient {
+  padding-top:$gutter * 4;
+
+  .ac-legend { display:none; }
+
+  .chart {
+    margin-left:-30px;
+    margin-top:-$gutter;
+  }
+
+  .gender.icon {
+    text-align:center;
+    background:$background-alt;
+    padding:$gutter * 3 0;
+  }
+
+  .alerts, .actions {
+    font-size:2.5em;
+    overflow:hidden;
+    text-align:center;
+
+    .button {
+      font-size:0.5em;
+      margin-bottom:$gutter;
+    }
+  }
+
+  .alerts {
+    color:#eee;
+
+    .active {
+      color:$primary;
+    }
+  }
+
+}
