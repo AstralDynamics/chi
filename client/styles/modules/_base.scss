@@ -21,6 +21,13 @@
 .footer {
   @include floating;
   bottom:0;
+  background:$primary;
+
+  .button {
+    margin:$gutter * 2;
+    background:$primary;
+    color:white;
+  }
 }
 
 .container {

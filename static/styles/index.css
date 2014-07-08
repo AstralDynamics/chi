@@ -14,7 +14,12 @@
   z-index: 1000;
   left: 0;
   width: 100%;
-  bottom: 0; }
+  bottom: 0;
+  background: #4fd1e7; }
+  .footer .button {
+    margin: 8px;
+    background: #4fd1e7;
+    color: white; }
 
 .container {
   position: relative;
