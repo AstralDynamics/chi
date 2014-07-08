@@ -2,10 +2,10 @@ module.exports = function() {
   return function() {
     return {
 
-      ward: '',
-      bed: '',
-      name: '',
-      age: '',
+      ward: 'AAU',
+      bed: '18',
+      name: 'Dave',
+      age: '18',
       pew: '',
       nurse: '',
 
