@@ -26,7 +26,7 @@ module.exports = function(PatientTemplate) {
   var patients = {
     getAll : function(){
       console.log('here');
-      return [PatientTemplate()];
+      return {'test' : PatientTemplate()};
     },
     child : function(){
       return {
