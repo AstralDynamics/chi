@@ -12,7 +12,7 @@ module.exports = function(db) {
 
     function getAll() {
       console.log(root);
-      return root;
+      return root.getAll();
     }
 
     return {

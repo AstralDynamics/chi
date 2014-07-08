@@ -9,8 +9,8 @@ module.exports = function($scope, $firebase, Auth, Patient, Notify, timeOfDay) {
       return;
     }
 
-    $scope.patients = {};//$firebase(Patient.getAll());
-    console.log('profile', profile);
+    $scope.patients = Patient.getAll();
+    console.log('patients', $scope.patients);
     //$scope.staff = $firebase(profile);
     console.log('type', typeof profile);
     $scope.staff = profile;

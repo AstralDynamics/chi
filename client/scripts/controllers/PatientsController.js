@@ -1,5 +1,5 @@
 module.exports = function($scope, $firebase, Patient) {
-  $scope.patients = $firebase(Patient.getAll());
+  $scope.patients = Patient.getAll();
 
   console.log($scope.patients);
 };

@@ -1,6 +1,6 @@
 module.exports = function($scope, $routeParams, $firebase, Patient, PatientIncubator) {
   var patientId = $routeParams.id;
-  $scope.patient = $firebase(Patient.fromDb(patientId));
+  $scope.patient = {}//$firebase(Patient.fromDb(patientId));
 
   $scope.discharge = function() {
     $scope.patient.$set(null);

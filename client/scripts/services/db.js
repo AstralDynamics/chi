@@ -19,12 +19,34 @@ var staff = {
   }
 };
 
-module.exports = function() {
+
+
+module.exports = function(PatientTemplate) {
   //return new Firebase('https://astralchai.firebaseio.com');
+  var patients = {
+    getAll : function(){
+      console.log('here');
+      return [PatientTemplate()];
+    },
+    child : function(){
+      return {
+        on : function(durp, cb){
+          cb({
+            val : function(){
+              return PatientTemplate();
+            }
+          });
+          return;
+        }
+      }
+    }
+  };
+
   return {
     child : function(name){
       return {
-        'staff' : staff
+        'staff' : staff,
+        'patients' : patients
       }[name];
     },
     push : function(){}
