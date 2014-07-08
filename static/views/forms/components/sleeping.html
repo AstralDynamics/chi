@@ -8,12 +8,12 @@
 
 <form ng-controller="AdmissionController">
  <div class="control">
-  <div class="large-2 small-4 columns">
+  <div class="large-2 small-5 columns">
    <label>
     Cot
    </label>
   </div>
-  <div class="large-10 small-8 columns">
+  <div class="large-10 small-7 columns">
    <input id='cot' class='single' ng-model="patient.admission.sleeping.cot" type="checkbox" value=""/>
    <label for='cot'>
     <i class='icon icon-cot'></i>
@@ -21,12 +21,12 @@
   </div>
  </div>
  <div class="control">
-  <div class="large-2 small-4 columns">
+  <div class="large-2 small-5 columns">
    <label>
     Bed
    </label>
   </div>
-  <div class="large-10 small-8 columns">
+  <div class="large-10 small-7 columns">
    <input id='bed' class='single' ng-model="patient.admission.sleeping.bed" type="checkbox" value=""/>
    <label for='bed'>
     <i class='icon icon-bed'></i>
@@ -34,12 +34,12 @@
   </div>
  </div>
  <div class="control">
-  <div class="large-2 small-4 columns">
+  <div class="large-2 small-5 columns">
    <label>
     Pillows
    </label>
   </div>
-  <div class="large-10 small-8 columns">
+  <div class="large-10 small-7 columns">
    <input id='pillows' class='single' ng-model="patient.admission.sleeping.pillows" type="checkbox" value=""/>
    <label for='pillows'>
     <i class='icon icon-pillow'></i>
@@ -47,32 +47,32 @@
   </div>
  </div>
  <div class="control">
-  <div class="large-2 small-4 columns">
+  <div class="large-2 small-5 columns">
    <label>
     Time Settles
    </label>
   </div>
-  <div class="large-10 small-8 columns">
+  <div class="large-10 small-7 columns">
    <div time-input></div>
   </div>
  </div>
  <div class="control">
-  <div class="large-2 small-4 columns">
+  <div class="large-2 small-5 columns">
    <label>
     Time Wakes
    </label>
   </div>
-  <div class="large-10 small-8 columns">
+  <div class="large-10 small-7 columns">
    <div time-input></div>
   </div>
  </div>
  <div class="control">
-  <div class="large-2 small-4 columns">
+  <div class="large-2 small-5 columns">
    <label>
     Naps
    </label>
   </div>
-  <div class="large-10 small-8 columns">
+  <div class="large-10 small-7 columns">
    <input name="" ng-model="patient.admission.sleeping.naps" type="checkbox" value=""/>
   </div>
  </div>
@@ -86,10 +86,15 @@
     <div time-input></div>
   </div>
  </div>
+
+ <div class='control'>
+  <h3>Pattern</h3>
+  <div class='divider'></div>
+ </div>
  <div class="control">
   <div class="large-2 small-4 columns">
    <label>
-    Normal Pattern
+    Normal
    </label>
   </div>
   <div class="large-10 small-8 columns">
@@ -99,7 +104,7 @@
  <div class="control">
   <div class="large-2 small-4 columns">
    <label>
-    Altered Pattern / Problems
+    Altered
    </label>
   </div>
   <div class="large-10 small-8 columns">
@@ -118,12 +123,9 @@
  </div>
  <div class="control" ng-show='patient.admission.sleeping.bedrailsAssessment'>
   <div class="large-2 small-4 columns">
-   <label>
-    Document reason for bedrails
-   </label>
   </div>
   <div class="large-10 small-8 columns">
-   <textarea
+   <textarea placeholder='Reason for bedrails assessment'
      ng-model='patient.admission.sleeping.bedrailsReason'>
    </textarea>
   </div>
