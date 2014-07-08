@@ -1,24 +1,31 @@
+var staff = {
+  child : function(){
+    console.log('staff child');
+    return {
+      on : function(durp, cb){
+        cb({
+          val : function(){
+            return {
+              name : {
+                firstname : 'Jim',
+                surname : 'Davies'
+              }
+            };
+          }
+        });
+        return;
+      }
+    }
+  }
+};
+
 module.exports = function() {
   //return new Firebase('https://astralchai.firebaseio.com');
   return {
-    child : function(){
-      console.log('child called');
+    child : function(name){
       return {
-        child : function(){
-          console.log('from db called');
-          return {
-            on : function(durp, cb){
-              cb({
-                val : function(){
-                  return true;
-                }
-              });
-              console.log('on called');
-              return;
-            }
-          }
-        }
-      }
+        'staff' : staff
+      }[name];
     },
     push : function(){}
   }; 
