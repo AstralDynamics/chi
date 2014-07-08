@@ -282,7 +282,7 @@ module.exports = function($scope, PatientIncubator, Patient) {
     patient.pew = 0;
     patient.nurse = '-';
     patient.gender = patient.admission.data.gender;
-    patient.name = patient.admission.data.preferredName + ' ' +
+    patient.name = patient.admission.data.forename + ' ' +
       patient.admission.data.surname;
 
     Patient.save(patient);
