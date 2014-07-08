@@ -261,7 +261,7 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
   })
 
   .otherwise({
-    redirectTo: '/'
+    redirectTo: '/dash'
   });
 })
 
