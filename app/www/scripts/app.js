@@ -357,12 +357,11 @@ module.exports = function($scope, $firebase, Auth, Patient, Notify, timeOfDay) {
       return;
     }
 
-    $scope.patients = $firebase(Patient.getAll());
-    console.log('profile', profile);
+    $scope.patients = Patient.getAll();
+    console.log('patients', $scope.patients);
     //$scope.staff = $firebase(profile);
     console.log('type', typeof profile);
     $scope.staff = profile;
-    console.log('$profile', $firebase(profile));
   }
 
   $scope.timeOfDay = timeOfDay;
@@ -382,7 +381,7 @@ module.exports = function($scope, $firebase, Auth, Patient, Notify, timeOfDay) {
 },{}],5:[function(require,module,exports){
 module.exports = function($scope, $routeParams, $firebase, Patient, PatientIncubator) {
   var patientId = $routeParams.id;
-  $scope.patient = $firebase(Patient.fromDb(patientId));
+  $scope.patient = {}//$firebase(Patient.fromDb(patientId));
 
   $scope.discharge = function() {
     $scope.patient.$set(null);
@@ -420,8 +419,9 @@ module.exports = function($scope, $routeParams, $firebase, Patient, PatientIncub
 };
 
 },{}],6:[function(require,module,exports){
-module.exports = function($scope, $firebase, Patient) {
-  $scope.patients = $firebase(Patient.getAll());
+module.exports = function($scope, Patient) {
+  $scope.patients = Patient.getAll();
+
 
   console.log($scope.patients);
 };
@@ -967,7 +967,7 @@ module.exports = function(db) {
 
     function getAll() {
       console.log(root);
-      return root;
+      return root.getAll();
     }
 
     return {
@@ -1054,7 +1054,7 @@ module.exports = function(PatientTemplate, Patient, $firebase) {
   }
 
   function loadFromDb(id) {
-    patient = $firebase(Patient.fromDb(id));
+    patient = Patient.fromDb(id);
   }
 
   function done() {
@@ -1074,10 +1074,10 @@ module.exports = function() {
   return function() {
     return {
 
-      ward: '',
-      bed: '',
-      name: '',
-      age: '',
+      ward: 'AAU',
+      bed: '18',
+      name: 'Dave',
+      age: '1',
       pew: '',
       nurse: '',
 
@@ -1359,8 +1359,59 @@ module.exports = function(resources) {
 }
 
 },{}],34:[function(require,module,exports){
-module.exports = function() {
-  return new Firebase('https://astralchai.firebaseio.com');
+var staff = {
+  child : function(){
+    console.log('staff child');
+    return {
+      on : function(durp, cb){
+        cb({
+          val : function(){
+            return {
+              name : {
+                firstname : 'Jim',
+                surname : 'Davies'
+              }
+            };
+          }
+        });
+        return;
+      }
+    }
+  }
+};
+
+
+
+module.exports = function(PatientTemplate) {
+  //return new Firebase('https://astralchai.firebaseio.com');
+  var patients = {
+    getAll : function(){
+      console.log('here');
+      return {'-test' : PatientTemplate()};
+    },
+    child : function(){
+      return {
+        on : function(durp, cb){
+          cb({
+            val : function(){
+              return PatientTemplate();
+            }
+          });
+          return;
+        }
+      }
+    }
+  };
+
+  return {
+    child : function(name){
+      return {
+        'staff' : staff,
+        'patients' : patients
+      }[name];
+    },
+    push : function(){}
+  }; 
 };
 
 },{}],35:[function(require,module,exports){
@@ -1404,4 +1455,4 @@ module.exports = function() {
   }
 }
 
-},{}]},{},[1])
+},{}]},{},[1]);

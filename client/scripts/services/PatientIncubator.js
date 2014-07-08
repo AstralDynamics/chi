@@ -13,7 +13,7 @@ module.exports = function(PatientTemplate, Patient, $firebase) {
   }
 
   function loadFromDb(id) {
-    patient = $firebase(Patient.fromDb(id));
+    patient = Patient.fromDb(id);
   }
 
   function done() {
