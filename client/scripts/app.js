@@ -105,6 +105,11 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase', 'angularCharts'])
     templateUrl: './views/chat.html'
   })
 
+  // Async comms
+  .when('/message/new', {
+    templateUrl: './views/messageEditor.html'
+  })
+
   .when('/admission', {
     templateUrl: './views/forms/admission.html',
     controller: 'AdmissionController'

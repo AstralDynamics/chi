@@ -622,6 +622,16 @@ form {
   .collection .item:hover {
     background: #f9f9f9; }
 
+.message.editor {
+  padding-top: 16px; }
+  .message.editor .subject {
+    font-size: 1.3em;
+    display: block;
+    line-height: 40px; }
+  .message.editor textarea {
+    height: 330px;
+    max-width: 100%; }
+
 .messages .meta {
   color: #87bb7d; }
 .messages .avatar {
