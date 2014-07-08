@@ -14,7 +14,12 @@
   z-index: 1000;
   left: 0;
   width: 100%;
-  bottom: 0; }
+  bottom: 0;
+  background: #4fd1e7; }
+  .footer .button {
+    margin: 8px;
+    background: #4fd1e7;
+    color: white; }
 
 .container {
   position: relative;
@@ -433,6 +438,28 @@ form {
   .notification:hover i {
     color: white; }
 
+.vertical.task-radar .main.tray {
+  height: 280px;
+  background: #e0e0e0;
+  text-align: center;
+  font-size: 1.5em; }
+.vertical.task-radar .end.tray {
+  position: relative;
+  height: 60px;
+  background: #f1f1f1;
+  text-align: center;
+  padding: 12px;
+  color: #4fd1e7; }
+  .vertical.task-radar .end.tray .overdue, .vertical.task-radar .end.tray .timer {
+    color: #777;
+    display: block;
+    position: absolute;
+    top: 4px; }
+  .vertical.task-radar .end.tray .overdue {
+    left: 4px; }
+  .vertical.task-radar .end.tray .timer {
+    right: 4px; }
+
 .tasks {
   padding-bottom: 60px;
   height: 100%;
@@ -595,6 +622,41 @@ form {
   .collection .item:hover {
     background: #f9f9f9; }
 
+.message.editor {
+  padding-top: 16px; }
+  .message.editor .subject {
+    font-size: 1.3em;
+    display: block;
+    line-height: 40px; }
+  .message.editor textarea {
+    height: 330px;
+    max-width: 100%; }
+
+.messages .small-3 {
+  border-right: solid 1px #eee; }
+.messages .meta {
+  color: #87bb7d;
+  color: #ccc;
+  text-align: center;
+  width: 100%; }
+.messages .avatar {
+  font-size: 2.5em;
+  padding: 8px 0; }
+.messages .name {
+  text-align: center;
+  white-space: nowrap;
+  color: #999; }
+.messages .flags {
+  font-size: 0.6em;
+  white-space: nowrap;
+  margin-bottom: 16px;
+  text-align: center; }
+.messages .message {
+  overflow: hidden;
+  border-bottom: solid 1px #eee;
+  border-top: solid 1px #eee;
+  color: #555; }
+
 .messages.collection .item {
   position: relative;
   padding-left: 56px;
@@ -736,6 +798,29 @@ form {
 .patient.list table {
   width: 100%;
   border: none; }
+
+.patient {
+  padding-top: 16px; }
+  .patient .ac-legend {
+    display: none; }
+  .patient .chart {
+    margin-left: -30px;
+    margin-top: -4px; }
+  .patient .gender.icon {
+    text-align: center;
+    background: #f1f1f1;
+    padding: 12px 0; }
+  .patient .alerts, .patient .actions {
+    font-size: 2.5em;
+    overflow: hidden;
+    text-align: center; }
+    .patient .alerts .button, .patient .actions .button {
+      font-size: 0.5em;
+      margin-bottom: 4px; }
+  .patient .alerts {
+    color: #eee; }
+    .patient .alerts .active {
+      color: #4fd1e7; }
 
 html, body {
   background: white;

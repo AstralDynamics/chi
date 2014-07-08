@@ -15,7 +15,8 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase', 'angularCharts'])
   Staff: require('./services/Staff'),
   Auth: require('./services/Authentication'),
   Notify: require('./services/NotificationCenter'),
-  timeOfDay: require('./services/timeOfDay')
+  timeOfDay: require('./services/timeOfDay'),
+  TaskFactory: require('./services/TaskFactory')
 })
 
 .controller({
@@ -23,7 +24,8 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase', 'angularCharts'])
   DashController: require('./controllers/DashController'),
   AdmissionController: require('./controllers/AdmissionController'),
   PatientsController: require('./controllers/PatientsController'),
-  PatientController: require('./controllers/PatientController')
+  PatientController: require('./controllers/PatientController'),
+  TaskController: require('./controllers/TaskController')
 })
 
 .directive({
@@ -272,7 +274,7 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase', 'angularCharts'])
 })
 
 
-},{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./controllers/PatientController":5,"./controllers/PatientsController":6,"./directives/currentTime":7,"./directives/iconEditor":8,"./directives/modal":9,"./directives/modalManager":10,"./directives/ngPredict":11,"./directives/notificationsBar":12,"./directives/progressNode":13,"./directives/radialProgress":14,"./directives/systemBar":15,"./directives/taskEditor":16,"./directives/timeInput":17,"./filters/date":18,"./filters/timeUntil":19,"./modules/EventEmitter.js":20,"./services/Authentication":23,"./services/Model":24,"./services/Node":25,"./services/NotificationCenter":26,"./services/Patient":27,"./services/PatientIncubator":28,"./services/PatientTemplate":29,"./services/ProgressTree":30,"./services/Staff":31,"./services/db":32,"./services/resources":33,"./services/timeOfDay":34}],2:[function(require,module,exports){
+},{"./controllers/AdmissionController":2,"./controllers/AuthController":3,"./controllers/DashController":4,"./controllers/PatientController":5,"./controllers/PatientsController":6,"./controllers/TaskController":7,"./directives/currentTime":8,"./directives/iconEditor":9,"./directives/modal":10,"./directives/modalManager":11,"./directives/ngPredict":12,"./directives/notificationsBar":13,"./directives/progressNode":14,"./directives/radialProgress":15,"./directives/systemBar":16,"./directives/taskEditor":17,"./directives/timeInput":18,"./filters/date":19,"./filters/timeUntil":20,"./modules/EventEmitter.js":21,"./services/Authentication":24,"./services/Model":25,"./services/Node":26,"./services/NotificationCenter":27,"./services/Patient":28,"./services/PatientIncubator":29,"./services/PatientTemplate":30,"./services/ProgressTree":31,"./services/Staff":32,"./services/TaskFactory":33,"./services/db":34,"./services/resources":35,"./services/timeOfDay":36}],2:[function(require,module,exports){
 module.exports = function($scope, PatientIncubator, Patient) {
   $scope.patient = PatientIncubator.retrieve();
 
@@ -382,6 +384,10 @@ module.exports = function($scope, $routeParams, $firebase, Patient) {
   var patientId = $routeParams.id;
   $scope.patient = $firebase(Patient.fromDb(patientId));
 
+  $scope.discharge = function() {
+    $scope.patient.$set(null);
+    window.location.replace('#/dash');
+  };
 
   $scope.chartType = 'line';
   $scope.config = {
@@ -415,6 +421,62 @@ module.exports = function($scope, $firebase, Patient) {
 };
 
 },{}],7:[function(require,module,exports){
+module.exports = function($scope, TaskFactory) {
+
+  $scope.selected = -1;
+  $scope.tasks = TaskFactory.tasks;
+
+  $scope.now = Date.now.bind(Date);
+
+  // Calculate the time at which a
+  // task is due
+  $scope.radarPercent = function(due) {
+    var shift = 18000000;
+    return Math.floor((due / (Date.now() + shift)) * 100);
+  };
+
+  $scope.percentComplete = function(task) {
+    var time;
+    time = (task.due - Date.now()) / (task.due - task.date) * 100;
+    return Math.floor(time);
+  };
+
+  $scope.toggleSelection = function(index) {
+    if($scope.selected !== index) {
+      $scope.selected = index;
+    } else {
+      $scope.selected = -1;
+    }
+  };
+
+  $scope.getSelected = function() {
+    return $scope.tasks[$scope.selected];
+  };
+
+  $scope.edit = function() {
+    // edit the selected task
+    console.log('edit');
+    TaskFactory.editTask($scope.getSelected());
+    window.location.replace('#/tasks/edit');
+  };
+
+  $scope.cancel = function() {
+    // hide the selected task
+    $scope.getSelected().hidden = true;
+  };
+
+  $scope.complete = function() {
+
+  };
+
+  $scope.create = function() {
+    // switch to task creation view
+  };
+
+
+};
+
+},{}],8:[function(require,module,exports){
 module.exports = function($interval, $filter) {
   return {
     restrict: 'A',
@@ -435,7 +497,7 @@ module.exports = function($interval, $filter) {
   }
 };
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -460,7 +522,7 @@ module.exports = function() {
   }
 }
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -473,7 +535,7 @@ module.exports = function() {
   }
 };
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports = function(Notify) {
   return {
     restrict: 'A',
@@ -489,7 +551,7 @@ module.exports = function(Notify) {
   }
 };
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -535,7 +597,7 @@ module.exports = function() {
   }
 }
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -543,7 +605,7 @@ module.exports = function() {
     controller: function($scope, Notify) {
       $scope.notifications = [];
       $scope.types = {
-        notifications: 'fa fa-bell',
+        patients: 'fa fa-user',
         tasks: 'fa fa-tasks',
         chat: 'fa fa-envelope-o',
         steam: 'fa fa-fire'
@@ -558,11 +620,12 @@ module.exports = function() {
       $scope.count = function(type) {
         return $scope.type.apply(this, arguments).length;
       };
+
     }
   }
 };
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports = function(ProgressTree) {
   return {
     restrict:'A',
@@ -584,7 +647,7 @@ module.exports = function(ProgressTree) {
   }
 };
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -604,7 +667,7 @@ module.exports = function() {
   }
 };
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -612,7 +675,7 @@ module.exports = function() {
   }
 };
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = function(TaskFactory) {
   return {
     restrict: 'A',
@@ -653,7 +716,7 @@ module.exports = function(TaskFactory) {
   }
 }
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -689,7 +752,7 @@ module.exports = function() {
   }
 };
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = function() {
   return function(seconds, template, named) {
     var date, names, components;
@@ -759,14 +822,14 @@ module.exports = function() {
   }
 }
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 module.exports = function() {
   return function(due) {
     return due - Date.now();
   }
 };
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 angular.module('EventEmitter', [])
 
 .factory('$emitter', function() {
@@ -817,7 +880,7 @@ angular.module('EventEmitter', [])
   }
 });
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports={
   "__default__": "#555",
   "black": "#3b3b3b",
@@ -829,7 +892,7 @@ module.exports={
   "cyan": "#71b9f8"
 }
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports={
   "__default__": "fa fa-circle",
   "ambulance": "fa fa-ambulance",
@@ -850,7 +913,7 @@ module.exports={
   "chart": "fa fa-bar-chart-o"
 }
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 module.exports = function($rootScope, $q, Staff) {
   var profile = null;
 
@@ -883,7 +946,7 @@ module.exports = function($rootScope, $q, Staff) {
   }
 };
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 module.exports = function(db) {
   return function(name) {
     var root = db.child(name);
@@ -909,7 +972,7 @@ module.exports = function(db) {
   }
 }
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 module.exports = function() {
 
   function Node(name, value, links) {
@@ -954,7 +1017,7 @@ module.exports = function() {
   return Node;
 }
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 module.exports = function($emitter) {
   var events = new $emitter();
 
@@ -964,12 +1027,12 @@ module.exports = function($emitter) {
   }
 };
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('patients');
 }
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 module.exports = function(PatientTemplate) {
   var patient = null;
 
@@ -995,7 +1058,7 @@ module.exports = function(PatientTemplate) {
   }
 };
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 module.exports = function() {
   return function() {
     return {
@@ -1212,7 +1275,7 @@ module.exports = function() {
   }
 };
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 module.exports = function(Node) {
   var nodes = [];
 
@@ -1231,17 +1294,65 @@ module.exports = function(Node) {
   }
 };
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('staff');
 };
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
+module.exports = function(resources) {
+  var tasks, editableTask;
+
+  tasks = [];
+
+  function createTask(task) {
+    var defaults, task;
+
+    defaults = {
+      title: 'Untitled task',
+      icon: resources.icons.__default__,
+      color: resources.colors.__default__
+    };
+
+    task = {
+      title: task.title || defaults.title,
+      description: task.description,
+      icon: task.icon || defaults.icon,
+      color: task.color || defaults.color,
+      duration: parseInt(task.duration),
+      hidden: false,
+      date: Date.now(),
+      due: Date.now() + parseInt(task.duration * 60000)
+    };
+
+    tasks.push(task);
+
+    // put the task into firebase
+  }
+
+  function editTask(task) {
+    editableTask = task;
+  }
+
+  function flushEdit() {
+    editableTask = null;
+  }
+
+  return {
+    createTask: createTask,
+    editTask: editTask,
+    flushEdit: flushEdit,
+    tasks: tasks,
+    editableTask: editableTask
+  }
+}
+
+},{}],34:[function(require,module,exports){
 module.exports = function() {
   return new Firebase('https://astralchai.firebaseio.com');
 };
 
-},{}],33:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 module.exports = function() {
   return {
     icons: require('../resources/icons.json'),
@@ -1249,7 +1360,7 @@ module.exports = function() {
   }
 };
 
-},{"../resources/colors.json":21,"../resources/icons.json":22}],34:[function(require,module,exports){
+},{"../resources/colors.json":22,"../resources/icons.json":23}],36:[function(require,module,exports){
 module.exports = function() {
   return function() {
     var hours, time;

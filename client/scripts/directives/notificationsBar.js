@@ -5,7 +5,7 @@ module.exports = function() {
     controller: function($scope, Notify) {
       $scope.notifications = [];
       $scope.types = {
-        notifications: 'fa fa-bell',
+        patients: 'fa fa-user',
         tasks: 'fa fa-tasks',
         chat: 'fa fa-envelope-o',
         steam: 'fa fa-fire'
@@ -20,6 +20,7 @@ module.exports = function() {
       $scope.count = function(type) {
         return $scope.type.apply(this, arguments).length;
       };
+
     }
   }
 };

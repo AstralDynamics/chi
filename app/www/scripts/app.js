@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 require('./modules/EventEmitter.js');
 
-angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
+angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase', 'angularCharts'])
 
 .factory({
   resources: require('./services/resources'),
@@ -88,7 +88,7 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
 
   // Note editor
   .when('/notes/edit', {
-    templateUrl: './views/editNote.html'
+    templateUrl: './views/noteEditor.html'
   })
 
   // Task list
@@ -104,6 +104,11 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase'])
   // Async comms
   .when('/chat', {
     templateUrl: './views/chat.html'
+  })
+
+  // Async comms
+  .when('/message/new', {
+    templateUrl: './views/messageEditor.html'
   })
 
   .when('/admission', {
@@ -377,7 +382,29 @@ module.exports = function($scope, $routeParams, $firebase, Patient) {
   var patientId = $routeParams.id;
   $scope.patient = $firebase(Patient.fromDb(patientId));
 
-  console.log($scope.patient);
+
+  $scope.chartType = 'line';
+  $scope.config = {
+    legend: {
+      display: true,
+      position: 'left'
+    }
+  };
+
+  $scope.data = {
+    series: ['PEWS', 'Steam'],
+    data: [{
+      x: '26/6',
+      y: [3, 2]
+    },{
+      x: '27/6',
+      y: [4, 6]
+    },{
+      x: '28/6',
+      y: [1, 3]
+    }]
+  };
+
 };
 
 },{}],6:[function(require,module,exports){

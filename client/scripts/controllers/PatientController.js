@@ -2,6 +2,10 @@ module.exports = function($scope, $routeParams, $firebase, Patient) {
   var patientId = $routeParams.id;
   $scope.patient = $firebase(Patient.fromDb(patientId));
 
+  $scope.discharge = function() {
+    $scope.patient.$set(null);
+    window.location.replace('#/dash');
+  };
 
   $scope.chartType = 'line';
   $scope.config = {

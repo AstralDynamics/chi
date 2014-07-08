@@ -14,7 +14,8 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase', 'angularCharts'])
   Staff: require('./services/Staff'),
   Auth: require('./services/Authentication'),
   Notify: require('./services/NotificationCenter'),
-  timeOfDay: require('./services/timeOfDay')
+  timeOfDay: require('./services/timeOfDay'),
+  TaskFactory: require('./services/TaskFactory')
 })
 
 .controller({
@@ -22,7 +23,8 @@ angular.module('chai', ['ngRoute', 'EventEmitter', 'firebase', 'angularCharts'])
   DashController: require('./controllers/DashController'),
   AdmissionController: require('./controllers/AdmissionController'),
   PatientsController: require('./controllers/PatientsController'),
-  PatientController: require('./controllers/PatientController')
+  PatientController: require('./controllers/PatientController'),
+  TaskController: require('./controllers/TaskController')
 })
 
 .directive({
