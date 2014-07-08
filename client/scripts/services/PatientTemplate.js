@@ -5,7 +5,7 @@ module.exports = function() {
       ward: 'AAU',
       bed: '18',
       name: 'Dave',
-      age: '18',
+      age: '1',
       pew: '',
       nurse: '',
 
