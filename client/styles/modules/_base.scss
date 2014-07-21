@@ -1,86 +1,51 @@
 @import '../layout';
 @import '../theme';
 
-@mixin floating {
-  position:fixed;
-  z-index:1000;
+html {
+  height:auto;
+}
+
+body {
+  height:100%;
+}
+
+a, a:hover, a:active, a:focus {
+  color:inherit;
+}
+
+.screen {
+  @include overlay;
+}
+
+.splash {
+  background:$primary;
+}
+
+.fill {
+  @include fill;
+}
+
+.header {
+  position:absolute;
+  top:0;
   left:0;
   width:100%;
 }
 
-.fill {
-  height:100%;
-  display:block;
-}
-
-.header {
-  @include floating;
-  top:0;
-}
-
 .footer {
-  @include floating;
+  position:absolute;
   bottom:0;
-  background:$primary;
-
-  .button {
-    margin:$gutter * 2;
-    background:$primary;
-    color:white;
-  }
+  left:0;
+  width:100%;
 }
 
 .container {
-  position:relative;
-  box-sizing:border-box;
-  padding-top:$header-height;
   height:100%;
+  padding-top:$header-height;
 }
 
 .scrollable {
-  width:100%;
-  max-height:100%;
-  min-height:100%;
+  height:100%;
   overflow-y:scroll;
-  overflow-x:hidden;
 }
 
-.bar {
-  position:relative;
-  height:$bar-height;
-  line-height:$bar-height;
-
-  .left {
-    float:left;
-    position:absolute;
-    left:0;
-    top:0;
-    padding:0 $gutter;
-  }
-
-  .right {
-    float:right;
-    position:absolute;
-    right:0;
-    top:0;
-    padding:0 $gutter;
-  }
-  .center {
-    text-align:center;
-  }
-}
-
-.centered {
-  text-align:center;
-}
-
-.title.bar {
-  background:$primary-shade;
-  color:white;
-  padding:0 $gutter;
-}
-
-.progress .meter {
-  background:$primary;
-  color:white;
-}

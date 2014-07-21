@@ -1,7 +1,8 @@
-window.app = {
+// This script should be loaded and used 
+// with mobile devices.
+window.mobile = {
   initialize: function() {
     this.bindEvents();
-    console.log('Bind events');
   },
   bindEvents: function() {
     document.addEventListener('deviceready', this.onDeviceReady, true);

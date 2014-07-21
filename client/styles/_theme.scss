@@ -13,3 +13,15 @@ $background-light:#e0e0e0;
 
 $default-font:'Open Sans', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 $text-color:#333;
+
+$palette-1:#1abc9c;
+$palette-2:#2ecc71;
+$palette-3:#3498db;
+$palette-4:#9b59b6;
+$palette-5:#f1c40f;
+$palette-6:#e74c3c;
+
+@mixin animate {
+  -webkit-transition-duration:0.3s;
+  transition-duration:0.3s;
+}

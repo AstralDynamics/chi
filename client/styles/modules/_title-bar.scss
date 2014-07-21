@@ -1,0 +1,13 @@
+@import '../layout';
+@import '../theme';
+
+.title.bar {
+  height:$title-bar-height;
+  line-height:$title-bar-height;
+  color:white;
+  background:$primary-shade;
+
+  .left, .right {
+    color:$primary-highlight;
+  }
+}

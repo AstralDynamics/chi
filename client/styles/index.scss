@@ -2,25 +2,20 @@
 @import 'theme';
 
 @import 'modules/base';
-@import 'modules/grid';
-@import 'modules/systembar';
 @import 'modules/button';
+@import 'modules/bar';
 @import 'modules/checkbox';
-@import 'modules/modal';
 @import 'modules/form';
 @import 'modules/label';
-@import 'modules/notifications';
-@import 'modules/tasks';
-@import 'modules/task-editor';
-@import 'modules/icon-editor';
-@import 'modules/collection';
-@import 'modules/chat';
-@import 'modules/splash';
 @import 'modules/radial-progress';
-@import 'modules/admission-dash';
+@import 'modules/system-bar';
+@import 'modules/notifications-bar';
+@import 'modules/navigation-bar';
+@import 'modules/title-bar';
+@import 'modules/splash';
+@import 'modules/login';
 @import 'modules/nurse-dash';
-@import 'modules/patients';
-@import 'modules/patient';
+@import 'modules/palette';
 
 html, body  {
   background:$background;
@@ -28,5 +23,6 @@ html, body  {
   overflow:hidden;
   height:100%;
   overflow-x:hidden;
+  min-height:100%;
 }
 

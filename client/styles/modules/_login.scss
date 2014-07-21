@@ -1,0 +1,25 @@
+@import 'layout';
+@import 'theme';
+
+.login {
+  font-size:1.5em;
+  text-align:center;
+
+  .circle {
+    color:$primary-highlight;
+    margin-top:100px;
+  }
+
+  .fa-circle-thin {
+    @include animate;
+    opacity:0.3;
+
+    &:hover {
+      @include animate;
+      cursor:pointer;
+      opacity:0.8;
+    }
+  }
+
+
+}

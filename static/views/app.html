@@ -1,0 +1,40 @@
+<div class='header'>
+  <div class='system bar'>
+    <div class='left'><i class='fa fa-clock-o'></i>12.39</div>
+    <div class='center'>Thursday 17th July 2014</div>
+    <div class='right'></div>
+  </div>
+  <div class='notifications bar'>
+
+    <div class='left'>
+      <a href='#/'>
+        <i class='fa fa-home'></i>
+      </a>
+    </div>
+
+    <div class='center'>
+      <a href='#/messages'>
+        <i class='fa fa-envelope-o'></i>
+      </a>
+      <a href='#/patients'>
+        <i class='fa fa-group'></i>
+      </a>
+      <a href='#/tasks'>
+        <i class='fa fa-tasks'></i>
+      </a>
+    </div>
+
+    <div class='right'>
+      <a href='#/login'>
+        <i class='fa fa-sign-out'></i>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<div class='container'>
+  <div class='scrollable' ui-view>
+    <div class='fill' ng-include='"views/nurse-dash.html"'></div>
+  </div>
+</div>

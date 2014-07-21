@@ -1,0 +1,46 @@
+@import '../layout';
+@import '../theme';
+
+.palette-1 {
+  background:#1abc9c;
+}
+.palette-2 {
+  background:#2ecc71;
+}
+.palette-3 {
+  background:#3498db;
+}
+.palette-4 {
+  background:#9b59b6;
+}
+.palette-5 {
+  background:#f1c40f;
+}
+.palette-6 {
+  background:#e74c3c;
+}
+
+.icon.palette-1 {
+  color:#1abc9c;
+  background:inherit;
+}
+.icon.palette-2 {
+  color:#2ecc71;
+  background:inherit;
+}
+.icon.palette-3 {
+  color:#3498db;
+  background:inherit;
+}
+.icon.palette-4 {
+  color:#9b59b6;
+  background:inherit;
+}
+.icon.palette-5 {
+  color:#f1c40f;
+  background:inherit;
+}
+.icon.palette-6 {
+  color:#e74c3c;
+  background:inherit;
+}

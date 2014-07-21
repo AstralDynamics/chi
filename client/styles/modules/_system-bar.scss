@@ -2,7 +2,10 @@
 @import '../theme';
 
 .system.bar  {
+  $height:32px;
+
   background:$background-dark;
-  height:32px;
+  height:$height;
+  line-height:$height;
   color:$primary;
 }

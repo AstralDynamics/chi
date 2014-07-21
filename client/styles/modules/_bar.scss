@@ -1,0 +1,26 @@
+@import 'layout';
+@import 'theme';
+
+.bar {
+  width:100%;
+  position:relative;
+
+  .center {
+    position:absolute;
+    top:0;
+    width:100%;
+    text-align:center;
+  }
+
+  .left {
+    position:absolute;
+    left:$gutter;
+    z-index:5;
+  }
+
+  .right {
+    position:absolute;
+    right:$gutter;
+    z-index:5;
+  }
+}

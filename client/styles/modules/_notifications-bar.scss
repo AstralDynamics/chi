@@ -1,0 +1,20 @@
+@import '../layout';
+@import '../theme';
+
+
+.notifications.bar {
+  background:$primary;
+  height:$notifications-bar-height;
+  line-height:$notifications-bar-height;
+  font-size:1.5em;
+  color:$primary-highlight;
+
+  a {
+    padding:0 8px;
+    color:$primary-highlight;
+  }
+
+  a:hover {
+    color:white;
+  }
+}
