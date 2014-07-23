@@ -2,15 +2,47 @@
 @import 'theme';
 
 .glyph {
+  position:relative;
   display:inline-block;
   border-radius:4px;
-  background:$secondary;
   height:$glyph-height;
   width:$glyph-height;
   line-height:$glyph-height;
   font-size:32pt;
   text-align:center;
   color:#fff;
+
+  i {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    line-height:$glyph-height;
+    text-align:center;
+    background:transparent !important;
+  }
+
+  .gender {
+    /* Overrides will break glyphs */
+    font-size:$glyph-height !important;
+  }
+
+  .subject {
+    /* Overrides will break glyphs */
+    font-size:$glyph-height / 2 !important;
+  }
+
+  /* Icon specific rules */
+  .gender.icon-gender-f + * {
+    margin-top:-6px;
+  }
+  .gender.icon-gender-m + * {
+    margin-left:-6px;
+  }
+  .icon-baby {
+    font-size:14pt;
+  }
 }
 
 .pew.pill {

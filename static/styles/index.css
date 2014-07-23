@@ -424,6 +424,7 @@ form {
       border-bottom-right-radius: 0; }
     .nurse.dash .tracks .pew.pill {
       margin: 0 auto;
+      margin-top: -3px;
       width: 60px;
       height: auto;
       padding: 8px;
@@ -668,15 +669,37 @@ form {
   padding: 0 4px; }
 
 .glyph {
+  position: relative;
   display: inline-block;
   border-radius: 4px;
-  background: #87bb7d;
   height: 60px;
   width: 60px;
   line-height: 60px;
   font-size: 32pt;
   text-align: center;
-  color: #fff; }
+  color: #fff;
+  /* Icon specific rules */ }
+  .glyph i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    text-align: center;
+    background: transparent !important; }
+  .glyph .gender {
+    /* Overrides will break glyphs */
+    font-size: 60px !important; }
+  .glyph .subject {
+    /* Overrides will break glyphs */
+    font-size: 30px !important; }
+  .glyph .gender.icon-gender-f + * {
+    margin-top: -6px; }
+  .glyph .gender.icon-gender-m + * {
+    margin-left: -6px; }
+  .glyph .icon-baby {
+    font-size: 14pt; }
 
 .pew.pill {
   height: 60px;
