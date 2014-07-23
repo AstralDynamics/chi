@@ -1,0 +1,150 @@
+@import '../layout';
+@import '../theme';
+
+$avatar-width:48px;
+$sidebar-width:48px;
+
+.message.editor {
+  padding-top:$gutter * 4;
+
+  .subject {
+    font-size:1.3em;
+    display:block;
+    line-height:40px;
+  }
+
+  textarea {
+    height:330px;
+    max-width:100%;
+  }
+}
+
+.sidebar {
+  position:absolute;
+  width:$sidebar-width;
+  margin-top:$header-height;
+  height:100%;
+  box-sizing:border-box;
+  left:0;
+  top:0;
+  background:#eee;
+  color:#777;
+  text-align:center;
+  font-size:1.5em;
+  padding:$gutter * 2 0;
+
+  a {
+    padding:$gutter * 2 0;
+  }
+}
+
+.messages {
+  position:relative;
+  width:auto;
+  padding-left:$sidebar-width;
+
+  .bar {
+    box-sizing:content-box;
+    padding:$gutter;
+    height:1em;
+  }
+  .small-3 {
+    border-right:solid 1px #eee;
+  }
+  .meta {
+    color:$secondary;
+    color:#ccc;
+    text-align:center;
+    width:100%;
+  }
+  .avatar {
+    font-size:2.5em;
+    padding:$gutter * 2 0;
+  }
+  .name {
+    text-align:center;
+    color:#999;
+  }
+
+  .time.ago {
+  }
+
+  .flags {
+    font-size:0.6em;
+    white-space:nowrap;
+    margin-bottom:$gutter * 4;
+    text-align:center;
+  }
+
+  .message {
+    overflow:hidden;
+    border-bottom:solid 1px #eee;
+    border-top:solid 1px #eee;
+    color:#555;
+  }
+}
+
+.messages.collection {
+
+  .item {
+    position:relative;
+    padding-left:$avatar-width + $gutter * 2;
+    min-height:$avatar-width + $gutter * 3;
+    padding-top:1.2em;
+    padding-bottom:$gutter * 2;
+    color:#666;
+
+    .user {
+      color:$primary;
+    }
+
+    .meta {
+      position:absolute;
+      top:$gutter;
+      font-size:0.8em;
+      color:#888;
+    }
+
+    .avatar {
+      position:absolute;
+      top:0;
+      left:0;
+    }
+  }
+
+  .avatar {
+    background:$primary;
+    width:$avatar-width;
+    height:$avatar-width;
+    line-height:$avatar-width;
+    text-align:center;
+    font-size:2em;
+    color:$primary-highlight;
+  }
+
+  .entry {
+    margin:0;
+    border:none;
+    border-top:solid 1px #ddd;
+    border-radius:0;
+    box-shadow:none;
+  }
+
+  .input {
+    position:relative;
+
+    input {
+      padding-left:$avatar-width - $gutter;
+    }
+
+    .avatar {
+      position:absolute;
+      top:0;
+      left:0;
+      width:1.2em;
+      height:1.2em;
+      line-height:1em;
+      padding:$gutter;
+    }
+  }
+}

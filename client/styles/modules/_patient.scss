@@ -5,11 +5,11 @@
 
   .profile.bar {
     overflow:hidden;
-    background:$primary-shade;
-    color:white;
     padding:$gutter;
     font-size:0.8em;
     white-space:nowrap;
+    background:$primary;
+    color:white;
 
     .name {
       display:block;
@@ -18,8 +18,10 @@
     }
   }
 
+
   .alerts {
     color:#666;
+    font-size:0.8em;
 
     .header {
       position:static;

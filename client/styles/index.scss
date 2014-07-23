@@ -12,6 +12,7 @@
 @import 'modules/notifications-bar';
 @import 'modules/navigation-bar';
 @import 'modules/title-bar';
+@import 'modules/radial-progress';
 @import 'modules/splash';
 @import 'modules/login';
 @import 'modules/nurse-dash';
@@ -19,6 +20,8 @@
 @import 'modules/patients';
 @import 'modules/patient';
 @import 'modules/glyph';
+@import 'modules/admit';
+@import 'modules/messages';
 
 html, body  {
   background:$background;
