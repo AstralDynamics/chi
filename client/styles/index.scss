@@ -16,6 +16,9 @@
 @import 'modules/login';
 @import 'modules/nurse-dash';
 @import 'modules/palette';
+@import 'modules/patients';
+@import 'modules/patient';
+@import 'modules/glyph';
 
 html, body  {
   background:$background;

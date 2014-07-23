@@ -9,6 +9,13 @@ window.mobile = {
     document.addEventListener('deviceready', this.onDeviceReady, true);
   },
   onDeviceReady: function() {
+
+    // load phonegap script
+    var script = document.createElement('script');
+    script.src = 'phonegap.js';
+    document.head.appendChild(script);
+
+    // bootstrap angular
     angular.element(document).ready(function() {
       angular.bootstrap(document);
     });

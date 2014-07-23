@@ -8,6 +8,8 @@ $title-bar-height:32px;
 $header-height:$status-bar-height + $notifications-bar-height;
 $footer-height:0;
 
+$glyph-height:60px;
+
 @mixin fill {
   width:100%;
   height:100%;

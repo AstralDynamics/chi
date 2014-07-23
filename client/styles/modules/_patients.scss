@@ -1,0 +1,72 @@
+@import 'layout';
+@import 'theme';
+
+.filter.bar {
+  height:$title-bar-height;
+  line-height:$title-bar-height;
+  background:$primary;
+  color:white;
+  font-weight:bold;
+
+  i {
+    color:$primary-shade;
+  }
+}
+
+.patient:hover {
+  background:#f9f9f9;
+}
+
+.patients .patient {
+  overflow:hidden;
+  border-bottom:solid 1px #eee;
+  padding:$gutter * 2 0;
+  font-size:0.8em;
+  white-space:nowrap;
+  color:#888;
+
+  .name, .bed, i {
+    font-size:1.4em;
+  }
+
+  .bed {
+    background:$primary;
+    color:white;
+    text-align:center;
+    font-weight:bold;
+  }
+
+  .status {
+    padding-top:$gutter * 4;
+
+    .columns {
+      text-align:left;
+
+      &>div {
+        display:inline-block;
+        text-align:center;
+      }
+    }
+  }
+
+  .food i {
+    color:$palette-5;
+  }
+
+  .blood i {
+    color:$palette-6;
+  }
+
+  .medications i {
+    color:$palette-1;
+  }
+
+  .observations i {
+    color:$palette-3;
+  }
+
+  .pew.pill.bed i {
+    color:$primary-highlight;
+  }
+
+}

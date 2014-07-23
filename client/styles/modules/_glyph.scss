@@ -1,0 +1,30 @@
+@import 'layout';
+@import 'theme';
+
+.glyph {
+  display:inline-block;
+  border-radius:4px;
+  background:$secondary;
+  height:$glyph-height;
+  width:$glyph-height;
+  line-height:$glyph-height;
+  font-size:32pt;
+  text-align:center;
+  color:#fff;
+}
+
+.pew.pill {
+  width:$glyph-height;
+  border-radius:4px;
+  font-size:12pt;
+  text-align:center;
+  background:$tertiary;
+  color:white;
+  padding:$gutter 0;
+  margin:0 auto;
+  margin-bottom:$gutter;
+
+  .fa {
+    color:$tertiary-highlight;
+  }
+}

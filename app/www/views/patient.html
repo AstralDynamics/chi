@@ -1,112 +1,23 @@
 <div class='title bar'>
   <div class='left'>
-    <b ng-bind='patient.name'></b>
+    <i class='fa fa-user-md'></i>
   </div>
   <div class='center'>
-    <span>Age:</span>
-    <b ng-bind='patient.age'></b>
+    Patient Dashboard
   </div>
   <div class='right'>
-    <i class='fa fa-bell'></i>
-    <b>3</b>
-
-    <i class='fa fa-fire'></i>
-    <b>2</b>
+    <span>ID:SE24</span>
   </div>
 </div>
 
-<div class='patient'>
-
-  <div class='small-4 columns'>
-    <div class='gender icon'>
-      <i class='icon icon-baby fa-5x' ng-show='patient.age < 2'></i>
-      <i class='icon icon-toddler fa-5x' ng-show='patient.age > 1 && patient.age < 6'></i>
-      <i class='icon icon-child fa-5x' ng-show='patient.age > 5'></i>
+<div class='patient profile'>
+  <div class='profile bar'>
+    <div class='small-2 columns'>
+      <div class='glyph'>B</div>
     </div>
-    <div class='vertical task-radar'>
-      <div class='main tray'>
-        <div class='task'>
-        </div>
-      </div>
-      <div class='end tray'>
-        <span class='overdue'>3</span>
-        <span class='timer'>30</span>
-        <i class='fa fa-warning fa-2x'></i>
-      </div>
+    <div class='small-8 columns'>
+      
     </div>
   </div>
-  <div class='small-7 columns'>
-    <div style='width:380px; height:140px;'
-      ac-chart="chartType" ac-data="data" ac-config="config" class='chart'></div>
-    <div class='divider'></div>
-    <div class='alerts'>
-      <div>
-        <div class='small-3 columns alert'>
-          <i class='fa fa-comment'></i>
-        </div>
-        <div class='small-3 columns active alert'>
-          <i class='fa fa-ambulance'></i>
-        </div>
-        <div class='small-3 columns alert'>
-          <i class='fa fa-cube'></i>
-        </div>
-        <div class='small-3 columns alert'>
-          <i class='fa fa-warning'></i>
-        </div>
-      </div>
-      <div>
-        <div class='small-3 columns active alert'>
-          <i class='fa fa-bug'></i>
-        </div>
-        <div class='small-3 columns alert'>
-          <i class='fa fa-coffee'></i>
-        </div>
-        <div class='small-3 columns alert'>
-          <i class='fa fa-heart'></i>
-        </div>
-        <div class='small-3 columns alert'>
-          <i class='fa fa-group'></i>
-        </div>
-      </div>
-    </div>
-
-    <div class='divider'></div>
-    <div class='actions'>
-      <div>
-        <div class='small-4 columns alert'>
-          <a class='button' href='#/tasks'>
-            <i class='fa fa-tasks'></i>
-          </a>
-        </div>
-        <div class='small-4 columns alert'>
-          <a href='#/notes' class='button'>
-            <i class='fa fa-pencil'></i>
-          </a>
-        </div>
-        <div class='small-4 columns alert'>
-          <a class='button' ng-click='admissions()'>
-            <i class='fa fa-file-text-o'></i>
-          </a>
-        </div>
-      </div>
-      <div>
-        <div class='small-4 columns alert'>
-          <a href='' class='button' disabled>
-            <i class='fa fa-warning'></i>
-          </a>
-        </div>
-        <div class='small-4 columns alert'>
-          <a class='button' ng-click='observations()'>
-            <i class='fa fa-bar-chart-o'></i>
-          </a>
-        </div>
-        <div class='small-4 columns alert'>
-          <a class='button' ng-click='discharge()'>
-            <i class='fa fa-arrow-right'></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class='small-1 columns'></div>
 </div>
+

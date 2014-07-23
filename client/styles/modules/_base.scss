@@ -49,3 +49,10 @@ a, a:hover, a:active, a:focus {
   overflow-y:scroll;
 }
 
+.pilled {
+  display:inline-block;
+  width:1em;
+  height:1em;
+  border-radius:4px;
+  background:#888;
+}

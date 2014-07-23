@@ -3,7 +3,6 @@
 
 $track-width:128px;
 $tab-height:$track-width;
-$glyph-height:60px;
 
 .nurse.dash {
   @include fill;
@@ -31,7 +30,7 @@ $glyph-height:60px;
     .track.right {
       float:none !important;
       position:absolute;
-      right:0;
+      left:0;
       top:0;
     }
 
@@ -58,26 +57,6 @@ $glyph-height:60px;
         padding-top:16px;
       }
 
-      .glyph {
-        display:inline-block;
-        border-radius:4px;
-        background:$secondary;
-        height:$glyph-height;
-        width:$glyph-height;
-        line-height:2em;
-      }
-
-      .pew.pill {
-        width:$glyph-height;
-        border-radius:4px;
-        font-size:0.8em;
-        margin:0.3em auto;
-        background:$tertiary;
-
-        .fa {
-          color:$tertiary-highlight;
-        }
-      }
 
       .lane {
         font-size:2.4em;
@@ -96,12 +75,13 @@ $glyph-height:60px;
     }
 
     .time.block {
-      float:right;
-      right:0;
+      float:left;
+      left:0;
+      text-align:left;
       font-size:0.5em;
       height:64px;
       color:$primary-shade;
-      padding-right:$track-width / 4;
+      padding-left:$track-width / 4;
       border-top:solid 1px #ddd;
       /* Super Hacks */
       width:10000%;

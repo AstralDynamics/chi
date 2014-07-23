@@ -1,0 +1,105 @@
+@import 'layout';
+@import 'theme';
+
+.patient.profile {
+
+  .profile.bar {
+    overflow:hidden;
+    background:$primary-shade;
+    color:white;
+    padding:$gutter;
+    font-size:0.8em;
+    white-space:nowrap;
+
+    .name {
+      display:block;
+      font-size:1.4em;
+      height:2.6em;
+    }
+  }
+
+  .alerts {
+    .header {
+      position:static;
+      color:$primary;
+      font-size:1.2em;
+      margin-top:10px;
+
+      .small-2 {
+        padding:0;
+      }
+    }
+
+    .alert {
+      border-bottom:solid 1px #eee;
+      padding:$gutter;
+      white-space:nowrap;
+
+      .small-1 {
+        padding:0;
+      }
+
+      .small-10 {
+        padding:0;
+        text-overflow:ellipsis;
+        overflow:hidden;
+      }
+    }
+  }
+
+  .tasks {
+    background:$background-dark;
+    color:#888;
+    padding:0;
+
+    .header {
+      position:static;
+      color:$primary;
+    }
+
+    .task {
+      white-space:nowrap;
+      padding:$gutter * 4;
+      text-align:center;
+      border-bottom:solid 6px #333;
+
+      i {
+        font-size:2em;
+      }
+
+      .name {
+        margin-top:$gutter * 2;
+        color:$primary-highlight;
+        font-size:1.3em;
+      }
+    }
+
+    .task.active {
+      border-left-style:solid;
+      border-left-width:5px;
+    }
+  }
+
+  .actions.menu {
+    .action {
+      text-align:center;
+      background:$primary;
+      padding:$gutter * 4 0;
+      color:#fff;
+      margin-bottom:$gutter * 2;
+      white-space:nowrap;
+      font-size:0.7em;
+    }
+
+    .action i {
+      font-size:2em;
+      color:$primary-shade;
+    }
+
+    .columns {
+      padding:0 $gutter;
+    }
+  }
+
+
+}

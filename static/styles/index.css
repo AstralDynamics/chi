@@ -41,6 +41,13 @@ a, a:hover, a:active, a:focus {
   height: 100%;
   overflow-y: scroll; }
 
+.pilled {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border-radius: 4px;
+  background: #888; }
+
 .button {
   background: white;
   color: #4fd1e7;
@@ -408,7 +415,7 @@ form {
     .nurse.dash .tracks .track.right {
       float: none !important;
       position: absolute;
-      right: 0;
+      left: 0;
       top: 0; }
     .nurse.dash .tracks .track {
       display: inline-block;
@@ -430,21 +437,6 @@ form {
         font-size: 1.8em;
         color: #fff;
         padding-top: 16px; }
-      .nurse.dash .tracks .track .glyph {
-        display: inline-block;
-        border-radius: 4px;
-        background: #87bb7d;
-        height: 60px;
-        width: 60px;
-        line-height: 2em; }
-      .nurse.dash .tracks .track .pew.pill {
-        width: 60px;
-        border-radius: 4px;
-        font-size: 0.8em;
-        margin: 0.3em auto;
-        background: #fd9026; }
-        .nurse.dash .tracks .track .pew.pill .fa {
-          color: #fedebe; }
       .nurse.dash .tracks .track .lane {
         font-size: 2.4em;
         height: 100%; }
@@ -455,12 +447,13 @@ form {
       background: #48a0b2;
       z-index: 10; }
     .nurse.dash .track.transparent .time.block {
-      float: right;
-      right: 0;
+      float: left;
+      left: 0;
+      text-align: left;
       font-size: 0.5em;
       height: 64px;
       color: #48a0b2;
-      padding-right: 32px;
+      padding-left: 32px;
       border-top: solid 1px #ddd;
       /* Super Hacks */
       width: 10000%; }
@@ -515,6 +508,155 @@ form {
 .icon.palette-6 {
   color: #e74c3c;
   background: inherit; }
+
+.task.palette-1 {
+  border-color: #1abc9c; }
+
+.task.palette-2 {
+  border-color: #2ecc71; }
+
+.task.palette-3 {
+  border-color: #3498db; }
+
+.task.palette-4 {
+  border-color: #9b59b6; }
+
+.task.palette-5 {
+  border-color: #f1c40f; }
+
+.task.palette-6 {
+  border-color: #e74c3c; }
+
+.filter.bar {
+  height: 32px;
+  line-height: 32px;
+  background: #4fd1e7;
+  color: white;
+  font-weight: bold; }
+  .filter.bar i {
+    color: #48a0b2; }
+
+.patient:hover {
+  background: #f9f9f9; }
+
+.patients .patient {
+  overflow: hidden;
+  border-bottom: solid 1px #eee;
+  padding: 8px 0;
+  font-size: 0.8em;
+  white-space: nowrap;
+  color: #888; }
+  .patients .patient .name, .patients .patient .bed, .patients .patient i {
+    font-size: 1.4em; }
+  .patients .patient .bed {
+    background: #4fd1e7;
+    color: white;
+    text-align: center;
+    font-weight: bold; }
+  .patients .patient .status {
+    padding-top: 16px; }
+    .patients .patient .status .columns {
+      text-align: left; }
+      .patients .patient .status .columns > div {
+        display: inline-block;
+        text-align: center; }
+  .patients .patient .food i {
+    color: #f1c40f; }
+  .patients .patient .blood i {
+    color: #e74c3c; }
+  .patients .patient .medications i {
+    color: #1abc9c; }
+  .patients .patient .observations i {
+    color: #3498db; }
+  .patients .patient .pew.pill.bed i {
+    color: #b7f1fb; }
+
+.patient.profile .profile.bar {
+  overflow: hidden;
+  background: #48a0b2;
+  color: white;
+  padding: 4px;
+  font-size: 0.8em;
+  white-space: nowrap; }
+  .patient.profile .profile.bar .name {
+    display: block;
+    font-size: 1.4em;
+    height: 2.6em; }
+.patient.profile .alerts .header {
+  position: static;
+  color: #4fd1e7;
+  font-size: 1.2em;
+  margin-top: 10px; }
+  .patient.profile .alerts .header .small-2 {
+    padding: 0; }
+.patient.profile .alerts .alert {
+  border-bottom: solid 1px #eee;
+  padding: 4px;
+  white-space: nowrap; }
+  .patient.profile .alerts .alert .small-1 {
+    padding: 0; }
+  .patient.profile .alerts .alert .small-10 {
+    padding: 0;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+.patient.profile .tasks {
+  background: #222222;
+  color: #888;
+  padding: 0; }
+  .patient.profile .tasks .header {
+    position: static;
+    color: #4fd1e7; }
+  .patient.profile .tasks .task {
+    white-space: nowrap;
+    padding: 16px;
+    text-align: center;
+    border-bottom: solid 6px #333; }
+    .patient.profile .tasks .task i {
+      font-size: 2em; }
+    .patient.profile .tasks .task .name {
+      margin-top: 8px;
+      color: #b7f1fb;
+      font-size: 1.3em; }
+  .patient.profile .tasks .task.active {
+    border-left-style: solid;
+    border-left-width: 5px; }
+.patient.profile .actions.menu .action {
+  text-align: center;
+  background: #4fd1e7;
+  padding: 16px 0;
+  color: #fff;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  font-size: 0.7em; }
+.patient.profile .actions.menu .action i {
+  font-size: 2em;
+  color: #48a0b2; }
+.patient.profile .actions.menu .columns {
+  padding: 0 4px; }
+
+.glyph {
+  display: inline-block;
+  border-radius: 4px;
+  background: #87bb7d;
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  font-size: 32pt;
+  text-align: center;
+  color: #fff; }
+
+.pew.pill {
+  width: 60px;
+  border-radius: 4px;
+  font-size: 12pt;
+  text-align: center;
+  background: #fd9026;
+  color: white;
+  padding: 4px 0;
+  margin: 0 auto;
+  margin-bottom: 4px; }
+  .pew.pill .fa {
+    color: #fedebe; }
 
 html, body {
   background: white;
