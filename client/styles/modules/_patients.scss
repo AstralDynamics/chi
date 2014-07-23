@@ -25,6 +25,18 @@
   white-space:nowrap;
   color:#888;
 
+  .small-2 {
+    padding-left:$gutter * 2;
+  }
+
+  .small-8 {
+    padding-left:$gutter * 2;
+  }
+
+  .small-3 {
+    padding:$gutter * 2 0;
+  }
+
   .name, .bed, i {
     font-size:1.4em;
   }
@@ -37,8 +49,7 @@
   }
 
   .status {
-    padding-top:$gutter * 4;
-
+    margin-left:$gutter * 2;
     .columns {
       text-align:left;
 

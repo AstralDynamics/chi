@@ -546,6 +546,12 @@ form {
   font-size: 0.8em;
   white-space: nowrap;
   color: #888; }
+  .patients .patient .small-2 {
+    padding-left: 8px; }
+  .patients .patient .small-8 {
+    padding-left: 8px; }
+  .patients .patient .small-3 {
+    padding: 8px 0; }
   .patients .patient .name, .patients .patient .bed, .patients .patient i {
     font-size: 1.4em; }
   .patients .patient .bed {
@@ -554,7 +560,7 @@ form {
     text-align: center;
     font-weight: bold; }
   .patients .patient .status {
-    padding-top: 16px; }
+    margin-left: 8px; }
     .patients .patient .status .columns {
       text-align: left; }
       .patients .patient .status .columns > div {
@@ -646,17 +652,21 @@ form {
   color: #fff; }
 
 .pew.pill {
-  width: 60px;
+  height: 60px;
   border-radius: 4px;
-  font-size: 12pt;
+  font-size: 18pt;
   text-align: center;
   background: #fd9026;
   color: white;
   padding: 4px 0;
   margin: 0 auto;
-  margin-bottom: 4px; }
+  margin-bottom: 4px;
+  padding-top: 12px;
+  font-weight: bold; }
   .pew.pill .fa {
-    color: #fedebe; }
+    color: #fedebe;
+    display: block;
+    font-size: 0.6em; }
 
 html, body {
   background: white;
