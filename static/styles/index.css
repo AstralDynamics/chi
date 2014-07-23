@@ -355,6 +355,20 @@ form {
     color: #b7f1fb; }
   .notifications.bar a:hover {
     color: white; }
+  .notifications.bar .notification {
+    position: relative; }
+    .notifications.bar .notification .count {
+      position: absolute;
+      bottom: 0;
+      left: -5px;
+      font-size: 10pt;
+      line-height: 10pt;
+      background: #48a0b2;
+      padding: 2px;
+      border-radius: 2px; }
+    .notifications.bar .notification .count.active {
+      background: #fd9026;
+      color: #fedebe; }
 
 .navigation.bar {
   height: 48px;
@@ -405,6 +419,19 @@ form {
     overflow-y: hidden;
     white-space: nowrap;
     background: #f1f1f1; }
+    .nurse.dash .tracks .glyph {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0; }
+    .nurse.dash .tracks .pew.pill {
+      margin: 0 auto;
+      width: 60px;
+      height: auto;
+      padding: 8px;
+      padding-top: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0; }
+      .nurse.dash .tracks .pew.pill i {
+        display: inline; }
     .nurse.dash .tracks .track.transparent {
       background: rgba(72, 160, 178, 0.1);
       position: absolute;

@@ -17,4 +17,25 @@
   a:hover {
     color:white;
   }
+
+  .notification {
+    position:relative;
+
+    .count {
+      position:absolute;
+      bottom:0;
+      left:-5px;
+      font-size:10pt;
+      line-height:10pt;
+      background:$primary-shade;
+      padding:2px;
+      border-radius:2px;
+    }
+
+    .count.active {
+      background:$tertiary;
+      color:$tertiary-highlight;
+    }
+  }
+
 }

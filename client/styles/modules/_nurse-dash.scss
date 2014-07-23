@@ -16,6 +16,25 @@ $tab-height:$track-width;
     white-space:nowrap;
     background:#f1f1f1;
 
+    .glyph {
+      border-bottom-left-radius:0;
+      border-bottom-right-radius:0;
+    }
+
+    .pew.pill {
+      margin:0 auto;
+      width:$glyph-height;
+      height:auto;
+      padding:$gutter * 2;
+      padding-top:0;
+      border-top-left-radius:0;
+      border-top-right-radius:0;
+
+      i {
+        display:inline;
+      }
+    }
+
     .track.transparent {
       background:rgba(72, 160, 178, 0.1);
       position:absolute;
