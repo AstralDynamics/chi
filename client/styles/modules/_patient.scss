@@ -19,6 +19,8 @@
   }
 
   .alerts {
+    color:#666;
+
     .header {
       position:static;
       color:$primary;
@@ -81,6 +83,8 @@
   }
 
   .actions.menu {
+    margin-top:$gutter * 2;
+
     .action {
       text-align:center;
       background:$primary;
@@ -89,6 +93,14 @@
       margin-bottom:$gutter * 2;
       white-space:nowrap;
       font-size:0.7em;
+    }
+
+
+    .action:hover {
+      cursor:pointer;
+      i {
+        color:$primary-highlight;
+      }
     }
 
     .action i {

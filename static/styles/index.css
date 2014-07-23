@@ -411,7 +411,20 @@ form {
 .nurse.dash {
   width: 100%;
   height: 100%; }
+  .nurse.dash .track.transparent {
+    background: rgba(72, 160, 178, 0.1);
+    position: absolute;
+    right: 0; }
+    .nurse.dash .track.transparent .tab {
+      border: none;
+      color: white; }
+  .nurse.dash .track.right {
+    float: none !important;
+    position: absolute;
+    left: 0;
+    top: 0; }
   .nurse.dash .tracks {
+    padding-left: 128px;
     position: relative;
     max-width: 100%;
     min-height: 100%;
@@ -433,47 +446,38 @@ form {
       border-top-right-radius: 0; }
       .nurse.dash .tracks .pew.pill i {
         display: inline; }
-    .nurse.dash .tracks .track.transparent {
-      background: rgba(72, 160, 178, 0.1);
+  .nurse.dash .track {
+    float: left;
+    white-space: nowrap;
+    width: 128px;
+    min-height: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    border-right: solid 1px #eee;
+    text-align: center;
+    margin-right: -4px; }
+    .nurse.dash .track .tab {
       position: absolute;
-      right: 0; }
-      .nurse.dash .tracks .track.transparent .tab {
-        border: none;
-        color: white; }
-    .nurse.dash .tracks .track.right {
-      float: none !important;
-      position: absolute;
-      left: 0;
-      top: 0; }
-    .nurse.dash .tracks .track {
-      display: inline-block;
-      white-space: nowrap;
+      top: 0;
       width: 128px;
-      min-height: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.5);
-      border-right: solid 1px #eee;
+      background: #4fd1e7;
+      height: 128px;
       text-align: center;
-      margin-right: -4px; }
-      .nurse.dash .tracks .track .tab {
-        position: absolute;
-        top: 0;
-        width: 128px;
-        background: #4fd1e7;
-        height: 128px;
-        text-align: center;
-        font-size: 1.8em;
-        color: #fff;
-        padding-top: 16px; }
-      .nurse.dash .tracks .track .lane {
-        font-size: 2.4em;
-        height: 100%; }
+      font-size: 1.8em;
+      color: #fff;
+      padding-top: 16px;
+      z-index: 25; }
+    .nurse.dash .track .lane {
+      position: relative;
+      font-size: 2.4em;
+      height: 100%;
+      z-index: 20; }
   .nurse.dash .track.transparent {
     overflow: visible;
-    text-align: right; }
+    text-align: right;
+    z-index: 10; }
     .nurse.dash .track.transparent .tab {
-      background: #48a0b2;
-      z-index: 10; }
+      background: #48a0b2; }
     .nurse.dash .track.transparent .time.block {
       float: left;
       left: 0;
@@ -483,6 +487,7 @@ form {
       color: #48a0b2;
       padding-left: 32px;
       border-top: solid 1px #ddd;
+      z-index: 1;
       /* Super Hacks */
       width: 10000%; }
       .nurse.dash .track.transparent .time.block .time {
@@ -616,23 +621,25 @@ form {
     display: block;
     font-size: 1.4em;
     height: 2.6em; }
-.patient.profile .alerts .header {
-  position: static;
-  color: #4fd1e7;
-  font-size: 1.2em;
-  margin-top: 10px; }
-  .patient.profile .alerts .header .small-2 {
-    padding: 0; }
-.patient.profile .alerts .alert {
-  border-bottom: solid 1px #eee;
-  padding: 4px;
-  white-space: nowrap; }
-  .patient.profile .alerts .alert .small-1 {
-    padding: 0; }
-  .patient.profile .alerts .alert .small-10 {
-    padding: 0;
-    text-overflow: ellipsis;
-    overflow: hidden; }
+.patient.profile .alerts {
+  color: #666; }
+  .patient.profile .alerts .header {
+    position: static;
+    color: #4fd1e7;
+    font-size: 1.2em;
+    margin-top: 10px; }
+    .patient.profile .alerts .header .small-2 {
+      padding: 0; }
+  .patient.profile .alerts .alert {
+    border-bottom: solid 1px #eee;
+    padding: 4px;
+    white-space: nowrap; }
+    .patient.profile .alerts .alert .small-1 {
+      padding: 0; }
+    .patient.profile .alerts .alert .small-10 {
+      padding: 0;
+      text-overflow: ellipsis;
+      overflow: hidden; }
 .patient.profile .tasks {
   background: #222222;
   color: #888;
@@ -654,19 +661,25 @@ form {
   .patient.profile .tasks .task.active {
     border-left-style: solid;
     border-left-width: 5px; }
-.patient.profile .actions.menu .action {
-  text-align: center;
-  background: #4fd1e7;
-  padding: 16px 0;
-  color: #fff;
-  margin-bottom: 8px;
-  white-space: nowrap;
-  font-size: 0.7em; }
-.patient.profile .actions.menu .action i {
-  font-size: 2em;
-  color: #48a0b2; }
-.patient.profile .actions.menu .columns {
-  padding: 0 4px; }
+.patient.profile .actions.menu {
+  margin-top: 8px; }
+  .patient.profile .actions.menu .action {
+    text-align: center;
+    background: #4fd1e7;
+    padding: 16px 0;
+    color: #fff;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    font-size: 0.7em; }
+  .patient.profile .actions.menu .action:hover {
+    cursor: pointer; }
+    .patient.profile .actions.menu .action:hover i {
+      color: #b7f1fb; }
+  .patient.profile .actions.menu .action i {
+    font-size: 2em;
+    color: #48a0b2; }
+  .patient.profile .actions.menu .columns {
+    padding: 0 4px; }
 
 .glyph {
   position: relative;
