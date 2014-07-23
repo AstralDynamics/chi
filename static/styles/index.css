@@ -488,7 +488,7 @@ form {
       .nurse.dash .tracks .pew.pill i {
         display: inline; }
   .nurse.dash .track {
-    float: left;
+    display: inline-block;
     white-space: nowrap;
     width: 128px;
     min-height: 100%;

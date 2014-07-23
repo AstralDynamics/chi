@@ -59,7 +59,7 @@ $tab-height:$track-width;
   }
 
   .track {
-    float:left;
+    display:inline-block;
     white-space:nowrap;
     width:$track-width;
     min-height:100%;

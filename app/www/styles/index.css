@@ -389,6 +389,47 @@ form {
   .title.bar .left, .title.bar .right {
     color: #b7f1fb; }
 
+.radial-progress {
+  width: 90px;
+  height: 90px;
+  border-color: inherit; }
+  .radial-progress .transclude {
+    position: absolute;
+    line-height: 90px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border-color: inherit;
+    overflow: visible; }
+  .radial-progress .background.wrapper {
+    z-index: 0;
+    border-color: #b7f1fb; }
+    .radial-progress .background.wrapper .circle {
+      box-shadow: inset 0 0 0 8px #f1f1f1; }
+  .radial-progress .wrapper {
+    z-index: 10;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    clip: rect(0, 90px, 90px, 45px);
+    border-color: inherit;
+    overflow: visible; }
+  .radial-progress .halfway {
+    clip: rect(auto, auto, auto, auto); }
+  .radial-progress .circle {
+    width: 90px;
+    height: 90px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: inherit;
+    border-radius: 100%;
+    position: absolute;
+    clip: rect(0px, 45px, 90px, 0px); }
+  .radial-progress .base.left {
+    -webkit-transform: rotate(360deg); }
+  .radial-progress .base.right {
+    -webkit-transform: rotate(180deg); }
+
 .splash {
   color: #fff; }
 
@@ -447,7 +488,7 @@ form {
       .nurse.dash .tracks .pew.pill i {
         display: inline; }
   .nurse.dash .track {
-    float: left;
+    display: inline-block;
     white-space: nowrap;
     width: 128px;
     min-height: 100%;
@@ -612,17 +653,18 @@ form {
 
 .patient.profile .profile.bar {
   overflow: hidden;
-  background: #48a0b2;
-  color: white;
   padding: 4px;
   font-size: 0.8em;
-  white-space: nowrap; }
+  white-space: nowrap;
+  background: #4fd1e7;
+  color: white; }
   .patient.profile .profile.bar .name {
     display: block;
     font-size: 1.4em;
     height: 2.6em; }
 .patient.profile .alerts {
-  color: #666; }
+  color: #666;
+  font-size: 0.8em; }
   .patient.profile .alerts .header {
     position: static;
     color: #4fd1e7;
@@ -730,6 +772,114 @@ form {
     color: #fedebe;
     display: block;
     font-size: 0.6em; }
+
+.admission {
+  text-align: center;
+  margin-top: 8px;
+  white-space: nowrap; }
+
+.message.editor {
+  padding-top: 16px; }
+  .message.editor .subject {
+    font-size: 1.3em;
+    display: block;
+    line-height: 40px; }
+  .message.editor textarea {
+    height: 330px;
+    max-width: 100%; }
+
+.sidebar {
+  position: absolute;
+  width: 48px;
+  margin-top: 80px;
+  height: 100%;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  background: #eee;
+  color: #777;
+  text-align: center;
+  font-size: 1.5em;
+  padding: 8px 0; }
+  .sidebar a {
+    padding: 8px 0; }
+
+.messages {
+  position: relative;
+  width: auto;
+  padding-left: 48px; }
+  .messages .bar {
+    box-sizing: content-box;
+    padding: 4px;
+    height: 1em; }
+  .messages .small-3 {
+    border-right: solid 1px #eee; }
+  .messages .meta {
+    color: #87bb7d;
+    color: #ccc;
+    text-align: center;
+    width: 100%; }
+  .messages .avatar {
+    font-size: 2.5em;
+    padding: 8px 0; }
+  .messages .name {
+    text-align: center;
+    color: #999; }
+  .messages .flags {
+    font-size: 0.6em;
+    white-space: nowrap;
+    margin-bottom: 16px;
+    text-align: center; }
+  .messages .message {
+    overflow: hidden;
+    border-bottom: solid 1px #eee;
+    border-top: solid 1px #eee;
+    color: #555; }
+
+.messages.collection .item {
+  position: relative;
+  padding-left: 56px;
+  min-height: 60px;
+  padding-top: 1.2em;
+  padding-bottom: 8px;
+  color: #666; }
+  .messages.collection .item .user {
+    color: #4fd1e7; }
+  .messages.collection .item .meta {
+    position: absolute;
+    top: 4px;
+    font-size: 0.8em;
+    color: #888; }
+  .messages.collection .item .avatar {
+    position: absolute;
+    top: 0;
+    left: 0; }
+.messages.collection .avatar {
+  background: #4fd1e7;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  font-size: 2em;
+  color: #b7f1fb; }
+.messages.collection .entry {
+  margin: 0;
+  border: none;
+  border-top: solid 1px #ddd;
+  border-radius: 0;
+  box-shadow: none; }
+.messages.collection .input {
+  position: relative; }
+  .messages.collection .input input {
+    padding-left: 44px; }
+  .messages.collection .input .avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.2em;
+    height: 1.2em;
+    line-height: 1em;
+    padding: 4px; }
 
 html, body {
   background: white;
