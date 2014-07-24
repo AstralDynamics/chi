@@ -1,8 +1,9 @@
 @import 'layout';
 @import 'theme';
 
-$track-width:128px;
+$track-width:70px;
 $tab-height:$track-width;
+$time-width:40px;;
 
 .nurse.dash {
   @include fill;
@@ -11,10 +12,12 @@ $tab-height:$track-width;
     background:rgba(72, 160, 178, 0.1);
     position:absolute;
     right:0;
+    width:$time-width;
 
     .tab {
       border:none;
       color:white;
+      width:$time-width;
     }
   }
 
@@ -26,7 +29,7 @@ $tab-height:$track-width;
   }
 
   .tracks {
-    padding-left:$track-width;
+    padding-left:$time-width;
     position:relative;
     max-width:100%;
     min-height:100%;
@@ -74,18 +77,19 @@ $tab-height:$track-width;
       top:0;
       width:$track-width;
       background:$primary;
-      height:$tab-height;
+      height:auto;
+      min-height:80px;
       text-align:center;
       font-size:1.8em;
       color:#fff;
-      padding-top:16px;
+      padding:$gutter * 2;
       z-index:25;
     }
 
 
     .lane {
       position:relative;
-      font-size:2.4em;
+      font-size:1.8em;
       height:100%;
       z-index:20;
     }
@@ -107,7 +111,6 @@ $tab-height:$track-width;
       font-size:0.5em;
       height:64px;
       color:$primary-shade;
-      padding-left:$track-width / 4;
       border-top:solid 1px #ddd;
       z-index:1;
       /* Super Hacks */
