@@ -1,0 +1,37 @@
+@import '../layout';
+@import '../theme';
+
+.blood {
+
+  .info {
+    @include rounded;
+    margin:1em;
+    font-size:1em;
+    border-radius:4px;
+    padding:0.5em;
+    border:solid 2px $palette-6;
+    color:$palette-6;
+  }
+
+  .checklist {
+    border-top:solid 1px #eee;
+    padding-top:1em;
+    border-bottom:solid 1px #eee;
+    margin-bottom:1em;
+    font-weight:bold;
+
+    .status {
+      text-align:center;
+      font-weight:400;
+    }
+
+    .done {
+      color:$primary;
+
+      .name {
+        text-decoration:line-through;
+      }
+    }
+  }
+
+}
