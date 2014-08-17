@@ -767,6 +767,7 @@ form {
   font-size: 32pt;
   text-align: center;
   color: #fff;
+  overflow: hidden;
   /* Icon specific rules */ }
   .glyph i {
     position: absolute;
