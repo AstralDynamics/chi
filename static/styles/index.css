@@ -376,6 +376,22 @@ form {
       background: #fd9026;
       color: #fedebe; }
 
+.notifications.list .unread.notification .type {
+  color: #4fd1e7;
+  font-weight: bold; }
+.notifications.list .notification {
+  overflow: hidden;
+  padding: 0.5em 0;
+  border-bottom: solid 1px #eee;
+  background: #f8f8f8; }
+  .notifications.list .notification .type {
+    color: #aaa;
+    font-size: 8pt; }
+    .notifications.list .notification .type i {
+      font-size: 2em; }
+  .notifications.list .notification .content b {
+    color: #48a0b2; }
+
 .navigation.bar {
   height: 48px;
   line-height: 48px;
@@ -792,8 +808,7 @@ form {
     /* Overrides will break glyphs */
     font-size: 21px !important; }
   .glyph .gender.icon-gender-f + * {
-    margin-top: -6px;
-    margin-left: -2px; }
+    margin-top: -6px; }
   .glyph .gender.icon-gender-m + * {
     margin-left: -3px;
     margin-top: 3px; }

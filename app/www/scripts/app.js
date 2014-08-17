@@ -17,7 +17,8 @@ angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
 
 .directive({
   radialProgress: require('./directives/radialProgress'),
-  clickToggleClass: require('./directives/clickToggleClass')
+  clickToggleClass: require('./directives/clickToggleClass'),
+  pew: require('./directives/pew')
 })
 
 .config(function($urlRouterProvider, $stateProvider) {
@@ -55,7 +56,7 @@ angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
 });
 
 
-},{"./controllers/AdmissionController":2,"./controllers/GraphController":3,"./directives/clickToggleClass":4,"./directives/radialProgress":5,"./services/Model":6,"./services/Patient":7,"./services/PatientIncubator":8,"./services/PatientTemplate":9,"./services/db":10}],2:[function(require,module,exports){
+},{"./controllers/AdmissionController":2,"./controllers/GraphController":3,"./directives/clickToggleClass":4,"./directives/pew":5,"./directives/radialProgress":6,"./services/Model":7,"./services/Patient":8,"./services/PatientIncubator":9,"./services/PatientTemplate":10,"./services/db":11}],2:[function(require,module,exports){
 module.exports = function($scope, PatientIncubator, Patient) {
   $scope.patient = PatientIncubator.retrieve();
 
@@ -185,6 +186,25 @@ module.exports = function() {
 module.exports = function() {
   return {
     restrict: 'A',
+    replace: true,
+    scope: {
+      pew: '='
+    },
+    template:
+    "<div class='pew pill' ng-class='{ high: pew > 5, low: pew < 3}'>" +
+      "<i class='fa fa-arrow-up'></i>" +
+      "<span class='number' ng-bind='pew'></span>" +
+    "</div>",
+    link: function(scope) {
+      console.log(scope.pew);
+    }
+  };
+};
+
+},{}],6:[function(require,module,exports){
+module.exports = function() {
+  return {
+    restrict: 'A',
     transclude: true,
     template:
     '<div class="radial-progress">' +
@@ -212,7 +232,7 @@ module.exports = function() {
   };
 };
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 module.exports = function(db) {
   return function(name) {
     var root = db.child(name);
@@ -238,12 +258,12 @@ module.exports = function(db) {
   }
 }
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('patients');
 }
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = function(PatientTemplate, Patient, $firebase) {
   var patient = null;
 
@@ -274,7 +294,7 @@ module.exports = function(PatientTemplate, Patient, $firebase) {
   }
 };
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports = function() {
   return function() {
     return {
@@ -491,7 +511,7 @@ module.exports = function() {
   }
 };
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports = function() {
   return new Firebase('https://astralchai.firebaseio.com');
 };
