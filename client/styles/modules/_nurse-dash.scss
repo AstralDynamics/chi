@@ -1,7 +1,7 @@
 @import 'layout';
 @import 'theme';
 
-$track-width:70px;
+$track-width:60px;
 $tab-height:$track-width;
 $time-width:40px;;
 
@@ -72,6 +72,20 @@ $time-width:40px;;
     text-align:center;
     margin-right:-4px;
 
+    .task {
+      @include circular;
+      $diameter:32px;
+      border:solid 3px;
+      width:$diameter;
+      height:$diameter;
+      line-height:$diameter;
+      font-size:0.6em;
+      background:#fff;
+      position:absolute;
+      left:50%;
+      margin-left:-($diameter / 2);
+    }
+
     .tab {
       position:absolute;
       top:0;
@@ -109,7 +123,7 @@ $time-width:40px;;
       left:0;
       text-align:left;
       font-size:0.5em;
-      height:64px;
+      height:32px;
       color:$primary-shade;
       border-top:solid 1px #ddd;
       z-index:1;

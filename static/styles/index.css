@@ -492,17 +492,28 @@ form {
   .nurse.dash .track {
     display: inline-block;
     white-space: nowrap;
-    width: 70px;
+    width: 60px;
     min-height: 100%;
     height: 100%;
     background: rgba(255, 255, 255, 0.5);
     border-right: solid 1px #eee;
     text-align: center;
     margin-right: -4px; }
+    .nurse.dash .track .task {
+      border-radius: 100%;
+      border: solid 3px;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      font-size: 0.6em;
+      background: #fff;
+      position: absolute;
+      left: 50%;
+      margin-left: -16px; }
     .nurse.dash .track .tab {
       position: absolute;
       top: 0;
-      width: 70px;
+      width: 60px;
       background: #4fd1e7;
       height: auto;
       min-height: 80px;
@@ -527,7 +538,7 @@ form {
       left: 0;
       text-align: left;
       font-size: 0.5em;
-      height: 64px;
+      height: 32px;
       color: #48a0b2;
       border-top: solid 1px #ddd;
       z-index: 1;
