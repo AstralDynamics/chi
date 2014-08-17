@@ -1,0 +1,21 @@
+@import 'layout';
+@import 'theme';
+
+.messages.board {
+  padding:0;
+  // hooray hack
+  margin-bottom:135px;
+
+  .footer {
+    position:fixed;
+    z-index:10;
+    background:#fff;
+    padding:1em;
+    border-top:solid 1px #eee;
+
+    .button {
+      margin:0;
+    }
+  }
+}
+

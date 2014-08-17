@@ -904,6 +904,18 @@ form {
     line-height: 1em;
     padding: 4px; }
 
+.messages.board {
+  padding: 0;
+  margin-bottom: 135px; }
+  .messages.board .footer {
+    position: fixed;
+    z-index: 10;
+    background: #fff;
+    padding: 1em;
+    border-top: solid 1px #eee; }
+    .messages.board .footer .button {
+      margin: 0; }
+
 table.obs {
   font-size: 0.6em; }
   table.obs th {
