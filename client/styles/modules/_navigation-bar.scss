@@ -7,6 +7,7 @@ $navigation-bar-height:48px;
   height:$navigation-bar-height;
   line-height:$navigation-bar-height;
   background:$primary;
+  border-bottom:solid 1px $primary-shade;
   color:white;
   font-size:2.5em;
 

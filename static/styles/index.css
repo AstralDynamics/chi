@@ -396,6 +396,7 @@ form {
   height: 48px;
   line-height: 48px;
   background: #4fd1e7;
+  border-bottom: solid 1px #48a0b2;
   color: white;
   font-size: 2.5em; }
   .navigation.bar .fa-square-o {
@@ -496,6 +497,12 @@ form {
 .nurse.dash {
   width: 100%;
   height: 100%; }
+  .nurse.dash .tab {
+    max-height: 90px; }
+  .nurse.dash .track:last-child .tab {
+    padding-right: 1em;
+    width: 66px;
+    border-bottom-right-radius: 4px; }
   .nurse.dash .track.transparent {
     background: rgba(72, 160, 178, 0.1);
     position: absolute;
@@ -722,7 +729,8 @@ form {
     color: white; }
     .patient.profile .profile.bar .name {
       font-size: 1.4em;
-      padding-top: 1em; }
+      padding-bottom: 1em;
+      display: block; }
   .patient.profile .alerts {
     color: #666;
     font-size: 0.8em; }
@@ -745,10 +753,10 @@ form {
         overflow: hidden; }
   .patient.profile .tasks {
     color: #555;
-    padding: 1em 0;
     position: absolute;
     height: 100%;
-    background: #f3f3f3; }
+    background: #f3f3f3;
+    border-right: solid 1px #ddd; }
     .patient.profile .tasks .header {
       position: static;
       color: #4fd1e7; }
@@ -791,7 +799,8 @@ form {
       color: #fff;
       margin-bottom: 8px;
       white-space: nowrap;
-      font-size: 0.7em; }
+      font-size: 0.7em;
+      border: solid 1px #48a0b2; }
     .patient.profile .actions.menu .action:hover {
       cursor: pointer; }
       .patient.profile .actions.menu .action:hover i {

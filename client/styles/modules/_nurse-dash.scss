@@ -8,6 +8,16 @@ $time-width:40px;;
 .nurse.dash {
   @include fill;
 
+  .tab {
+    max-height:90px;
+  }
+
+  .track:last-child .tab {
+    padding-right:1em;
+    width:$track-width + 6px;
+    border-bottom-right-radius:4px;
+  }
+
   .track.transparent {
     background:rgba(72, 160, 178, 0.1);
     position:absolute;
