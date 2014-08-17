@@ -92,7 +92,7 @@ $time-width:40px;;
       width:$track-width;
       background:$primary;
       height:auto;
-      min-height:80px;
+      min-height:90px;
       text-align:center;
       font-size:1.8em;
       color:#fff;
@@ -116,6 +116,7 @@ $time-width:40px;;
 
     .tab {
       background:$primary-shade;
+      line-height:70px;
     }
 
     .time.block {

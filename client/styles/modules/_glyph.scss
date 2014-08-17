@@ -8,7 +8,7 @@
   height:$glyph-height;
   width:$glyph-height;
   line-height:$glyph-height;
-  font-size:32pt;
+  font-size:28pt;
   text-align:center;
   color:#fff;
   overflow:hidden;
@@ -26,23 +26,25 @@
 
   .gender {
     /* Overrides will break glyphs */
-    font-size:$glyph-height !important;
+    font-size:$glyph-height - 8px !important;
   }
 
   .subject {
     /* Overrides will break glyphs */
-    font-size:$glyph-height / 2 !important;
+    font-size:$glyph-height / 2 - 4px !important;
   }
 
   /* Icon specific rules */
   .gender.icon-gender-f + * {
     margin-top:-6px;
+    margin-left:-2px;
   }
   .gender.icon-gender-m + * {
-    margin-left:-6px;
+    margin-left:-3px;
+    margin-top:3px;
   }
   .icon-baby {
-    font-size:14pt;
+    font-size:12pt !important;
   }
 }
 

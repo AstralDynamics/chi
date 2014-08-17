@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-angular.module('chai', ['ui.router', 'firebase'])
+angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
 
 
 .factory({
@@ -11,11 +11,13 @@ angular.module('chai', ['ui.router', 'firebase'])
 })
 
 .controller({
-  AdmissionController: require('./controllers/AdmissionController')
+  AdmissionController: require('./controllers/AdmissionController'),
+  GraphController: require('./controllers/GraphController')
 })
 
 .directive({
-  radialProgress: require('./directives/radialProgress')
+  radialProgress: require('./directives/radialProgress'),
+  clickToggleClass: require('./directives/clickToggleClass')
 })
 
 .config(function($urlRouterProvider, $stateProvider) {
@@ -30,7 +32,9 @@ angular.module('chai', ['ui.router', 'firebase'])
   .state('app', { url: '/app', templateUrl: 'views/app.html' })
     .state('app.dash',     { url: '/dash',        templateUrl: 'views/nurse-dash.html' })
     .state('app.patient',  { url: '/patient/:id', templateUrl: 'views/patient.html' })
+    .state('app.board',    { url: '/patient/:id/board', templateUrl: 'views/message-board.html' })
     .state('app.patients', { url: '/patients',    templateUrl: 'views/patients.html' })
+    .state('app.other',    { url: '/otherdata',   templateUrl: 'views/other_data.html' })
     .state('app.messages', { url: '/messages',    templateUrl: 'views/messages.html' })
     .state('app.tasks',    { url: '/tasks',       templateUrl: 'views/tasks.html' })
     .state('app.admit',    { url: '/admit', templateUrl: 'views/admit.html' })
@@ -51,7 +55,7 @@ angular.module('chai', ['ui.router', 'firebase'])
 });
 
 
-},{"./controllers/AdmissionController":2,"./directives/radialProgress":3,"./services/Model":4,"./services/Patient":5,"./services/PatientIncubator":6,"./services/PatientTemplate":7,"./services/db":8}],2:[function(require,module,exports){
+},{"./controllers/AdmissionController":2,"./controllers/GraphController":3,"./directives/clickToggleClass":4,"./directives/radialProgress":5,"./services/Model":6,"./services/Patient":7,"./services/PatientIncubator":8,"./services/PatientTemplate":9,"./services/db":10}],2:[function(require,module,exports){
 module.exports = function($scope, PatientIncubator, Patient) {
   $scope.patient = PatientIncubator.retrieve();
 
@@ -103,6 +107,81 @@ module.exports = function($scope, PatientIncubator, Patient) {
 };
 
 },{}],3:[function(require,module,exports){
+module.exports = function($scope) {
+  $scope.data = [
+    {
+      x: 0,
+      val_0: 32
+    },
+    {
+      x: 1,
+      val_0: 26
+    },
+    {
+      x: 2,
+      val_0: 29
+    },
+    {
+      x: 3,
+      val_0: 30
+    },
+    {
+      x: 4,
+      val_0: 35
+    },
+    {
+      x: 5,
+      val_0: 31
+    },
+    {
+      x: 6,
+      val_0: 27
+    }
+  ];
+
+  $scope.options = {
+    axes: {
+      x: {type: "linear"},
+      y: {type: "linear", max: 90, min: 0}
+    },
+    series: [
+      {
+        y: "val_0",
+        label: "A time series",
+        color: "#9467bd",
+        axis: "y",
+        type: "line",
+        thickness: "2px",
+        id: "series_0",
+        drawDots: true
+      }
+    ],
+    tooltip: {mode: "scrubber"},
+    stacks: [],
+    lineMode: "linear",
+    tension: 0.7,
+    drawLegend: false,
+    drawDots: true,
+    columnsHGap: 20
+  };
+};
+
+},{}],4:[function(require,module,exports){
+module.exports = function() {
+  return {
+    restrict: 'A',
+    scope: {
+      toggleClass: '@clickToggleClass'
+    },
+    link: function(scope, element, attrs) {
+      element.on('click', function() {
+        element.toggleClass(scope.toggleClass);
+      });
+    }
+  };
+};
+
+},{}],5:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -133,7 +212,7 @@ module.exports = function() {
   };
 };
 
-},{}],4:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 module.exports = function(db) {
   return function(name) {
     var root = db.child(name);
@@ -159,12 +238,12 @@ module.exports = function(db) {
   }
 }
 
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('patients');
 }
 
-},{}],6:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 module.exports = function(PatientTemplate, Patient, $firebase) {
   var patient = null;
 
@@ -195,7 +274,7 @@ module.exports = function(PatientTemplate, Patient, $firebase) {
   }
 };
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = function() {
   return function() {
     return {
@@ -412,7 +491,7 @@ module.exports = function() {
   }
 };
 
-},{}],8:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports = function() {
   return new Firebase('https://astralchai.firebaseio.com');
 };

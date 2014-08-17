@@ -46,209 +46,215 @@
   </div>
   <!--/Profile Bar-->
 
-  <div>
-    <!--Tasks List-->
-    <div class='small-4 columns tasks'>
-      <div class='header task'>Current Tasks</div>
-      <div class='task'>
-        <div class='icon palette-5'>
+  <!--Tasks List-->
+  <div class='small-4 columns tasks'>
+    <div class='timeline'></div>
+
+    <div class='task icon palette-5'
+      style='top:40px'>
+      <i class='fa fa-cutlery'></i>
+      <div class='name'>2m</div>
+    </div>
+
+    <div class='task icon palette-6'
+      style='top:56px'>
+      <i class='fa fa-tint'></i>
+      <div class='name'>30m</div>
+    </div>
+
+    <div class='task icon palette-2'
+      style='top:72px'>
+      <i class='fa fa-bar-chart-o'></i>
+      <div class='name'>3h</div>
+    </div>
+
+    <div class='task icon palette-6'
+      style='top:210px'>
+      <i class='fa fa-tint'></i>
+      <div class='name'>30m</div>
+    </div>
+
+    <div class='task icon palette-5'
+      style='top:300px'>
+      <i class='fa fa-cutlery'></i>
+      <div class='name'>2m</div>
+    </div>
+
+  </div>
+  <!--/Tasks List-->
+
+  <div class='small-8 columns main'>
+
+    <!-- Alerts List -->
+    <div class='alerts'>
+      <div class='header row'>
+        <div class='small-2 columns'>Alerts</div>
+        <div class='small-8 columns'></div>
+        <div class='small-2 columns'>+</div>
+      </div>
+
+      <div class='alert row'>
+        <div class='small-1 columns icon palette-6'>
+          <i class='fa fa-tint'></i>
+        </div>
+        <div class='small-10 columns'>
+          <b>Blood Deficiency</b>
+        </div>
+        <div class='small-1 columns'></div>
+      </div>
+
+      <div class='alert row'>
+        <div class='small-1 columns icon palette-5'>
           <i class='fa fa-cutlery'></i>
-          <div class='type'>Food</div>
         </div>
-        <div class='name'>2m</div>
-      </div>
-      <div class='task active icon palette-6'>
-        <i class='fa fa-tint'></i>
-        <div class='type'>Take Blood</div>
-        <div class='name'>30m</div>
-      </div>
-      <div class='task'>
-        <div class='icon palette-2'>
-          <i class='fa fa-bar-chart-o'></i>
-          <div class='type'>Observations</div>
+        <div class='small-10 columns'>
+          <b>Nil by mouth:</b>
+          Until
         </div>
-        <div class='name'>3h</div>
+        <div class='small-1 columns'></div>
+      </div>
+
+      <div class='alert row'>
+        <div class='small-1 columns icon palette-6'>
+          <i class='fa fa-warning'></i>
+        </div>
+        <div class='small-10 columns'>
+          <b>Fall Risk</b>
+        </div>
+        <div class='small-1 columns'></div>
+      </div>
+
+      <div class='alert row'>
+        <div class='small-1 columns icon palette-3'>
+          <i class='icon-medications'></i>
+        </div>
+        <div class='small-10 columns'>
+          <b>Allergies:</b>
+          Penecillin
+        </div>
+        <div class='small-1 columns'></div>
+      </div>
+      <div class='alert row'>
+        <div class='small-1 columns icon palette-6'>
+          <i class='fa fa-tint'></i>
+        </div>
+        <div class='small-10 columns'>
+          <b>Blood Deficiency</b>
+        </div>
+        <div class='small-1 columns'></div>
+      </div>
+
+      <div class='alert row'>
+        <div class='small-1 columns icon palette-5'>
+          <i class='fa fa-cutlery'></i>
+        </div>
+        <div class='small-10 columns'>
+          <b>Nil by mouth:</b>
+          Until
+        </div>
+        <div class='small-1 columns'></div>
+      </div>
+
+      <div class='alert row'>
+        <div class='small-1 columns icon palette-6'>
+          <i class='fa fa-warning'></i>
+        </div>
+        <div class='small-10 columns'>
+          <b>Fall Risk</b>
+        </div>
+        <div class='small-1 columns'></div>
+      </div>
+
+      <div class='alert row'>
+        <div class='small-1 columns icon palette-3'>
+          <i class='icon-medications'></i>
+        </div>
+        <div class='small-10 columns'>
+          <b>Allergies:</b>
+          Penecillin
+        </div>
+        <div class='small-1 columns'></div>
       </div>
     </div>
-    <!--/Tasks List-->
+    <!--/Alerts List-->
 
-    <div class='small-8 columns main'>
 
-      <!-- Alerts List -->
-      <div class='alerts'>
-        <div class='header row'>
-          <div class='small-2 columns'>Alerts</div>
-          <div class='small-8 columns'></div>
-          <div class='small-2 columns'>+</div>
+
+    <div class='actions menu'>
+      <div class='row'>
+        <div class='small-4 columns'>
+          <a href='#/app/tasks/create'>
+            <div class='action'>
+              <i class='fa fa-tasks'></i>
+            </div>
+          </a>
         </div>
-
-        <div class='alert row'>
-          <div class='small-1 columns icon palette-6'>
-            <i class='fa fa-tint'></i>
-          </div>
-          <div class='small-10 columns'>
-            <b>Blood Deficiency</b>
-          </div>
-          <div class='small-1 columns'></div>
+        <div class='small-4 columns'>
+          <a href='#/app/alerts/create'>
+            <div class='action'>
+              <i class='fa fa-warning'></i>
+            </div>
+          </a>
         </div>
-
-        <div class='alert row'>
-          <div class='small-1 columns icon palette-5'>
-            <i class='fa fa-cutlery'></i>
-          </div>
-          <div class='small-10 columns'>
-            <b>Nil by mouth:</b>
-            Until
-          </div>
-          <div class='small-1 columns'></div>
-        </div>
-
-        <div class='alert row'>
-          <div class='small-1 columns icon palette-6'>
-            <i class='fa fa-warning'></i>
-          </div>
-          <div class='small-10 columns'>
-            <b>Fall Risk</b>
-          </div>
-          <div class='small-1 columns'></div>
-        </div>
-
-        <div class='alert row'>
-          <div class='small-1 columns icon palette-3'>
-            <i class='icon-medications'></i>
-          </div>
-          <div class='small-10 columns'>
-            <b>Allergies:</b>
-            Penecillin
-          </div>
-          <div class='small-1 columns'></div>
-        </div>
-      </div>
-      <!--/Alerts List-->
-
-      <!-- Notes List -->
-      <div class='alerts'>
-        <div class='header row'>
-          <div class='small-2 columns'>Notes</div>
-          <div class='small-8 columns'></div>
-          <div class='small-2 columns'>+</div>
-        </div>
-
-        <div class='alert row'>
-          <div class='small-1 columns icon palette-3'>
-            <i class='fa fa-file-text'></i>
-          </div>
-          <div class='small-10 columns'>
-            <b>Dr Williams:</b>
-            Please ensure that you have...
-          </div>
-          <div class='small-1 columns'></div>
-        </div>
-
-        <div class='alert row'>
-          <div class='small-1 columns icon palette-3'>
-            <i class='fa fa-file-text'></i>
-          </div>
-          <div class='small-10 columns'>
-            <b>Nurse Jones:</b>
-            Patient will be transferred to new...
-          </div>
-          <div class='small-1 columns'></div>
-        </div>
-
-        <div class='alert row'>
-          <div class='small-1 columns icon palette-3'>
-            <i class='fa fa-file-text'></i>
-          </div>
-          <div class='small-10 columns'>
-            <b>Dr Williams:</b>
-            Didn't have enough time to see whether...
-          </div>
-          <div class='small-1 columns'></div>
-        </div>
-
-
-      </div>
-      <!--/Notes List-->
-
-
-
-      <div class='actions menu'>
-        <div class='row'>
-          <div class='small-4 columns'>
-            <a href='#/app/tasks/create'>
-              <div class='action'>
-                <i class='fa fa-tasks'></i>
-              </div>
-            </a>
-          </div>
-          <div class='small-4 columns'>
-            <a href='#/app/alerts/create'>
-              <div class='action'>
-                <i class='fa fa-warning'></i>
-              </div>
-            </a>
-          </div>
-          <div class='small-4 columns'>
-            <a href='#/app/notes/create'>
-              <div class='action'>
-                <i class='fa fa-file-text'></i>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class='row'>
-          <div class='small-4 columns'>
-            <a href='#/app/admit'>
-              <div class='action'>
-                <i class='fa fa-bar-chart-o'></i>
-              </div>
-            </a>
-          </div>
-          <div class='small-4 columns'>
-            <a href='#/app/admit/dash'>
-              <div class='action'>
-                <i class='fa fa-user'></i>
-              </div>
-            </a>
-          </div>
-          <div class='small-4 columns'>
-            <a href='#/app/other'>
-              <div class='action'>
-                <i class='fa fa-database'></i>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class='row'>
-          <div class='small-4 columns'>
-            <a href='#/app/messages'>
-              <div class='action'>
-                <i class='fa fa-envelope-o'></i>
-              </div>
-            </a>
-          </div>
-          <div class='small-4 columns'>
-            <a href='#/app/checkout'>
-              <div class='action'>
-                <i class='fa fa-sign-out'></i>
-              </div>
-            </a>
-          </div>
-          <div class='small-4 columns'>
-            <a href='#/app/transfer'>
-              <div class='action'>
-                <i class='fa fa-mail-forward'></i>
-              </div>
-            </a>
-          </div>
+        <div class='small-4 columns'>
+          <a href='#/app/notes/create'>
+            <div class='action'>
+              <i class='fa fa-file-text'></i>
+            </div>
+          </a>
         </div>
       </div>
 
+      <div class='row'>
+        <div class='small-4 columns'>
+          <a href='#/app/admit'>
+            <div class='action'>
+              <i class='fa fa-bar-chart-o'></i>
+            </div>
+          </a>
+        </div>
+        <div class='small-4 columns'>
+          <a href='#/app/admit/dash'>
+            <div class='action'>
+              <i class='fa fa-user'></i>
+            </div>
+          </a>
+        </div>
+        <div class='small-4 columns'>
+          <a ui-sref='app.other'>
+            <div class='action'>
+              <i class='fa fa-database'></i>
+            </div>
+          </a>
+        </div>
+      </div>
 
+      <div class='row'>
+        <div class='small-4 columns'>
+          <a href='#/app/patient/001/board'>
+            <div class='action'>
+              <i class='fa fa-envelope-o'></i>
+            </div>
+          </a>
+        </div>
+        <div class='small-4 columns'>
+          <a href='#/app/checkout'>
+            <div class='action'>
+              <i class='fa fa-sign-out'></i>
+            </div>
+          </a>
+        </div>
+        <div class='small-4 columns'>
+          <a href='#/app/transfer'>
+            <div class='action'>
+              <i class='fa fa-mail-forward'></i>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
+
+
   </div>
 
 </div>
