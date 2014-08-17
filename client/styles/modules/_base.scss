@@ -56,3 +56,11 @@ a, a:hover, a:active, a:focus {
   border-radius:4px;
   background:#888;
 }
+
+.pew.high {
+  background:$palette-6 !important;
+}
+
+.pew.low {
+  background:$palette-2 !important;
+}

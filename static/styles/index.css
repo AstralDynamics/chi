@@ -48,6 +48,12 @@ a, a:hover, a:active, a:focus {
   border-radius: 4px;
   background: #888; }
 
+.pew.high {
+  background: #e74c3c !important; }
+
+.pew.low {
+  background: #2ecc71 !important; }
+
 .button {
   background: white;
   color: #4fd1e7;
@@ -807,7 +813,7 @@ form {
   padding-top: 12px;
   font-weight: bold; }
   .pew.pill .fa {
-    color: #fedebe;
+    color: rgba(255, 255, 255, 0.5);
     display: block;
     font-size: 0.6em; }
 

@@ -16,7 +16,8 @@ angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
 
 .directive({
   radialProgress: require('./directives/radialProgress'),
-  clickToggleClass: require('./directives/clickToggleClass')
+  clickToggleClass: require('./directives/clickToggleClass'),
+  pew: require('./directives/pew')
 })
 
 .config(function($urlRouterProvider, $stateProvider) {
