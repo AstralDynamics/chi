@@ -1,0 +1,36 @@
+@import 'layout';
+@import 'theme';
+
+table.obs {
+  font-size:0.6em;
+
+  th {
+    max-width:100px;
+  }
+
+  tr {
+    max-height:180px;
+  }
+
+  .chart {
+    width:250px;
+    height:200px;
+  }
+
+  .x.axis, .domain {
+    display:none;
+  }
+
+  svg {
+    max-height:200px;
+  }
+}
+
+.reveal {
+  display:none;
+}
+
+.expanded + .reveal {
+  display:table-row;
+}
+

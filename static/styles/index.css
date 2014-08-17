@@ -653,77 +653,98 @@ form {
   .patients .patient .pew.pill.bed i {
     color: #b7f1fb; }
 
-.patient.profile .profile.bar {
+.patient.profile {
+  min-height: 100%;
   overflow: hidden;
-  padding: 4px;
-  font-size: 0.8em;
-  white-space: nowrap;
-  background: #4fd1e7;
-  color: white; }
-  .patient.profile .profile.bar .name {
-    display: block;
-    font-size: 1.4em;
-    height: 2.6em; }
-.patient.profile .alerts {
-  color: #666;
-  font-size: 0.8em; }
-  .patient.profile .alerts .header {
-    position: static;
-    color: #4fd1e7;
-    font-size: 1.2em;
-    margin-top: 10px; }
-    .patient.profile .alerts .header .small-2 {
-      padding: 0; }
-  .patient.profile .alerts .alert {
-    border-bottom: solid 1px #eee;
+  position: relative; }
+  .patient.profile .profile.bar {
+    overflow: hidden;
     padding: 4px;
-    white-space: nowrap; }
-    .patient.profile .alerts .alert .small-1 {
-      padding: 0; }
-    .patient.profile .alerts .alert .small-10 {
-      padding: 0;
-      text-overflow: ellipsis;
-      overflow: hidden; }
-.patient.profile .tasks {
-  background: #222222;
-  color: #888;
-  padding: 0; }
-  .patient.profile .tasks .header {
-    position: static;
-    color: #4fd1e7; }
-  .patient.profile .tasks .task {
+    font-size: 0.8em;
     white-space: nowrap;
-    padding: 16px;
-    text-align: center;
-    border-bottom: solid 6px #333; }
-    .patient.profile .tasks .task i {
-      font-size: 2em; }
-    .patient.profile .tasks .task .name {
-      margin-top: 8px;
-      color: #b7f1fb;
-      font-size: 1.3em; }
-  .patient.profile .tasks .task.active {
-    border-left-style: solid;
-    border-left-width: 5px; }
-.patient.profile .actions.menu {
-  margin-top: 8px; }
-  .patient.profile .actions.menu .action {
-    text-align: center;
     background: #4fd1e7;
-    padding: 16px 0;
-    color: #fff;
-    margin-bottom: 8px;
-    white-space: nowrap;
-    font-size: 0.7em; }
-  .patient.profile .actions.menu .action:hover {
-    cursor: pointer; }
-    .patient.profile .actions.menu .action:hover i {
-      color: #b7f1fb; }
-  .patient.profile .actions.menu .action i {
-    font-size: 2em;
-    color: #48a0b2; }
-  .patient.profile .actions.menu .columns {
-    padding: 0 4px; }
+    color: white; }
+    .patient.profile .profile.bar .name {
+      font-size: 1.4em;
+      padding-top: 1em; }
+  .patient.profile .alerts {
+    color: #666;
+    font-size: 0.8em; }
+    .patient.profile .alerts .header {
+      position: static;
+      color: #4fd1e7;
+      font-size: 1.2em;
+      margin-top: 10px; }
+      .patient.profile .alerts .header .small-2 {
+        padding: 0; }
+    .patient.profile .alerts .alert {
+      border-bottom: solid 1px #eee;
+      padding: 4px;
+      white-space: nowrap; }
+      .patient.profile .alerts .alert .small-1 {
+        padding: 0; }
+      .patient.profile .alerts .alert .small-10 {
+        padding: 0;
+        text-overflow: ellipsis;
+        overflow: hidden; }
+  .patient.profile .tasks {
+    color: #555;
+    padding: 1em 0;
+    position: absolute;
+    height: 100%;
+    background: #f3f3f3; }
+    .patient.profile .tasks .header {
+      position: static;
+      color: #4fd1e7; }
+    .patient.profile .tasks .timeline {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      left: 2px;
+      border-right: solid 3px #ddd; }
+    .patient.profile .tasks .task {
+      border-radius: 100%;
+      position: absolute;
+      left: 50%;
+      margin-left: -40px;
+      background: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-align: center;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-style: solid;
+      border-width: 5px; }
+      .patient.profile .tasks .task i {
+        font-size: 2em; }
+      .patient.profile .tasks .task .name {
+        position: absolute;
+        font-size: 0.8em;
+        top: 1.3em;
+        width: 100%;
+        text-align: center;
+        color: #555; }
+  .patient.profile .actions.menu {
+    margin-top: 8px; }
+    .patient.profile .actions.menu .action {
+      border-radius: 4px;
+      text-align: center;
+      background: #4fd1e7;
+      padding: 16px 0;
+      color: #fff;
+      margin-bottom: 8px;
+      white-space: nowrap;
+      font-size: 0.7em; }
+    .patient.profile .actions.menu .action:hover {
+      cursor: pointer; }
+      .patient.profile .actions.menu .action:hover i {
+        color: #b7f1fb; }
+    .patient.profile .actions.menu .action i {
+      font-size: 2em;
+      color: #48a0b2; }
+    .patient.profile .actions.menu .columns {
+      padding: 0 4px; }
 
 .glyph {
   position: relative;
@@ -882,6 +903,26 @@ form {
     height: 1.2em;
     line-height: 1em;
     padding: 4px; }
+
+table.obs {
+  font-size: 0.6em; }
+  table.obs th {
+    max-width: 100px; }
+  table.obs tr {
+    max-height: 180px; }
+  table.obs .chart {
+    width: 250px;
+    height: 200px; }
+  table.obs .x.axis, table.obs .domain {
+    display: none; }
+  table.obs svg {
+    max-height: 200px; }
+
+.reveal {
+  display: none; }
+
+.expanded + .reveal {
+  display: table-row; }
 
 html, body {
   background: white;

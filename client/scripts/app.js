@@ -1,4 +1,4 @@
-angular.module('chai', ['ui.router', 'firebase'])
+angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
 
 
 .factory({
@@ -10,11 +10,13 @@ angular.module('chai', ['ui.router', 'firebase'])
 })
 
 .controller({
-  AdmissionController: require('./controllers/AdmissionController')
+  AdmissionController: require('./controllers/AdmissionController'),
+  GraphController: require('./controllers/GraphController')
 })
 
 .directive({
-  radialProgress: require('./directives/radialProgress')
+  radialProgress: require('./directives/radialProgress'),
+  clickToggleClass: require('./directives/clickToggleClass')
 })
 
 .config(function($urlRouterProvider, $stateProvider) {

@@ -19,6 +19,7 @@
     "angularfire": "~0.7.1",
     "foundation": "~5.2.3",
     "font-awesome": "~4.1.0",
-    "angular-ui-router": "~0.2.10"
+    "angular-ui-router": "~0.2.10",
+    "n3-line-chart": "~1.1.2"
   }
 }

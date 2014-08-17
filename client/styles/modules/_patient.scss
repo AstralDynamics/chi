@@ -2,6 +2,9 @@
 @import 'theme';
 
 .patient.profile {
+  min-height:100%;
+  overflow:hidden;
+  position:relative;
 
   .profile.bar {
     overflow:hidden;
@@ -12,9 +15,8 @@
     color:white;
 
     .name {
-      display:block;
       font-size:1.4em;
-      height:2.6em;
+      padding-top:1em;
     }
   }
 
@@ -52,35 +54,58 @@
   }
 
   .tasks {
-    background:$background-dark;
-    color:#888;
-    padding:0;
+    color:#555;
+    padding:1em 0;
+    position:absolute;
+    height:100%;
+    background:#f3f3f3;
 
     .header {
       position:static;
       color:$primary;
     }
 
+    .timeline {
+      position:absolute;
+      width:50%;
+      height:100%;
+      left:2px;
+      border-right:solid 3px #ddd;
+    }
+
     .task {
+      @include circular;
+      $diameter:80px;
+
+      position:absolute;
+      left:50%;
+      margin-left:-($diameter / 2);
+
+      background:#fff;
       white-space:nowrap;
-      padding:$gutter * 4;
+      overflow:hidden;
       text-align:center;
-      border-bottom:solid 6px #333;
+      width:$diameter;
+      height:$diameter;
+      line-height:$diameter;
+      border-style:solid;
+      border-width:5px;
 
       i {
         font-size:2em;
       }
 
       .name {
-        margin-top:$gutter * 2;
-        color:$primary-highlight;
-        font-size:1.3em;
+        position:absolute;
+        font-size:0.8em;
+        top:1.3em;
+        width:100%;
+        text-align:center;
+        color:#555;
       }
     }
 
     .task.active {
-      border-left-style:solid;
-      border-left-width:5px;
     }
   }
 
@@ -88,6 +113,7 @@
     margin-top:$gutter * 2;
 
     .action {
+      @include rounded;
       text-align:center;
       background:$primary;
       padding:$gutter * 4 0;
