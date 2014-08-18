@@ -10,6 +10,10 @@ $time-width:40px;;
 
   .tab {
     max-height:90px;
+
+    .glyph {
+      border-bottom:none;
+    }
   }
 
   .track:last-child .tab {
@@ -58,8 +62,7 @@ $time-width:40px;;
       margin-top:-3px;
       width:$glyph-height;
       height:auto;
-      padding:$gutter * 2;
-      padding-top:0;
+      padding:$gutter 0;
       border-top-left-radius:0;
       border-top-right-radius:0;
 

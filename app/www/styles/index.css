@@ -39,7 +39,8 @@ a, a:hover, a:active, a:focus {
 
 .scrollable {
   height: 100%;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  background: #f3f3f3; }
 
 .pilled {
   display: inline-block;
@@ -47,12 +48,6 @@ a, a:hover, a:active, a:focus {
   height: 1em;
   border-radius: 4px;
   background: #888; }
-
-.pew.high {
-  background: #e74c3c !important; }
-
-.pew.low {
-  background: #2ecc71 !important; }
 
 .button {
   background: white;
@@ -499,6 +494,8 @@ form {
   height: 100%; }
   .nurse.dash .tab {
     max-height: 90px; }
+    .nurse.dash .tab .glyph {
+      border-bottom: none; }
   .nurse.dash .track:last-child .tab {
     padding-right: 1em;
     width: 66px;
@@ -534,8 +531,7 @@ form {
       margin-top: -3px;
       width: 50px;
       height: auto;
-      padding: 8px;
-      padding-top: 0;
+      padding: 4px 0;
       border-top-left-radius: 0;
       border-top-right-radius: 0; }
       .nurse.dash .tracks .pew.pill i {
@@ -623,6 +619,9 @@ form {
 
 .palette-6 {
   background: #e74c3c; }
+
+.palette-7 {
+  background: #fff; }
 
 .icon.palette-1 {
   color: #1abc9c;
@@ -719,7 +718,8 @@ form {
 .patient.profile {
   min-height: 100%;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  background: #f3f3f3; }
   .patient.profile .profile.bar {
     overflow: hidden;
     padding: 4px;
@@ -846,6 +846,27 @@ form {
   .glyph .icon-baby {
     font-size: 12pt !important; }
 
+.glyph.palette-1 {
+  border-bottom: solid 3px #128F76; }
+
+.glyph.palette-2 {
+  border-bottom: solid 3px #18994F; }
+
+.glyph.palette-3 {
+  border-bottom: solid 3px #236FA2; }
+
+.glyph.palette-4 {
+  border-bottom: solid 3px #7A4491; }
+
+.glyph.palette-5 {
+  border-bottom: solid 3px #CEA810; }
+
+.glyph.palette-6 {
+  border-bottom: solid 3px #b9392b; }
+
+.glyph.palette-7 {
+  border-bottom: solid 3px #ddd; }
+
 .pew.pill {
   height: 50px;
   border-radius: 4px;
@@ -857,11 +878,20 @@ form {
   margin: 0 auto;
   margin-bottom: 4px;
   padding-top: 12px;
-  font-weight: bold; }
+  font-weight: bold;
+  border-bottom: solid 3px #cc7017; }
   .pew.pill .fa {
     color: rgba(255, 255, 255, 0.5);
     display: block;
     font-size: 0.6em; }
+
+.pew.high {
+  background: #e74c3c !important;
+  border-color: #b9392b !important; }
+
+.pew.low {
+  background: #2ecc71 !important;
+  border-color: #1f9651 !important; }
 
 .admission {
   text-align: center;
@@ -897,7 +927,8 @@ form {
 .messages {
   position: relative;
   width: auto;
-  padding-left: 48px; }
+  padding-left: 48px;
+  background: #f3f3f3; }
   .messages .bar {
     box-sizing: content-box;
     padding: 4px;
@@ -924,7 +955,13 @@ form {
     overflow: hidden;
     border-bottom: solid 1px #eee;
     border-top: solid 1px #eee;
-    color: #555; }
+    color: #555;
+    margin: 1em;
+    background: #fff;
+    border: solid 1px #eee;
+    border-bottom: solid 2px #eee; }
+    .messages .message .bar {
+      margin-top: 5px; }
 
 .messages.collection .item {
   position: relative;

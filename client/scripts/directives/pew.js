@@ -3,12 +3,15 @@ module.exports = function() {
     restrict: 'A',
     replace: true,
     scope: {
-      pew: '='
+      pew: '=',
+      up: '=',
+      down: '='
     },
     template:
     "<div class='pew pill' ng-class='{ high: pew > 5, low: pew < 3}'>" +
-      "<i class='fa fa-arrow-up'></i>" +
+      "<i class='fa fa-arrow-up' ng-show='up'></i>" +
       "<span class='number' ng-bind='pew'></span>" +
+      "<i class='fa fa-arrow-down' ng-show='down'></i>" +
     "</div>",
     link: function(scope) {
       console.log(scope.pew);

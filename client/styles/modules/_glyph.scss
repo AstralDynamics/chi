@@ -47,6 +47,28 @@
   }
 }
 
+.glyph.palette-1 {
+  border-bottom:solid 3px #128F76;
+}
+.glyph.palette-2 {
+  border-bottom:solid 3px #18994F;
+}
+.glyph.palette-3 {
+  border-bottom:solid 3px #236FA2;
+}
+.glyph.palette-4 {
+  border-bottom:solid 3px #7A4491;
+}
+.glyph.palette-5 {
+  border-bottom:solid 3px #CEA810;
+}
+.glyph.palette-6 {
+  border-bottom:solid 3px #b9392b;
+}
+.glyph.palette-7 {
+  border-bottom:solid 3px #ddd;
+}
+
 .pew.pill {
   height:$glyph-height;
   border-radius:4px;
@@ -59,10 +81,21 @@
   margin-bottom:$gutter;
   padding-top:$gutter * 3;
   font-weight:bold;
+  border-bottom:solid 3px #cc7017;
 
   .fa {
     color:rgba(255, 255, 255, 0.5);
     display:block;
     font-size:0.6em;
   }
+}
+
+.pew.high {
+  background:$palette-6 !important;
+  border-color:#b9392b !important;
+}
+
+.pew.low {
+  background:$palette-2 !important;
+  border-color:#1f9651 !important;
 }
