@@ -371,21 +371,25 @@ form {
       background: #fd9026;
       color: #fedebe; }
 
-.notifications.list .unread.notification .type {
-  color: #4fd1e7;
-  font-weight: bold; }
-.notifications.list .notification {
-  overflow: hidden;
-  padding: 0.5em 0;
-  border-bottom: solid 1px #eee;
-  background: #f8f8f8; }
-  .notifications.list .notification .type {
-    color: #aaa;
-    font-size: 8pt; }
-    .notifications.list .notification .type i {
-      font-size: 2em; }
-  .notifications.list .notification .content b {
-    color: #48a0b2; }
+.notifications.list {
+  margin: 0.5em; }
+  .notifications.list .unread.notification .type {
+    color: #4fd1e7;
+    font-weight: bold; }
+  .notifications.list .notification {
+    overflow: hidden;
+    padding: 0.5em 0;
+    background: #fff;
+    margin-bottom: 0.5em;
+    border: solid 1px #eee;
+    border-bottom: solid 3px #eee; }
+    .notifications.list .notification .type {
+      color: #aaa;
+      font-size: 8pt; }
+      .notifications.list .notification .type i {
+        font-size: 2em; }
+    .notifications.list .notification .content b {
+      color: #48a0b2; }
 
 .navigation.bar {
   height: 48px;
@@ -755,8 +759,7 @@ form {
     color: #555;
     position: absolute;
     height: 100%;
-    background: #f3f3f3;
-    border-right: solid 1px #ddd; }
+    background: #f3f3f3; }
     .patient.profile .tasks .header {
       position: static;
       color: #4fd1e7; }
@@ -800,7 +803,7 @@ form {
       margin-bottom: 8px;
       white-space: nowrap;
       font-size: 0.7em;
-      border: solid 1px #48a0b2; }
+      border-bottom: solid 3px #48a0b2; }
     .patient.profile .actions.menu .action:hover {
       cursor: pointer; }
       .patient.profile .actions.menu .action:hover i {
