@@ -27,23 +27,40 @@
   .gender {
     /* Overrides will break glyphs */
     font-size:$glyph-height - 8px !important;
+    z-index:3;
   }
 
   .subject {
     /* Overrides will break glyphs */
     font-size:$glyph-height / 2 - 4px !important;
+    z-index:3;
   }
 
   /* Icon specific rules */
-  .gender.icon-gender-f + * {
+  .gender.icon-gender-f .subject {
     margin-top:-6px;
   }
-  .gender.icon-gender-m + * {
+  .gender.icon-gender-m .subject {
     margin-left:-3px;
     margin-top:3px;
   }
+
+  .gender.icon-gender-f + .fa-circle {
+    margin-top:-4px;
+  }
+  .gender.icon-gender-m + .fa-circle {
+    margin-top:2px;
+    margin-left:-3px;
+  }
+
+  /* Baby icon is waay big */
   .icon-baby {
     font-size:12pt !important;
+  }
+
+  i.fa-circle {
+    font-size:$glyph-height - 12px;
+    z-index:1;
   }
 }
 
@@ -98,4 +115,12 @@
 .pew.low {
   background:$palette-2 !important;
   border-color:#1f9651 !important;
+}
+
+i.circlular {
+  @include circular;
+  width:1em;
+  height:1em;
+  padding:0.25em;
+  border:solid 2px;
 }

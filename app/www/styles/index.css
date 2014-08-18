@@ -896,6 +896,9 @@ form {
   background: #2ecc71 !important;
   border-color: #1f9651 !important; }
 
+.admit {
+  background: #fff; }
+
 .admission {
   text-align: center;
   margin-top: 8px;
