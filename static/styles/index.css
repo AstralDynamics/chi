@@ -39,7 +39,8 @@ a, a:hover, a:active, a:focus {
 
 .scrollable {
   height: 100%;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  background: #f3f3f3; }
 
 .pilled {
   display: inline-block;
@@ -719,7 +720,8 @@ form {
 .patient.profile {
   min-height: 100%;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  background: #f3f3f3; }
   .patient.profile .profile.bar {
     overflow: hidden;
     padding: 4px;
@@ -897,7 +899,8 @@ form {
 .messages {
   position: relative;
   width: auto;
-  padding-left: 48px; }
+  padding-left: 48px;
+  background: #f3f3f3; }
   .messages .bar {
     box-sizing: content-box;
     padding: 4px;
@@ -924,7 +927,13 @@ form {
     overflow: hidden;
     border-bottom: solid 1px #eee;
     border-top: solid 1px #eee;
-    color: #555; }
+    color: #555;
+    margin: 1em;
+    background: #fff;
+    border: solid 1px #eee;
+    border-bottom: solid 2px #eee; }
+    .messages .message .bar {
+      margin-top: 5px; }
 
 .messages.collection .item {
   position: relative;

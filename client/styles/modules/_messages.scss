@@ -42,6 +42,7 @@ $sidebar-width:48px;
   position:relative;
   width:auto;
   padding-left:$sidebar-width;
+  background:#f3f3f3;
 
   .bar {
     box-sizing:content-box;
@@ -81,6 +82,15 @@ $sidebar-width:48px;
     border-bottom:solid 1px #eee;
     border-top:solid 1px #eee;
     color:#555;
+
+    margin:1em;
+    background:#fff;
+    border:solid 1px #eee;
+    border-bottom:solid 2px #eee;
+
+    .bar {
+      margin-top:5px;
+    }
   }
 }
 
