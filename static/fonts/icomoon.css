@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?vbpqit');
-	src:url('fonts/icomoon.eot?#iefixvbpqit') format('embedded-opentype'),
-		url('fonts/icomoon.woff?vbpqit') format('woff'),
-		url('fonts/icomoon.ttf?vbpqit') format('truetype'),
-		url('fonts/icomoon.svg?vbpqit#icomoon') format('svg');
+	src:url('icomoon.eot?vbpqit');
+	src:url('icomoon.eot?#iefixvbpqit') format('embedded-opentype'),
+		url('icomoon.woff?vbpqit') format('woff'),
+		url('icomoon.ttf?vbpqit') format('truetype'),
+		url('icomoon.svg?vbpqit#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,7 +23,7 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-Baby:before {
+.icon-baby:before {
 	content: "\e601";
 }
 .icon-bed:before {
@@ -56,10 +56,10 @@
 .icon-medications:before {
 	content: "\e612";
 }
-.icon-gender-female:before {
+.icon-gender-f:before {
 	content: "\e603";
 }
-.icon-gender-male:before {
+.icon-gender-m:before {
 	content: "\e604";
 }
 .icon-nurse:before {
