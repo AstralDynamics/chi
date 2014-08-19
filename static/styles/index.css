@@ -695,19 +695,11 @@ form {
   font-size: 0.8em;
   white-space: nowrap;
   color: #888; }
-  .patients .patient .small-2 {
-    padding-left: 8px; }
-  .patients .patient .small-8 {
-    padding-left: 8px; }
-  .patients .patient .small-3 {
-    padding: 8px 0; }
-  .patients .patient .name, .patients .patient .bed, .patients .patient i {
-    font-size: 1.4em; }
-  .patients .patient .bed {
-    background: #4fd1e7;
-    color: white;
-    text-align: center;
-    font-weight: bold; }
+  .patients .patient .name {
+    font-size: 1.4em;
+    color: #555; }
+  .patients .patient .row {
+    padding-bottom: 4px; }
   .patients .patient .status {
     margin-left: 8px; }
     .patients .patient .status .columns {
@@ -740,7 +732,7 @@ form {
     color: white; }
     .patient.profile .profile.bar .name {
       font-size: 1.4em;
-      padding-bottom: 1em;
+      padding-bottom: 0.2em;
       display: block; }
   .patient.profile .alerts {
     color: #666;

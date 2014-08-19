@@ -25,27 +25,13 @@
   white-space:nowrap;
   color:#888;
 
-  .small-2 {
-    padding-left:$gutter * 2;
-  }
-
-  .small-8 {
-    padding-left:$gutter * 2;
-  }
-
-  .small-3 {
-    padding:$gutter * 2 0;
-  }
-
-  .name, .bed, i {
+  .name {
     font-size:1.4em;
+    color:#555;
   }
 
-  .bed {
-    background:$primary;
-    color:white;
-    text-align:center;
-    font-weight:bold;
+  .row {
+    padding-bottom:$gutter;
   }
 
   .status {

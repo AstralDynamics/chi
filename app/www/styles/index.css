@@ -493,6 +493,13 @@ form {
     .blood .checklist .done .name {
       text-decoration: line-through; }
 
+.drug.profile {
+  background: #fff;
+  margin: 1em;
+  padding: 0.5em;
+  border: solid 1px #eee;
+  border-bottom: solid 3px #eee; }
+
 .nurse.dash {
   width: 100%;
   height: 100%; }
@@ -825,7 +832,8 @@ form {
   text-align: center;
   color: #fff;
   overflow: hidden;
-  /* Icon specific rules */ }
+  /* Icon specific rules */
+  /* Baby icon is waay big */ }
   .glyph i {
     position: absolute;
     top: 0;
@@ -837,17 +845,27 @@ form {
     background: transparent !important; }
   .glyph .gender {
     /* Overrides will break glyphs */
-    font-size: 42px !important; }
+    font-size: 42px !important;
+    z-index: 3; }
   .glyph .subject {
     /* Overrides will break glyphs */
-    font-size: 21px !important; }
-  .glyph .gender.icon-gender-f + * {
+    font-size: 21px !important;
+    z-index: 3; }
+  .glyph .gender.icon-gender-f .subject {
     margin-top: -6px; }
-  .glyph .gender.icon-gender-m + * {
+  .glyph .gender.icon-gender-m .subject {
     margin-left: -3px;
     margin-top: 3px; }
+  .glyph .gender.icon-gender-f + .fa-circle {
+    margin-top: -4px; }
+  .glyph .gender.icon-gender-m + .fa-circle {
+    margin-top: 2px;
+    margin-left: -3px; }
   .glyph .icon-baby {
     font-size: 12pt !important; }
+  .glyph i.fa-circle {
+    font-size: 38px;
+    z-index: 1; }
 
 .glyph.palette-1 {
   border-bottom: solid 3px #128F76; }
@@ -896,6 +914,13 @@ form {
   background: #2ecc71 !important;
   border-color: #1f9651 !important; }
 
+i.circlular {
+  border-radius: 100%;
+  width: 1em;
+  height: 1em;
+  padding: 0.25em;
+  border: solid 2px; }
+
 .admit {
   background: #fff; }
 
@@ -933,7 +958,6 @@ form {
 .messages {
   position: relative;
   width: auto;
-  padding-left: 48px;
   background: #f3f3f3; }
   .messages .bar {
     box-sizing: content-box;
@@ -1045,6 +1069,52 @@ table.obs {
 
 .expanded + .reveal {
   display: table-row; }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10; }
+
+.overlay.hidden {
+  display: none; }
+
+.modal {
+  border-radius: 4px;
+  margin: 2em;
+  padding: 1em;
+  background: #f3f3f3;
+  overflow: hidden;
+  position: relative; }
+  .modal .exit {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    color: #aaa;
+    cursor: pointer; }
+    .modal .exit:hover {
+      color: #888; }
+  .modal .title {
+    text-align: center;
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    color: #555; }
+  .modal .option {
+    border-radius: 4px;
+    font-size: 1.2em;
+    padding: 0.2em;
+    border: solid 1px #eee;
+    border-bottom: solid 3px #eee;
+    background: #fff;
+    display: inline-block;
+    color: #444;
+    text-align: center; }
+    .modal .option .name {
+      font-size: 0.5em; }
 
 html, body {
   background: white;
