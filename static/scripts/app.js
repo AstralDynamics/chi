@@ -43,6 +43,7 @@ angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
     .state('app.patient',        { url: '/patient/:id',         templateUrl: 'views/patient.html' })
     .state('app.board',          { url: '/patient/:id/board',   templateUrl: 'views/message-board.html' })
     .state('app.blood',          { url: '/patient/:id/blood',   templateUrl: 'views/blood.html' })
+    .state('app.notes',          { url: '/patient/:id/notes',   templateUrl: 'views/notes.html' })
 
     // medications
     .state('app.medications',    { url: '/patient/:id/medications',       templateUrl: 'views/medications.html' })

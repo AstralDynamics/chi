@@ -958,7 +958,6 @@ i.circlular {
 .messages {
   position: relative;
   width: auto;
-  padding-left: 48px;
   background: #f3f3f3; }
   .messages .bar {
     box-sizing: content-box;
@@ -1070,6 +1069,52 @@ table.obs {
 
 .expanded + .reveal {
   display: table-row; }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10; }
+
+.overlay.hidden {
+  display: none; }
+
+.modal {
+  border-radius: 4px;
+  margin: 2em;
+  padding: 1em;
+  background: #f3f3f3;
+  overflow: hidden;
+  position: relative; }
+  .modal .exit {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    color: #aaa;
+    cursor: pointer; }
+    .modal .exit:hover {
+      color: #888; }
+  .modal .title {
+    text-align: center;
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    color: #555; }
+  .modal .option {
+    border-radius: 4px;
+    font-size: 1.2em;
+    padding: 0.2em;
+    border: solid 1px #eee;
+    border-bottom: solid 3px #eee;
+    background: #fff;
+    display: inline-block;
+    color: #444;
+    text-align: center; }
+    .modal .option .name {
+      font-size: 0.5em; }
 
 html, body {
   background: white;
