@@ -1,0 +1,58 @@
+app : /app -> views/app.html
+  app.dash          : /dash          -> views/nurse-dash.html
+  app.patients      : /patients      -> views/patients.html
+  app.other         : /otherdata     -> views/other-data.html
+  app.notifications : /notifications -> views/notifications.html
+  app.messages      : /messages      -> views/messages.html
+  app.tasks         : /tasks         -> views/tasks.html
+  app.patient       : /patient/->id       -> views/patient.html
+  app.board         : /patient/->id/board -> views/message-board.html
+  app.blood         : /patient/->id/blood -> views/blood.html
+  app.notes         : /patient/->id/notes -> views/notes.html
+
+  app.medications    : /patient/->id/medications       -> views/medications.html
+  app.medicationList : /patient/->id/medications/list  -> views/medications-list.html
+  app.medication     : /patient/->id/medication/->medId -> views/medication.html
+  app.administer     : /patient/->id/administer/->medId -> views/medication-administer.html
+
+  app.admit : /admit -> views/admit.html
+    app.admit.dash : /dash -> views/forms/admission.html
+
+    app.admit.data : /data -> views/forms/sections/data.html
+      app.admit.nameAddress        : /name      -> views/forms/components/nameAddress.html controller-> AdmissionController})
+      app.admit.patientInformation : /patient   -> views/forms/components/patientInformation.html controller-> AdmissionController
+      app.admit.nextOfKin          : /nextOfKin -> views/forms/components/nextOfKin.html controller-> AdmissionController
+      app.admit.siblings           : /siblings  -> views/forms/components/siblings.html controller-> AdmissionController
+
+    app.admit.observations : /obs  -> views/forms/sections/observations.html
+      app.admit.obs1       : /obs1 -> views/forms/components/obs1.html
+      app.admit.obs2       : /obs2 -> views/forms/components/obs2.html
+      app.admit.obs3       : /obs3 -> views/forms/components/obs3.html
+
+    app.admit.urinePainSkin : /ups -> views/forms/sections/urinePainSkin.html
+      app.admit.urine : /urine     -> views/forms/components/urinalysis.html
+      app.admit.pain  : /pain      -> views/forms/components/painAssessment.html
+      app.admit.skin  : /skin      -> views/forms/components/skinIntegrity.html
+
+    app.admit.medicalHistory : /medical    -> views/forms/sections/medicalHistory.html
+      app.admit.history     : /history     -> views/forms/components/pastMedicalHistory.html
+      app.admit.allergies   : /allergies   -> views/forms/components/allergies.html
+      app.admit.medications : /medications -> views/forms/components/medications.html
+
+    app.admit.living      : /living      -> views/forms/sections/living.html
+      app.admit.nutrition : /nutrition   -> views/forms/components/nutrition.html
+      app.admit.hygiene   : /hygiene     -> views/forms/components/hygiene.html
+      app.admit.sleeping  : /sleeping    -> views/forms/components/sleeping.html
+
+    app.admit.development     : /development   -> views/forms/sections/development.html
+      app.admit.communication : /communication -> views/forms/components/communication.html
+      app.admit.social        : /social        -> views/forms/components/socialDevelopment.html
+      app.admit.mobility      : /mobility      -> views/forms/components/mobility.html
+
+    app.admit.safety         : /safety        -> views/forms/sections/safety.html
+      app.admit.community    : /community     -> views/forms/components/communityInvolvement.html
+      app.admit.safeguarding : /safeguarding  -> views/forms/components/safeguardingChildren.html
+      app.admit.manual       : /manual        -> views/forms/components/manualHandling.html
+
+    app.admit.information    : /information   -> views/forms/sections/information.html
+    app.admit.decision       : /decision      -> views/forms/sections/decision.html;
