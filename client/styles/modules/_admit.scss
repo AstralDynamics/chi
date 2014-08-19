@@ -8,7 +8,10 @@
 }
 
 .admission {
-  text-align:center;
   margin-top:$gutter * 2;
   white-space:nowrap;
+
+  .small-4 {
+    text-align:center;
+  }
 }

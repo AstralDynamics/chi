@@ -10,10 +10,10 @@
   </div>
 </div>
 
-<div class='admission'>
+<div class='admission row'>
 
   <!-- First row -->
-  <div class=''>
+  <div class='row'>
     <div class='small-4 columns'>
       <a ui-sref='app.admit.data'>
         <div class='title'>Patient</div>
@@ -50,13 +50,13 @@
 
 
   <!-- Second row -->
-  <div>
+  <div class='row'>
     <div class='small-4 columns'>
       <a ui-sref='app.admit.medicalHistory'>
         <div class='title'>Medical</div>
         <div class='circle progress secondary' radial-progress='0.8'>
           <div class='surface'>
-            <i class='icon icon-medical-history'></i>
+            <i class='fa fa-medkit'></i>
           </div>
         </div>
       </a>
@@ -87,7 +87,7 @@
 
 
   <!-- Third row -->
-  <div>
+  <div class='row'>
     <div class='small-4 columns'>
       <a ui-sref='app.admit.safety'>
         <div class='title'>Safety</div>
@@ -121,6 +121,83 @@
         </div>
       </a>
     </div>
+  </div>
+
+  <div class='divider'></div>
+
+  <div class='auxillary forms'>
+    <div class='row'>
+      <div class='small-12 columns'>
+        <div class='circle progress quiet' radial-progress='0'>
+          <div class='surface'>
+            <i class='fa fa-plus'></i>
+          </div>
+        </div>
+        <div class='circle progress tertiary' radial-progress='0.4'>
+          <div class='surface'>
+            <i class='fa fa-plus'></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='overlay' ng-class='{hidden: true}'>
+      <div class='modal'>
+        <a class='exit' ng-click='medicationsList = false'>
+          <i class='fa fa-times'></i>
+        </a>
+        <div class='title'>Add Form</div>
+        <a class='option' href='#/app/patient/{{id}}/medication/001'>
+          <div class='glyph palette-6'>
+            <i class='icon fa fa-file-text subject palette-6'></i>
+            <i class='icon fa fa-circle palette-7'></i>
+          </div>
+          <div class='name'>
+            Safeguarding
+          </div>
+        </a>
+        <a class='option' href='#/app/patient/{{id}}/medication/001'>
+          <div class='glyph palette-5'>
+            <i class='icon fa fa-file-text subject palette-5'></i>
+            <i class='icon fa fa-circle palette-7'></i>
+          </div>
+          <div class='name'>
+            Manual
+          </div>
+        </a>
+        <a class='option' href='#/app/patient/{{id}}/medication/001'>
+          <div class='glyph palette-4'>
+            <i class='icon fa fa-file-text subject palette-4'></i>
+            <i class='icon fa fa-circle palette-7'></i>
+          </div>
+          <div class='name'>
+            Athsma
+          </div>
+        </a>
+
+        <div class='divider'></div>
+        <div class='title'>Surgical Care Plan</div>
+        <a class='option' href='#/app/patient/{{id}}/medication/001'>
+          <div class='glyph palette-1'>
+            <i class='icon fa fa-file-text subject palette-1'></i>
+            <i class='icon fa fa-circle palette-7'></i>
+          </div>
+          <div class='name'>
+            Pre Op
+          </div>
+        </a>
+        <a class='option' href='#/app/patient/{{id}}/medication/001'>
+          <div class='glyph palette-2'>
+            <i class='icon fa fa-file-text subject palette-2'></i>
+            <i class='icon fa fa-circle palette-7'></i>
+          </div>
+          <div class='name'>
+            Admission
+          </div>
+        </a>
+      </div>
+    </div>
+
   </div>
 
 </div>

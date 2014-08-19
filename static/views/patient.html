@@ -6,13 +6,72 @@
 
 <div ng-controller='PatientController'>
 
+  <div class='overlay' ng-show='medicationType'>
+    <div class='modal'>
+      <a class='exit'>
+        <i class='fa fa-times' ng-click='medicationType = false'></i>
+      </a>
+      <div class='title'>Medications</div>
+        <div class='row'>
+          <h4 class='name'>
+            <i class='icon icon-medications circlular palette-1'></i>
+            Oxygen
+          </h4>
+
+          <div class='divider'></div>
+
+          <div class='row'>
+            <div class='small-5 columns'>
+              <b>Route</b>
+            </div>
+            <div class='small-7 columns'>Intravinus</div>
+          </div>
+
+          <div class='divider'></div>
+
+          <table>
+            <tr>
+              <th></th>
+              <th>Dose</th>
+            </tr>
+            <tr>
+              <th>Morning</th>
+              <td>50mg</td>
+            </tr>
+            <tr>
+              <th>Midday</th>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th>Evening</th>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th>Bedtime</th>
+              <td>-</td>
+            </tr>
+          </table>
+
+          <div class='divider'></div>
+
+          <div class='row'>
+            <div class='small-5 columns'>
+              <b>Special Instruction</b>
+            </div>
+            <div class='small-7 columns'>N/A</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   <div class='overlay' ng-class='{hidden: !medicationsList}'>
     <div class='modal'>
       <a class='exit' ng-click='medicationsList = false'>
         <i class='fa fa-times'></i>
       </a>
       <div class='title'>Medications</div>
-      <a class='option' href='#/app/patient/{{id}}/medication/001'>
+      <a class='option' ng-click='medicationsList = false; medicationType = true'>
         <div class='glyph palette-1'>
           <i class='icon icon-medications subject palette-1'></i>
           <i class='icon fa fa-circle palette-7'></i>
@@ -78,6 +137,24 @@
     </div>
   </div>
 
+  <div class='overlay' ng-class='{hidden: !handover}'>
+    <div class='modal' >
+      <div class='exit' ng-click='handover = false'>
+        <i class='fa fa-times'></i>
+      </div>
+      <div class='title'>Handover</div>
+      <div ng-controller='StaffListController'>
+        <div class='option' ng-repeat='member in staff'>
+          <glyph details='member.glyph' gender='member.gender' staff='true'></glyph>
+          <div class='name'>
+            <span ng-bind='member.name.title'></span>
+            <span ng-bind='member.name.last'></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class='overlay' ng-class='{hidden: !transfer}'>
     <div class='modal'>
       <div class='exit' ng-click='transfer = false'>
@@ -102,7 +179,7 @@
           Blue Ward
         </div>
       </div>
-      <div class='option'>
+      <a class='option' ng-click='handover = true;transfer = false'>
         <div class='glyph palette-4'>
           <i class='icon fa fa-user-md subject palette-4'></i>
           <i class='icon fa fa-circle palette-7'></i>
@@ -110,7 +187,7 @@
         <div class='name'>
           Handover
         </div>
-      </div>
+      </a>
       <div class='option'>
         <div class='glyph palette-2'>
           <i class='icon fa fa-sign-out subject palette-2'></i>
@@ -132,9 +209,16 @@
       <div class='timeline'></div>
 
       <div class='task icon palette-{{task.color}}'
-        style='top:{{task.top}}px'
-        ng-repeat='task in patient.tasks'>
-        <i class='icon {{task.icon}}'></i>
+          style='top:{{task.top}}px'
+          ng-repeat='task in patient.tasks'>
+          <a href='#/app/patient/{{id}}/blood'
+            ng-show='task.type == "blood"'>
+            <i class='icon {{task.icon}}'></i>
+          </a>
+          <a href='#/app/patient/{{id}}/meds'
+            ng-show='task.type == "meds"'>
+            <i class='icon {{task.icon}}'></i>
+          </a>
         <div class='name' ng-bind='task.time'>3h</div>
       </div>
 

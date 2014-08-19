@@ -1,20 +1,27 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
+require('./modules/time.js');
 
+angular.module('chai', ['ui.router', 'firebase', 'time'])
 
 .factory({
   db: require('./services/db'),
   Model: require('./services/Model'),
   Patient: require('./services/Patient'),
   PatientTemplate: require('./services/PatientTemplate'),
-  PatientIncubator: require('./services/PatientIncubator')
+  PatientIncubator: require('./services/PatientIncubator'),
+  WardMessage: require('./services/WardMessage'),
+  Staff: require('./services/Staff')
 })
 
 .controller({
   AdmissionController: require('./controllers/AdmissionController'),
   GraphController: require('./controllers/GraphController'),
   PatientListController: require('./controllers/PatientListController'),
-  PatientController: require('./controllers/PatientController')
+  PatientController: require('./controllers/PatientController'),
+  StaffController: require('./controllers/StaffController'),
+  StaffListController: require('./controllers/StaffListController'),
+  NotificationController: require('./controllers/NotificationController'),
+  WardMessageController: require('./controllers/WardMessageController')
 })
 
 .directive({
@@ -101,7 +108,7 @@ angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
 });
 
 
-},{"./controllers/AdmissionController":2,"./controllers/GraphController":3,"./controllers/PatientController":4,"./controllers/PatientListController":5,"./directives/clickToggleClass":6,"./directives/glyph":7,"./directives/patientProfileBar":8,"./directives/pew":9,"./directives/radialProgress":10,"./services/Model":11,"./services/Patient":12,"./services/PatientIncubator":13,"./services/PatientTemplate":14,"./services/db":15}],2:[function(require,module,exports){
+},{"./controllers/AdmissionController":2,"./controllers/GraphController":3,"./controllers/NotificationController":4,"./controllers/PatientController":5,"./controllers/PatientListController":6,"./controllers/StaffController":7,"./controllers/StaffListController":8,"./controllers/WardMessageController":9,"./directives/clickToggleClass":10,"./directives/glyph":11,"./directives/patientProfileBar":12,"./directives/pew":13,"./directives/radialProgress":14,"./modules/time.js":15,"./services/Model":16,"./services/Patient":17,"./services/PatientIncubator":18,"./services/PatientTemplate":19,"./services/Staff":20,"./services/WardMessage":21,"./services/db":22}],2:[function(require,module,exports){
 module.exports = function($scope, PatientIncubator, Patient) {
   $scope.patient = PatientIncubator.retrieve();
 
@@ -213,6 +220,26 @@ module.exports = function($scope) {
 };
 
 },{}],4:[function(require,module,exports){
+module.exports = function($scope, $firebase, $timeout, WardMessage) {
+
+  $scope.messages = 0;
+  $scope.messagesActive = false;
+
+  var messages = $firebase(WardMessage.getAll());
+
+  messages.$on('loaded', function() {
+    messages.$on('change', function() {
+      $scope.messages += 1;
+      $scope.messagesActive = true;
+      $timeout(function() {
+        $scope.messagesActive = false;
+      }, 3000);
+    });
+  });
+
+};
+
+},{}],5:[function(require,module,exports){
 module.exports = function($scope, $firebase, $stateParams, Patient) {
   var id = $stateParams.id;
 
@@ -231,7 +258,7 @@ module.exports = function($scope, $firebase, $stateParams, Patient) {
   };
 
   // Listen for new messages
-  patient.$child('messages').on('change', function(message) {
+  /*patient.$child('messages').on('change', function(message) {
     var notification = {
       icon: 'fa fa-envelope',
       from: message.from,
@@ -241,18 +268,54 @@ module.exports = function($scope, $firebase, $stateParams, Patient) {
 
     $scope.notifications.$add(notification);
   });
+  */
 
 
 
 };
 
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 module.exports = function($scope, $firebase, Patient) {
   $scope.patients = $firebase(Patient.getAll());
 };
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
+module.exports = function($scope, $firebase, Staff) {
+  // get from auth in future
+  var id = '-nbj';
+
+  $scope.staff = $firebase(Staff.get(id));
+
+};
+
+},{}],8:[function(require,module,exports){
+module.exports = function($scope, $firebase, Staff) {
+  $scope.staff = $firebase(Staff.getAll());
+};
+
+},{}],9:[function(require,module,exports){
+module.exports = function($scope, $firebase, WardMessage) {
+  $scope.messages = $firebase(WardMessage.getAll());
+
+  $scope.message = '';
+
+  $scope.post = function() {
+    WardMessage.save({
+      from: 'Dr Kurmos',
+      glyph: {
+        primary: 2,
+        secondary: 3,
+        tertiary: 5,
+        gender: 'm'
+      },
+      time: Date.now(),
+      body: $scope.message
+    });
+  };
+};
+
+},{}],10:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -267,7 +330,7 @@ module.exports = function() {
   };
 };
 
-},{}],7:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'AE',
@@ -288,7 +351,7 @@ module.exports = function() {
   };
 };
 
-},{}],8:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'AE',
@@ -299,7 +362,7 @@ module.exports = function() {
   };
 };
 
-},{}],9:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -320,7 +383,7 @@ module.exports = function() {
   };
 };
 
-},{}],10:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -351,7 +414,82 @@ module.exports = function() {
   };
 };
 
-},{}],11:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
+// useful time constants
+var SECOND = 1000,
+    MINUTE = SECOND * 60,
+    HOUR = MINUTE * 60,
+    DAY = HOUR * 24,
+    WEEK = DAY * 7;
+
+module.exports = angular.module('time', [])
+
+.directive('timeSince', function() {
+  return {
+    restrict: 'A',
+    scope: {
+      since: '=timeSince'
+    },
+    link: function(scope, element) {
+      var since = scope.since;
+      render();
+
+      function render() {
+        var now, delta, quantity, interval, text;
+
+        now = Date.now();
+        delta = now - since;
+
+        if(delta > WEEK) {
+          text = Math.floor(delta / WEEK) + 'w';
+          interval = WEEK;
+        } else if(delta > DAY) {
+          text = Math.floor(delta / DAY) + 'd';
+          interval = DAY;
+        } else if(delta > HOUR) {
+          text = Math.floor(delta / HOUR) + 'h';
+          interval = HOUR;
+        } else if(delta > MINUTE) {
+          text = Math.floor(delta / MINUTE) + 'm';
+          interval = MINUTE;
+        } else {
+          text = Math.floor(delta / SECOND) + 's';
+          interval = SECOND;
+        }
+
+        element.html(text);
+        setTimeout(render, interval);
+      }
+    }
+  };
+})
+
+.directive('date', function() {
+  return {
+    restrict: 'A',
+    scope: {
+      date: '=',
+      format: '@'
+    },
+    link: function(scope, element) {
+      var format, date, text;
+
+      format = scope.format || 'd/m/y';
+      date = new Date(scope.date);
+      console.log(date);
+
+      text = format
+        .replace('d', date.getDate())
+        .replace('m', date.getMonth() + 1)
+        .replace('y', date.getYear() + 1900);
+
+      element.html(text);
+
+    }
+  };
+});
+
+},{}],16:[function(require,module,exports){
 module.exports = function(db) {
 
   return function(name) {
@@ -381,12 +519,12 @@ module.exports = function(db) {
   };
 };
 
-},{}],12:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('patients');
 };
 
-},{}],13:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 module.exports = function(PatientTemplate, Patient, $firebase) {
   var patient = null;
 
@@ -417,7 +555,7 @@ module.exports = function(PatientTemplate, Patient, $firebase) {
   }
 };
 
-},{}],14:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = function() {
   return function() {
     return {
@@ -634,7 +772,17 @@ module.exports = function() {
   }
 };
 
-},{}],15:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
+module.exports = function(Model) {
+  return new Model('staff');
+};
+
+},{}],21:[function(require,module,exports){
+module.exports = function(Model) {
+  return new Model('messages');
+};
+
+},{}],22:[function(require,module,exports){
 module.exports = function() {
   return new Firebase('https://astralchai.firebaseio.com');
 };

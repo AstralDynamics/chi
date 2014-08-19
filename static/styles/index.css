@@ -232,6 +232,11 @@ input.error {
     overflow: visible;
     background: #fff; }
 
+.progress.circle.quiet {
+  border-color: #ccc; }
+  .progress.circle.quiet .background {
+    border-color: #ddd; }
+
 .progress.circle.secondary {
   border-color: #87bb7d; }
   .progress.circle.secondary .background {
@@ -597,7 +602,7 @@ form {
       left: 0;
       text-align: left;
       font-size: 0.5em;
-      height: 32px;
+      height: 42px;
       color: #48a0b2;
       border-top: solid 1px #ddd;
       z-index: 1;
@@ -918,9 +923,10 @@ i.circlular {
   background: #fff; }
 
 .admission {
-  text-align: center;
   margin-top: 8px;
   white-space: nowrap; }
+  .admission .small-4 {
+    text-align: center; }
 
 .message.editor {
   padding-top: 16px; }

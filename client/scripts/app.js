@@ -1,19 +1,26 @@
-angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
+require('./modules/time.js');
 
+angular.module('chai', ['ui.router', 'firebase', 'time'])
 
 .factory({
   db: require('./services/db'),
   Model: require('./services/Model'),
   Patient: require('./services/Patient'),
   PatientTemplate: require('./services/PatientTemplate'),
-  PatientIncubator: require('./services/PatientIncubator')
+  PatientIncubator: require('./services/PatientIncubator'),
+  WardMessage: require('./services/WardMessage'),
+  Staff: require('./services/Staff')
 })
 
 .controller({
   AdmissionController: require('./controllers/AdmissionController'),
   GraphController: require('./controllers/GraphController'),
   PatientListController: require('./controllers/PatientListController'),
-  PatientController: require('./controllers/PatientController')
+  PatientController: require('./controllers/PatientController'),
+  StaffController: require('./controllers/StaffController'),
+  StaffListController: require('./controllers/StaffListController'),
+  NotificationController: require('./controllers/NotificationController'),
+  WardMessageController: require('./controllers/WardMessageController')
 })
 
 .directive({

@@ -55,6 +55,14 @@ input.error {
   }
 }
 
+.progress.circle.quiet {
+  border-color:#ccc;
+
+  .background {
+    border-color:#ddd;
+  }
+}
+
 .progress.circle.secondary {
   border-color:$secondary;
 

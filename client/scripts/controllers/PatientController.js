@@ -16,7 +16,7 @@ module.exports = function($scope, $firebase, $stateParams, Patient) {
   };
 
   // Listen for new messages
-  patient.$child('messages').on('change', function(message) {
+  /*patient.$child('messages').on('change', function(message) {
     var notification = {
       icon: 'fa fa-envelope',
       from: message.from,
@@ -26,6 +26,7 @@ module.exports = function($scope, $firebase, $stateParams, Patient) {
 
     $scope.notifications.$add(notification);
   });
+  */
 
 
 
