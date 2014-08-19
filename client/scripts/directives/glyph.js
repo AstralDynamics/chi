@@ -11,7 +11,8 @@ module.exports = function() {
           '"icon-gender-f": gender == "f",' +
           '"icon-gender-m": gender == "m"' +
         "}'> " +
-        "<i class='icon icon-toddler subject palette-{{details.tertiary}}'></i>" +
+        "<i class='icon icon-toddler subject palette-{{details.tertiary}}'" +
+          "></i>" +
       "</i>" +
       "<i class='icon fa fa-circle palette-{{details.secondary}}'></i>" +
     "</div>"

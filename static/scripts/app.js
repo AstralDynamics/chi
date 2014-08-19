@@ -21,7 +21,8 @@ angular.module('chai', ['ui.router', 'firebase', 'time'])
   StaffController: require('./controllers/StaffController'),
   StaffListController: require('./controllers/StaffListController'),
   NotificationController: require('./controllers/NotificationController'),
-  WardMessageController: require('./controllers/WardMessageController')
+  WardMessageController: require('./controllers/WardMessageController'),
+  FormController: require('./controllers/FormController')
 })
 
 .directive({
@@ -55,6 +56,7 @@ angular.module('chai', ['ui.router', 'firebase', 'time'])
     .state('app.board',          { url: '/patient/:id/board',   templateUrl: 'views/message-board.html' })
     .state('app.blood',          { url: '/patient/:id/blood',   templateUrl: 'views/blood.html' })
     .state('app.notes',          { url: '/patient/:id/notes',   templateUrl: 'views/notes.html' })
+    .state('app.safeguarding',   { url: '/forms/safeguarding',  templateUrl: 'views/forms/safeguarding.html' })
 
     // medications
     .state('app.medications',    { url: '/patient/:id/medications',       templateUrl: 'views/medications.html' })
@@ -81,6 +83,7 @@ angular.module('chai', ['ui.router', 'firebase', 'time'])
         .state('app.admit.urine', { url: '/urine', templateUrl: 'views/forms/components/urinalysis.html' })
         .state('app.admit.pain',  { url: '/pain',  templateUrl: 'views/forms/components/painAssessment.html' })
         .state('app.admit.skin',  { url: '/skin',  templateUrl: 'views/forms/components/skinIntegrity.html' })
+        .state('app.admit.skin2', { url: '/skin1', templateUrl: 'views/forms/components/skinIntegrity2.html' })
       // medical history
       .state('app.admit.medicalHistory', { url: '/medical', templateUrl: 'views/forms/sections/medicalHistory.html' })
         .state('app.admit.history',     { url: '/history',     templateUrl: 'views/forms/components/pastMedicalHistory.html' })
@@ -104,11 +107,11 @@ angular.module('chai', ['ui.router', 'firebase', 'time'])
       // information
       .state('app.admit.information',    { url: '/information', templateUrl: 'views/forms/sections/information.html' })
       // decision
-      .state('app.admit.decision',       { url: '/decision', templateUrl: 'views/forms/sections/decision.html' });
+      .state('app.admit.decision',       { url: '/decision', templateUrl: 'views/forms/decisionToAdmit.html' });
 });
 
 
-},{"./controllers/AdmissionController":2,"./controllers/GraphController":3,"./controllers/NotificationController":4,"./controllers/PatientController":5,"./controllers/PatientListController":6,"./controllers/StaffController":7,"./controllers/StaffListController":8,"./controllers/WardMessageController":9,"./directives/clickToggleClass":10,"./directives/glyph":11,"./directives/patientProfileBar":12,"./directives/pew":13,"./directives/radialProgress":14,"./modules/time.js":15,"./services/Model":16,"./services/Patient":17,"./services/PatientIncubator":18,"./services/PatientTemplate":19,"./services/Staff":20,"./services/WardMessage":21,"./services/db":22}],2:[function(require,module,exports){
+},{"./controllers/AdmissionController":2,"./controllers/FormController":3,"./controllers/GraphController":4,"./controllers/NotificationController":5,"./controllers/PatientController":6,"./controllers/PatientListController":7,"./controllers/StaffController":8,"./controllers/StaffListController":9,"./controllers/WardMessageController":10,"./directives/clickToggleClass":11,"./directives/glyph":12,"./directives/patientProfileBar":13,"./directives/pew":14,"./directives/radialProgress":15,"./modules/time.js":16,"./services/Model":17,"./services/Patient":18,"./services/PatientIncubator":19,"./services/PatientTemplate":20,"./services/Staff":21,"./services/WardMessage":22,"./services/db":23}],2:[function(require,module,exports){
 module.exports = function($scope, PatientIncubator, Patient) {
   $scope.patient = PatientIncubator.retrieve();
 
@@ -160,6 +163,28 @@ module.exports = function($scope, PatientIncubator, Patient) {
 };
 
 },{}],3:[function(require,module,exports){
+module.exports = function($scope) {
+  $scope.showModal = false;
+  $scope.forms = [];
+
+  $scope.openModal = function() {
+    $scope.showModal = true;
+  };
+
+  $scope.closeModal = function() {
+    $scope.showModal = false;
+  };
+
+  $scope.addForm = function(form) {
+    $scope.forms.push({
+      name: 'Safeguarding',
+      url: '#/app/forms/safeguarding'
+    });
+  };
+
+};
+
+},{}],4:[function(require,module,exports){
 module.exports = function($scope) {
   $scope.data = [
     {
@@ -219,7 +244,7 @@ module.exports = function($scope) {
   };
 };
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 module.exports = function($scope, $firebase, $timeout, WardMessage) {
 
   $scope.messages = 0;
@@ -239,7 +264,7 @@ module.exports = function($scope, $firebase, $timeout, WardMessage) {
 
 };
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 module.exports = function($scope, $firebase, $stateParams, Patient) {
   var id = $stateParams.id;
 
@@ -275,12 +300,12 @@ module.exports = function($scope, $firebase, $stateParams, Patient) {
 };
 
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 module.exports = function($scope, $firebase, Patient) {
   $scope.patients = $firebase(Patient.getAll());
 };
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 module.exports = function($scope, $firebase, Staff) {
   // get from auth in future
   var id = '-nbj';
@@ -289,12 +314,12 @@ module.exports = function($scope, $firebase, Staff) {
 
 };
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = function($scope, $firebase, Staff) {
   $scope.staff = $firebase(Staff.getAll());
 };
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports = function($scope, $firebase, WardMessage) {
   $scope.messages = $firebase(WardMessage.getAll());
 
@@ -315,7 +340,7 @@ module.exports = function($scope, $firebase, WardMessage) {
   };
 };
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -330,7 +355,7 @@ module.exports = function() {
   };
 };
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'AE',
@@ -344,14 +369,15 @@ module.exports = function() {
           '"icon-gender-f": gender == "f",' +
           '"icon-gender-m": gender == "m"' +
         "}'> " +
-        "<i class='icon icon-toddler subject palette-{{details.tertiary}}'></i>" +
+        "<i class='icon icon-toddler subject palette-{{details.tertiary}}'" +
+          "></i>" +
       "</i>" +
       "<i class='icon fa fa-circle palette-{{details.secondary}}'></i>" +
     "</div>"
   };
 };
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'AE',
@@ -362,7 +388,7 @@ module.exports = function() {
   };
 };
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -383,7 +409,7 @@ module.exports = function() {
   };
 };
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -414,7 +440,7 @@ module.exports = function() {
   };
 };
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 // useful time constants
 var SECOND = 1000,
     MINUTE = SECOND * 60,
@@ -489,7 +515,7 @@ module.exports = angular.module('time', [])
   };
 });
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = function(db) {
 
   return function(name) {
@@ -519,12 +545,12 @@ module.exports = function(db) {
   };
 };
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('patients');
 };
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = function(PatientTemplate, Patient, $firebase) {
   var patient = null;
 
@@ -555,7 +581,7 @@ module.exports = function(PatientTemplate, Patient, $firebase) {
   }
 };
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 module.exports = function() {
   return function() {
     return {
@@ -772,17 +798,17 @@ module.exports = function() {
   }
 };
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('staff');
 };
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('messages');
 };
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = function() {
   return new Firebase('https://astralchai.firebaseio.com');
 };

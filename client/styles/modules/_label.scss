@@ -6,6 +6,9 @@
   border-radius:4px;
   background:#e7fafd;
   color:$primary-shade;
+  display:inline-block;
+  text-align:left;
+  white-space:normal;
 
   &.dull {
     background:#f1f1f1;

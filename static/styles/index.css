@@ -286,7 +286,10 @@ form {
   font-size: 1em;
   border-radius: 4px;
   background: #e7fafd;
-  color: #48a0b2; }
+  color: #48a0b2;
+  display: inline-block;
+  text-align: left;
+  white-space: normal; }
   .label.dull {
     background: #f1f1f1;
     color: #888; }
@@ -927,6 +930,15 @@ i.circlular {
   white-space: nowrap; }
   .admission .small-4 {
     text-align: center; }
+
+.auxillary.forms .title {
+  min-height: 1em;
+  min-width: 1em; }
+.auxillary.forms .aux.form {
+  display: block;
+  float: left;
+  margin-left: 8px;
+  margin-right: 32px; }
 
 .message.editor {
   padding-top: 16px; }

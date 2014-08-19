@@ -232,6 +232,11 @@ input.error {
     overflow: visible;
     background: #fff; }
 
+.progress.circle.quiet {
+  border-color: #ccc; }
+  .progress.circle.quiet .background {
+    border-color: #ddd; }
+
 .progress.circle.secondary {
   border-color: #87bb7d; }
   .progress.circle.secondary .background {
@@ -597,7 +602,7 @@ form {
       left: 0;
       text-align: left;
       font-size: 0.5em;
-      height: 32px;
+      height: 42px;
       color: #48a0b2;
       border-top: solid 1px #ddd;
       z-index: 1;
@@ -695,19 +700,11 @@ form {
   font-size: 0.8em;
   white-space: nowrap;
   color: #888; }
-  .patients .patient .small-2 {
-    padding-left: 8px; }
-  .patients .patient .small-8 {
-    padding-left: 8px; }
-  .patients .patient .small-3 {
-    padding: 8px 0; }
-  .patients .patient .name, .patients .patient .bed, .patients .patient i {
-    font-size: 1.4em; }
-  .patients .patient .bed {
-    background: #4fd1e7;
-    color: white;
-    text-align: center;
-    font-weight: bold; }
+  .patients .patient .name {
+    font-size: 1.4em;
+    color: #555; }
+  .patients .patient .row {
+    padding-bottom: 4px; }
   .patients .patient .status {
     margin-left: 8px; }
     .patients .patient .status .columns {
@@ -732,6 +729,7 @@ form {
   position: relative;
   background: #f3f3f3; }
   .patient.profile .profile.bar {
+    display: block;
     overflow: hidden;
     padding: 4px;
     font-size: 0.8em;
@@ -740,7 +738,7 @@ form {
     color: white; }
     .patient.profile .profile.bar .name {
       font-size: 1.4em;
-      padding-bottom: 1em;
+      padding-bottom: 0.2em;
       display: block; }
   .patient.profile .alerts {
     color: #666;
@@ -925,9 +923,10 @@ i.circlular {
   background: #fff; }
 
 .admission {
-  text-align: center;
   margin-top: 8px;
   white-space: nowrap; }
+  .admission .small-4 {
+    text-align: center; }
 
 .message.editor {
   padding-top: 16px; }
@@ -986,6 +985,7 @@ i.circlular {
     border-bottom: solid 1px #eee;
     border-top: solid 1px #eee;
     color: #555;
+    padding-bottom: 1em;
     margin: 1em;
     background: #fff;
     border: solid 1px #eee;

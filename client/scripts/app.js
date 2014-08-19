@@ -20,7 +20,8 @@ angular.module('chai', ['ui.router', 'firebase', 'time'])
   StaffController: require('./controllers/StaffController'),
   StaffListController: require('./controllers/StaffListController'),
   NotificationController: require('./controllers/NotificationController'),
-  WardMessageController: require('./controllers/WardMessageController')
+  WardMessageController: require('./controllers/WardMessageController'),
+  FormController: require('./controllers/FormController')
 })
 
 .directive({
@@ -54,6 +55,7 @@ angular.module('chai', ['ui.router', 'firebase', 'time'])
     .state('app.board',          { url: '/patient/:id/board',   templateUrl: 'views/message-board.html' })
     .state('app.blood',          { url: '/patient/:id/blood',   templateUrl: 'views/blood.html' })
     .state('app.notes',          { url: '/patient/:id/notes',   templateUrl: 'views/notes.html' })
+    .state('app.safeguarding',   { url: '/forms/safeguarding',  templateUrl: 'views/forms/safeguarding.html' })
 
     // medications
     .state('app.medications',    { url: '/patient/:id/medications',       templateUrl: 'views/medications.html' })
@@ -80,6 +82,7 @@ angular.module('chai', ['ui.router', 'firebase', 'time'])
         .state('app.admit.urine', { url: '/urine', templateUrl: 'views/forms/components/urinalysis.html' })
         .state('app.admit.pain',  { url: '/pain',  templateUrl: 'views/forms/components/painAssessment.html' })
         .state('app.admit.skin',  { url: '/skin',  templateUrl: 'views/forms/components/skinIntegrity.html' })
+        .state('app.admit.skin2', { url: '/skin1', templateUrl: 'views/forms/components/skinIntegrity2.html' })
       // medical history
       .state('app.admit.medicalHistory', { url: '/medical', templateUrl: 'views/forms/sections/medicalHistory.html' })
         .state('app.admit.history',     { url: '/history',     templateUrl: 'views/forms/components/pastMedicalHistory.html' })
@@ -103,6 +106,6 @@ angular.module('chai', ['ui.router', 'firebase', 'time'])
       // information
       .state('app.admit.information',    { url: '/information', templateUrl: 'views/forms/sections/information.html' })
       // decision
-      .state('app.admit.decision',       { url: '/decision', templateUrl: 'views/forms/sections/decision.html' });
+      .state('app.admit.decision',       { url: '/decision', templateUrl: 'views/forms/decisionToAdmit.html' });
 });
 

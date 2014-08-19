@@ -4,7 +4,7 @@
     <div class='center'>Thursday 17th July 2014</div>
     <div class='right'></div>
   </div>
-  <div class='notifications bar'>
+  <div class='notifications bar' ng-controller='NotificationController'>
 
     <div class='left'>
       <a href='#/app/dash'>
@@ -16,7 +16,10 @@
       <a ui-sref='.messages'>
         <span class='notification'>
           <i class='fa fa-envelope-o'></i>
-          <span class='count'>2</span>
+          <span class='count'
+            ng-class='{ active: messagesActive }'
+            ng-show='messages'
+            ng-bind='messages'></span>
         </span>
       </a>
       <a ui-sref='.patients'>
@@ -25,7 +28,10 @@
       <a ui-sref='.notifications'>
         <span class='notification'>
           <i class='fa fa-bell'></i>
-          <span class='count active'>4</span>
+          <span class='count active'
+            ng-class='{ active: notifyActive }'
+            ng-show='notifications'
+              ng-bind='notifications'></span>
         </span>
       </a>
     </div>
