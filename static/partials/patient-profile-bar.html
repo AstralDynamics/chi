@@ -1,0 +1,36 @@
+<a href='#/app/patient/{{patient.id}}' class='profile bar'>
+  <div class='small-2 columns'>
+    <glyph details='patient.glyph' gender='patient.gender'></glyph>
+  </div>
+  <div class='small-8 columns'>
+    <div class='row'>
+      <div class='small-12 columns'>
+        <span class='name' ng-bind='patient.name'></span>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='small-3 columns'>
+        <span class='age'>
+          <span ng-bind='patient.age'></span>
+          <span ng-bind='patient.gender'></span>
+        </span>
+      </div>
+      <div class='small-3 columns'>
+        <span class='bed'>Bed
+          <span ng-bind='patient.bed'></span>
+        </span>
+      </div>
+      <div class='small-6 columns'>
+        <span class='bed' ng-bind='patient.admission.date'></span>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='small-12 columns'>
+        <span ng-bind='patient.condition'></span>
+      </div>
+    </div>
+  </div>
+  <div class='small-2 columns'>
+    <div pew='patient.pew'></div>
+  </div>
+</div>

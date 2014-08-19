@@ -1,9 +1,14 @@
 module.exports = function(db) {
-  return function(name) {
-    var root = db.child(name);
 
-    function fromDb(id) {
-      return root.child(id);
+  return function(name) {
+    var root = db.child(name),
+        cache = {};
+
+    function get(id) {
+      if(!cache[id]) {
+        cache[id] = root.child(id);
+      }
+      return cache[id];
     }
 
     function save(model) {
@@ -11,14 +16,13 @@ module.exports = function(db) {
     }
 
     function getAll() {
-      console.log(root);
       return root;
     }
 
     return {
-      fromDb: fromDb,
       save: save,
+      get: get,
       getAll: getAll
-    }
-  }
-}
+    };
+  };
+};

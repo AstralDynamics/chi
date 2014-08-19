@@ -724,6 +724,7 @@ form {
   position: relative;
   background: #f3f3f3; }
   .patient.profile .profile.bar {
+    display: block;
     overflow: hidden;
     padding: 4px;
     font-size: 0.8em;
@@ -978,6 +979,7 @@ i.circlular {
     border-bottom: solid 1px #eee;
     border-top: solid 1px #eee;
     color: #555;
+    padding-bottom: 1em;
     margin: 1em;
     background: #fff;
     border: solid 1px #eee;

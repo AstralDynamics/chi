@@ -14,7 +14,6 @@ module.exports = function() {
       "<i class='fa fa-arrow-down' ng-show='down'></i>" +
     "</div>",
     link: function(scope) {
-      console.log(scope.pew);
     }
   };
 };

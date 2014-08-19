@@ -12,13 +12,17 @@ angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
 
 .controller({
   AdmissionController: require('./controllers/AdmissionController'),
-  GraphController: require('./controllers/GraphController')
+  GraphController: require('./controllers/GraphController'),
+  PatientListController: require('./controllers/PatientListController'),
+  PatientController: require('./controllers/PatientController')
 })
 
 .directive({
   radialProgress: require('./directives/radialProgress'),
   clickToggleClass: require('./directives/clickToggleClass'),
-  pew: require('./directives/pew')
+  pew: require('./directives/pew'),
+  glyph: require('./directives/glyph'),
+  patientProfileBar: require('./directives/patientProfileBar')
 })
 
 .config(function($urlRouterProvider, $stateProvider) {
@@ -52,29 +56,44 @@ angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
     .state('app.administer',     { url: '/patient/:id/administer/:medId', templateUrl: 'views/medication-administer.html' })
 
     // admissions forms
-    .state('app.admit',          { url: '/admit', templateUrl: 'views/admit.html' })
-      .state('app.admit.dash',       { url: '/dash', templateUrl: 'views/forms/admission.html' })
+    .state('app.admit', { url: '/admit', templateUrl: 'views/admit.html' })
+      .state('app.admit.dash', { url: '/dash', templateUrl: 'views/forms/admission.html' })
       // data
-      .state('app.admit.data',       { url: '/data', templateUrl: 'views/forms/sections/data.html' })
+      .state('app.admit.data', { url: '/data', templateUrl: 'views/forms/sections/data.html' })
         .state('app.admit.nameAddress',        { url: '/name',      templateUrl: 'views/forms/components/nameAddress.html', controller: 'AdmissionController'})
         .state('app.admit.patientInformation', { url: '/patient',   templateUrl: 'views/forms/components/patientInformation.html', controller: 'AdmissionController' })
         .state('app.admit.nextOfKin',          { url: '/nextOfKin', templateUrl: 'views/forms/components/nextOfKin.html', controller: 'AdmissionController' })
         .state('app.admit.siblings',           { url: '/siblings',  templateUrl: 'views/forms/components/siblings.html', controller: 'AdmissionController' })
       // observations
-      .state('app.admit.observations',   { url: '/obs', templateUrl: 'views/forms/sections/observations.html' })
+      .state('app.admit.observations', { url: '/obs', templateUrl: 'views/forms/sections/observations.html' })
         .state('app.admit.obs1',   { url: '/obs1', templateUrl: 'views/forms/components/obs1.html' })
         .state('app.admit.obs2',   { url: '/obs2', templateUrl: 'views/forms/components/obs2.html' })
         .state('app.admit.obs3',   { url: '/obs3', templateUrl: 'views/forms/components/obs3.html' })
       // urine pain skin
-      .state('app.admit.urinePainSkin',  { url: '/ups', templateUrl: 'views/forms/sections/urinePainSkin.html' })
+      .state('app.admit.urinePainSkin', { url: '/ups', templateUrl: 'views/forms/sections/urinePainSkin.html' })
+        .state('app.admit.urine', { url: '/urine', templateUrl: 'views/forms/components/urinalysis.html' })
+        .state('app.admit.pain',  { url: '/pain',  templateUrl: 'views/forms/components/painAssessment.html' })
+        .state('app.admit.skin',  { url: '/skin',  templateUrl: 'views/forms/components/skinIntegrity.html' })
       // medical history
       .state('app.admit.medicalHistory', { url: '/medical', templateUrl: 'views/forms/sections/medicalHistory.html' })
+        .state('app.admit.history',     { url: '/history',     templateUrl: 'views/forms/components/pastMedicalHistory.html' })
+        .state('app.admit.allergies',   { url: '/allergies',   templateUrl: 'views/forms/components/allergies.html' })
+        .state('app.admit.medications', { url: '/medications', templateUrl: 'views/forms/components/medications.html' })
       // living
-      .state('app.admit.living',         { url: '/living', templateUrl: 'views/forms/sections/living.html' })
+      .state('app.admit.living', { url: '/living', templateUrl: 'views/forms/sections/living.html' })
+        .state('app.admit.nutrition', { url: '/nutrition', templateUrl: 'views/forms/components/nutrition.html' })
+        .state('app.admit.hygiene',   { url: '/hygiene',   templateUrl: 'views/forms/components/hygiene.html' })
+        .state('app.admit.sleeping',  { url: '/sleeping',  templateUrl: 'views/forms/components/sleeping.html' })
       // development
-      .state('app.admit.development',    { url: '/development', templateUrl: 'views/forms/sections/development' })
+      .state('app.admit.development', { url: '/development', templateUrl: 'views/forms/sections/development.html' })
+        .state('app.admit.communication', { url: '/communication', templateUrl: 'views/forms/components/communication.html' })
+        .state('app.admit.social',        { url: '/social',        templateUrl: 'views/forms/components/socialDevelopment.html' })
+        .state('app.admit.mobility',      { url: '/mobility',      templateUrl: 'views/forms/components/mobility.html' })
       // safety
-      .state('app.admit.safety',         { url: '/safety', templateUrl: 'views/forms/sections/safety.html' })
+      .state('app.admit.safety', { url: '/safety', templateUrl: 'views/forms/sections/safety.html' })
+        .state('app.admit.community',    { url: '/community',     templateUrl: 'views/forms/components/communityInvolvement.html' })
+        .state('app.admit.safeguarding', { url: '/safeguarding',  templateUrl: 'views/forms/components/safeguardingChildren.html' })
+        .state('app.admit.manual',       { url: '/manual',        templateUrl: 'views/forms/components/manualHandling.html' })
       // information
       .state('app.admit.information',    { url: '/information', templateUrl: 'views/forms/sections/information.html' })
       // decision
@@ -82,7 +101,7 @@ angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
 });
 
 
-},{"./controllers/AdmissionController":2,"./controllers/GraphController":3,"./directives/clickToggleClass":4,"./directives/pew":5,"./directives/radialProgress":6,"./services/Model":7,"./services/Patient":8,"./services/PatientIncubator":9,"./services/PatientTemplate":10,"./services/db":11}],2:[function(require,module,exports){
+},{"./controllers/AdmissionController":2,"./controllers/GraphController":3,"./controllers/PatientController":4,"./controllers/PatientListController":5,"./directives/clickToggleClass":6,"./directives/glyph":7,"./directives/patientProfileBar":8,"./directives/pew":9,"./directives/radialProgress":10,"./services/Model":11,"./services/Patient":12,"./services/PatientIncubator":13,"./services/PatientTemplate":14,"./services/db":15}],2:[function(require,module,exports){
 module.exports = function($scope, PatientIncubator, Patient) {
   $scope.patient = PatientIncubator.retrieve();
 
@@ -194,6 +213,46 @@ module.exports = function($scope) {
 };
 
 },{}],4:[function(require,module,exports){
+module.exports = function($scope, $firebase, $stateParams, Patient) {
+  var id = $stateParams.id;
+
+  // redirect invalid users
+  if(id.length <= 0) {
+    window.location.replace('#/app/patients');
+    return;
+  }
+
+  var patient = $scope.patient = $firebase(Patient.get(id));
+  $scope.id = id;
+  $scope.notifications = patient.$child('notifications');
+
+  $scope.checkout = function() {
+    // remove from db
+  };
+
+  // Listen for new messages
+  patient.$child('messages').on('change', function(message) {
+    var notification = {
+      icon: 'fa fa-envelope',
+      from: message.from,
+      to: patient.name,
+      time: message.time
+    };
+
+    $scope.notifications.$add(notification);
+  });
+
+
+
+};
+
+
+},{}],5:[function(require,module,exports){
+module.exports = function($scope, $firebase, Patient) {
+  $scope.patients = $firebase(Patient.getAll());
+};
+
+},{}],6:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -208,7 +267,39 @@ module.exports = function() {
   };
 };
 
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
+module.exports = function() {
+  return {
+    restrict: 'AE',
+    scope: {
+      details: '=',
+      gender: '='
+    },
+    template:
+    "<div class='glyph palette-{{details.primary}}'>" +
+      "<i class='icon gender palette-{{details.gender}}' ng-class='{" +
+          '"icon-gender-f": gender == "f",' +
+          '"icon-gender-m": gender == "m"' +
+        "}'> " +
+        "<i class='icon icon-toddler subject palette-{{details.tertiary}}'></i>" +
+      "</i>" +
+      "<i class='icon fa fa-circle palette-{{details.secondary}}'></i>" +
+    "</div>"
+  };
+};
+
+},{}],8:[function(require,module,exports){
+module.exports = function() {
+  return {
+    restrict: 'AE',
+    scope: {
+      patient: '='
+    },
+    templateUrl: 'partials/patient-profile-bar.html'
+  };
+};
+
+},{}],9:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -225,12 +316,11 @@ module.exports = function() {
       "<i class='fa fa-arrow-down' ng-show='down'></i>" +
     "</div>",
     link: function(scope) {
-      console.log(scope.pew);
     }
   };
 };
 
-},{}],6:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -261,13 +351,18 @@ module.exports = function() {
   };
 };
 
-},{}],7:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports = function(db) {
-  return function(name) {
-    var root = db.child(name);
 
-    function fromDb(id) {
-      return root.child(id);
+  return function(name) {
+    var root = db.child(name),
+        cache = {};
+
+    function get(id) {
+      if(!cache[id]) {
+        cache[id] = root.child(id);
+      }
+      return cache[id];
     }
 
     function save(model) {
@@ -275,24 +370,23 @@ module.exports = function(db) {
     }
 
     function getAll() {
-      console.log(root);
       return root;
     }
 
     return {
-      fromDb: fromDb,
       save: save,
+      get: get,
       getAll: getAll
-    }
-  }
-}
+    };
+  };
+};
 
-},{}],8:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('patients');
-}
+};
 
-},{}],9:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 module.exports = function(PatientTemplate, Patient, $firebase) {
   var patient = null;
 
@@ -323,7 +417,7 @@ module.exports = function(PatientTemplate, Patient, $firebase) {
   }
 };
 
-},{}],10:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports = function() {
   return function() {
     return {
@@ -540,7 +634,7 @@ module.exports = function() {
   }
 };
 
-},{}],11:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports = function() {
   return new Firebase('https://astralchai.firebaseio.com');
 };

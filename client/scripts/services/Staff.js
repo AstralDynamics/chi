@@ -1,3 +1,3 @@
 module.exports = function(Model) {
-  return new Model('patients');
+  return new Model('staff');
 };

@@ -11,13 +11,17 @@ angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
 
 .controller({
   AdmissionController: require('./controllers/AdmissionController'),
-  GraphController: require('./controllers/GraphController')
+  GraphController: require('./controllers/GraphController'),
+  PatientListController: require('./controllers/PatientListController'),
+  PatientController: require('./controllers/PatientController')
 })
 
 .directive({
   radialProgress: require('./directives/radialProgress'),
   clickToggleClass: require('./directives/clickToggleClass'),
-  pew: require('./directives/pew')
+  pew: require('./directives/pew'),
+  glyph: require('./directives/glyph'),
+  patientProfileBar: require('./directives/patientProfileBar')
 })
 
 .config(function($urlRouterProvider, $stateProvider) {
@@ -51,29 +55,44 @@ angular.module('chai', ['ui.router', 'firebase', 'n3-line-chart'])
     .state('app.administer',     { url: '/patient/:id/administer/:medId', templateUrl: 'views/medication-administer.html' })
 
     // admissions forms
-    .state('app.admit',          { url: '/admit', templateUrl: 'views/admit.html' })
-      .state('app.admit.dash',       { url: '/dash', templateUrl: 'views/forms/admission.html' })
+    .state('app.admit', { url: '/admit', templateUrl: 'views/admit.html' })
+      .state('app.admit.dash', { url: '/dash', templateUrl: 'views/forms/admission.html' })
       // data
-      .state('app.admit.data',       { url: '/data', templateUrl: 'views/forms/sections/data.html' })
+      .state('app.admit.data', { url: '/data', templateUrl: 'views/forms/sections/data.html' })
         .state('app.admit.nameAddress',        { url: '/name',      templateUrl: 'views/forms/components/nameAddress.html', controller: 'AdmissionController'})
         .state('app.admit.patientInformation', { url: '/patient',   templateUrl: 'views/forms/components/patientInformation.html', controller: 'AdmissionController' })
         .state('app.admit.nextOfKin',          { url: '/nextOfKin', templateUrl: 'views/forms/components/nextOfKin.html', controller: 'AdmissionController' })
         .state('app.admit.siblings',           { url: '/siblings',  templateUrl: 'views/forms/components/siblings.html', controller: 'AdmissionController' })
       // observations
-      .state('app.admit.observations',   { url: '/obs', templateUrl: 'views/forms/sections/observations.html' })
+      .state('app.admit.observations', { url: '/obs', templateUrl: 'views/forms/sections/observations.html' })
         .state('app.admit.obs1',   { url: '/obs1', templateUrl: 'views/forms/components/obs1.html' })
         .state('app.admit.obs2',   { url: '/obs2', templateUrl: 'views/forms/components/obs2.html' })
         .state('app.admit.obs3',   { url: '/obs3', templateUrl: 'views/forms/components/obs3.html' })
       // urine pain skin
-      .state('app.admit.urinePainSkin',  { url: '/ups', templateUrl: 'views/forms/sections/urinePainSkin.html' })
+      .state('app.admit.urinePainSkin', { url: '/ups', templateUrl: 'views/forms/sections/urinePainSkin.html' })
+        .state('app.admit.urine', { url: '/urine', templateUrl: 'views/forms/components/urinalysis.html' })
+        .state('app.admit.pain',  { url: '/pain',  templateUrl: 'views/forms/components/painAssessment.html' })
+        .state('app.admit.skin',  { url: '/skin',  templateUrl: 'views/forms/components/skinIntegrity.html' })
       // medical history
       .state('app.admit.medicalHistory', { url: '/medical', templateUrl: 'views/forms/sections/medicalHistory.html' })
+        .state('app.admit.history',     { url: '/history',     templateUrl: 'views/forms/components/pastMedicalHistory.html' })
+        .state('app.admit.allergies',   { url: '/allergies',   templateUrl: 'views/forms/components/allergies.html' })
+        .state('app.admit.medications', { url: '/medications', templateUrl: 'views/forms/components/medications.html' })
       // living
-      .state('app.admit.living',         { url: '/living', templateUrl: 'views/forms/sections/living.html' })
+      .state('app.admit.living', { url: '/living', templateUrl: 'views/forms/sections/living.html' })
+        .state('app.admit.nutrition', { url: '/nutrition', templateUrl: 'views/forms/components/nutrition.html' })
+        .state('app.admit.hygiene',   { url: '/hygiene',   templateUrl: 'views/forms/components/hygiene.html' })
+        .state('app.admit.sleeping',  { url: '/sleeping',  templateUrl: 'views/forms/components/sleeping.html' })
       // development
-      .state('app.admit.development',    { url: '/development', templateUrl: 'views/forms/sections/development' })
+      .state('app.admit.development', { url: '/development', templateUrl: 'views/forms/sections/development.html' })
+        .state('app.admit.communication', { url: '/communication', templateUrl: 'views/forms/components/communication.html' })
+        .state('app.admit.social',        { url: '/social',        templateUrl: 'views/forms/components/socialDevelopment.html' })
+        .state('app.admit.mobility',      { url: '/mobility',      templateUrl: 'views/forms/components/mobility.html' })
       // safety
-      .state('app.admit.safety',         { url: '/safety', templateUrl: 'views/forms/sections/safety.html' })
+      .state('app.admit.safety', { url: '/safety', templateUrl: 'views/forms/sections/safety.html' })
+        .state('app.admit.community',    { url: '/community',     templateUrl: 'views/forms/components/communityInvolvement.html' })
+        .state('app.admit.safeguarding', { url: '/safeguarding',  templateUrl: 'views/forms/components/safeguardingChildren.html' })
+        .state('app.admit.manual',       { url: '/manual',        templateUrl: 'views/forms/components/manualHandling.html' })
       // information
       .state('app.admit.information',    { url: '/information', templateUrl: 'views/forms/sections/information.html' })
       // decision

@@ -4,44 +4,14 @@
   </div>
 </div>
 
-<div class='patient profile'>
+<div class='patient profile' ng-controller='PatientController'>
 
-  <!--Profile Bar-->
-  <div class='profile bar'>
-    <div class='small-2 columns'>
-      <div class='glyph palette-3'>
-        <i class='icon icon-gender-f gender palette-5'>
-          <i class='icon fa fa-user-md subject palette-4'></i>
-        </i>
-        <i class='icon fa fa-circle palette-2'></i>
-      </div>
-    </div>
-    <div class='small-8 columns'>
-      <div class='row'>
-        <div class='small-12 columns'>
-          <span class='name'>Becky Thomas</span>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='small-3 columns'>
-          <span class='age'>13/F</span>
-        </div>
-        <div class='small-3 columns'>
-          <span class='bed'>Bed 5</span>
-        </div>
-        <div class='small-6 columns'>
-          <span class='bed'>20th July 2014</span>
-        </div>
-      </div>
-    </div>
-    <div class='small-2 columns'>
-      <div pew='2'></div>
-    </div>
-  </div>
-  <!--/Profile Bar-->
+  <patient-profile-bar patient='patient'></patient-profile-bar>
 
   <div class='messages board'>
-    <div class='message'>
+
+    <!-- Message -->
+    <div class='message' ng-repeat='message in patient.messages'>
       <div class='small-2 columns'>
         <div class='meta'>
           <div class='avatar'>
@@ -52,93 +22,25 @@
               <i class='icon fa fa-circle palette-2'></i>
             </div>
           </div>
-          <div class='name'>
-            Dr Smith
-          </div>
+          <div class='name' ng-bind='message.from'></div>
         </div>
       </div>
       <div class='small-10 columns'>
         <div class='bar'>
           <div class='left'>
             <i class='fa fa-clock-o'></i>
-            <em>3 mins ago</em>
+            <em ng-bind='message.time'></em>
+            ago
           </div>
           <div class='right'>
             <i class='fa fa-calendar-o'></i>
-            <em>6/10/14</em>
+            <em ng-bind='message.date'></em>
           </div>
         </div>
-        <p>
-        Input at your finger tips means you can record directly into the patient record wherever you are on the ward.  This saves a lot of running around and looking for paper notes.
-        </p>
+        <p ng-bind='message.body'></p>
       </div>
     </div>
-    <div class='message'>
-      <div class='small-2 columns'>
-        <div class='meta'>
-          <div class='avatar'>
-            <div class='glyph palette-1'>
-              <i class='icon icon-gender-f gender palette-3'>
-                <i class='icon fa fa-user-md subject palette-4'></i>
-              </i>
-              <i class='icon fa fa-circle palette-5'></i>
-            </div>
-          </div>
-          <div class='name'>
-            Dr Watson
-          </div>
-        </div>
-      </div>
-      <div class='small-10 columns'>
-        <div class='bar'>
-          <div class='left'>
-            <i class='fa fa-clock-o'></i>
-            <em>6 mins ago</em>
-          </div>
-          <div class='right'>
-            <i class='fa fa-calendar-o'></i>
-            <em>3/10/14</em>
-          </div>
-        </div>
-        <p>
-          Input at your finger tips means you can record directly into the patient record wherever you are on the ward.
-          This saves a lot of running around and looking for paper notes.
-        </p>
-      </div>
-    </div>
-    <div class='message'>
-      <div class='small-2 columns'>
-        <div class='meta'>
-          <div class='avatar'>
-            <div class='glyph palette-5'>
-              <i class='icon icon-gender-f gender palette-6'>
-                <i class='icon fa fa-user-md subject palette-4'></i>
-              </i>
-              <i class='icon fa fa-circle palette-2'></i>
-            </div>
-          </div>
-          <div class='name'>
-            Dr Smith
-          </div>
-        </div>
-      </div>
-      <div class='small-10 columns'>
-        <div class='bar'>
-          <div class='left'>
-            <i class='fa fa-clock-o'></i>
-            <em>2 days ago</em>
-          </div>
-          <div class='right'>
-            <i class='fa fa-calendar-o'></i>
-            <em>1/10/14</em>
-          </div>
-        </div>
-        <p>
-          Input at your finger tips means you can record directly into the patient record wherever you are on the ward.
-          This saves a lot of running around and looking for paper notes.
-        </p>
-      </div>
-    </div>
+    <!--/Message-->
 
     <div class='footer'>
       <div class='text entry'>
@@ -147,7 +49,6 @@
       </div>
     </div>
   </div>
-
 
 </div>
 
