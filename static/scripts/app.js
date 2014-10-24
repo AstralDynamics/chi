@@ -22,7 +22,8 @@ angular.module('chai', ['ui.router', 'firebase', 'time'])
   StaffListController: require('./controllers/StaffListController'),
   NotificationController: require('./controllers/NotificationController'),
   WardMessageController: require('./controllers/WardMessageController'),
-  FormController: require('./controllers/FormController')
+  FormController: require('./controllers/FormController'),
+  BloodController: require('./controllers/BloodController')
 })
 
 .directive({
@@ -59,10 +60,7 @@ angular.module('chai', ['ui.router', 'firebase', 'time'])
     .state('app.safeguarding',   { url: '/forms/safeguarding',  templateUrl: 'views/forms/safeguarding.html' })
 
     // medications
-    .state('app.medications',    { url: '/patient/:id/medications',       templateUrl: 'views/medications.html' })
-    .state('app.medicationList', { url: '/patient/:id/medications/list',  templateUrl: 'views/medications-list.html' })
-    .state('app.medication',     { url: '/patient/:id/medication/:medId', templateUrl: 'views/medication.html' })
-    .state('app.administer',     { url: '/patient/:id/administer/:medId', templateUrl: 'views/medication-administer.html' })
+    .state('app.administer',     { url: '/patient/:id/meds',              templateUrl: 'views/medication-administer.html' })
 
     // admissions forms
     .state('app.admit', { url: '/admit', templateUrl: 'views/admit.html' })
@@ -111,13 +109,12 @@ angular.module('chai', ['ui.router', 'firebase', 'time'])
 });
 
 
-},{"./controllers/AdmissionController":2,"./controllers/FormController":3,"./controllers/GraphController":4,"./controllers/NotificationController":5,"./controllers/PatientController":6,"./controllers/PatientListController":7,"./controllers/StaffController":8,"./controllers/StaffListController":9,"./controllers/WardMessageController":10,"./directives/clickToggleClass":11,"./directives/glyph":12,"./directives/patientProfileBar":13,"./directives/pew":14,"./directives/radialProgress":15,"./modules/time.js":16,"./services/Model":17,"./services/Patient":18,"./services/PatientIncubator":19,"./services/PatientTemplate":20,"./services/Staff":21,"./services/WardMessage":22,"./services/db":23}],2:[function(require,module,exports){
+},{"./controllers/AdmissionController":2,"./controllers/BloodController":3,"./controllers/FormController":4,"./controllers/GraphController":5,"./controllers/NotificationController":6,"./controllers/PatientController":7,"./controllers/PatientListController":8,"./controllers/StaffController":9,"./controllers/StaffListController":10,"./controllers/WardMessageController":11,"./directives/clickToggleClass":12,"./directives/glyph":13,"./directives/patientProfileBar":14,"./directives/pew":15,"./directives/radialProgress":16,"./modules/time.js":17,"./services/Model":18,"./services/Patient":19,"./services/PatientIncubator":20,"./services/PatientTemplate":21,"./services/Staff":22,"./services/WardMessage":23,"./services/db":24}],2:[function(require,module,exports){
 module.exports = function($scope, PatientIncubator, Patient) {
   $scope.patient = PatientIncubator.retrieve();
 
   $scope.admit = function() {
     var patient = $scope.patient;
-    console.log('Admitting new patient');
 
     // Duplicate fields for future lookup
     patient.ward = 'AAU';
@@ -146,7 +143,7 @@ module.exports = function($scope, PatientIncubator, Patient) {
       gender: '',
       age: '',
       info: ''
-    })
+    });
   };
 
   // Data for allergy input
@@ -163,6 +160,22 @@ module.exports = function($scope, PatientIncubator, Patient) {
 };
 
 },{}],3:[function(require,module,exports){
+module.exports = function($scope, $timeout) {
+
+  $scope.synced = false;
+
+  $scope.red = false;
+  $scope.brown = false;
+  $scope.blood = false;
+
+  $timeout(function() {
+    $scope.synced = true;
+  }, Math.random() * 10000);
+
+
+};
+
+},{}],4:[function(require,module,exports){
 module.exports = function($scope) {
   $scope.showModal = false;
   $scope.forms = [];
@@ -184,7 +197,7 @@ module.exports = function($scope) {
 
 };
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 module.exports = function($scope) {
   $scope.data = [
     {
@@ -244,7 +257,7 @@ module.exports = function($scope) {
   };
 };
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 module.exports = function($scope, $firebase, $timeout, WardMessage) {
 
   $scope.messages = 0;
@@ -264,8 +277,8 @@ module.exports = function($scope, $firebase, $timeout, WardMessage) {
 
 };
 
-},{}],6:[function(require,module,exports){
-module.exports = function($scope, $firebase, $stateParams, Patient) {
+},{}],7:[function(require,module,exports){
+module.exports = function($scope, $firebase, $stateParams, Patient, PatientIncubator) {
   var id = $stateParams.id;
 
   // redirect invalid users
@@ -282,30 +295,20 @@ module.exports = function($scope, $firebase, $stateParams, Patient) {
     // remove from db
   };
 
-  // Listen for new messages
-  /*patient.$child('messages').on('change', function(message) {
-    var notification = {
-      icon: 'fa fa-envelope',
-      from: message.from,
-      to: patient.name,
-      time: message.time
-    };
-
-    $scope.notifications.$add(notification);
-  });
-  */
-
-
+  $scope.admit = function() {
+    PatientIncubator.incubate(patient);
+    window.location.replace('#/app/admit/dash');
+  };
 
 };
 
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 module.exports = function($scope, $firebase, Patient) {
   $scope.patients = $firebase(Patient.getAll());
 };
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = function($scope, $firebase, Staff) {
   // get from auth in future
   var id = '-nbj';
@@ -314,12 +317,12 @@ module.exports = function($scope, $firebase, Staff) {
 
 };
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports = function($scope, $firebase, Staff) {
   $scope.staff = $firebase(Staff.getAll());
 };
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports = function($scope, $firebase, WardMessage) {
   $scope.messages = $firebase(WardMessage.getAll());
 
@@ -340,7 +343,7 @@ module.exports = function($scope, $firebase, WardMessage) {
   };
 };
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -355,13 +358,15 @@ module.exports = function() {
   };
 };
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'AE',
     scope: {
       details: '=',
-      gender: '='
+      gender: '=',
+      age: '=',
+      staff: '='
     },
     template:
     "<div class='glyph palette-{{details.primary}}'>" +
@@ -369,15 +374,19 @@ module.exports = function() {
           '"icon-gender-f": gender == "f",' +
           '"icon-gender-m": gender == "m"' +
         "}'> " +
-        "<i class='icon icon-toddler subject palette-{{details.tertiary}}'" +
-          "></i>" +
+        "<div ng-if='!staff'>" +
+          "<i class='icon icon-child subject palette-{{details.tertiary}}'></i>" +
+        "</div>" +
+        "<div ng-if='staff'>" +
+          "<i class='icon fa fa-user-md subject palette-{{details.tertiary}}'></i>" +
+        "</div>" +
       "</i>" +
       "<i class='icon fa fa-circle palette-{{details.secondary}}'></i>" +
     "</div>"
   };
 };
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'AE',
@@ -388,7 +397,7 @@ module.exports = function() {
   };
 };
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -399,7 +408,7 @@ module.exports = function() {
       down: '='
     },
     template:
-    "<div class='pew pill' ng-class='{ high: pew > 5, low: pew < 3}'>" +
+    "<div class='pew pill' ng-class='{ high: pew > 4, low: pew < 3}'>" +
       "<i class='fa fa-arrow-up' ng-show='up'></i>" +
       "<span class='number' ng-bind='pew'></span>" +
       "<i class='fa fa-arrow-down' ng-show='down'></i>" +
@@ -409,7 +418,7 @@ module.exports = function() {
   };
 };
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 module.exports = function() {
   return {
     restrict: 'A',
@@ -440,7 +449,7 @@ module.exports = function() {
   };
 };
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 // useful time constants
 var SECOND = 1000,
     MINUTE = SECOND * 60,
@@ -515,7 +524,7 @@ module.exports = angular.module('time', [])
   };
 });
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 module.exports = function(db) {
 
   return function(name) {
@@ -545,12 +554,12 @@ module.exports = function(db) {
   };
 };
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('patients');
 };
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 module.exports = function(PatientTemplate, Patient, $firebase) {
   var patient = null;
 
@@ -569,6 +578,10 @@ module.exports = function(PatientTemplate, Patient, $firebase) {
     patient = $firebase(Patient.fromDb(id));
   }
 
+  function incubate(reference) {
+    patient = reference;
+  }
+
   function done() {
     patient = null;
   }
@@ -576,12 +589,13 @@ module.exports = function(PatientTemplate, Patient, $firebase) {
   return {
     loadFromDb: loadFromDb,
     retrieve: retrieve,
+    incubate: incubate,
     create: create,
     done: done
-  }
+  };
 };
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = function() {
   return function() {
     return {
@@ -798,17 +812,17 @@ module.exports = function() {
   }
 };
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('staff');
 };
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = function(Model) {
   return new Model('messages');
 };
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 module.exports = function() {
   return new Firebase('https://astralchai.firebaseio.com');
 };

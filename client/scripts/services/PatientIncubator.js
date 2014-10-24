@@ -16,6 +16,10 @@ module.exports = function(PatientTemplate, Patient, $firebase) {
     patient = $firebase(Patient.fromDb(id));
   }
 
+  function incubate(reference) {
+    patient = reference;
+  }
+
   function done() {
     patient = null;
   }
@@ -23,7 +27,8 @@ module.exports = function(PatientTemplate, Patient, $firebase) {
   return {
     loadFromDb: loadFromDb,
     retrieve: retrieve,
+    incubate: incubate,
     create: create,
     done: done
-  }
+  };
 };

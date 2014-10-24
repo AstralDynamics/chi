@@ -3,7 +3,6 @@ module.exports = function($scope, PatientIncubator, Patient) {
 
   $scope.admit = function() {
     var patient = $scope.patient;
-    console.log('Admitting new patient');
 
     // Duplicate fields for future lookup
     patient.ward = 'AAU';
@@ -32,7 +31,7 @@ module.exports = function($scope, PatientIncubator, Patient) {
       gender: '',
       age: '',
       info: ''
-    })
+    });
   };
 
   // Data for allergy input

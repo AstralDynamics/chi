@@ -3,7 +3,9 @@ module.exports = function() {
     restrict: 'AE',
     scope: {
       details: '=',
-      gender: '='
+      gender: '=',
+      age: '=',
+      staff: '='
     },
     template:
     "<div class='glyph palette-{{details.primary}}'>" +
@@ -11,8 +13,12 @@ module.exports = function() {
           '"icon-gender-f": gender == "f",' +
           '"icon-gender-m": gender == "m"' +
         "}'> " +
-        "<i class='icon icon-toddler subject palette-{{details.tertiary}}'" +
-          "></i>" +
+        "<div ng-if='!staff'>" +
+          "<i class='icon icon-child subject palette-{{details.tertiary}}'></i>" +
+        "</div>" +
+        "<div ng-if='staff'>" +
+          "<i class='icon fa fa-user-md subject palette-{{details.tertiary}}'></i>" +
+        "</div>" +
       "</i>" +
       "<i class='icon fa fa-circle palette-{{details.secondary}}'></i>" +
     "</div>"

@@ -21,7 +21,8 @@ angular.module('chai', ['ui.router', 'firebase', 'time'])
   StaffListController: require('./controllers/StaffListController'),
   NotificationController: require('./controllers/NotificationController'),
   WardMessageController: require('./controllers/WardMessageController'),
-  FormController: require('./controllers/FormController')
+  FormController: require('./controllers/FormController'),
+  BloodController: require('./controllers/BloodController')
 })
 
 .directive({
@@ -58,10 +59,7 @@ angular.module('chai', ['ui.router', 'firebase', 'time'])
     .state('app.safeguarding',   { url: '/forms/safeguarding',  templateUrl: 'views/forms/safeguarding.html' })
 
     // medications
-    .state('app.medications',    { url: '/patient/:id/medications',       templateUrl: 'views/medications.html' })
-    .state('app.medicationList', { url: '/patient/:id/medications/list',  templateUrl: 'views/medications-list.html' })
-    .state('app.medication',     { url: '/patient/:id/medication/:medId', templateUrl: 'views/medication.html' })
-    .state('app.administer',     { url: '/patient/:id/administer/:medId', templateUrl: 'views/medication-administer.html' })
+    .state('app.administer',     { url: '/patient/:id/meds',              templateUrl: 'views/medication-administer.html' })
 
     // admissions forms
     .state('app.admit', { url: '/admit', templateUrl: 'views/admit.html' })

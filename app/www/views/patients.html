@@ -13,13 +13,11 @@
 
 <div class='patients collection' ng-controller='PatientListController'>
 
-  <i class='fa fa-spinner ng-3x' ng-hide='patients'></i>
-
   <!-- Patient -->
   <div class='patient' ng-repeat='(id, patient) in patients'>
     <a href='#/app/patient/{{id}}'>
       <div class='small-2 columns'>
-        <glyph details='patient.glyph' gender='patient.gender'></glyph>
+        <glyph details='patient.glyph' gender='patient.gender' age='patient.age'></glyph>
       </div>
 
       <div class='small-8 columns'>

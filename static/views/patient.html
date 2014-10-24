@@ -4,7 +4,7 @@
   </div>
 </div>
 
-<div ng-controller='PatientController'>
+<div ng-controller='PatientController' class='height-fix'>
 
   <div class='overlay' ng-show='medicationType'>
     <div class='modal'>
@@ -179,6 +179,15 @@
           Blue Ward
         </div>
       </div>
+      <div class='option'>
+        <div class='glyph palette-1'>
+          <i class='icon icon-bed subject palette-1'></i>
+          <i class='icon fa fa-circle palette-7'></i>
+        </div>
+        <div class='name'>
+          Other Ward
+        </div>
+      </div>
       <a class='option' ng-click='handover = true;transfer = false'>
         <div class='glyph palette-4'>
           <i class='icon fa fa-user-md subject palette-4'></i>
@@ -194,7 +203,7 @@
           <i class='icon fa fa-circle palette-7'></i>
         </div>
         <div class='name'>
-          Check Out
+          Discharge
         </div>
       </div>
     </div>
@@ -208,18 +217,44 @@
     <div class='small-4 columns tasks'>
       <div class='timeline'></div>
 
-      <div class='task icon palette-{{task.color}}'
-          style='top:{{task.top}}px'
-          ng-repeat='task in patient.tasks'>
-          <a href='#/app/patient/{{id}}/blood'
-            ng-show='task.type == "blood"'>
+      <div ng-repeat='task in patient.tasks'>
+
+        <a href='#/app/patient/{{id}}/blood'
+          ng-show='task.type == "blood"'>
+          <div class='task icon palette-{{task.color}}'
+            style='top:{{task.top}}px'>
             <i class='icon {{task.icon}}'></i>
-          </a>
-          <a href='#/app/patient/{{id}}/meds'
-            ng-show='task.type == "meds"'>
+            <div class='name' ng-bind='task.time'></div>
+          </div>
+        </a>
+
+        <a href='#/app/patient/{{id}}/meds'
+          ng-show='task.type == "meds"'>
+          <div class='task icon palette-{{task.color}}'
+            style='top:{{task.top}}px'>
             <i class='icon {{task.icon}}'></i>
-          </a>
-        <div class='name' ng-bind='task.time'>3h</div>
+            <div class='name' ng-bind='task.time'></div>
+          </div>
+        </a>
+
+        <a ng-show='!task.type'>
+          <div class='task icon palette-{{task.color}}'
+            style='top:{{task.top}}px'>
+            <i class='icon {{task.icon}}'></i>
+            <div class='name' ng-bind='task.time'></div>
+          </div>
+        </a>
+
+        <a href='#/app/admit/obs'
+          ng-show='task.type == "obs"'>
+          <div class='task icon palette-{{task.color}}'
+            style='top:{{task.top}}px'>
+            <i class='icon {{task.icon}}'></i>
+            <div class='name' ng-bind='task.time'></div>
+          </div>
+        </a>
+
+
       </div>
 
     </div>
@@ -282,7 +317,7 @@
             </a>
           </div>
           <div class='small-4 columns'>
-            <a href='#/app/admit/dash'>
+            <a ng-click='admit()'>
               <div class='action'>
                 <i class='fa fa-user'></i>
               </div>

@@ -1,4 +1,4 @@
-module.exports = function($scope, $firebase, $stateParams, Patient) {
+module.exports = function($scope, $firebase, $stateParams, Patient, PatientIncubator) {
   var id = $stateParams.id;
 
   // redirect invalid users
@@ -15,20 +15,10 @@ module.exports = function($scope, $firebase, $stateParams, Patient) {
     // remove from db
   };
 
-  // Listen for new messages
-  /*patient.$child('messages').on('change', function(message) {
-    var notification = {
-      icon: 'fa fa-envelope',
-      from: message.from,
-      to: patient.name,
-      time: message.time
-    };
-
-    $scope.notifications.$add(notification);
-  });
-  */
-
-
+  $scope.admit = function() {
+    PatientIncubator.incubate(patient);
+    window.location.replace('#/app/admit/dash');
+  };
 
 };
 

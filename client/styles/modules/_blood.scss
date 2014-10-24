@@ -2,6 +2,10 @@
 @import '../theme';
 
 .blood {
+  background:#fff;
+  margin:1em;
+  border:solid 1px #eee;
+  border-bottom:solid 3px #eee;
 
   .info {
     @include rounded;
@@ -9,8 +13,19 @@
     font-size:1em;
     border-radius:4px;
     padding:0.5em;
-    border:solid 2px $palette-6;
     color:$palette-6;
+  }
+
+  i.circular {
+    @include circular;
+    $size:1.6em;
+    font-size:$size;
+    border:solid 3px;
+    width:$size;
+    height:$size;
+    text-align:center;
+    line-height:$size;
+    background:#fff;
   }
 
   .checklist {

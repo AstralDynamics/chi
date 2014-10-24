@@ -1,0 +1,194 @@
+<div class="title bar">
+ <div class="center">
+  Observations
+ </div>
+</div>
+
+<form ng-controller="AdmissionController">
+ <div class="control">
+  <div class="large-2 small-8 columns">
+   <label>
+    Temperature
+   </label>
+  </div>
+  <div class="large-10 small-4 columns">
+   <input name="temperature" ng-model="patient.admission.observations.temperature" type="number"/>
+   <span class="unit">
+    C
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-8 columns">
+   <label>
+    Pulse
+   </label>
+  </div>
+  <div class="large-10 small-4 columns">
+   <input name="pulse" ng-model="patient.admission.observations.pulse" type="number"/>
+   <span class="unit">
+    bpm
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-8 columns">
+   <label>
+    Respirations
+   </label>
+  </div>
+  <div class="large-10 small-4 columns">
+   <input name="respirations" ng-model="patient.admission.observations.respirations" type="number"/>
+   <span class="unit">
+    pm
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-8 columns">
+   <label>
+    Weight
+   </label>
+  </div>
+  <div class="large-10 small-4 columns">
+   <input name="weight" ng-model="patient.admission.observations.weight" type="number"/>
+   <span class="unit">
+    kg
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-8 columns">
+   <label>
+    Blood Pressure 1
+   </label>
+  </div>
+  <div class="large-10 small-4 columns">
+   <input name="bloodPressureOne" ng-model="patient.admission.observations.bloodPressureOne" type="text"/>
+   <span class="unit">
+    mmol
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-8 columns">
+   <label>
+    Blood Pressure 2
+   </label>
+  </div>
+  <div class="large-10 small-4 columns">
+   <input name="bloodPressureTwo" ng-model="patient.admission.observations.bloodPressureTwo" type="text"/>
+   <span class="unit">
+    mmol
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-8 columns">
+   <label>
+    O2 sats (air)
+   </label>
+  </div>
+  <div class="large-10 small-4 columns">
+   <input name="o2Sats" ng-model="patient.admission.observations.o2SatsAir" type="text"/>
+   <span class="unit">
+    ltrs
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-8 columns">
+   <label>
+    O2 sats (air) in ltrs
+   </label>
+  </div>
+  <div class="large-10 small-4 columns">
+   <input name="o2SatsLitres" ng-model="patient.admission.observations.o2SatsLitres" type="text"/>
+   <span class="unit">
+    ltrs
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-8 columns">
+   <label>
+    Blood Sugar BM
+   </label>
+  </div>
+  <div class="large-10 small-4 columns">
+   <input name="bloodSugarBM" ng-model="patient.admission.observations.bloodSugarBM" type="text"/>
+   <span class="unit">
+    BM
+   </span>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-8 columns">
+   <label>
+    Capillary Refill – less than 2 seconds
+   </label>
+  </div>
+  <div class="large-10 small-4 columns">
+   <input name="lessThan2Seconds" ng-model="patient.admission.observations.capillaryRefillLt2s" type="checkbox"/>
+  </div>
+  <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Peak Flow
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="peakFlow" ng-model="patient.admission.observations.peakFlow" type="text"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    AVPU
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+    <input type='radio' id='a' value='a' name='avpu'
+      ng-model='patient.admission.admission.observations.avpu'/>
+    <label for='a'>A</label>
+    <input type='radio' id='v' value='v' name='avpu'
+      ng-model='patient.admission.admission.observations.avpu'/>
+    <label for='v'>V</label>
+    <input type='radio' id='p' value='p' name='avpu'
+      ng-model='patient.admission.admission.observations.avpu'/>
+    <label for='p'>P</label>
+    <input type='radio' id='u' value='u' name='avpu'
+      ng-model='patient.admission.admission.observations.avpu'/>
+    <label for='u'>U</label>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    PEARL
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="pearl" type='checkbox'
+    ng-model="patient.admission.observations.pearl"/>
+  </div>
+ </div>
+ <div class="control">
+  <div class="large-2 small-4 columns">
+   <label>
+    Height / Length
+   </label>
+  </div>
+  <div class="large-10 small-8 columns">
+   <input name="height" ng-model="patient.admission.observations.height" type="text"/>
+  </div>
+ </div>
+</div>
+</form>
+
+<div class='small-12 columns'>
+  <div class='divider'></div>
+  <a ui-sref='app.admit.dash' class='button'>
+    Done
+  </a>
+</div>

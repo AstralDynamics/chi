@@ -57,3 +57,13 @@ a, a:hover, a:active, a:focus {
   border-radius:4px;
   background:#888;
 }
+
+.height-fix {
+  height:100%;
+}
+
+.drug.approval {
+  .button {
+    margin-bottom:0;
+  }
+}

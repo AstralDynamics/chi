@@ -4,38 +4,10 @@
   </div>
 </div>
 
-<div class='patient profile'>
+<div class='patient profile' ng-controller='PatientController'>
 
   <!--Profile Bar-->
-  <div class='profile bar'>
-    <div class='small-2 columns'>
-      <div class='glyph palette-3'>
-        <i class='icon icon-gender-f gender palette-5'></i>
-        <i class='icon icon-child subject palette-4'></i>
-      </div>
-    </div>
-    <div class='small-8 columns'>
-      <div class='row'>
-        <div class='small-12 columns'>
-          <span class='name'>Becky Thomas</span>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='small-3 columns'>
-          <span class='age'>13/F</span>
-        </div>
-        <div class='small-3 columns'>
-          <span class='bed'>Bed 5</span>
-        </div>
-        <div class='small-6 columns'>
-          <span class='bed'>20th July 2014</span>
-        </div>
-      </div>
-    </div>
-    <div class='small-2 columns'>
-      <div pew='2'></div>
-    </div>
-  </div>
+  <patient-profile-bar patient='patient'></patient-profile-bar>
   <!--/Profile Bar-->
 
   <div class='row'>
@@ -43,24 +15,34 @@
       <div class='info label'>
         Each administration requires a second approval.
       </div>
-      <div class='row'>
-        <div class='small-8'>Drug Name 1</div>
-        <div class='small-4'>
-          <input type='checkbox'/>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='small-8'>Drug Name 2</div>
-        <div class='small-4'>
-          <input type='checkbox'/>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='small-8'>Drug Name 3</div>
-        <div class='small-4'>
-          <input type='checkbox'/>
-        </div>
-      </div>
+
+      <table class='drug approval'>
+        <tr>
+          <th>Drug Name</th>
+          <th>Second Approval</th>
+          <th>Administered?</th>
+        </tr>
+        <tr>
+          <td>Paracetamol (250mg)</td>
+          <td><a class='button'>Approve</a></td>
+          <td><input type='checkbox'/></td>
+        </tr>
+        <tr>
+          <td>Flucloxacillin (120mg)</td>
+          <td><a class='button'>Approve</a></td>
+          <td><input type='checkbox'/></td>
+        </tr>
+        <tr>
+          <td>Nexium (130mg)</td>
+          <td><a class='button'>Approve</a></td>
+          <td><input type='checkbox'/></td>
+        </tr>
+      </table>
+
+      <div class='divider'></div>
+
+      <a class='button' ui-sref='app.dash'>Done</a>
+
     </div>
   </div>
 
